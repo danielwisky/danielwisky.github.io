@@ -106,7 +106,7 @@ social:
 # In the default page it will point to the preview of the last post
 
 pages_list:
-  Sobre: 'Sobre'
+  Sobre: 'sobre'
   Blog: 'blog'
   Carreira: 'carreira'
   Contato: 'contato'

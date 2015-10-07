@@ -14,21 +14,21 @@
 
     {% for page in site.pages %}
 
-      {% if page.section-type == "sobre" %}
+      {% if page.section-type == "about" %}
 
-        {% include sobre.html %}
+        {% include about.html %}
 
       {% elsif page.section-type == "latest-post" %}
 
         {% include latest-post.html %}
 
-      {% elsif page.section-type == "carreira" %}
+      {% elsif page.section-type == "career" %}
 
-        {% include carreira.html %}
+        {% include career.html %}
 
-      {% elsif page.section-type == "contato" %}
+      {% elsif page.section-type == "contact" %}
 
-        {% include contato.html %}
+        {% include contact.html %}
 
       {% endif %}
 
