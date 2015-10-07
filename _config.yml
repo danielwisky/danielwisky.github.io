@@ -3,7 +3,7 @@
 
 url: "http://danielwisky.github.io"
 baseurl: ""
-google-tracking-id: "<YOUR GOOGLE TRACKING ID>"
+google-tracking-id: "UA-41281548-2"
 
 #############
 # HTML Head #
@@ -13,8 +13,8 @@ author: "Daniel Wisky"
 lang: "pt-BR"
 title: "{ Daniel Wisky }"
 favicon: "/img/favicon.ico"
-description: "Blog e Site pessoal do Daniel Wisky, blogging mainly for tech. Opinions expressed are mine."
-keywords: "smith, jones, personal, jekyll, theme"
+description: "Blog e Site Pessoal."
+keywords: "daniel, wisky, blog"
 
 ################
 # Intro layout #
