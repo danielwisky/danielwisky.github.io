@@ -1,0 +1,119 @@
+
+# Site settings
+
+url: "http://panossakkos.github.io"
+google-tracking-id: "<YOUR GOOGLE TRACKING ID>"
+
+#############
+# HTML Head #
+#############
+
+author: "Daniel Wisky"
+lang: "pt-BR"
+title: "{ Daniel Wisky }"
+favicon: "/img/favicon.ico"
+description: "Blog e Site pessoal do Daniel Wisky, blogging mainly for tech. Opinions expressed are mine."
+keywords: "smith, jones, personal, jekyll, theme"
+
+################
+# Intro layout #
+################
+
+black-favicon: "/img/black-lab-glass.ico"
+background-img: "../img/intro-bg.jpg"
+me-img: "/img/jetpacktocat.png"
+
+##############################
+# Dynamic Text on the header #
+##############################
+
+dynamic-typing: True
+shuffle: True	# Shuffle the lines.
+loop: True
+loop-count:	False # Set False for infinite loop, or set any number for finite loop.
+type-speed:	10		# Default 10
+start-delay: 200	# Default 200
+delete-delay: 5000	# Default 5000
+lines:			# You can add HTML Tags in the Text
+  - text: "The lower you fall, the higher you'll fly."
+  - text: "Where’s your will to be weird?"
+
+########
+# Blog #
+########
+
+post-preview-words: 128
+
+paginate: 5
+
+fb-share: True
+twitter-share: True
+reddit-share: True
+disqus-shortname: "panossakkos"
+
+###############
+# Life Events #
+###############
+
+events:
+  - image: "/img/career/unimed.jpg"
+    date: "Fevereiro 2013 - até o momento"
+    description: "Analista de Sistemas"
+  - image: "/img/career/atento.jpg"
+    date: "Fevereiro 2010 - Fevereiro 2013"
+    description: "Analista Programador Java"
+  - image: "/img/career/metodista.png"
+    date: "Abril 2008 - Agosto 2009"
+    description: "Estagiário"
+  - image: "/img/career/micropower.jpg"
+    date: "Julho 2007 - Abril 2008"
+    description: "Estagiário"
+
+# First image of the Career timeline
+career-img: "/img/career/cegonha.jpg"
+
+##################
+# Contact layout #
+##################
+
+email: "daniel-ddw@hotmail.com"
+
+##################
+# Social Buttons #
+##################
+
+social:
+  - title: "facebook"
+    url: "http://facebook.com/"
+  - title: "github"
+    url: "https://github.com/danielwisky"
+
+############
+# 404 page #
+############
+
+404-img: "/img/labtocat.png"
+
+################################################################################
+
+# Tread carefully if you want to change the variables below this point!
+
+# Navigation bar links
+# Blog link in the blog and post pages will point to the blog.html#blog
+# In the default page it will point to the preview of the last post
+
+pages_list:
+  Sobre: 'Sobre'
+  Blog: 'blog'
+  Carreira: 'carreira'
+  Contato: 'contato'
+
+# Pagination path
+paginate_path: "blog/page:num"
+
+# Enable minification SASS
+sass:
+  style: compressed
+
+# Exclusion list from the generated _site
+exclude: ["Rakefile", "LICENSE", "readme.markdown", "vendor"]

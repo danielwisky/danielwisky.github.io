@@ -1,0 +1,44 @@
+
+<!-- Index Layout Start -->
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+  {% include head.html %}
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    {% include navigation.html %}
+
+    {% include header.html %}
+
+    {% for page in site.pages %}
+
+      {% if page.section-type == "sobre" %}
+
+        {% include sobre.html %}
+
+      {% elsif page.section-type == "latest-post" %}
+
+        {% include latest-post.html %}
+
+      {% elsif page.section-type == "carreira" %}
+
+        {% include carreira.html %}
+
+      {% elsif page.section-type == "contato" %}
+
+        {% include contato.html %}
+
+      {% endif %}
+
+    {% endfor %}
+
+    {% include footer.html %}
+
+    {% include js.html %}
+
+  </body>
+</html>
+
+<!-- Index Layout End -->
