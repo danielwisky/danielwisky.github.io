@@ -1,7 +1,8 @@
 
 # Site settings
 
-url: "http://panossakkos.github.io"
+url: "http://danielwisky.github.io"
+baseurl: ""
 google-tracking-id: "<YOUR GOOGLE TRACKING ID>"
 
 #############
@@ -21,7 +22,7 @@ keywords: "smith, jones, personal, jekyll, theme"
 
 black-favicon: "/img/black-lab-glass.ico"
 background-img: "../img/intro-bg.jpg"
-me-img: "/img/jetpacktocat.png"
+me-img: "/img/foto.jpg"
 
 ##############################
 # Dynamic Text on the header #
@@ -46,10 +47,10 @@ post-preview-words: 128
 
 paginate: 5
 
-fb-share: True
-twitter-share: True
-reddit-share: True
-disqus-shortname: "panossakkos"
+fb-share: false
+twitter-share: false
+reddit-share: false
+disqus-shortname: "danielwisky"
 
 ###############
 # Life Events #
@@ -58,16 +59,16 @@ disqus-shortname: "panossakkos"
 events:
   - image: "/img/career/unimed.jpg"
     date: "Fevereiro 2013 - até o momento"
-    description: "Analista de Sistemas"
+    description: "Analista de Sistemas @ Unimed do Brasil"
   - image: "/img/career/atento.jpg"
     date: "Fevereiro 2010 - Fevereiro 2013"
-    description: "Analista Programador Java"
+    description: "Analista Programador Java @ Atento do Brasil"
   - image: "/img/career/metodista.png"
     date: "Abril 2008 - Agosto 2009"
-    description: "Estagiário"
+    description: "Estagiário @ Universidade Metodista de São Paulo"
   - image: "/img/career/micropower.jpg"
     date: "Julho 2007 - Abril 2008"
-    description: "Estagiário"
+    description: "Estagiário @ MicroPower"
 
 # First image of the Career timeline
 career-img: "/img/career/cegonha.jpg"
@@ -84,7 +85,9 @@ email: "daniel-ddw@hotmail.com"
 
 social:
   - title: "facebook"
-    url: "http://facebook.com/"
+    url: "http://facebook.com/danieldiaswisky"
+  - title: "linkedin"
+    url: "https://www.linkedin.com/profile/view?id=65574007"
   - title: "github"
     url: "https://github.com/danielwisky"
 
