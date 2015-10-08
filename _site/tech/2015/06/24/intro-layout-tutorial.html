@@ -1,0 +1,330 @@
+
+<!-- Post Layout Start -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  
+<!-- HEAD Start -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blog e Site Pessoal.">
+  <meta name="author" content="Daniel Wisky">
+  <meta name="keywords" content="daniel, wisky, blog">
+  <link rel="canonical" href="/tech/2015/06/24/intro-layout-tutorial.html">
+  
+  
+  <title>{ Daniel Wisky }  | Modifying the Intro</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link href="/css/grayscale.css" rel="stylesheet">
+  <link href="/css/timeline.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+  
+</head>
+
+<!-- HEAD End -->
+
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    
+<!-- Navigation Start -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+              <a class="navbar-brand page-scroll" href="/index.html#page-top">
+            
+            <div><img src="/img/black-lab-glass.ico" alt="">  { Daniel Wisky }</div>
+          </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+
+                
+                  <!-- Blog, Post, Tag pages-->
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/index.html#sobre"> Sobre </a>
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/blog/index.html"> Blog </a>
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/index.html#carreira"> Carreira </a>
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/index.html#contato"> Contato </a>
+                      </li>
+                    
+                  
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Navigation End -->
+
+
+    <section id="Modifying the Intro" class="container content-section text-center">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+          <h1><strong>Modifying the Intro</strong></h1>
+          <h4><strong>24 Jun 2015</strong>
+            <small> . tech . <a href="/tech/2015/06/24/intro-layout-tutorial.html#disqus_thread">Comments</a>
+            
+              <a href="/tags/tutorial.html">#tutorial</a>
+            
+            </small>
+          </h4>
+
+          <p>The intro part of the index page is consisted of three elements:</p>
+
+<ol class="personal-list">
+<li>A black favicon</li>
+  <li>Text</li>
+  <li>Background image</li>
+  <li>Your image</li>
+</ol>
+
+<p>Your text can be either dynamically typed when the visitor is viewing your index page, or it can be fixed.</p>
+
+<p>If you want to disable the dynamic typing, set the site.dynamic-typing to false and type your intro text in the index.html file.</p>
+
+<p>You can add your desired dynamically typed text in the lines list:</p>
+
+<pre style="text-align: left">
+##############################
+# Dynamic Text on the header #
+##############################
+
+dynamic-typing: True
+shuffle: True	# Shuffle the lines.
+loop: True
+loop-count:	False # Set False for infinite loop, or set any number for finite loop.
+type-speed:	10		# Default 10
+start-delay: 200	# Default 200
+delete-delay: 5000	# Default 5000
+lines:			# You can add HTML Tags in the Text
+  - text: "The lower you fall, the higher you'll fly."
+  - text: "Where’s your will to be weird?"
+</pre>
+
+<p><small>Many thanks to <a href="https://github.com/prashantsolanki3" target="_blank">@prashantsolanki3</a> for this feature!</small></p>
+
+<p>In order to set the background and your image, modify the following variables in _config:</p>
+
+<pre style="text-align: left">
+black-favicon: "/img/black-lab-glass.ico"
+background-img: "../img/intro-bg.jpg"
+me-img: "/img/jetpacktocat.png"
+</pre>
+
+<p>The black favicon is an image on the left of the navigation bar.
+Preferably it should be a black and white version of your favicon.</p>
+
+<p>All set!</p>
+
+
+          
+<!-- Share Buttons Start -->
+
+<div>
+
+  
+
+  
+
+  
+
+</div>
+
+<!-- Share Buttons End -->
+
+
+          
+<!-- Disqus Comments Start -->
+
+
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+<!-- Disqus Comments End -->
+
+
+        </div>
+      </div>
+    </section>
+
+    <section id="Modifying the Intro" class="container content-section text-center">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          
+<!-- Social Buttons Start -->
+
+<ul class="list-inline social-buttons">
+  
+    <li><a href="http://facebook.com/danieldiaswisky" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
+  
+    <li><a href="https://www.linkedin.com/profile/view?id=65574007" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+  
+    <li><a href="https://github.com/danielwisky" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+  
+</ul>
+
+<!-- Social Buttons End -->
+
+        </div>
+      </div>
+    </section>
+
+    
+ <!-- Footer Start -->
+
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; Daniel Wisky 2015</p>
+    </div>
+</footer>
+
+<p><br><br><br><br><br><br></p>
+
+<!-- Footer End -->
+
+
+    
+<!-- Javascript Start -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/grayscale.js"></script>
+
+
+
+  <!-- Google Tracking Id Start -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41281548-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Google Tracking Id End -->
+
+
+
+
+
+
+  <!-- Disqus -->
+
+  
+
+    <script type="text/javascript">
+    var disqus_shortname = 'danielwisky';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+  
+
+  
+
+    <!-- Comments Counter Start -->
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'danielwisky'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+
+    <!-- Comments Counter End -->
+
+  
+
+
+
+
+
+  <!-- Share buttons Start -->
+
+  
+
+  
+
+  <!-- Share buttons End -->
+
+
+
+
+
+<!-- Javascript End -->
+
+
+  </body>
+</html>
+
+<!-- Post Layout End -->

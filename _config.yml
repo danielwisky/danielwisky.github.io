@@ -36,8 +36,8 @@ type-speed:	10		# Default 10
 start-delay: 200	# Default 200
 delete-delay: 5000	# Default 5000
 lines:			# You can add HTML Tags in the Text
-  - text: "The lower you fall, the higher you'll fly."
-  - text: "Where’s your will to be weird?"
+  - text: "A gente muda, envelhece, sofre e passa por momentos felizes."
+  - text: "Mais uma coisa não mudou nestes anos todos: meus princípios. (Ayrton Senna)"
 
 ########
 # Blog #
