@@ -13,8 +13,8 @@ author: "Daniel Wisky"
 lang: "pt-BR"
 title: "{ Daniel Wisky }"
 favicon: "/img/favicon.ico"
-description: "Blog e Site Pessoal."
-keywords: "daniel, wisky, blog"
+description: "blog e site pessoal"
+keywords: "daniel wisky, blog, jekyll"
 
 ################
 # Intro layout #
