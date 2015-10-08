@@ -90,6 +90,8 @@ social:
     url: "https://www.linkedin.com/profile/view?id=65574007"
   - title: "github"
     url: "https://github.com/danielwisky"
+  - title: "rss"
+    url: "/feed.xml"
 
 ############
 # 404 page #
