@@ -13,8 +13,8 @@ author: "Daniel Wisky"
 lang: "pt-BR"
 title: "{ Daniel Wisky }"
 favicon: "/img/favicon.ico"
-description: "Blog e Site Pessoal."
-keywords: "daniel, wisky, blog"
+description: "blog e site pessoal"
+keywords: "daniel wisky, blog, jekyll"
 
 ################
 # Intro layout #
@@ -90,6 +90,8 @@ social:
     url: "https://www.linkedin.com/profile/view?id=65574007"
   - title: "github"
     url: "https://github.com/danielwisky"
+  - title: "rss"
+    url: "/feed.xml"
 
 ############
 # 404 page #

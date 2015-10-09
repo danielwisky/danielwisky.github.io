@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>{ Daniel Wisky }</title>
-		<description>Blog e Site Pessoal.</description>
+		<description>blog e site pessoal</description>
 		<link>http://danielwisky.com.br</link>
 		<atom:link href="http://danielwisky.com.br/feed.xml" rel="self" type="application/rss+xml" />
 		
