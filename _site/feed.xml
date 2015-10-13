@@ -7,29 +7,30 @@
 		<atom:link href="http://danielwisky.com.br/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Modifying the HTML HEAD</title>
+				<title>CRUD Utilizando JSF+JPA parte 2</title>
 				
 				
-					<description>In the _config.yml, find and set the variables of the Head section:
+					<description>// TODO CRUD Utilizando JSF+JPA parte 2
+
 
 </description>
 				
 				<pubDate>Sun, 01 Nov 2015 00:00:00 -0200</pubDate>
-				<link>http://danielwisky.com.br/java/2015/11/01/crud-jsf-jpa-parte-1.html</link>
-				<guid isPermaLink="true">http://danielwisky.com.br/java/2015/11/01/crud-jsf-jpa-parte-1.html</guid>
+				<link>http://danielwisky.com.br/tutorial/2015/11/01/crud-jsf-jpa-parte-2.html</link>
+				<guid isPermaLink="true">http://danielwisky.com.br/tutorial/2015/11/01/crud-jsf-jpa-parte-2.html</guid>
 			</item>
 		
 			<item>
-				<title>Modifying the HTML HEAD</title>
+				<title>CRUD Utilizando JSF+JPA parte 1</title>
 				
 				
-					<description>In the _config.yml, find and set the variables of the Head section:
+					<description>// TODO CRUD Utilizando JSF+JPA parte 1
 
 </description>
 				
 				<pubDate>Fri, 30 Oct 2015 00:00:00 -0200</pubDate>
-				<link>http://danielwisky.com.br/java/2015/10/30/crud-jsf-jpa-parte-1.html</link>
-				<guid isPermaLink="true">http://danielwisky.com.br/java/2015/10/30/crud-jsf-jpa-parte-1.html</guid>
+				<link>http://danielwisky.com.br/tutorial/2015/10/30/crud-jsf-jpa-parte-1.html</link>
+				<guid isPermaLink="true">http://danielwisky.com.br/tutorial/2015/10/30/crud-jsf-jpa-parte-1.html</guid>
 			</item>
 		
 	</channel>
