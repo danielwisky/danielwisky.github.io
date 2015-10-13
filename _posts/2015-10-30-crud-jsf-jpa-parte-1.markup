@@ -2,8 +2,8 @@
 layout: post
 section-type: post
 title: Modifying the HTML HEAD
-category: tech
-tags: [ 'tutorial' ]
+category: java
+tags: [ 'crud', 'jsf' ]
 ---
 
 In the _config.yml, find and set the variables of the Head section:

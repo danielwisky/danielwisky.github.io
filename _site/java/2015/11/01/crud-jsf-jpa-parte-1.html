@@ -14,10 +14,10 @@
   <meta name="description" content="blog e site pessoal">
   <meta name="author" content="Daniel Wisky">
   <meta name="keywords" content="daniel wisky, blog, jekyll">
-  <link rel="canonical" href="/tech/2015/06/27/welcome.html">
+  <link rel="canonical" href="/java/2015/11/01/crud-jsf-jpa-parte-1.html">
   
   
-  <title>{ Daniel Wisky }  | Welcome to { Personal } Jekyll Theme!</title>
+  <title>{ Daniel Wisky }  | Modifying the HTML HEAD</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -106,24 +106,59 @@
 <!-- Navigation End -->
 
 
-    <section id="Welcome to { Personal } Jekyll Theme!" class="container content-section text-center">
+    <section id="Modifying the HTML HEAD" class="container content-section text-center">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
 
-          <h1><strong>Welcome to { Personal } Jekyll Theme!</strong></h1>
-          <h4><strong>27 Jun 2015</strong>
-            <small> . tech . <a href="/tech/2015/06/27/welcome.html#disqus_thread">Coment&#225;rios</a>
+          <h1><strong>Modifying the HTML HEAD</strong></h1>
+          <h4><strong>01 Nov 2015</strong>
+            <small> . java . <a href="/java/2015/11/01/crud-jsf-jpa-parte-1.html#disqus_thread">Coment&#225;rios</a>
             
-              <a href="/tags/tutorial.html">#tutorial</a>
+              <a href="/tags/crud.html">#crud</a>
+            
+              <a href="/tags/jsf.html">#jsf</a>
             
             </small>
           </h4>
 
-          <p>Click the view more posts link bellow, to see the currently available post-tutorials to help you get your { Personal } website up and running quicker!</p>
+          <p>In the _config.yml, find and set the variables of the Head section:</p>
 
-<p>Note that every time you update the site configuration (_config.yml), you will need to <em>jekyll serve</em> the site with <em>–watch</em> flag, or cancel the serving (<em>Ctr + C</em>) and <em>jekyll serve</em> again.</p>
+<pre style="text-align: left">
+#############
+# HTML Head #
+#############
 
-<p>Any contributions, feedback and issues to the <a href="https://github.com/PanosSakkos/personal-jekyll-theme" target="_blank">repo</a> are more than welcome!</p>
+author: "Daniel Wisky"
+lang: "en"
+title: "{ Daniel Wisky }"
+favicon: "/img/favicon.ico"
+description: "Blog and website of Daniel Wisky, blogging mainly for tech. Opinions expressed are mine."
+keywords: "smith, jones, personal, Jekyll, theme"
+</pre>
+
+<p>The values that you set, will be placed in the head section of every generated HTML page.</p>
+
+<p>Don’t forget to set the configurations for your site’s url and Google tracking id:</p>
+
+<pre style="text-align: left">
+url: "http://panossakkos.github.io/personal-jekyll-theme/"
+google-tracking-id: ""
+</pre>
+
+<p>The url is essential to be set, because it’s used in many places across the theme.</p>
+
+<p>The Google tracking code will be placed in every generated page.
+If you don’t want Google tracking, set it to an empty string, or simply remove the definition from the configuration file.</p>
+
+<p>If you are using <em>{ Personal }</em> as a Github repository theme, set the repository name as the site.baseurl, in the site configuration file.
+This step is essential, since its related to file paths!
+And when you serve the website locally, don’t forget to set the baseurl to an empty string, like this:</p>
+
+<pre style="text-align: left">
+jekyll serve --baseurl ""
+</pre>
+
+<p><small>Many thanks to <a href="https://github.com/prashantsolanki3" target="_blank">@prashantsolanki3</a> for the language support!</small></p>
 
 
           
@@ -157,7 +192,7 @@
       </div>
     </section>
 
-    <section id="Welcome to { Personal } Jekyll Theme!" class="container content-section text-center">
+    <section id="Modifying the HTML HEAD" class="container content-section text-center">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           
