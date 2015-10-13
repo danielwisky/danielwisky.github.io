@@ -15,7 +15,7 @@
         <div class="col-lg-8 col-lg-offset-2">
 
           <h1><strong>{{ page.title }}</strong></h1>
-          <h4><strong>{% include custom_date_pt_br.html date = page.date %}</strong>
+          <h4><strong>{% include custom-date-ptbr.html date = page.date %}</strong>
             <small> . {{ page.category }} . <a href="{{site.baseurl}}{{page.url }}#disqus_thread">Coment&#225;rios</a>
             {% for tag in page.tags %}
               <a href="{{site.baseurl}}/tags/{{tag}}.html">#{{ tag }}</a>
