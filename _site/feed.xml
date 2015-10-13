@@ -7,30 +7,16 @@
 		<atom:link href="http://danielwisky.com.br/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>CRUD Utilizando JSF+JPA parte 2</title>
+				<title>Post de boas vindas</title>
 				
 				
-					<description>// TODO CRUD Utilizando JSF+JPA parte 2
-
-
-</description>
-				
-				<pubDate>Sun, 01 Nov 2015 00:00:00 -0200</pubDate>
-				<link>http://danielwisky.com.br/tutorial/2015/11/01/crud-jsf-jpa-parte-2.html</link>
-				<guid isPermaLink="true">http://danielwisky.com.br/tutorial/2015/11/01/crud-jsf-jpa-parte-2.html</guid>
-			</item>
-		
-			<item>
-				<title>CRUD Utilizando JSF+JPA parte 1</title>
-				
-				
-					<description>// TODO CRUD Utilizando JSF+JPA parte 1
+					<description>Ol&amp;#225;,
 
 </description>
 				
-				<pubDate>Fri, 30 Oct 2015 00:00:00 -0200</pubDate>
-				<link>http://danielwisky.com.br/tutorial/2015/10/30/crud-jsf-jpa-parte-1.html</link>
-				<guid isPermaLink="true">http://danielwisky.com.br/tutorial/2015/10/30/crud-jsf-jpa-parte-1.html</guid>
+				<pubDate>Tue, 13 Oct 2015 00:00:00 -0300</pubDate>
+				<link>http://danielwisky.com.br/tutorial/2015/10/13/post-boas-vindas.html</link>
+				<guid isPermaLink="true">http://danielwisky.com.br/tutorial/2015/10/13/post-boas-vindas.html</guid>
 			</item>
 		
 	</channel>
