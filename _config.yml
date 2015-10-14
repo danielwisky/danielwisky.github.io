@@ -36,8 +36,8 @@ type-speed:	10		# Default 10
 start-delay: 200	# Default 200
 delete-delay: 5000	# Default 5000
 lines:			# You can add HTML Tags in the Text
-  - text: "A gente muda, envelhece, sofre e passa por momentos felizes."
-  - text: "Mais uma coisa não mudou nestes anos todos: meus princípios. (Ayrton Senna)"
+  - text: "Procure ser um homem de valor, em vez de ser um homem de sucesso. (Albert Einstein)"
+  - text: "O importante não é vencer todos os dias, mas lutar sempre. (Waldermar Valle Martins)"
 
 ########
 # Blog #
