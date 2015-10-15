@@ -148,8 +148,8 @@ ol {
     padding: 100px 0;
     text-align: center;
     color: $light;
-    /* background: url( {{ site.background-img }} ) no-repeat bottom center scroll; */
-    /* background-color: $dark; */
+    background: url( {{ site.background-img }} ) no-repeat bottom center scroll;
+    background-color: $dark;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
