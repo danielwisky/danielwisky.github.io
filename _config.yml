@@ -36,8 +36,7 @@ type-speed:	10		# Default 10
 start-delay: 200	# Default 200
 delete-delay: 5000	# Default 5000
 lines:			# You can add HTML Tags in the Text
-  - text: "Procure ser um homem de valor, em vez de ser um homem de sucesso. (Albert Einstein)"
-  - text: "O importante não é vencer todos os dias, mas lutar sempre. (Waldermar Valle Martins)"
+  - text: "A vida é como uma pedra de amolar, tanto pode desgastar-nos como afiar-nos, tudo depende do metal de que somos constituídos. (Bernard Shaw)"
 
 ########
 # Blog #
