@@ -4,6 +4,7 @@
 url: "http://danielwisky.com.br"
 baseurl: ""
 google-tracking-id: "UA-41281548-2"
+force-https: False
 
 #############
 # HTML Head #
@@ -42,7 +43,7 @@ lines:			# You can add HTML Tags in the Text
 # Blog #
 ########
 
-post-preview-words: 128
+post-preview-words: 96
 
 paginate: 5
 
