@@ -30,14 +30,14 @@ me-img: "/img/foto.jpg"
 ##############################
 
 dynamic-typing: True
-shuffle: True	# Shuffle the lines.
-loop: True
-loop-count:	False # Set False for infinite loop, or set any number for finite loop.
-type-speed:	10		# Default 10
-start-delay: 200	# Default 200
-delete-delay: 5000	# Default 5000
+shuffle: False # Shuffle the lines.
+loop: False
+loop-count:	1 # Set False for infinite loop, or set any number for finite loop.
+type-speed:	4 # Default 10
+start-delay: 2000 # Default 200
+delete-delay: 50000 # Default 5000
 lines:			# You can add HTML Tags in the Text
-  - text: "A vida é como uma pedra de amolar, tanto pode desgastar-nos como afiar-nos, tudo depende do metal de que somos constituídos. (Bernard Shaw)"
+  - text: "Romans 8:28"
 
 ########
 # Blog #
