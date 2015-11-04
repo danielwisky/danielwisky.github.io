@@ -81,6 +81,11 @@ ol {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: $dark;
+
+    /* Fix height limit and scroll for small screen and many items menu */
+    max-height: 100%;
+    overflow-y: auto;
+
     .navbar-brand {
         font-weight: 700;
             &:focus {
@@ -353,6 +358,10 @@ footer {
     text-shadow: none;
     background: #fcfcfc;
     background: rgba($light, 0.2);
+}
+
+img {
+	max-width: 100%;
 }
 
 img::selection {
