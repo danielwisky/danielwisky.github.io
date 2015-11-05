@@ -57,10 +57,10 @@ disqus-shortname: "danielwisky"
 ###############
 
 events:
-  - image: "/img/career/unimed.jpg"
+  - image: "/img/career/unimed.png"
     date: "Fevereiro 2013 - até o momento"
     description: "Analista de Sistemas @ Unimed do Brasil"
-  - image: "/img/career/atento.jpg"
+  - image: "/img/career/atento.png"
     date: "Fevereiro 2010 - Fevereiro 2013"
     description: "Analista Programador Java @ Atento do Brasil"
   - image: "/img/career/metodista.png"
@@ -71,7 +71,7 @@ events:
     description: "Estagiário @ MicroPower"
 
 # First image of the Career timeline
-career-img: "/img/career/cegonha.jpg"
+career-img: "/img/career/default.png"
 
 ##################
 # Contact layout #
