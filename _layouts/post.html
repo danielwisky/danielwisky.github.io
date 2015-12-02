@@ -6,16 +6,18 @@
 
   {% include head.html %}
 
-  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <body>
 
     {% include navigation.html %}
 
-    <section id="{{ page.title }}" class="container content-section text-center">
+    <section id="post" class="container content-section text-center">
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-md-10 col-md-offset-1">
+
+          {% include swipe-instructions.html %}
 
           <h1><strong>{{ page.title }}</strong></h1>
-          <h4><strong>{% include custom-date-ptbr.html date = page.date %}</strong>
+          <h4><strong>{{ page.date | date_to_string }}</strong>
             <small> . {{ page.category }} . <a href="{{site.baseurl}}{{page.url }}#disqus_thread">Coment&#225;rios</a>
             {% for tag in page.tags %}
               <a href="{{site.baseurl}}/tags/{{tag}}.html">#{{ tag }}</a>
@@ -27,16 +29,12 @@
 
           {% include share.html %}
 
-          {% include comments.html %}
+          {% if jekyll.environment == "production" %}
+            {% include comments.html %}
+          {% endif %}
 
-        </div>
-      </div>
-    </section>
-
-    <section id="{{ page.title }}" class="container content-section text-center">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
           {% include social-buttons.html %}
+
         </div>
       </div>
     </section>
