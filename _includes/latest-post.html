@@ -8,7 +8,7 @@
         {{ page.content | markdownify }}
 
         {% assign post = site.posts.first %}
-        <h4> <strong> {{ post.date | date_to_string }} </strong>
+        <h4> <strong> {% include date-ptbr.html date = post.date %} </strong>
           <small>. {{ post.category }} .</small>
           <strong> <a href="{{site.baseurl}}{{ post.url }}">{{post.title}} </a> </strong>
           <small> <a href="{{site.baseurl}}{{post.url}}#disqus_thread">Coment&#225;rios</a></small>
