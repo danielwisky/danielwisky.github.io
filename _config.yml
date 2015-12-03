@@ -10,23 +10,24 @@ force-https: False
 # HTML Head #
 #############
 
-author: "Daniel Wisky"
 lang: "pt-BR"
+author: "Daniel Wisky"
 title: "{ Daniel Wisky }"
+description: "blog e site pessoal do Daniel Wisky"
+keywords: "daniel, wisky, desenvolvedor, java, web"
 favicon: "/img/favicon.ico"
-description: "blog e site pessoal"
-keywords: "daniel wisky, blog, jekyll"
+404-img: "/img/404.jpg"
 
-################
-# Intro layout #
-################
+#################
+# Header layout #
+#################
 
 black-favicon: "/img/black-lab-glass.ico"
+
 background-img: "../img/intro-bg.jpg"
-me-img: "/img/foto.jpg"
 
 ##############################
-# Dynamic Text on the header #
+# Dynamic Text on the Header #
 ##############################
 
 dynamic-typing: True
@@ -38,6 +39,23 @@ start-delay: 2000 # Default 200
 delete-delay: 50000 # Default 5000
 lines:			# You can add HTML Tags in the Text
   - text: "Romans 8:28"
+  
+me-img: "/img/foto.jpg"
+
+################
+# Web app mode #
+################
+
+web-app-mode: True
+
+# Icons for Web App mode
+
+icon-36p: "/img/web-app/icon-36p.png"
+icon-48p: "/img/web-app/icon-48p.png"
+icon-72p: "/img/web-app/icon-72p.png"
+icon-96p: "/img/web-app/icon-96p.png"
+icon-144p: "/img/web-app/icon-144p.png"
+icon-192p: "/img/web-app/icon-192p.png"
 
 ########
 # Blog #
@@ -47,35 +65,46 @@ post-preview-words: 96
 
 paginate: 5
 
-fb-share: false
-twitter-share: false
-reddit-share: false
+email-share: True
+fb-share: True
+twitter-share: True
+linkedin-share: False
+reddit-share: False
+google-plus-share: True
+tumblr-share: False
+pinterest-share: False
+pocket-share: False
+vkontakte-share: False
+
 disqus-shortname: "danielwisky"
 
-###############
-# Life Events #
-###############
+syntax-highlight: True
+
+############
+# Timeline #
+############
 
 events:
-  - image: "/img/career/unimed.png"
+  - image: "/img/timeline/unimed.png"
     date: "Fevereiro 2013 - até o momento"
     description: "Analista de Sistemas @ Unimed do Brasil"
-  - image: "/img/career/atento.png"
+  - image: "/img/timeline/atento.png"
     date: "Fevereiro 2010 - Fevereiro 2013"
     description: "Analista Programador Java @ Atento do Brasil"
-  - image: "/img/career/metodista.png"
+  - image: "/img/timeline/metodista.png"
     date: "Abril 2008 - Agosto 2009"
     description: "Estagiário @ Universidade Metodista de São Paulo"
-  - image: "/img/career/micropower.jpg"
+  - image: "/img/timeline/micropower.jpg"
     date: "Julho 2007 - Abril 2008"
     description: "Estagiário @ MicroPower"
 
 # First image of the Career timeline
-career-img: "/img/career/development-and-innovation.jpg"
 
-##################
-# Contact layout #
-##################
+timeline-img: "/img/timeline/default.jpg"
+
+###########
+# Contact #
+###########
 
 email: "daniel-ddw@hotmail.com"
 
@@ -93,12 +122,6 @@ social:
   - title: "rss"
     url: "/feed.xml"
 
-############
-# 404 page #
-############
-
-404-img: "/img/404.jpg"
-
 ################################################################################
 
 # Tread carefully if you want to change the variables below this point!
@@ -108,17 +131,24 @@ social:
 # In the default page it will point to the preview of the last post
 
 pages_list:
-  Sobre: 'sobre'
-  Blog: 'blog'
-  Carreira: 'carreira'
-  Contato: 'contato'
+  Sobre: 'about'
+  Blog: 'latest-post'
+  Carreira: 'timeline'
+  Contato: 'contact'
+
+# Exclusion list from the generated _site
+
+exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts"]
 
 # Pagination path
-paginate_path: "blog/page:num"
+
+paginate_path: "blog/page:num/"
 
 # Enable minification SASS
+
 sass:
   style: compressed
 
-# Exclusion list from the generated _site
-exclude: ["Rakefile", "LICENSE", "readme.markdown", "vendor"]
+gems:
+  - jekyll-paginate
+  - jemoji
