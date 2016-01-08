@@ -4,16 +4,15 @@
 
 require 'fileutils'
 
-personal = ARGV[0]
+personal = "../personal-jekyll-theme"
 
 repoDirectories = [ '_includes', '_layouts', '_sass', 'blog', 'css', 'js' ]
-repoFiles = [ 'feed.xml' ]
+repoFiles = [ 'feed.xml', 'manifest.json', 'sitemap.xml' ]
 
 # Delete local resources of { Personal }
 repoDirectories.each{ |directory| FileUtils.rm_rf(directory) }
 repoFiles.each{ |file| FileUtils.rm(file) }
 puts '[+] Deleted local { Personal } resources'
-
 
 # Create the { Personal } directories again
 repoDirectories.each{ |directory| FileUtils.mkdir(directory) }
