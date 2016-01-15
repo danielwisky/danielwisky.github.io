@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: HTML5 - Web Storage uma alternativa ao uso de cookies
+title: HTML5 - Web Storage
 category: geral
 tags: [ 'html5', 'webstorage' ]
 ---
@@ -59,7 +59,7 @@ Utilizamos o `removeItem('key')` para remover uma informa&ccedil;&atilde;o armaz
 	localStorage.removeItem("nome"); // ou sessionStorage.removeItem("nome");
 
 Para saber mais: 
-[tableless](http://tableless.com.br/web-storage-html5/), 
-[w3schools](http://www.w3schools.com/html/html5_webstorage.asp).
+<a href="http://tableless.com.br/web-storage-html5/" target="\_blank">tableless</a>, 
+<a href="http://www.w3schools.com/html/html5_webstorage.asp" target="\_blank">w3schools</a>.
 
 Um grande abra&ccedil;o e at&eacute; o pr&oacute;ximo post!
