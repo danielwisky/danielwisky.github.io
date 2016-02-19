@@ -6,10 +6,10 @@ category: geral
 tags: [ 'boas-vindas' ]
 ---
 
-Ol&aacute;, sejam bem-vindos!
+Olá, sejam bem-vindos!
 
 Em breve vou elaborar e divulgar diversos tutoriais, artigos e links diversos sobre tecnologia.
 
-Um grande abra&ccedil;o e at&eacute; o pr&oacute;ximo post!
+Um grande abraço e até o próximo post!
 
 Daniel Wisky
