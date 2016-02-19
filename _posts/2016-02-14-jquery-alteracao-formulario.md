@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: jQuery - Verificar se houve alteração no formulário HTML
+title: jQuery - Verificar alteração no formulário HTML
 category: geral
 tags: [ 'jquery']
 ---
