@@ -5,6 +5,7 @@ url: "http://danielwisky.com.br"
 baseurl: ""
 google-tracking-id: "UA-41281548-2"
 force-https: False
+encoding: utf-8
 
 #############
 # HTML Head #

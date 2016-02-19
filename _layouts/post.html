@@ -18,7 +18,7 @@
 
           <h1><strong>{{ page.title }}</strong></h1>
           <h4><strong>{% include date-ptbr.html date = page.date %}</strong>
-            <small> . {{ page.category }} . <a href="{{site.baseurl}}{{page.url }}#disqus_thread">Coment&#225;rios</a>
+            <small> . {{ page.category }} . <a href="{{site.baseurl}}{{page.url }}#disqus_thread">Comentários</a>
             {% for tag in page.tags %}
               <a href="{{site.baseurl}}/tags/{{tag}}.html">#{{ tag }}</a>
             {% endfor %}

@@ -11,7 +11,7 @@
         <h4> <strong> {% include date-ptbr.html date = post.date %} </strong>
           <small>. {{ post.category }} .</small>
           <strong> <a href="{{site.baseurl}}{{ post.url }}">{{post.title}} </a> </strong>
-          <small> <a href="{{site.baseurl}}{{post.url}}#disqus_thread">Coment&#225;rios</a></small>
+          <small> <a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comentários</a></small>
         </h4>
 
         {{ post.content | truncatewords: site.post-preview-words | strip_html | markdownify }}
