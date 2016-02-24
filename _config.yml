@@ -1,10 +1,10 @@
 
 # Site settings
 
-url: "https://danielwisky.com.br"
+url: "http://danielwisky.com.br"
 baseurl: ""
 google-tracking-id: "UA-41281548-2"
-force-https: True
+force-https: False
 encoding: utf-8
 
 #############
