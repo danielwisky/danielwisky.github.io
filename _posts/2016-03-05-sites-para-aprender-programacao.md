@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: Sites para aprender programação
 category: geral
-tags: ['site']
+tags: ['links']
 ---
 
 ## Code Academy
