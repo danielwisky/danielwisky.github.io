@@ -26,5 +26,10 @@
   <![endif]-->
   
   {% if site.favicon %}<link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}{{site.favicon}}">{% endif %}
+
+  {% if page.url == "/404.html" | prepend: {{site.baseurl}} %}
+    <meta http-equiv="refresh" content="20; url={{site.baseurl}}/">
+  {% endif %}
+
   {% feed_meta %}
 </head>
