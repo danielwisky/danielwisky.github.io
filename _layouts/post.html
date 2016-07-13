@@ -1,65 +1,52 @@
+---
+layout: default
+---
 
-<!-- Post Layout Start -->
-
-<!DOCTYPE html>
-<html lang="{{ site.lang }}">
-
-  {% include head.html %}
-
-  <body>
-
-    {% include navigation.html %}
-
-    <section id="post" class="container content-section text-center">
+  <!-- Post Header -->
+  <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-
-          {% include swipe-instructions.html %}
-
-          <h1><strong>{{ page.title }}</strong></h1>
-          <h4>
-            <strong>{% include date-ptbr.html date = page.date %}</strong>
-            <small>
-              . categoria:
-              <a class="category" href="{{site.baseurl}}/categories/{{page.category | downcase}}.html">
-                {{ page.category }}
-              </a>.
-              <a href="{{site.baseurl}}{{page.url }}#disqus_thread">Comentários</a>
-              <br />
-              {% for tag in page.tags %}
-                <a class="tag" href="{{site.baseurl}}/tags/{{tag}}.html">#{{ tag }}</a>
-              {% endfor %}
-            </small>
-          </h4>
-
-          {{ page.content | markdownify }}
-
-          {% include share.html %}
-
-          {% if jekyll.environment == "production" %}
-            {% include comments.html %}
-          {% endif %}
-
-
-          <hr />
-
-          {% if site.author_blurb %}
-          <div class="author row">
-            <img class="col-xs-4 col-sm-3 col-md-2" src="{{site.baseurl}}{{site.author_blurb_image}}" alt="Me" />
-            <p class="col-xs-8 col-sm-9 col-md-10">
-              {{ site.author_blurb }}
-            </p>
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="post-heading">
+            <h1>{{ page.title }}</h1>
+            {% if page.subtitle %}
+            <h2 class="subheading">{{ page.subtitle }}</h2>
+            {% endif %}
+            <span class="meta">{% include date-ptbr.html date = page.date %}</span>
           </div>
-          {% endif%}
         </div>
       </div>
-    </section>
+    </div>
+  </header>
 
-    {% include footer.html %}
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-    {% include js.html %}
+          {{ content }}
 
-  </body>
-</html>
+          {% include comments.html %}
 
-<!-- Post Layout End -->
+          <hr>
+
+          <ul class="pager">
+            {% if page.previous.url %}
+            <li class="previous">
+              <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Página anterior</a>
+            </li>
+            {% endif %}
+            {% if page.next.url %}
+            <li class="next">
+              <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Próxima página &rarr;</a>
+            </li>
+            {% endif %}
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>

@@ -2,8 +2,9 @@
 layout: post
 section-type: post
 title: Sites para aprender programação
-category: geral
-tags: ['links']
+subtitle: "8 sites para você aprender a programar"
+author: "Daniel Wisky"
+header-img: "img/post-bg-06.jpg"
 ---
 
 ## Code Academy

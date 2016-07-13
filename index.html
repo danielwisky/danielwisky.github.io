@@ -1,9 +1,35 @@
 ---
-layout: index
-section-type: index
-sitemap:
-  priority: 1.0
+layout: page
+description: "Nossas dúvidas são traidoras e nos fazem perder o bem que poderíamos conquistar se não fosse o medo de errar. <br/>(William Shakespeare)"
 ---
-<!--
-If you want to have a static message in your intro layout, disable the dynamic-typing in the _config.yml and write here your text
--->
+
+  {% for post in paginator.posts %}
+  <div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+      <h2 class="post-title">{{ post.title }}</h2>
+      {% if post.subtitle %}
+      <h3 class="post-subtitle">
+        {{ post.subtitle }}
+      </h3>
+      {% endif %}
+    </a>
+    <p class="post-meta">{% include date-ptbr.html date = post.date %}</p>
+  </div>
+  <hr>
+  {% endfor %}
+
+  <!-- Pager -->
+  {% if paginator.total_pages > 1 %}
+  <ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Página anterior</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Próxima página &rarr;</a>
+    </li>
+    {% endif %}
+  </ul>
+  {% endif %}
