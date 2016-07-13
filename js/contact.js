@@ -12,7 +12,7 @@ $(function() {
   $("#contactForm").validate({
     rules: {
       nome: "required",
-      email: {
+      _replyto: {
         required: true,
         email: true
       },
@@ -20,7 +20,7 @@ $(function() {
     },
     messages: {
       nome: "Campo é obrigatório",
-      email: "Por favor insira um endereço de email válido",
+      _replyto: "Por favor insira um endereço de email válido",
       mensagem: "Campo é obrigatório"
     },
     errorElement: "span",
