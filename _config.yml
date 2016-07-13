@@ -1,155 +1,39 @@
 
 # Site settings
-
-url: "https://danielwisky.com.br"
-baseurl: ""
-google-tracking-id: "UA-41281548-2"
-force-https: True
 encoding: utf-8
+url: "http://danielwisky.com.br"
+baseurl: ""
+force-https: True
 
-#############
-# HTML Head #
-#############
-
+# HTML Head
 lang: "pt-BR"
-author: "Daniel Dias Wisky"
-title: "{ Daniel Dias Wisky }"
-description: "blog e site pessoal do Daniel Wisky"
-keywords: "daniel, wisky, desenvolvedor, java, web"
+title: "Daniel Wisky"
+
+copyright_name: "Daniel Wisky"
+description: "blog e site pessoal"
+
 favicon: "/img/favicon.ico"
-404-img: "/img/404.jpg"
+header-img: img/home-bg.jpg
 
-#################
-# Header layout #
-#################
+# Social Buttons
+disqus-shortname : "danielwisky"
+github-username  : "danielwisky"
+facebook-username: "danieldiaswisky"
+linkedin-url     : "https://br.linkedin.com/in/danielwisky"
+email-username   : "daniel-ddw@hotmail.com"
 
-black-favicon: "/img/black-lab-glass.ico"
+# Google Analytics
+google-tracking-id: "UA-41281548-2"
 
-background-img: "../img/intro-bg.jpg"
-
-##############################
-# Dynamic Text on the Header #
-##############################
-
-dynamic-typing: True
-shuffle: False # Shuffle the lines.
-loop: False
-loop-count:	1 # Set False for infinite loop, or set any number for finite loop.
-type-speed:	4 # Default 10
-start-delay: 2000 # Default 200
-delete-delay: 50000 # Default 5000
-lines:			# You can add HTML Tags in the Text
-  - text: "Romans 8:28"
-  
-me-img: "/img/foto.jpg"
-
-################
-# Web app mode #
-################
-
-web-app-mode: True
-
-# Icons for Web App mode
-
-icon-36p: "/img/web-app/icon-36p.png"
-icon-48p: "/img/web-app/icon-48p.png"
-icon-72p: "/img/web-app/icon-72p.png"
-icon-96p: "/img/web-app/icon-96p.png"
-icon-144p: "/img/web-app/icon-144p.png"
-icon-192p: "/img/web-app/icon-192p.png"
-
-########
-# Blog #
-########
-
-post-preview-words: 96
-
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
 paginate: 5
-
-email-share: True
-fb-share: True
-twitter-share: True
-linkedin-share: False
-reddit-share: False
-google-plus-share: True
-tumblr-share: False
-pinterest-share: False
-pocket-share: False
-vkontakte-share: False
-
-disqus-shortname: "danielwisky"
-
-syntax-highlight: True
-
-############
-# Timeline #
-############
-
-events:
-  - image: "/img/timeline/unimed.png"
-    date: "Fevereiro 2013 - até o momento"
-    description: "Analista de Sistemas @ Unimed do Brasil"
-  - image: "/img/timeline/atento.png"
-    date: "Fevereiro 2010 - Fevereiro 2013"
-    description: "Analista Programador Java @ Atento do Brasil"
-  - image: "/img/timeline/metodista.png"
-    date: "Abril 2008 - Agosto 2009"
-    description: "Estagiário @ Universidade Metodista de São Paulo"
-  - image: "/img/timeline/micropower.jpg"
-    date: "Julho 2007 - Abril 2008"
-    description: "Estagiário @ MicroPower"
-
-# First image of the Career timeline
-
-timeline-img: "/img/timeline/default.jpg"
-
-###########
-# Contact #
-###########
-
-email: "daniel-ddw@hotmail.com"
-
-##################
-# Social Buttons #
-##################
-
-social:
-  - title: "facebook"
-    url: "http://facebook.com/danieldiaswisky"
-  - title: "linkedin"
-    url: "https://br.linkedin.com/in/danielwisky"
-  - title: "github"
-    url: "https://github.com/danielwisky"
-  - title: "rss"
-    url: "/feed.xml"
-
-################################################################################
-
-# Tread carefully if you want to change the variables below this point!
-
-# Navigation bar links
-# Blog link in the blog and post pages will point to the blog.html#blog
-# In the default page it will point to the preview of the last post
-
-pages_list:
-  Sobre: 'about'
-  Blog: 'latest-post'
-  Carreira: 'timeline'
-  Contato: 'contact'
-
-# Exclusion list from the generated _site
-
-exclude: ["LICENSE", "README.md", "scripts"]
-
-# Pagination path
-
-paginate_path: "blog/page:num/"
+exclude: ["LICENSE", "README.md"]
 
 # Enable minification SASS
-
 sass:
   style: compressed
 
-gems:
-  - jekyll-paginate
-  - jemoji
+gems: [jekyll-paginate, jekyll-feed]
