@@ -12,8 +12,8 @@ encoding: utf-8
 #############
 
 lang: "pt-BR"
-author: "Daniel Wisky"
-title: "{ Daniel Wisky }"
+author: "Daniel Dias Wisky"
+title: "{ Daniel Dias Wisky }"
 description: "blog e site pessoal do Daniel Wisky"
 keywords: "daniel, wisky, desenvolvedor, java, web"
 favicon: "/img/favicon.ico"
