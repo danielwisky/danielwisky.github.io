@@ -19,7 +19,7 @@
           <li>
             <a href="{{ site.baseurl }}/">Home</a>
           </li>
-		  {% assign pages = site.pages | sort:"weight" %}
+          {% assign pages = site.pages | sort:"weight" %}
           {% for page in pages %}{% if page.title %}
           {% if page.url != '/404.html' %}
           <li>
