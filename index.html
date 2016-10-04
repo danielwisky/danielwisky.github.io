@@ -13,7 +13,9 @@ description: "Nossas dúvidas são traidoras e nos fazem perder o bem que poder�
       </h3>
       {% endif %}
     </a>
-    <p class="post-meta">{% include date-ptbr.html date = post.date %}</p>
+    <p class="post-meta">
+	  {% include date-ptbr.html date = post.date %} | <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread">comentários</a>
+	</p>
   </div>
   <hr>
   {% endfor %}
