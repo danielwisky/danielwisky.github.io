@@ -3,6 +3,7 @@ layout: page
 title: "Contato"
 description: "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção. (Paulo Freire)"
 header-img: "img/contato-bg.jpg"
+navigation: true
 weight: 2
 ---
 
@@ -11,6 +12,7 @@ weight: 2
 <form id="contactForm" action="https://formspree.io/{{ site.email-username }}" method="POST">
   <input type="text" name="_gotcha" style="display:none" />
   <input type="hidden" name="_subject" value="Contato - Blog" />
+  <input type="hidden" name="_next" value="{{ site.baseurl }}/contato/enviado/" />
   <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
       <label>Nome:</label>

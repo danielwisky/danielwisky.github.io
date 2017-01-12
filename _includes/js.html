@@ -6,7 +6,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
   <script src="{{ '/js/contact.min.js' | prepend: site.baseurl }}"></script>
   <script>
-    var contactform =  document.getElementById('contactform');
+    var contactform =  document.getElementById('contactForm');
     {% if site.email-username %}
         {% if site.email-username contains '@' %}
           {% assign newemail = site.email-username | split: '@' %}

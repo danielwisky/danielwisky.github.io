@@ -21,7 +21,7 @@
           </li>
           {% assign pages = site.pages | sort:"weight" %}
           {% for page in pages %}{% if page.title %}
-          {% if page.url != '/404.html' %}
+          {% if page.navigation %}
           <li>
             <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
           </li>
