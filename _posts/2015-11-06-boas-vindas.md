@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: post de boas-vindas
 author: "Daniel Wisky"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/default-bg.jpg"
 ---
 
 Olá, sejam bem-vindos!

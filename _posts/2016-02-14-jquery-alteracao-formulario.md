@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: jQuery - Verificar alteração no formulário HTML
 author: "Daniel Wisky"
-header-img: "img/post-bg-03.jpg"
+header-img: "img/default-bg.jpg"
 ---
 
 A função para verificar se houve alteração no formulário HTML, pode ser muito útil, como comunicar o usuário a possível perda de dados e até mesmo evitar que o formulário seja enviado, sem que ao menos, alguma informação tenha sido alterada.

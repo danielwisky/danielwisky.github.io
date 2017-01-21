@@ -13,7 +13,7 @@ copyright_name: "Daniel Wisky"
 description: "blog e site pessoal"
 
 favicon: "/img/favicon.ico"
-header-img: img/home-bg.jpg
+header-img: img/default-bg.jpg
 
 # Social Buttons
 disqus-shortname : "danielwisky"
