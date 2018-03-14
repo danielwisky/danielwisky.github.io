@@ -7,7 +7,7 @@ author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
 
-<img src="https://cdn-images-1.medium.com/max/800/1*-k8uKbY8iAUxjNAaWwPMEA.png">
+<img src="https://cdn-images-1.medium.com/max/800/1*-k8uKbY8iAUxjNAaWwPMEA.png" />
 
 Muito se tem falado sobre Redis nos últimos anos. Quase sempre seu nome está atrelado à ganho de performance por meio de cacheamento de dados, porém entender suas principais características, indicações e contra-indicações é fundamental para termos uma boa história com ele e alcançarmos nossos objetivos. Para tal tarefa, listarei aquelas que considero as principais características da ferramenta:
 
@@ -20,7 +20,7 @@ O Redis é uma aplicação single-threaded e isso significa que enquanto uma ope
 3. O Redis só conhece chave-valor
 Sim, é isso mesmo que você leu! Todos os dados armazenados no Redis estão organizados numa estrutura de chave valor.
 
-<img src="https://cdn-images-1.medium.com/max/800/0*BtQKeVoZdwPTtdIF.jpg">
+<img src="https://cdn-images-1.medium.com/max/800/0*BtQKeVoZdwPTtdIF.jpg" />
 
 Não, pera. Permita-me explicar melhor: Embora todos os dados estejam distribuídos no formato chave/valor, o valor pode ser qualquer coisa que você imaginar… desde uma String simples até conjuntos extremamente complexos. Confie em mim… você vai se surpreender com essa característica.
 
@@ -30,7 +30,7 @@ Bem, isso acho que você já notou. Diferente de bancos com Oracle, Sql Server e
 5. Ele também não é muito semelhante ao MongoDB
 Você deve estar pensando: “Ah, se ele é um banco NoSql já estou em casa… deve ser igual ao MongoDB”.
 
-<img src="https://cdn-images-1.medium.com/max/800/1*KSqpqaqxkZImuW3CiHyACQ.jpeg">
+<img src="https://cdn-images-1.medium.com/max/800/1*KSqpqaqxkZImuW3CiHyACQ.jpeg" />
 
 Isso, calma! O Redis, como já disse, é baseado em “chave-valor”, diferente do MongoDB que é baseado em documentos. Isso já traz uma diferença de paradigma absurda. Embora ambos sejam bancos NoSql, eles possuem utilidades diferentes, cada um com seus pontos fortes e fracos.
 
