@@ -2,12 +2,10 @@
 layout: post
 section-type: post
 title: Redis, uma breve introdução
-subtitle: "Redis, uma breve introdução."
+subtitle: "Introdução ao Redis, o NoSQL chave-valor mais famoso"
 author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
-
-<img class="img-responsive center-block" src="https://cdn-images-1.medium.com/max/800/1*-k8uKbY8iAUxjNAaWwPMEA.png" />
 
 Muito se tem falado sobre Redis nos últimos anos. Quase sempre seu nome está atrelado à ganho de performance por meio de cacheamento de dados, porém entender suas principais características, indicações e contra-indicações é fundamental para termos uma boa história com ele e alcançarmos nossos objetivos. Para tal tarefa, listarei aquelas que considero as principais características da ferramenta:
 
