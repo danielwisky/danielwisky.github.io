@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Introdução ao MongoDB
-subtitle: "Videoaula sobre Introdução ao MongoDB"
+subtitle: "Videoaula sobre MongoDB"
 author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
