@@ -1,8 +1,8 @@
 ---
 layout: post
 section-type: post
-title: Introdução ao Apache Kafka
-subtitle: "Videoaula sobre Apache Kafka"
+title: Apache Kafka no Spring Boot
+subtitle: "Videoaula sobre Apache Kafka no Spring Boot"
 author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
