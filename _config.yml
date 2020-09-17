@@ -36,4 +36,4 @@ exclude: ["LICENSE", "README.md"]
 sass:
   style: compressed
 
-gems: [jekyll-paginate, jekyll-feed]
+plugins: [jekyll-paginate, jekyll-feed]
