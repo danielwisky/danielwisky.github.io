@@ -3,62 +3,62 @@
   <footer>
     <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="col-lg-8 col-md-10 mx-auto">
       <ul class="list-inline text-center">
-        <li>
+        <li class="list-inline-item">
         <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
           <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
           </span>
         </a>
         </li>
         {% if site.linkedin-url %}
-        <li>
+        <li class="list-inline-item">
         <a href="{{ site.linkedin-url }}">
           <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
           </span>
         </a>
         </li>
         {% endif %}
         {% if site.facebook-username %}
-        <li>
+        <li class="list-inline-item">
         <a href="https://www.facebook.com/{{ site.facebook-username }}">
           <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
           </span>
         </a>
         </li>
         {% endif %}
         {% if site.youtube-username %}
-        <li>
+        <li class="list-inline-item">
         <a href="https://www.youtube.com/channel/{{ site.youtube-username }}">
           <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
           </span>
         </a>
         </li>
         {% endif %}
         {% if site.github-username %}
-        <li>
+        <li class="list-inline-item">
         <a href="https://github.com/{{ site.github-username }}">
           <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="fab fa-github fa-stack-1x fa-inverse"></i>
           </span>
         </a>
         </li>
         {% endif %}
         {% if site.email-username %}
-        <li>
+        <li class="list-inline-item">
         <a href="mailto:{{ site.email-username }}">
           <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
           </span>
         </a>
         </li>
