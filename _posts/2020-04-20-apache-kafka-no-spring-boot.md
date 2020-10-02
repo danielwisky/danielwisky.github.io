@@ -7,7 +7,7 @@ author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
 
-<iframe width="917" height="573" src="https://www.youtube.com/embed/tkj0Qpm4OgI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% include youtube.html id="tkj0Qpm4OgI" %}
 
 Links:
 <a href="https://github.com/danielwisky/sistema-saude" target="\_blank">Sistema Saúde
