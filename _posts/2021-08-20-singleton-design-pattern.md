@@ -45,7 +45,7 @@ Segue abaixo um exemplo de implementação em Java utilizando o Padrão Singleto
 	}
 
 Fonte:
-<a href="http://localhost:4000/2021/08/20/singleton-design-pattern/" target="\_blank">Refactoring</a>.
+<a href="https://refactoring.guru/pt-br/design-patterns/singleton" target="\_blank">Refactoring</a>.
 
 Para saber mais:
 <a href="https://sourcemaking.com/design_patterns/singleton" target="\_blank">Singleton Design Pattern</a>.
