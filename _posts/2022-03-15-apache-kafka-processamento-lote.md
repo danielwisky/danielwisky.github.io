@@ -1,8 +1,8 @@
 ---
 layout: post
 section-type: post
-title: Processamento em lote no Apache Kafka
-subtitle: "Videoaula sobre Processamento em lote no Apache Kafka"
+title: Processamento em lote no Kafka
+subtitle: "Videoaula sobre Processamento em lote no Kafka"
 author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
