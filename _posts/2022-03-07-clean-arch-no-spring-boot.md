@@ -7,7 +7,7 @@ author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
 
-<iframe width="917" height="573" src="https://www.youtube.com/embed/6D6TWhSB7hE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="917" height="573" src="https://www.youtube-nocookie.com/embed/6D6TWhSB7hE" title="Videoaula sobre Clean Arch no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Links:
 <a href="https://github.com/danielwisky/clean-arch" target="\_blank">Clean Arch (projeto git)</a>.
