@@ -7,7 +7,7 @@ author: "Daniel Wisky"
 header-img: "img/default-bg.jpg"
 ---
 
-<iframe width="917" height="573" src="https://www.youtube.com/embed/yt1mguYLjEo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="917" height="573" src="https://www.youtube-nocookie.com/embed/yt1mguYLjEo" title="Videoaula sobre MongoDB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Links:
 <a href="https://www.mongodb.com/" target="\_blank">MongoDB</a>,
