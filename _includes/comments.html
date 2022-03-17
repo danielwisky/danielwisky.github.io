@@ -1,10 +1,7 @@
-
-<!-- Disqus Comments Start -->
-
-{% if site.disqus-shortname %}
-  <hr/>
-  <div id="disqus_thread"></div>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+{% if page.comments %}
+  {% include disqus.html %}
+  {% include fb-comment.html %}
+  {% include staticman-comments.html %}
+  {% include utterances-comment.html %}
+  {% include giscus-comment.html %}
 {% endif %}
-
-<!-- Disqus Comments End -->

@@ -1,13 +1,12 @@
 ---
 layout: post
-section-type: post
 title: Apache Kafka no Spring Boot
-subtitle: "Videoaula sobre Apache Kafka no Spring Boot"
-author: "Daniel Wisky"
-header-img: "img/default-bg.jpg"
+subtitle: Videoaula sobre Apache Kafka no Spring Boot
+cover-img: /assets/img/default-bg.jpg
+tags: [kafka, spring-boot, video-aula]
 ---
 
-<iframe width="917" height="573" src="https://www.youtube-nocookie.com/embed/tkj0Qpm4OgI" title="Videoaula sobre Apache Kafka no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/tkj0Qpm4OgI" title="Videoaula sobre Apache Kafka no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Links:
 <a href="https://github.com/danielwisky/sistema-saude" target="\_blank">Sistema Saúde

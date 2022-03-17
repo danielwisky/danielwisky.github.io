@@ -2,8 +2,8 @@
 layout: post
 section-type: post
 title: post de boas-vindas
-author: "Daniel Wisky"
-header-img: "img/default-bg.jpg"
+cover-img: /assets/img/default-bg.jpg
+tags: [boas-vindas]
 ---
 
 Olá, sejam bem-vindos!

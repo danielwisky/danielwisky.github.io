@@ -1,10 +1,9 @@
 ---
 layout: post
-section-type: post
 title: Riscos de segurança em aplicações Web
-subtitle: "Os 10 riscos de segurança mais críticas em aplicações WEB"
-author: "Daniel Wisky"
-header-img: "img/post-bg-risco.jpg"
+subtitle: Os 10 riscos de segurança mais críticas em aplicações WEB
+cover-img: /assets/img/post-bg-risco.jpg
+tags: [segurança]
 ---
 
 ## Introdução
