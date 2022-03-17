@@ -2,7 +2,7 @@
 layout: post
 title: HTML5 - Web Storage
 subtitle: Web Storage é um recurso do HTML 5 para armazenamento de dados localmente no navegador.
-cover-img: /assets/img/default-bg
+cover-img: /assets/img/default-bg.jpg
 tags: [HTML5]
 ---
 
