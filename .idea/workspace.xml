@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ba3dcc8-91e6-4705-9583-d17063422ea0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/comments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/date-ptbr.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/date-ptbr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2015-11-06-boas-vindas.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2015-11-06-boas-vindas.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2016-01-07-html5-web-storage.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2016-01-07-html5-web-storage.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2016-02-14-jquery-alteracao-formulario.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2016-02-14-jquery-alteracao-formulario.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2016-02-15-introducao-ao-sass.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2016-02-15-introducao-ao-sass.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2016-03-05-sites-para-aprender-programacao.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2016-03-05-sites-para-aprender-programacao.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2016-09-30-riscos-seguranca-aplicacoes-web.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2016-09-30-riscos-seguranca-aplicacoes-web.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2017-11-08-aplicativos-para-acessibilidade.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2017-11-08-aplicativos-para-acessibilidade.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2018-03-14-redis-uma-breve-introducao.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-03-14-redis-uma-breve-introducao.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-03-28-stream-api-e-funcoes-lambda-no-java8.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-03-28-stream-api-e-funcoes-lambda-no-java8.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-03-29-bulk-operations-in-mongodb.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-03-29-bulk-operations-in-mongodb.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-03-30-introducao-mongodb.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-03-30-introducao-mongodb.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-04-12-introducao-ao-apache-kafka.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-04-12-introducao-ao-apache-kafka.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-04-20-apache-kafka-no-spring-boot.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-04-20-apache-kafka-no-spring-boot.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2021-08-20-singleton-design-pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2021-08-20-singleton-design-pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2022-03-07-clean-arch-no-spring-boot.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2022-03-07-clean-arch-no-spring-boot.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2022-03-15-apache-kafka-processamento-lote.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2022-03-15-apache-kafka-processamento-lote.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_bootstrap-overrides.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_contact.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_footer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_global.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_masthead.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_post.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_syntax-highlighting.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contato.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/clean-blog.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/404-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/contato-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/default-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/post-bg-risco.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/post-bg-sass.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/sobre-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/clean-blog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/clean-blog.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/contact.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obrigado.html" beforeDir="false" afterPath="$PROJECT_DIR$/obrigado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sobre.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="26TrFDLt6eurwOf1KDV2JPK4ajf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../beautiful-jekyll" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ba3dcc8-91e6-4705-9583-d17063422ea0" name="Changes" comment="" />
+      <created>1647458311213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647458311213</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
