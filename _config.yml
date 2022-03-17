@@ -1,39 +1,106 @@
+title: Daniel Wisky
+author: Daniel Wisky
+favicon: "/assets/img/favicon.ico"
 
-# Site settings
-encoding: utf-8
-url: "http://danielwisky.com.br"
-baseurl: ""
 force-https: True
 
-# HTML Head
-lang: "pt-BR"
-title: "Daniel Wisky"
+navbar-links:
+  Home: "https://danielwisky.com.br"
+  Sobre: "sobre"
+  Contato: "contato"
 
-copyright_name: "Daniel Wisky"
-description: "site pessoal"
+# --- Footer social media links --- #
+social-network-links:
+  rss: true
+  linkedin: danielwisky
+  youtube: c/DanielWisky
+  github: danielwisky
+  email: "daniel-ddw@hotmail.com"
 
-favicon: "/img/favicon.ico"
-header-img: img/default-bg.jpg
+# If you want your website to generate an RSS feed, provide a description
+# The URL for the feed will be https://<your_website>/feed.xml
+rss-description: blog e site pessoal
 
-# Social Buttons
-disqus-shortname : "danielwisky"
-github-username  : "danielwisky"
-linkedin-url     : "https://br.linkedin.com/in/danielwisky"
-email-username   : "daniel-ddw@hotmail.com"
-youtube-username : "DanielWisky"
+# --- General options --- #
+share-links-active:
+  twitter: true
+  facebook: true
+  linkedin: true
+  vk: false
 
-# Google Analytics
-google-tracking-id: "UA-41281548-2"
+# How to display the link to your website in the footer
+url-pretty: "danielwisky.com.br"
 
-# Build settings
+# Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
+excerpt_length: 50
+
+# Whether or not to show an excerpt for every blog post in the feed page
+feed_show_excerpt: false
+
+# Whether or not to show a list of tags below each post preview in the feed page
+feed_show_tags: true
+
+# Add a search button to the navbar
+post_search: true
+
+# The keywords to associate with your website, for SEO purposes
+#keywords: "my,list,of,keywords"
+
+# --- Colours / background image --- #
+navbar-col: "#EAEAEA"
+navbar-text-col: "#404040"
+navbar-border-col: "#DDDDDD"
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+footer-col: "#EAEAEA"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+footer-hover-col: "#0085A1"
+
+# --- Web Analytics Section --- #
+
+# Fill in your Google Analytics ID to track your website using Google Analytics
+google_analytics: "UA-41281548-2"
+
+# --- Comments --- #
+# To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
+disqus: "danielwisky"
+
+# Output options (more information on Jekyll's site)
+timezone: #
 markdown: kramdown
 highlighter: rouge
-permalink: pretty
+permalink: /:year-:month-:day-:title/
 paginate: 5
-exclude: ["LICENSE", "README.md"]
 
-# Enable minification SASS
-sass:
-  style: compressed
+kramdown:
+  input: GFM
 
-plugins: [jekyll-paginate, jekyll-feed]
+# Default YAML values (more information on Jekyll's site)
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true  # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
+  -
+    scope:
+      path: "" # any file that's not a post will be a "page" layout by default
+    values:
+      layout: "page"
+
+# Exclude these files from production site
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap

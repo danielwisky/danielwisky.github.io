@@ -1,13 +1,12 @@
 ---
 layout: post
-section-type: post
 title: Clean Arch no Spring Boot
-subtitle: "Videoaula sobre Clean Arch no Spring Boot"
-author: "Daniel Wisky"
-header-img: "img/default-bg.jpg"
+subtitle: Videoaula sobre Clean Arch no Spring Boot
+cover-img: /assets/img/default-bg.jpg
+tags: [clean-arch, spring-boot, video-aula]
 ---
 
-<iframe width="917" height="573" src="https://www.youtube-nocookie.com/embed/6D6TWhSB7hE" title="Videoaula sobre Clean Arch no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/6D6TWhSB7hE" title="Videoaula sobre Clean Arch no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Links:
 <a href="https://github.com/danielwisky/clean-arch" target="\_blank">Clean Arch (projeto git)</a>.

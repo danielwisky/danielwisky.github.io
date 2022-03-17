@@ -1,10 +1,9 @@
 ---
 layout: post
-section-type: post
 title: Aplicativos para acessibilidade
-subtitle: "10 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência."
-author: "Daniel Wisky"
-header-img: "img/default-bg.jpg"
+subtitle: 10 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência.
+cover-img: /assets/img/default-bg.jpg
+tags: [coletânea, acessibilidade]
 ---
 
 ## WhatsCine

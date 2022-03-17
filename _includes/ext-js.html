@@ -1,0 +1,23 @@
+{% if include.js.sri %}
+  <script src="{{ include.js.href }}" integrity="{{ include.js.sri }}" crossorigin="anonymous"></script>
+{% elsif include.js.href %}
+  <script src="{{ include.js.href }}"></script>
+{% else %}
+  <script src="{{ include.js }}"></script>
+{% endif %}
+
+{% if page.url == "/contato/" | prepend: {{site.baseurl}} %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="{{ '/assets/js/contact.min.js' | prepend: site.baseurl }}"></script>
+<script>
+    var contactform =  document.getElementById('contactForm');
+    {% if site.email-username %}
+        {% if site.email-username contains '@' %}
+          {% assign newemail = site.email-username | split: '@' %}
+          contactform.setAttribute('action', '//formspree.io/' + '{{ newemail[0] }}' + '@' + '{{ newemail[1] }}');
+        {% else %}
+          contactform.setAttribute('action', '//formspree.io/' + 'site.email-username');
+        {% endif %}
+    {% endif %}
+  </script>
+{% endif %}

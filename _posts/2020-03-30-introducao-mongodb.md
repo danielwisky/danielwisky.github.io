@@ -1,13 +1,12 @@
 ---
 layout: post
-section-type: post
 title: Introdução ao MongoDB
-subtitle: "Videoaula sobre MongoDB"
-author: "Daniel Wisky"
-header-img: "img/default-bg.jpg"
+subtitle: Videoaula sobre MongoDB
+cover-img: /assets/img/default-bg.jpg
+tags: [mongoDB, noSQL, video-aula]
 ---
 
-<iframe width="917" height="573" src="https://www.youtube-nocookie.com/embed/yt1mguYLjEo" title="Videoaula sobre MongoDB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/yt1mguYLjEo" title="Videoaula sobre MongoDB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Links:
 <a href="https://www.mongodb.com/" target="\_blank">MongoDB</a>,
