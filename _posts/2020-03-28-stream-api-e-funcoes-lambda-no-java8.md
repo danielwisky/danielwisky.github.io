@@ -1,13 +1,12 @@
 ---
 layout: post
-section-type: post
 title: Stream API e Funções Lambda no Java 8
-subtitle: "Videoaula sobre Stream API e Funções Lambda no Java 8"
-author: "Daniel Wisky"
-header-img: "img/default-bg.jpg"
+subtitle: Videoaula sobre Stream API e Funções Lambda no Java 8
+cover-img: /assets/img/default-bg.jpg
+tags: [java, video-aula]
 ---
 
-<iframe width="917" height="573" src="https://www.youtube-nocookie.com/embed/jNz8IVXkV6A" title="Videoaula sobre Stream API e Funções Lambda no Java 8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/jNz8IVXkV6A" title="Videoaula sobre Stream API e Funções Lambda no Java 8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Fonte:
 <a href="https://github.com/danielwisky/javalambda" target="\_blank">Projeto GitHub</a>.

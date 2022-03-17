@@ -1,10 +1,9 @@
 ---
 layout: post
-section-type: post
 title: Introdução ao SASS
-subtitle: "O que é SASS? O que é SASS e quais suas vantagens para edição de CSS"
-author: "Daniel Wisky"
-header-img: "img/post-bg-sass.jpg"
+subtitle: O que é SASS? O que é SASS e quais suas vantagens para edição de CSS
+cover-img: /assets/img/post-bg-sass.jpg
+tags: [SASS, CSS]
 ---
 
 Sass (Syntactically Awesome StyleSheets): é um pré-processador de CSS, originalmente desenvolvido em Ruby, que interpreta arquivos .scss/.sass e transforma em arquivos .css
