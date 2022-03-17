@@ -6,7 +6,9 @@ cover-img: /assets/img/default-bg.jpg
 tags: [kafka, spring-boot, video-aula]
 ---
 
-<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/tkj0Qpm4OgI" title="Videoaula sobre Apache Kafka no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/tkj0Qpm4OgI" title="Videoaula sobre Apache Kafka no Spring Boot" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Links:
 <a href="https://github.com/danielwisky/sistema-saude" target="\_blank">Sistema Saúde

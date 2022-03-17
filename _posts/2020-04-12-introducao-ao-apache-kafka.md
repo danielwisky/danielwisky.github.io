@@ -6,7 +6,9 @@ cover-img: /assets/img/default-bg.jpg
 tags: [kafka, video-aula]
 ---
 
-<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/tsBdfTHstTw" title="Videoaula sobre Apache Kafka" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/tsBdfTHstTw" title="Videoaula sobre Apache Kafka" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Links:
 <a href="https://kafka.apache.org/" target="\_blank">Apache Kafka</a>.
