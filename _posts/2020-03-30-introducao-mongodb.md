@@ -6,7 +6,9 @@ cover-img: /assets/img/default-bg.jpg
 tags: [mongoDB, noSQL, video-aula]
 ---
 
-<iframe width="730" height="410" src="https://www.youtube-nocookie.com/embed/yt1mguYLjEo" title="Videoaula sobre MongoDB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/yt1mguYLjEo" title="Videoaula sobre MongoDB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Links:
 <a href="https://www.mongodb.com/" target="\_blank">MongoDB</a>,
