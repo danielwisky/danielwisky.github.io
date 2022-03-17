@@ -7,7 +7,7 @@ cover-img: /assets/img/sobre-bg.jpg
 
 <p>Caso queira entrar em contato, por favor, preencha o formulário abaixo e envie sua mensagem.</p>
 
-<form id="contactForm" action="https://formspree.io/f/{{ site.email-username }}" method="POST">
+<form id="contactForm" action="https://formspree.io/f/{{ site.social-network-links.email }}" method="POST">
   <input type="text" name="_gotcha" style="display:none" />
   <input type="hidden" name="_subject" value="Contato - Blog" />
   <input type="hidden" name="_next" value="{{ site.baseurl }}/obrigado/" />
