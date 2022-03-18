@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: post de boas-vindas
 cover-img: /assets/img/default-bg.jpg
-tags: [boas-vindas]
+tags: [blog]
 ---
 
 Olá, sejam bem-vindos!

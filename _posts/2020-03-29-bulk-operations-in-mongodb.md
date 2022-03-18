@@ -3,7 +3,7 @@ layout: post
 title: Bulk Operations in MongoDB
 subtitle: Videoaula sobre Bulk Operations in MongoDB
 cover-img: /assets/img/default-bg.jpg
-tags: [mongoDB, noSQL, video-aula]
+tags: [mongoDB, noSQL, videoaula]
 ---
 
 <div class="video-container">
