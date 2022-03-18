@@ -3,7 +3,7 @@ layout: post
 title: Processamento em lote no Kafka
 subtitle: Videoaula sobre Processamento em lote no Kafka
 cover-img: /assets/img/default-bg.jpg
-tags: [kafka, spring-boot, video-aula]
+tags: [kafka, java, spring-boot, videoaula]
 ---
 
 <div class="video-container">

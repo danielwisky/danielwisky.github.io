@@ -3,7 +3,7 @@ layout: post
 title: Apache Kafka no Spring Boot
 subtitle: Videoaula sobre Apache Kafka no Spring Boot
 cover-img: /assets/img/default-bg.jpg
-tags: [kafka, spring-boot, video-aula]
+tags: [kafka, java, spring-boot, videoaula]
 ---
 
 <div class="video-container">
