@@ -2,7 +2,7 @@
 layout: page
 title: Contato
 subtitle: Pouco conhecimento faz com que as pessoas se sintam orgulhosas. Muito conhecimento, com que se sintam humildes.<br/>(Leonardo DaVinci)
-cover-img: /assets/img/sobre-bg.jpg
+cover-img: /assets/img/contato-bg.jpg
 ---
 
 <p>Caso queira entrar em contato, por favor, preencha o formulário abaixo e envie sua mensagem.</p>
