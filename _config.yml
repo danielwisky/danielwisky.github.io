@@ -2,7 +2,8 @@ title: Daniel Wisky
 author: Daniel Wisky
 favicon: "/assets/img/favicon.ico"
 
-force-https: True
+baseurl: ""
+url: https://danielwisky.com.br
 
 navbar-links:
   Home: "https://danielwisky.com.br"
