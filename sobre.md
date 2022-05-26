@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sobre
-subtitle: Você está vivo. Esse é o seu espetáculo. Só quem se mostra se encontra. Por mais que se perca no caminho.<br/>(Cazuza)
+subtitle: Você enfrentará muitas derrotas na vida, mas nunca se deixe ser derrotado.<br/>(Maya Angelou)
 cover-img: /assets/img/sobre-bg.jpg
 ---
 
