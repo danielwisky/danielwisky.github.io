@@ -25,9 +25,13 @@ var BeautifulJekyllJS = {
       $(".navbar").removeClass("top-nav-expanded");
     });
 
+    if (typeof(Storage) !== "undefined" && sessionStorage.getItem("theme") == "dark") {
+      $("body").addClass("dark");
+      $('#nav-change-theme-icon').removeClass('fa-moon').addClass('fa-sun');
+    }
+
     // show the big header image
     BeautifulJekyllJS.initImgs();
-
     BeautifulJekyllJS.initSearch();
   },
 
@@ -116,6 +120,23 @@ var BeautifulJekyllJS = {
     if (!document.getElementById("beautifuljekyll-search-overlay")) {
       return;
     }
+
+    $("#nav-change-theme-link").click(function(e) {
+      e.preventDefault();
+      if($('#nav-change-theme-icon').hasClass('fa-moon')) {
+        $("body").addClass("dark");
+        $('#nav-change-theme-icon').removeClass('fa-moon').addClass('fa-sun');
+        if (typeof(Storage) !== "undefined") {
+          sessionStorage.setItem("theme", "dark");
+        }
+      } else {
+        $("body").removeClass("dark");
+        $('#nav-change-theme-icon').removeClass('fa-sun').addClass('fa-moon');
+        if (typeof(Storage) !== "undefined") {
+          sessionStorage.setItem("theme", "light");
+        }
+      }
+    });
 
     $("#nav-search-link").click(function(e) {
       e.preventDefault();
