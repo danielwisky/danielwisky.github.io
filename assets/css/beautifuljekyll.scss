@@ -1091,12 +1091,21 @@ pre {
 #nav-search-text {
   display: none;
 }
+#nav-change-theme-text {
+  display: none;
+}
 
 @media (max-width: 1199px) {
   #nav-search-icon {
     display: none;
   }
   #nav-search-text {
+    display: inline-block;
+  }
+  #nav-change-theme-icon {
+    display: none;
+  }
+  #nav-change-theme-text {
     display: inline-block;
   }
 }
