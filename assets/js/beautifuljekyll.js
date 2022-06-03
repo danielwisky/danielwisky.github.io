@@ -25,7 +25,7 @@ var BeautifulJekyllJS = {
       $(".navbar").removeClass("top-nav-expanded");
     });
 
-    if (typeof(Storage) !== "undefined" && sessionStorage.getItem("theme") == "dark") {
+    if (typeof(Storage) !== "undefined" && localStorage.getItem("theme") == "dark") {
       $("body").addClass("dark");
       $('#nav-change-theme-icon').removeClass('fa-moon').addClass('fa-sun');
     }
@@ -127,13 +127,13 @@ var BeautifulJekyllJS = {
         $("body").addClass("dark");
         $('#nav-change-theme-icon').removeClass('fa-moon').addClass('fa-sun');
         if (typeof(Storage) !== "undefined") {
-          sessionStorage.setItem("theme", "dark");
+          localStorage.setItem("theme", "dark");
         }
       } else {
         $("body").removeClass("dark");
         $('#nav-change-theme-icon').removeClass('fa-sun').addClass('fa-moon');
         if (typeof(Storage) !== "undefined") {
-          sessionStorage.setItem("theme", "light");
+          localStorage.setItem("theme", "light");
         }
       }
     });
