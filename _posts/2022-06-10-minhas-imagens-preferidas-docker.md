@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Docker - Minhas imagens preferidas
-subtitle: Algumas das minhas imagens favoritas e alguns comandos que utilizo com frequência
+title: Minhas imagens preferidas de Docker
+subtitle: Algumas de minhas imagens preferidas de Docker e alguns comandos que utilizo com frequência
 cover-img: /assets/img/default-bg.jpg
 tags: [docker]
 ---
