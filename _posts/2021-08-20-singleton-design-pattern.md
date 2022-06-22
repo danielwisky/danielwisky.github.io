@@ -4,7 +4,7 @@ section-type: post
 title: Singleton Design Pattern
 subtitle: Padrões de Projeto
 cover-img: /assets/img/default-bg.jpg
-tags: [design pattern]
+tags: [design-pattern]
 ---
 
 ## Propósito
