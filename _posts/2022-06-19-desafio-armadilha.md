@@ -1,12 +1,10 @@
 ---
 layout: post
-title: Desafio da armadilha
+title: Desafio Armadilha
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado armadilha
 cover-img: /assets/img/default-bg.jpg
 tags: [desafio, programação, jogos]
 ---
-
-# Desafio
 
 Em **ARMADILHA** o computador gera um número entre 1 e 100 e o jogador tentará prender o número do oponente entre dois números. O computador irá mostrar uma das mensagens abaixo:
 

@@ -1,12 +1,10 @@
 ---
 layout: post
-title: Desafio da oficina mecânica
+title: Desafio da Oficina Mecânica
 subtitle: Desafio de programação para construção de um sistema para uma oficina mecânica
 cover-img: /assets/img/default-bg.jpg
 tags: [desafio, programação, estrutura-de-dados]
 ---
-
-# Desafio
 
 Uma oficina mecânica visa atender seus clientes de forma rápida e eficaz. 
 Esta oficina oferece serviço de conserto de carros de passeio e carros utilitários. 
