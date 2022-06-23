@@ -8,9 +8,7 @@ tags: [desafio, programação, jogos]
 
 Em **ARMADILHA** o computador gera um número entre 1 e 100 e o jogador tentará prender o número do oponente entre dois números. O computador irá mostrar uma das mensagens abaixo:
 
-> "Meu numero esta entre os seus"
-ou
-"Meu numero NAO esta entre os seus"
+> "Meu numero esta entre os seus" ou "Meu numero NAO esta entre os seus"
 
 dependendo se o número gerado estiver ou não entre os valores colocados pelo jogador. O jogo acabará quando o jogador aprisionar completamente o número gerado pelo computador. Por exemplo:
 
