@@ -2,7 +2,7 @@
 layout: post
 title: Desafio Defuse
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado defuse
-cover-img: /assets/img/default-bg.jpg
+cover-img: /assets/img/post-bg-desafio.jpg
 tags: [desafio, programação, jogos]
 ---
 
