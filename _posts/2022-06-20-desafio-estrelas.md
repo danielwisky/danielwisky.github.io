@@ -61,5 +61,4 @@ void main() {
 
 Aproveite que você já sabe como acionar o beep no computador e faça um carnaval sonoro quando o jogo terminar.
 
-
 Um grande abraço e até o próximo post!

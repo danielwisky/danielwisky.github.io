@@ -16,8 +16,7 @@ Por sorte, você conta com um detector de bombas, cujo sinal aumenta, quanto mai
 Voce esta em um predio governamental com 1.000.000 de quartos. 
 O predio tem 100 quartos de largura(0-99), 100 quartos
 de comprimento (0-99) e 100 quartos de altura(0-99) e vc esta na porta(0,0,0)
-Existe uma bomba num dos quartos, 
-e vc tem um detector de bombas cujo sinal aumenta
+Existe uma bomba num dos quartos, e vc tem um detector de bombas cujo sinal aumenta
 a medida que voce se aproxima da bomba
 Voce tem 200s (20 tentativas) para desarmar a bomba.
 Sinal           Larg    comp    Alt
@@ -28,8 +27,7 @@ Confesse vamos.
 Voce esta em um predio governamental com 1.000.000 de quartos. 
 O predio tem 100 quartos de largura(0-99), 100 quartos
 de comprimento (0-99) e 100 quartos de altura(0-99) e vc esta na porta(0,0,0)
-Existe uma bomba num dos quartos, 
-e vc tem um detector de bombas cujo sinal aumenta
+Existe uma bomba num dos quartos, e vc tem um detector de bombas cujo sinal aumenta
 a medida que voce se aproxima da bomba
 Voce tem 200s (20 tentativas) para desarmar a bomba.
 Sinal           Larg    comp    Alt
@@ -45,8 +43,7 @@ Outro exemplo:
 Voce esta em um predio governamental com 1.000.000 de quartos. 
 O predio tem 100 quartos de largura(0-99), 100 quartos
 de comprimento (0-99) e 100 quartos de altura(0-99) e vc esta na porta(0,0,0)
-Existe uma bomba num dos quartos, 
-e vc tem um detector de bombas cujo sinal aumenta
+Existe uma bomba num dos quartos, e vc tem um detector de bombas cujo sinal aumenta
 a medida que voce se aproxima da bomba
 Voce tem 200s (20 tentativas) para desarmar a bomba.
 Sinal           Larg    comp    Alt
