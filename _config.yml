@@ -20,7 +20,6 @@ social-network-links:
   email: "daniel-ddw@hotmail.com"
 
 # If you want your website to generate an RSS feed, provide a description
-# The URL for the feed will be https://<your_website>/feed.xml
 rss-description: blog e site pessoal
 
 # --- General options --- #
@@ -45,9 +44,6 @@ feed_show_tags: true
 # Add a search button to the navbar
 post_search: true
 
-# The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
-
 # --- Colours / background image --- #
 navbar-col: "#EAEAEA"
 navbar-text-col: "#404040"
@@ -71,11 +67,11 @@ google_analytics: "UA-41281548-2"
 disqus: "danielwisky"
 
 # Output options (more information on Jekyll's site)
-timezone: #
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 5
+paginate_path: /page/:num/
+paginate: 10
 
 kramdown:
   input: GFM
@@ -105,6 +101,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - beautiful-jekyll-theme.gemspec
 
 plugins:
   - jekyll-paginate
