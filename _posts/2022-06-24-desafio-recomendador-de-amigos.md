@@ -32,19 +32,19 @@ Saída:
 
 ## Get Person
 
-`[GET] http://localhost:3000/person/:CPF`
+`[GET] http://localhost/person/:CPF`
 
 Esta rota deve receber um CPF e, se o usuário existir, retornar seus dados, caso contrário, deve retornar erro com status code 404.
 
 ## Clean
 
-`[DELETE] http://localhost:3000/clean`
+`[DELETE] http://localhost/clean`
 
 Esta rota deve limpar os dados em memória.
 
 ## Create Relationship
 
-`[POST] http://localhost:3000/relationship`
+`[POST] http://localhost/relationship`
 
 Esta rota deve receber dois CPFs e, caso os dois usuários existam, criar um relacionamento entre eles, caso contrário, deve retornar erro com status code 404.
 
@@ -63,7 +63,7 @@ Saída:
 
 ## Get Recommendations
 
-`[GET] http://localhost:3000/recommendations/:CPF`
+`[GET] http://localhost/recommendations/:CPF`
 
 Deve receber um CPF e retornar erro com status code 400 se o CPF informado não consistir em 11 dígitos numéricos, erro com status code 404 se o usuário correspondente não existir. 
 
