@@ -37,6 +37,8 @@
 
   {% if site.keywords %}
   <meta name="keywords" content="{{ site.keywords }}">
+  {%- elsif page.tags -%}
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}">
   {% endif %}
 
   {% if site.rss-description %}
