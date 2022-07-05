@@ -3,7 +3,7 @@ layout: post
 title: Desafio Estrelas
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado estrelas
 cover-img: /assets/img/post-bg-desafio.jpg
-tags: [desafio, programação, jogos]
+tags: [desafios, programação, jogos]
 ---
 
 Em **ESTRELAS** o objetivo é adivinhar um número N (entre 32 e 128) gerado pelo computador. A cada entrada (G) o computador emitirá uma mensagem composta por “estrelas”, sendo que a diferença poderá ser tanto para cima quanto para baixo:
