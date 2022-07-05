@@ -3,7 +3,7 @@ layout: post
 title: Desafio Clock
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado clock
 cover-img: /assets/img/post-bg-desafio.jpg
-tags: [desafio, programação, jogos]
+tags: [desafios, programação, jogos]
 ---
 
 Em **CLOCK**, o computador pensa numa hora entre 0:01 e 12:00 e, você terá que adivinhar a hora seguindo as pistas dadas pelas palavras códigos:

@@ -3,7 +3,7 @@ layout: post
 title: Desafio Bobstone
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado bobstone
 cover-img: /assets/img/post-bg-desafio.jpg
-tags: [desafio, programação, jogos]
+tags: [desafios, programação, jogos]
 ---
 
 Apesar de estranho o nome **BOBSTONE**, este é um jogo muito fácil. A idéia aqui é adivinhar a paridade, a soma e o valor de dois dados rolados pelo adversário.
