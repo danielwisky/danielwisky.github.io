@@ -2,7 +2,6 @@
 layout: post
 title: Introdução ao Apache Kafka
 subtitle: Videoaula sobre Apache Kafka
-cover-img: /assets/img/default-bg.jpg
 tags: [kafka, videoaula]
 ---
 
