@@ -2,7 +2,6 @@
 layout: post
 title: Desafio Estrelas
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado estrelas
-cover-img: /assets/img/post-bg-desafio.jpg
 tags: [desafios, programação, jogos]
 ---
 
