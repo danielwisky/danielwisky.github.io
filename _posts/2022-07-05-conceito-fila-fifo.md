@@ -3,7 +3,7 @@ layout: post
 title: Conceito de Filas (FIFO)
 subtitle: Introdução ao conceito de filas (FIFO – first in, first out)
 cover-img: /assets/img/default-bg.jpg
-tags: [estrutura-dados, c]
+tags: [estrutura-dados, programação]
 ---
 
 Na fila "o primeiro que entra é o primeiro que sai" (a sigla FIFO - first in, first out – é usada para descrever essa estratégia). 
