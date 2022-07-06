@@ -1,7 +1,6 @@
 ---
 layout: post
 title: jQuery - Verificar alteração no formulário HTML
-cover-img: /assets/img/default-bg.jpg
 tags: [jQuery, JavaScript]
 ---
 

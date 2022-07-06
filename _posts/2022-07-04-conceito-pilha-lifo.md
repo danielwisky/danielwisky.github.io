@@ -2,7 +2,6 @@
 layout: post
 title: Conceito de Pilhas (LIFO)
 subtitle: Introdução ao conceito de pilhas (LIFO – last in, first out)
-cover-img: /assets/img/default-bg.jpg
 tags: [estrutura-dados, programação]
 ---
 
