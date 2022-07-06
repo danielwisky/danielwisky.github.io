@@ -2,7 +2,6 @@
 layout: post
 title: Desafio da Oficina Mecânica
 subtitle: Desafio de programação para construção de um sistema para uma oficina mecânica
-cover-img: /assets/img/post-bg-desafio.jpg
 tags: [desafios, programação, estrutura-dados]
 ---
 

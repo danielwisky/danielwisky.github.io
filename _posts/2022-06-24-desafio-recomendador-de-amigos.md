@@ -2,7 +2,6 @@
 layout: post
 title: Desafio Recomendador de Amigos
 subtitle: Desafio de programação para construção de um sistema de recomendação de amigos
-cover-img: /assets/img/post-bg-desafio.jpg
 tags: [desafios, programação]
 ---
 
