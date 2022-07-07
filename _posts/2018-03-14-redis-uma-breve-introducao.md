@@ -2,6 +2,7 @@
 layout: post
 title: Redis, uma breve introdução
 subtitle: Introdução ao Redis, o NoSQL chave-valor mais famoso
+thumbnail-img: /assets/img/post-thumb-redis.png
 tags: [redis, noSQL]
 ---
 

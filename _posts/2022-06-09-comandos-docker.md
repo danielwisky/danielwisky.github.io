@@ -2,6 +2,7 @@
 layout: post
 title: Comandos Docker
 subtitle: Alguns comandos docker e suas utilizades
+thumbnail-img: /assets/img/post-thumb-docker.png
 tags: [docker]
 ---
 
