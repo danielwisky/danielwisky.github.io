@@ -2,6 +2,7 @@
 layout: post
 title: Introdução ao MongoDB
 subtitle: Videoaula sobre MongoDB
+thumbnail-img: /assets/img/post-thumb-mongodb.png
 tags: [mongoDB, noSQL, videoaula]
 ---
 

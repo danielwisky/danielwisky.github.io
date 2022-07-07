@@ -2,6 +2,7 @@
 layout: post
 title: Clean Arch no Spring Boot
 subtitle: Videoaula sobre Clean Arch no Spring Boot
+thumbnail-img: /assets/img/post-thumb-spring-boot.png
 tags: [clean-arch, java, spring-boot, videoaula]
 ---
 
