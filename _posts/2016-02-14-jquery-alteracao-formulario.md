@@ -1,6 +1,7 @@
 ---
 layout: post
 title: jQuery - Verificar alteração no formulário HTML
+thumbnail-img: /assets/img/post-thumb-jquery.png
 tags: [jQuery, JavaScript]
 ---
 
