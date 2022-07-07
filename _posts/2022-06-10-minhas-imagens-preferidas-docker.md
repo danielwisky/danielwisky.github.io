@@ -2,7 +2,7 @@
 layout: post
 title: Minhas imagens preferidas do Docker
 subtitle: Algumas de minhas imagens preferidas do Docker e alguns comandos que utilizo com frequência
-thumbnail-img: /assets/img/post-thumb-docker.png
+thumbnail-img: /assets/img/thumbs/post-thumb-docker.png
 tags: [docker]
 ---
 

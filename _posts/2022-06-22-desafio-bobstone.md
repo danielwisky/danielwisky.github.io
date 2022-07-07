@@ -2,6 +2,7 @@
 layout: post
 title: Desafio Bobstone
 subtitle: Desafio de programação para construção de um jogo de adivinhação chamado bobstone
+thumbnail-img: /assets/img/thumbs/post-thumb-bobstone.png
 tags: [desafios, programação, jogos]
 ---
 

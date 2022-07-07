@@ -2,7 +2,7 @@
 layout: post
 title: Bulk Operations in MongoDB
 subtitle: Videoaula sobre Bulk Operations in MongoDB
-thumbnail-img: /assets/img/post-thumb-mongodb.png
+thumbnail-img: /assets/img/thumbs/post-thumb-mongodb.png
 tags: [mongoDB, noSQL, videoaula]
 ---
 

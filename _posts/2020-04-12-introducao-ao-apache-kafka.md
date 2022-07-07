@@ -2,7 +2,7 @@
 layout: post
 title: Introdução ao Apache Kafka
 subtitle: Videoaula sobre Apache Kafka
-thumbnail-img: /assets/img/post-thumb-kafka.png
+thumbnail-img: /assets/img/thumbs/post-thumb-kafka.png
 tags: [kafka, videoaula]
 ---
 
