@@ -3,7 +3,7 @@ layout: post
 title: Entendendo busca sequencial e busca binária
 subtitle: Introdução ao conceito de busca sequencial e busca binária
 thumbnail-img: /assets/img/thumbs/post-thumb-busca-binaria.png
-tags: [pesquisa-ordenação-dados, programação]
+tags: [pesquisa-ordenação-dados]
 ---
 
 # Busca sequencial
