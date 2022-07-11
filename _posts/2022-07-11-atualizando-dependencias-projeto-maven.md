@@ -8,7 +8,7 @@ tags: [maven]
 
 O plugin [Versions Maven Plugin](https://www.mojohaus.org/versions-maven-plugin/index.html) é usado quando desejamos gerenciar as versões de artefatos no POM de um projeto.
 
-## Exemplo:
+## Mãos ao teclado:
 
 Vamos atualizar a versão do parent do nosso projeto. Versão antes de atualizarmos:
 
@@ -122,6 +122,32 @@ Após a atualização:
     <jacoco-plugin.version>0.8.8</jacoco-plugin.version>
     <sonar-plugin.version>3.9.1.2184</sonar-plugin.version>
 </properties>
+```
+
+Caso não estejamos utilizando as properties para controlar as versões dos plugins do nosso projeto, podemos executar o seguinte comando:
+
+```
+versions:use-latest-releases
+```
+
+Versão antes de atualizarmos:
+
+```
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-ui</artifactId>
+    <version>1.6.8</version>
+</dependency>
+```
+
+Após a atualização:
+
+```
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-ui</artifactId>
+    <version>1.6.9</version>
+</dependency>
 ```
 
 Podemos notar também que foi criado um arquivo chamado `pom.xml.versionsBackup`, através desse arquivo podemos reverter as atualizações com o seguinte comando:
