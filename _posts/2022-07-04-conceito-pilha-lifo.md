@@ -54,7 +54,7 @@ Operações Básicas:
 Estrutura básica de uma Pilha:
 
 ```
-typedef struct  {
+typedef struct {
     int topo;
     char dados[50];
 } Pilha;
