@@ -79,7 +79,7 @@ A bomba estava em 84 96 80
 
 > sinal=10000-(abs(a-d)/100.0+abs(b-e)+abs(c-f)*100);
 
-onde as variáveis **(a, b, c)** representam a largura, o comprimento e a altura do quarto onde está a bomba, **(d, e, f)** representam a largura, o comprimento e a altura do quarto onde o jogador julga que está a bomba. A função abs() é a função que retorna o valor em módulo. Essa função pertence a biblioteca math.h e sinal é uma variável do tipo **float**. Notem que há três situações possíveis de saída:
+onde as variáveis **(a, b, c)** representam a largura, o comprimento e a altura do quarto onde está a bomba, **(d, e, f)** representam a largura, o comprimento e a altura do quarto onde o jogador julga que está a bomba. A função `abs()` é a função que retorna o valor em módulo. Essa função pertence a biblioteca `math.h` e sinal é uma variável do tipo **float**. Notem que há três situações possíveis de saída:
 
 * aquela que o jogador não desarma a bomba (não conseguiu em 20 tentativas);
 * aquela que o jogador desarma a bomba, mas é suspeito de ser quem colocou a bomba (acertar de primeira);
