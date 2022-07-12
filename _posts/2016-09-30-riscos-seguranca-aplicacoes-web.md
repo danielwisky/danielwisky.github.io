@@ -45,5 +45,4 @@ Para saber mais:
 <a href="https://www.owasp.org/index.php/Main_Page" target="\_blank">OWASP</a>, 
 <a href="https://www.owasp.org/index.php/OWASP_Guide_Project" target="\_blank">OWASP Developer Guide</a>.
 
-
 Um grande abraço e até o próximo post!
