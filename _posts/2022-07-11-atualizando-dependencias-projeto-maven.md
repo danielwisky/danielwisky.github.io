@@ -2,7 +2,6 @@
 layout: post
 title: Atualizando as dependências do seu projeto maven
 subtitle: Atualizando as dependências do seu projeto maven como um verdadeiro bibliotecário
-thumbnail-img: /assets/img/thumbs/post-thumb-maven.png
 tags: [maven]
 ---
 
