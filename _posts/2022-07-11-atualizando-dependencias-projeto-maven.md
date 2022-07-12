@@ -10,7 +10,9 @@ O plugin [Versions Maven Plugin](https://www.mojohaus.org/versions-maven-plugin/
 
 ## Mãos ao teclado:
 
-Vamos atualizar a versão do parent do nosso projeto. Versão antes de atualizarmos:
+Vamos atualizar todas as dependências do nosso projeto de exemplo.
+
+Começando pela versão do que encontrasse no `<parent>`, vamos analisar a versão antes da nossa atualização:
 
 ```
 <parent>
@@ -47,7 +49,7 @@ Saída do console:
 Process finished with exit code 0
 ```
 
-Após a execução do comando a versão do spring-boot-starter-parent foi atualizada da versão 2.6.8 para 2.7.1.
+Após a execução do comando, podemos notar que a versão do `spring-boot-starter-parent` foi atualizada da versão `2.6.8` para `2.7.1`.
 
 ```
 <parent>
@@ -58,7 +60,7 @@ Após a execução do comando a versão do spring-boot-starter-parent foi atuali
 </parent>
 ```
 
-Agora vamos atualizar a versão das properties do nosso projeto. Versão antes de atualizarmos:
+Agora vamos atualizar as versões que versão que estão dentro de `<properties>`, vamos analisar a versão antes da nossa atualização:
 
 ```
 <properties>
@@ -110,7 +112,12 @@ Saída do console:
 Process finished with exit code 0
 ```
 
-Após a atualização:
+Após a execução do comando, podemos notar que as seguintes versões foram atualizadas:
+
+* `pitest-pluginpitest-maven` foi atualizada da versão `1.9.0` para `1.9.2`
+* `springdoc-openapi-ui` foi atualizada da versão `1.6.1` para `1.6.9`
+* `testcontainers foi` atualizada da versão `1.17.2` para `1.17.3`
+* `sonar-maven-plugin` foi atualizada da versão `3.7.0.1746` para `3.9.1.2184`
 
 ```
 <properties>
@@ -124,7 +131,7 @@ Após a atualização:
 </properties>
 ```
 
-Caso não estejamos utilizando as properties para controlar as versões dos plugins do nosso projeto, podemos executar o seguinte comando:
+Caso não estejamos utilizando as `<properties>` para controlar as versões dos plugins do nosso projeto, podemos executar o seguinte comando:
 
 ```
 versions:use-latest-releases
@@ -140,7 +147,7 @@ Versão antes de atualizarmos:
 </dependency>
 ```
 
-Após a atualização:
+Após a execução do comando, podemos notar que a versão do `springdoc-openapi-ui` foi atualizada da versão `1.6.8` para `1.6.9`.
 
 ```
 <dependency>
