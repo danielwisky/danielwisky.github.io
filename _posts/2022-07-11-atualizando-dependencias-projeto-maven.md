@@ -83,7 +83,7 @@ Arquivo `pom.xml` antes da nossa atualização:
 Vamos rodar o seguinte comando:
 
 ```
-versions:update-properties
+mvn versions:update-properties
 ```
 
 Saída do console:
@@ -141,7 +141,7 @@ Arquivo `pom.xml` após a nossa atualização:
 Caso não estejamos utilizando as `<properties>` para controlar as versões dos plugins do nosso projeto, podemos executar o seguinte comando:
 
 ```
-versions:use-latest-releases
+mvn versions:use-latest-releases
 ```
 
 Arquivo `pom.xml` antes da nossa atualização:
