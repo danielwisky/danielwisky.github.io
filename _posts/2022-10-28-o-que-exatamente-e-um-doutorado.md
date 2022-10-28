@@ -76,7 +76,7 @@ Mas não esqueça da dimensão das coisas:
 
 Continue ultrapassando os limites.
 
-> Matt Might é professor de Ciências da Computação na Universidade de Utah (EUA). Ele completou seu calombo na Georgia Tech em 2007 e agora ajuda seus próprios estudantes a completarem os seus. Ele twitta em @mattmight e tem um blog em blog.might.net.
+> <a href="http://matt.might.net/">Matt Might</a> é professor de Ciências da Computação na Universidade de Utah (EUA). Ele completou seu calombo na Georgia Tech em 2007 e agora ajuda seus próprios estudantes a completarem os seus. Ele twitta em <a href="http://www.twitter.com/mattmight/">@mattmight</a> e tem um blog em <a href="http://blog.might.net/">blog.might.net</a>.
 
 Fonte:
 <a href="https://gizmodo.uol.com.br/o-que-exatamente-e-um-doutorado/amp/" target="\_blank">Gizmodo</a>.
