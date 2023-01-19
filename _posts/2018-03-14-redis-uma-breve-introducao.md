@@ -30,11 +30,11 @@ Bem, isso acho que você já notou. Diferente de bancos com Oracle, Sql Server e
 
 **5. Ele também não é muito semelhante ao MongoDB**
 
-Você deve estar pensando: “Ah, se ele é um banco NoSql já estou em casa… deve ser igual ao MongoDB”.
+Você deve estar pensando: "Ah, se ele é um banco NoSql já estou em casa… deve ser igual ao MongoDB".
 
 <img class="img-responsive center-block" src="https://cdn-images-1.medium.com/max/800/1*KSqpqaqxkZImuW3CiHyACQ.jpeg" />
 
-Isso, calma! O Redis, como já disse, é baseado em “chave-valor”, diferente do MongoDB que é baseado em documentos. Isso já traz uma diferença de paradigma absurda. Embora ambos sejam bancos NoSql, eles possuem utilidades diferentes, cada um com seus pontos fortes e fracos.
+Isso, calma! O Redis, como já disse, é baseado em "chave-valor", diferente do MongoDB que é baseado em documentos. Isso já traz uma diferença de paradigma absurda. Embora ambos sejam bancos NoSql, eles possuem utilidades diferentes, cada um com seus pontos fortes e fracos.
 
 **6. Ele NÃO possui suporte oficial para Windows**
 

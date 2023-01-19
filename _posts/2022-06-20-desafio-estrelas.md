@@ -6,7 +6,7 @@ thumbnail-img: /assets/img/thumbs/post-thumb-estrelas.png
 tags: [desafios, programação, jogos]
 ---
 
-Em **ESTRELAS** o objetivo é adivinhar um número N (entre 32 e 128) gerado pelo computador. A cada entrada (G) o computador emitirá uma mensagem composta por “estrelas”, sendo que a diferença poderá ser tanto para cima quanto para baixo:
+Em **ESTRELAS** o objetivo é adivinhar um número N (entre 32 e 128) gerado pelo computador. A cada entrada (G) o computador emitirá uma mensagem composta por "estrelas", sendo que a diferença poderá ser tanto para cima quanto para baixo:
 
 | Diferença | Mensagem             |
 |-----------|----------------------|

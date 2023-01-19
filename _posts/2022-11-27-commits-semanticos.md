@@ -126,9 +126,9 @@ feat: ensure LoadSurveysController returns 204 if there is no content
   
 Por fim o rodapé também não possui uso obrigatório. Restringindo-se às alterações de estado via smart commit, como resoluções de problemas (issues), através de chamados de atendimentos, ou sprints de projetos de implantação os quais podem ser descritos no rodapé.
 
-Pode ser fornecido um ou mais rodapés, o primeiro sempre iniciando uma linha em branco após o corpo. Cada rodapé deve consistir em um token de palavra, seguido pelo símbolo “:” (dois pontos) e posteriormente um espaço em branco e o símbolo “#” (sustenido) como separador da string descritiva do rodapé (conceito inspirado na convenção do Git Trailer).
+Pode ser fornecido um ou mais rodapés, o primeiro sempre iniciando uma linha em branco após o corpo. Cada rodapé deve consistir em um token de palavra, seguido pelo símbolo ":" (dois pontos) e posteriormente um espaço em branco e o símbolo "#" (sustenido) como separador da string descritiva do rodapé (conceito inspirado na convenção do Git Trailer).
 
-O token de um rodapé DEVE usar o símbolo “-” (hífen) no lugar de caracteres de espaço em branco, por exemplo, Reviewed-by, permitindo uma diferenciação de um rodapé em relação a um corpo com vários parágrafos.
+O token de um rodapé DEVE usar o símbolo "-" (hífen) no lugar de caracteres de espaço em branco, por exemplo, Reviewed-by, permitindo uma diferenciação de um rodapé em relação a um corpo com vários parágrafos.
 
 ```
 fix: correct minor typos in code

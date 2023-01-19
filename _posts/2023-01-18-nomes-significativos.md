@@ -195,7 +195,7 @@ Lembre-se de que as pessoas que lerão seu código serão programadores. Portant
 
 ### Use nomes de domínio problemáticos
 
-Quando não houver “programmer-eese” para o que você está fazendo, use o nome do domínio do problema. Pelo menos o programador que mantém seu código pode perguntar a um especialista de domínio o que isso significa.
+Quando não houver "programmer-eese" para o que você está fazendo, use o nome do domínio do problema. Pelo menos o programador que mantém seu código pode perguntar a um especialista de domínio o que isso significa.
 
 ### Adicionar contexto significativo
 
@@ -205,7 +205,7 @@ Variáveis como: `firstName`, `lastName`, `street`, `city`, `state`. Juntos, é 
 
 ### Não adicione contexto gratuito
 
-Em um aplicativo imaginário chamado “Gas Station Deluxe”, é uma má ideia prefixar todas as classes com GSD. Exemplo: `GSDAccountAddress`
+Em um aplicativo imaginário chamado "Gas Station Deluxe", é uma má ideia prefixar todas as classes com GSD. Exemplo: `GSDAccountAddress`
 
 Nomes mais curtos geralmente são melhores do que nomes mais longos, desde que sejam claros. Não adicione mais contexto a um nome do que o necessário.
 
