@@ -6,19 +6,21 @@ thumbnail-img: /assets/img/thumbs/post-thumb-fifo.png
 tags: [estrutura-dados]
 ---
 
-Na fila "o primeiro que entra é o primeiro que sai" (a sigla FIFO - first in, first out – é usada para descrever essa estratégia). 
+Na fila "o primeiro que entra é o primeiro que sai" (a sigla FIFO - first in, first out – é usada para descrever essa estratégia).
 
 A idéia fundamental da fila é que só podemos inserir um novo elemento no final da fila, e só podemos retirar o elemento do início.
 
 Poderíamos citar exemplos durante horas, devido às aplicações existentes no mundo real:
-* Fila de Banco;
-* Fila de carros num estacionamento;
-* Fila de impressão;
-* Fila de processos num Sistema Operacional (envolve prioridades...)
+
+- Fila de Banco;
+- Fila de carros num estacionamento;
+- Fila de impressão;
+- Fila de processos num Sistema Operacional (envolve prioridades...)
 
 Existem duas operações básicas que devem ser implementadas numa estrutura fila:
-* a operação para inserir um novo elemento, inserindo-o no fim (enqueue);
-* a operação para retirar um elemento, removendo-o do início (dequeue).
+
+- a operação para inserir um novo elemento, inserindo-o no fim (enqueue);
+- a operação para retirar um elemento, removendo-o do início (dequeue).
 
 Ilustração do funcionamento conceitual de uma fila Q.
 
@@ -42,12 +44,14 @@ Ilustração do funcionamento conceitual de uma fila Q.
 </center>
 
 Conjunto de valores:
-* Elementos quaisquer a ser perfilados.
+
+- Elementos quaisquer a ser perfilados.
 
 Operações Básicas:
-* ENQUEUE: Insere um elemento.
-* DEQUEUE: Remove um elemento.
-* VAZIA: Verifica se a fila está vazia.
+
+- ENQUEUE: Insere um elemento.
+- DEQUEUE: Remove um elemento.
+- VAZIA: Verifica se a fila está vazia.
 
 Assim como em pilhas, há várias implementações possíveis de uma fila.
 

@@ -13,7 +13,7 @@ Por sorte, você conta com um detector de bombas, cujo sinal aumenta, quanto mai
 É muito fácil encontrar a bomba uma vez que você entenda como o detector funciona, mas, não vou estragar seu jogo te contando este detalhe.
 
 ```
-Voce esta em um predio governamental com 1.000.000 de quartos. 
+Voce esta em um predio governamental com 1.000.000 de quartos.
 O predio tem 100 quartos de largura(0-99), 100 quartos
 de comprimento (0-99) e 100 quartos de altura(0-99) e vc esta na porta(0,0,0)
 Existe uma bomba num dos quartos, e vc tem um detector de bombas cujo sinal aumenta
@@ -24,7 +24,7 @@ Sinal           Larg    comp    Alt
 Foi vc que colocou a bomba la dentro!!!
 Confesse vamos.
 
-Voce esta em um predio governamental com 1.000.000 de quartos. 
+Voce esta em um predio governamental com 1.000.000 de quartos.
 O predio tem 100 quartos de largura(0-99), 100 quartos
 de comprimento (0-99) e 100 quartos de altura(0-99) e vc esta na porta(0,0,0)
 Existe uma bomba num dos quartos, e vc tem um detector de bombas cujo sinal aumenta
@@ -40,7 +40,7 @@ Parabens!Voce eh um heroi!!!
 Outro exemplo:
 
 ```
-Voce esta em um predio governamental com 1.000.000 de quartos. 
+Voce esta em um predio governamental com 1.000.000 de quartos.
 O predio tem 100 quartos de largura(0-99), 100 quartos
 de comprimento (0-99) e 100 quartos de altura(0-99) e vc esta na porta(0,0,0)
 Existe uma bomba num dos quartos, e vc tem um detector de bombas cujo sinal aumenta
@@ -77,12 +77,12 @@ A bomba estava em 84 96 80
 
 **DEFUSE** é o único que tem uma equação para gerar o sinal do detector. Essa equação é dada por
 
-> sinal=10000-(abs(a-d)/100.0+abs(b-e)+abs(c-f)*100);
+> sinal=10000-(abs(a-d)/100.0+abs(b-e)+abs(c-f)\*100);
 
 onde as variáveis **(a, b, c)** representam a largura, o comprimento e a altura do quarto onde está a bomba, **(d, e, f)** representam a largura, o comprimento e a altura do quarto onde o jogador julga que está a bomba. A função `abs()` é a função que retorna o valor em módulo. Essa função pertence a biblioteca `math.h` e sinal é uma variável do tipo **float**. Notem que há três situações possíveis de saída:
 
-* aquela que o jogador não desarma a bomba (não conseguiu em 20 tentativas);
-* aquela que o jogador desarma a bomba, mas é suspeito de ser quem colocou a bomba (acertar de primeira);
-* aquela na qual  o jogador é considerado um herói.
+- aquela que o jogador não desarma a bomba (não conseguiu em 20 tentativas);
+- aquela que o jogador desarma a bomba, mas é suspeito de ser quem colocou a bomba (acertar de primeira);
+- aquela na qual o jogador é considerado um herói.
 
 Um grande abraço e até o próximo post!

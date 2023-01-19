@@ -15,10 +15,11 @@ A idéia fundamental sobre pilha é que todo acesso a seus elementos é feito a 
 Isto faz com que os elementos da pilha sejam retirados na ordem inversa à ordem em que foram introduzidos: o primeiro que sai é o último que entrou (a sigla LIFO – last in, first out – é usada para descrever esta estratégia).
 
 Existem duas operações básicas que devem ser implementadas numa estrutura de pilha:
-* a operação para empilhar um novo elemento, inserindo-o no topo;
-* a operação para desempilhar um elemento, removendo-o do topo.
 
-* É comum nos referirmos a essas duas operações pelos termos em inglês push (empilhar) e pop (desempilhar).
+- a operação para empilhar um novo elemento, inserindo-o no topo;
+- a operação para desempilhar um elemento, removendo-o do topo.
+
+- É comum nos referirmos a essas duas operações pelos termos em inglês push (empilhar) e pop (desempilhar).
 
 Ilustração do funcionamento conceitual de uma pilha P.
 
@@ -44,12 +45,14 @@ Ilustração do funcionamento conceitual de uma pilha P.
 O exemplo de utilização de pilha mais próximo é a própria pilha de execução da linguagem C. As variáveis locais das funções são dispostas numa pilha e uma função só tem acesso às variáveis que estão no topo (não é possível acessar as variáveis locais às outras funções).
 
 Conjunto de valores:
-* Quaisquer elementos (com mesmas características) a ser empilhados.
+
+- Quaisquer elementos (com mesmas características) a ser empilhados.
 
 Operações Básicas:
-* EMPILHA: Insere um elemento (push).
-* DESEMPILHA: Remove um elemento (pop).
-* VAZIA: Verifica se a pilha está vazia.
+
+- EMPILHA: Insere um elemento (push).
+- DESEMPILHA: Remove um elemento (pop).
+- VAZIA: Verifica se a pilha está vazia.
 
 Estrutura básica de uma Pilha:
 
@@ -95,7 +98,5 @@ char pop(Pilha *p1) {
     }
 }
 ```
-
-
 
 Um grande abraço e até o próximo post!

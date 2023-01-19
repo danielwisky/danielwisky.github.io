@@ -24,12 +24,12 @@ A escolha de nomes que revelem a intenção pode facilitar muito a compreensão 
 
 ```java
 public List<int[]> getThem() {
-  List<int[]> list1 = new ArrayList<int[]>();
-  for (int[] x : theList)
+    List<int[]> list1 = new ArrayList<int[]>();
+    for (int[] x : theList)
     if (x[0] == 4)
-      list1.add(x);
-  return list1;
-}
+    list1.add(x);
+    return list1;
+    }
 ```
 
 Este código é simples, mas gera muitas dúvidas:
@@ -43,12 +43,12 @@ As respostas a essas perguntas não estão presentes no exemplo de código, mas 
 
 ```java
 public List<int[]> getFlaggedCells() {
-  List<int[]> flaggedCells = new ArrayList<int[]>();
-  for (int[] cell : gameBoard)
+    List<int[]> flaggedCells = new ArrayList<int[]>();
+    for (int[] cell : gameBoard)
     if (cell[STATUS_VALUE] == FLAGGED)
-      flaggedCells.add(cell);
-  return flaggedCells;
-}
+    flaggedCells.add(cell);
+    return flaggedCells;
+    }
 ```
 
 Agora sabemos as próximas informações:
@@ -63,12 +63,12 @@ Podemos melhorar o código escrevendo uma classe simples para células em vez de
 
 ```java
 public List<Cell> getFlaggedCells() {
-  List<Cell> flaggedCells = new ArrayList<Cell>();
-  for (Cell cell : gameBoard)
+    List<Cell> flaggedCells = new ArrayList<Cell>();
+    for (Cell cell : gameBoard)
     if (cell.isFlagged())
-      flaggedCells.add(cell);
-  return flaggedCells;
-}
+    flaggedCells.add(cell);
+    return flaggedCells;
+    }
 ```
 
 ### Evite Desinformação
@@ -87,20 +87,20 @@ Na próxima função, os argumentos não são informativos, `a1` e `a2` não for
 
 ```java
 public static void copyChars(char a1[], char a2[]) {
-  for (int i = 0; i < a1.length; i++) {
+    for (int i = 0; i < a1.length; i++) {
     a2[i] = a1[i];
-  }
-}
+    }
+    }
 ```
 
 Podemos melhorar o código selecionando nomes de argumentos mais explícitos:
 
 ```java
 public static void copyChars(char source[], char destination[]) {
-  for (int i = 0; i < source.length; i++) {
+    for (int i = 0; i < source.length; i++) {
     destination[i] = source[i];
-  }
-}
+    }
+    }
 ```
 
 As palavras barulhentas são outra distinção sem sentido. Imagine que você tenha uma classe Produto. Se você tiver outro chamado `ProductInfo` ou `ProductData`, você fez os nomes diferentes sem fazê-los significar algo diferente. Informações e dados são palavras de ruído indistintas como a, an e the.

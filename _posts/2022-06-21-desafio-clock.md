@@ -9,7 +9,7 @@ tags: [desafios, programação, jogos]
 Em **CLOCK**, o computador pensa numa hora entre 0:01 e 12:00 e, você terá que adivinhar a hora seguindo as pistas dadas pelas palavras códigos:
 
 | Mega  | O campo hora está correto                                                                  |
-|-------|--------------------------------------------------------------------------------------------|
+| ----- | ------------------------------------------------------------------------------------------ |
 | Hecto | O campo hora está fora no máximo em +/- 2 horas                                            |
 | Deca  | O campo hora está fora no máximo em +/- 5 horas                                            |
 | Kilo  | O campo minutos está correto                                                               |

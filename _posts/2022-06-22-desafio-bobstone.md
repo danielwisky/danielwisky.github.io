@@ -9,7 +9,7 @@ tags: [desafios, programação, jogos]
 Apesar de estranho o nome **BOBSTONE**, este é um jogo muito fácil. A idéia aqui é adivinhar a paridade, a soma e o valor de dois dados rolados pelo adversário.
 
 | Adivinhando      | receberá |
-|------------------|----------|
+| ---------------- | -------- |
 | Faces            | 3 pontos |
 | Valor da soma    | 2 pontos |
 | Paridade da soma | 1 ponto  |
