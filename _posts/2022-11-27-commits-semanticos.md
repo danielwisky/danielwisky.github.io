@@ -14,7 +14,7 @@ Conheceu o Git há pouco tempo? Confira o <a href="https://git-scm.com/book/en/v
 
 ## O que é uma mensagem de commit?
 
-O comando **commit** é usado para salvar alterações em um repositório local após fazer o *staging* no Git. No entanto, antes de poder salvar as alterações no Git, você precisa informar ao Git quais alterações você deseja salvar, pois é possível que você tenha feito milhares de edições. Uma ótima maneira de fazer isso é adicionar uma **mensagem de commit** para identificar suas alterações.
+O comando **commit** é usado para salvar alterações em um repositório local após fazer o _staging_ no Git. No entanto, antes de poder salvar as alterações no Git, você precisa informar ao Git quais alterações você deseja salvar, pois é possível que você tenha feito milhares de edições. Uma ótima maneira de fazer isso é adicionar uma **mensagem de commit** para identificar suas alterações.
 
 ### Opções do comando commit:
 
@@ -79,7 +79,7 @@ Abaixo será enumerado os principais types descritos na documentação do Angula
 9. `test`: Adicionando testes ausentes ou corrigindo testes existentes nos processos de testes automatizados (TDD);
 10. `chore`: Atualização de tarefas que não ocasionam alteração no código de produção, mas mudanças de ferramentas, mudanças de configuração e bibliotecas que realmente não entram em produção;
 11. `env`: basicamente utilizado na descrição de modificações ou adições em arquivos de configuração em processos e métodos de integração contínua (CI), como parâmetros em arquivos de configuração de containers.
-Também, o Guidelines, recomenda o tipo improvement para commits que melhoram uma implementação atual sem adicionar um novo recurso ou consertar um bug.
+    Também, o Guidelines, recomenda o tipo improvement para commits que melhoram uma implementação atual sem adicionar um novo recurso ou consertar um bug.
 
 Observe que esses tipos não são obrigatórios pela especificação do Conventional Commits.
 
@@ -123,7 +123,7 @@ feat: ensure LoadSurveysController returns 204 if there is no content
 ```
 
 ### Rodapé
-  
+
 Por fim o rodapé também não possui uso obrigatório. Restringindo-se às alterações de estado via smart commit, como resoluções de problemas (issues), através de chamados de atendimentos, ou sprints de projetos de implantação os quais podem ser descritos no rodapé.
 
 Pode ser fornecido um ou mais rodapés, o primeiro sempre iniciando uma linha em branco após o corpo. Cada rodapé deve consistir em um token de palavra, seguido pelo símbolo ":" (dois pontos) e posteriormente um espaço em branco e o símbolo "#" (sustenido) como separador da string descritiva do rodapé (conceito inspirado na convenção do Git Trailer).

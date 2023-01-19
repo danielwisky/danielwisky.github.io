@@ -51,7 +51,8 @@ Process finished with exit code 0
 ```
 
 Após a execução do comando `mvn versions:update-parent`, podemos notar que as seguintes versões foram atualizadas:
-* `spring-boot-starter-parent` foi atualizada da versão `2.6.8` para `2.7.1`
+
+- `spring-boot-starter-parent` foi atualizada da versão `2.6.8` para `2.7.1`
 
 Arquivo `pom.xml` após a nossa atualização:
 
@@ -119,10 +120,11 @@ Process finished with exit code 0
 ```
 
 Após a execução do comando `versions:update-properties`, podemos notar que as seguintes versões foram atualizadas:
-* `pitest-pluginpitest-maven` foi atualizada da versão `1.9.0` para `1.9.2`
-* `springdoc-openapi-ui` foi atualizada da versão `1.6.1` para `1.6.9`
-* `testcontainers foi` atualizada da versão `1.17.2` para `1.17.3`
-* `sonar-maven-plugin` foi atualizada da versão `3.7.0.1746` para `3.9.1.2184`
+
+- `pitest-pluginpitest-maven` foi atualizada da versão `1.9.0` para `1.9.2`
+- `springdoc-openapi-ui` foi atualizada da versão `1.6.1` para `1.6.9`
+- `testcontainers foi` atualizada da versão `1.17.2` para `1.17.3`
+- `sonar-maven-plugin` foi atualizada da versão `3.7.0.1746` para `3.9.1.2184`
 
 Arquivo `pom.xml` após a nossa atualização:
 
@@ -155,7 +157,8 @@ Arquivo `pom.xml` antes da nossa atualização:
 ```
 
 Após a execução do comando `versions:use-latest-releases`, podemos notar que as seguintes versões foram atualizadas:
-* `springdoc-openapi-ui` foi atualizada da versão `1.6.8` para `1.6.9`
+
+- `springdoc-openapi-ui` foi atualizada da versão `1.6.8` para `1.6.9`
 
 Arquivo `pom.xml` após a nossa atualização:
 

@@ -9,40 +9,40 @@ A função para verificar se houve alteração no formulário HTML, pode ser mui
 
 Utilizando a função abaixo, podemos verificar se algum campo do formulário foi alterado.
 
-	$("#myform :input").change(function() {
-	   $("#myform").data("changed",true);
-	});
+    $("#myform :input").change(function() {
+       $("#myform").data("changed",true);
+    });
 
 Antes de enviar as informações, verificamos se o formulário foi alterado:
 
-	if ($("#myform").data("changed")) {
-	   // submit the form
-	}
+    if ($("#myform").data("changed")) {
+       // submit the form
+    }
 
 Caso necessário, podemos transformar a função acima em um plugin do jQuery, e reutilizar em diversas partes do sistema.
 
-	jQuery.fn.extend({
-		trackChanges: function() {
-			$(":input", this).change(function() {
-				$(this.form).data("changed", true);
-			});
-		},
-		isChanged: function() {
-			return this.data("changed");
-		}
-	});
+    jQuery.fn.extend({
+    	trackChanges: function() {
+    		$(":input", this).change(function() {
+    			$(this.form).data("changed", true);
+    		});
+    	},
+    	isChanged: function() {
+    		return this.data("changed");
+    	}
+    });
 
 Iniciando a verificação.
 
-	$("#myform").trackChanges();
+    $("#myform").trackChanges();
 
 Verificando se o formulário foi alterado.
 
-	if ($("#myform").isChanged()) {
-	   // ...
-	}
+    if ($("#myform").isChanged()) {
+       // ...
+    }
 
-Fonte: 
+Fonte:
 <a href="http://stackoverflow.com/questions/959670/generic-way-to-detect-if-html-form-is-edited" target="\_blank">stackoverflow</a>.
 
 Um grande abraço e até o próximo post!

@@ -6,7 +6,7 @@ thumbnail-img: /assets/img/thumbs/post-thumb-amigos.png
 tags: [desafios, programação]
 ---
 
-Você deve implementar um sistema que permita que uma pessoa obtenha sugestões de novos amigos se baseando nas amizades já existentes. 
+Você deve implementar um sistema que permita que uma pessoa obtenha sugestões de novos amigos se baseando nas amizades já existentes.
 
 Você deve criar uma aplicação que armazene dados em memória (não utilize nenhum banco de dados externo, utilize variáveis globais) e implemente as seguintes rotas:
 
@@ -27,8 +27,9 @@ Entrada:
 ```
 
 Saída:
-* Deve retornar código HTTP 200 em caso de sucesso.
-* Deve retornar código HTTP 400 caso o usuário cadastrado já exista ou caso o CPF informado não consista de 11 dígitos numéricos
+
+- Deve retornar código HTTP 200 em caso de sucesso.
+- Deve retornar código HTTP 400 caso o usuário cadastrado já exista ou caso o CPF informado não consista de 11 dígitos numéricos
 
 ## Get Person
 
@@ -58,14 +59,15 @@ Entrada:
 ```
 
 Saída:
-* Deve retornar código HTTP 200 em caso de sucesso.
-* Deve retornar código HTTP 404 caso um dos usuários não exista
+
+- Deve retornar código HTTP 200 em caso de sucesso.
+- Deve retornar código HTTP 404 caso um dos usuários não exista
 
 ## Get Recommendations
 
 `[GET] http://localhost/recommendations/:CPF`
 
-Deve receber um CPF e retornar erro com status code 400 se o CPF informado não consistir em 11 dígitos numéricos, erro com status code 404 se o usuário correspondente não existir. 
+Deve receber um CPF e retornar erro com status code 400 se o CPF informado não consistir em 11 dígitos numéricos, erro com status code 404 se o usuário correspondente não existir.
 
 Caso o CPF corresponda a um usuário cadastrado, o retorno deve ser um Array contendo a lista de CPFs de todos os amigos dos amigos do usuário informado que não são seus amigos, ordenada de maneira decrescente pela relevância, ou seja, deve-se verificar quantos amigos tem relacionamento com a pessoa, e as pessoas com mais relacionamentos com amigos devem ser informados primeiro.
 
