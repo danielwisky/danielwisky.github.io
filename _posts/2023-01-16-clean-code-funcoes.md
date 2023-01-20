@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Clean code] Funções'
+title: Clean code - Funções
 subtitle: As funções são a primeira linha de organização em qualquer tópico.
 thumbnail-img: /assets/img/thumbs/post-thumb-funcoes.png
 tags: [clean-code]

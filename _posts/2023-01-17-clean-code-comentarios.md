@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Clean code] Comentários'
+title: Clean code - Comentários
 subtitle: Nada pode ser tão útil quanto um comentário bem colocado.
 thumbnail-img: /assets/img/thumbs/post-thumb-comentarios.png
 tags: [clean-code]
