@@ -24,12 +24,12 @@ A escolha de nomes que revelem a intenção pode facilitar muito a compreensão 
 
 ```java
 public List<int[]> getThem() {
-    List<int[]> list1 = new ArrayList<int[]>();
-    for (int[] x : theList)
-    if (x[0] == 4)
-    list1.add(x);
+    List<int[]> list1 = new ArrayList<int[]> ();
+    for (int[] x: theList)
+        if (x[0] == 4)
+            list1.add(x);
     return list1;
-    }
+}
 ```
 
 Este código é simples, mas gera muitas dúvidas:
@@ -42,13 +42,13 @@ Este código é simples, mas gera muitas dúvidas:
 As respostas a essas perguntas não estão presentes no exemplo de código, mas poderiam estar. Digamos que estamos trabalhando em um jogo de vassoura de minas. Podemos refatorar o código anterior da seguinte maneira:
 
 ```java
-public List<int[]> getFlaggedCells() {
-    List<int[]> flaggedCells = new ArrayList<int[]>();
-    for (int[] cell : gameBoard)
-    if (cell[STATUS_VALUE] == FLAGGED)
-    flaggedCells.add(cell);
+public List <int[]> getFlaggedCells() {
+    List <int[]> flaggedCells = new ArrayList<int[]> ();
+    for (int[] cell: gameBoard)
+        if (cell[STATUS_VALUE] == FLAGGED)
+            flaggedCells.add(cell);
     return flaggedCells;
-    }
+}
 ```
 
 Agora sabemos as próximas informações:
@@ -64,11 +64,11 @@ Podemos melhorar o código escrevendo uma classe simples para células em vez de
 ```java
 public List<Cell> getFlaggedCells() {
     List<Cell> flaggedCells = new ArrayList<Cell>();
-    for (Cell cell : gameBoard)
-    if (cell.isFlagged())
-    flaggedCells.add(cell);
+    for (Cell cell: gameBoard)
+        if (cell.isFlagged())
+            flaggedCells.add(cell);
     return flaggedCells;
-    }
+}
 ```
 
 ### Evite Desinformação
@@ -88,9 +88,9 @@ Na próxima função, os argumentos não são informativos, `a1` e `a2` não for
 ```java
 public static void copyChars(char a1[], char a2[]) {
     for (int i = 0; i < a1.length; i++) {
-    a2[i] = a1[i];
+        a2[i] = a1[i];
     }
-    }
+}
 ```
 
 Podemos melhorar o código selecionando nomes de argumentos mais explícitos:
@@ -98,9 +98,9 @@ Podemos melhorar o código selecionando nomes de argumentos mais explícitos:
 ```java
 public static void copyChars(char source[], char destination[]) {
     for (int i = 0; i < source.length; i++) {
-    destination[i] = source[i];
+        destination[i] = source[i];
     }
-    }
+}
 ```
 
 As palavras barulhentas são outra distinção sem sentido. Imagine que você tenha uma classe Produto. Se você tiver outro chamado `ProductInfo` ou `ProductData`, você fez os nomes diferentes sem fazê-los significar algo diferente. Informações e dados são palavras de ruído indistintas como a, an e the.
@@ -117,7 +117,7 @@ class DtaRcrd102 {
   private Date modymdhms;
   private final String pszqint = "102";
   /* ... */
-};
+}
 ```
 
 Para
@@ -128,7 +128,7 @@ class Customer {
   private Date modificationTimestamp;
   private final String recordId = "102";
   /* ... */
-};
+}
 ```
 
 ### Use nomes pesquisáveis
@@ -210,6 +210,6 @@ Em um aplicativo imaginário chamado "Gas Station Deluxe", é uma má ideia pref
 Nomes mais curtos geralmente são melhores do que nomes mais longos, desde que sejam claros. Não adicione mais contexto a um nome do que o necessário.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Blog GeekHunter</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!

@@ -55,13 +55,13 @@ protected abstract Responder responderInstance();
 ```java
 public int compareTo(Object o) {
     if (o instanceof WikiPagePath) {
-    WikiPagePath p = (WikiPagePath) o;
-    String compressedName = StringUtil.join(names, "");
-    String compressedArgumentName = StringUtil.join(p.names, "");
-    return compressedName.compareTo(compressedArgumentName);
+        WikiPagePath p = (WikiPagePath) o;
+        String compressedName = StringUtil.join(names, "");
+        String compressedArgumentName = StringUtil.join(p.names, "");
+        return compressedName.compareTo(compressedArgumentName);
     }
     return 1; // we are greater because we are the right type.
-    }
+}
 ```
 
 #### Esclarecimento
@@ -82,7 +82,7 @@ public void _testWithReallyBigFile() {
     String responseString = output.toString();
     assertSubString("Content-Length: 1000000000", responseString);
     assertTrue(bytesSent > 1000000000);
-    }
+}
 ```
 
 #### TODO Comentários
@@ -95,7 +95,7 @@ caso seguinte, o comentário TODO explica por que a função tem uma implementa�
 // We expect this to go away when we do the checkout model
 protected VersionInfo makeVersion() throws Exception {
     return null;
-    }
+}
 ```
 
 TODOs são trabalhos que o programador acha que devem ser feitos, mas por algum motivo não podem fazer no momento. Pode ser um lembrete para excluir um recurso obsoleto ou um apelo para que outra pessoa analise um problema. Pode ser um pedido para que outra pessoa pense em um nome melhor ou um lembrete para fazer uma alteração que depende de um evento planejado. O que quer que um TODO possa ser, não é uma desculpa para deixar um código ruim no sistema.
@@ -109,8 +109,8 @@ String listItemContent = match.group(3).trim();
 // the trim is real important. It removes the starting
 // spaces that could cause the item to be recognized
 // as another list.
-    new ListItemWidget(this, listItemContent, this.level + 1);
-    return buildList(text.substring(match.end()));
+new ListItemWidget(this, listItemContent, this.level + 1);
+return buildList(text.substring(match.end()));
 ```
 
 #### Javadocs em APIs públicas
@@ -129,14 +129,13 @@ Colocar um comentário apenas porque você acha que deveria ou porque o processo
 public void loadProperties() {
 
     try {
-    String propertiesPath = propertiesLocation + "/" + PROPERTIES_FILE;
-    FileInputStream propertiesStream = new FileInputStream(propertiesPath);
-    loadedProperties.load(propertiesStream);
+        String propertiesPath = propertiesLocation + "/" + PROPERTIES_FILE;
+        FileInputStream propertiesStream = new FileInputStream(propertiesPath);
+        loadedProperties.load(propertiesStream);
+    } catch (IOException e) {
+        // No properties files means all defaults are loaded
     }
-    catch(IOException e) {
-    // No properties files means all defaults are loaded
-    }
-    }
+}
 ```
 
 O que esse comentário no bloco catch significa? Claramente significava algo para o autor, mas o significado não veio muito bem. Aparentemente, se obtivermos uma `IOException`, significa que não havia arquivo de propriedades; e nesse caso todos os padrões são carregados. Mas quem carrega todos os padrões?
@@ -147,12 +146,12 @@ O que esse comentário no bloco catch significa? Claramente significava algo par
 // Utility method that returns when this.closed is true. Throws an exception
 // if the timeout is reached.
 public synchronized void waitForClose(final long timeoutMillis) throws Exception {
-    if(!closed) {
-    wait(timeoutMillis);
-    if(!closed)
-    throw new Exception("MockResponseSender could not be closed");
+    if (!closed) {
+        wait(timeoutMillis);
+        if (!closed)
+            throw new Exception("MockResponseSender could not be closed");
     }
-    }
+}
 ```
 
 A que propósito serve este comentário? Certamente não é mais informativo do que o código. Não justifica o código, nem fornece intenção ou justificativa. Não é mais fácil de ler do que o código. Na verdade, é menos preciso do que o código e induz o leitor a aceitar essa falta de precisão em vez de um verdadeiro entendimento.
@@ -180,7 +179,7 @@ public void addCD(String title, String author, int tracks, int durationInMinutes
     cd.tracks = tracks;
     cd.duration = duration;
     cdList.add(cd);
-    }
+}
 ```
 
 #### Comentários do diário
@@ -189,12 +188,11 @@ public void addCD(String title, String author, int tracks, int durationInMinutes
 
 ```java
 * Changes (from 11-Oct-2001)
-    * --------------------------
-    * 11-Oct-2001 : Re-organised the class and moved it to new package com.jrefinery.date (DG);
-    * 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate class (DG);
-    * 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate class is gone (DG); Changed getPreviousDayOfWeek(),
-    getFollowingDayOfWeek() and getNearestDayOfWeek() to correct bugs (DG);
-    * 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
+* --------------------------
+* 11-Oct-2001 : Re-organised the class and moved it to new package com.jrefinery.date (DG);
+* 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate class (DG);
+* 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate class is gone (DG); Changed getPreviousDayOfWeek(), getFollowingDayOfWeek() and getNearestDayOfWeek() to correct bugs (DG);
+* 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
 ```
 
 Hoje temos sistemas de controle de código fonte, não precisamos desse tipo de logs.
@@ -207,9 +205,9 @@ Os comentários nos exemplos a seguir não fornecem novas informações.
 /**
  * Default constructor.
  */
-protected AnnualDateRule() {
-    }
+protected AnnualDateRule() {}
 ```
+
 
 ```java
 /** The day of the month. */
@@ -232,8 +230,8 @@ vs
 
 ```java
 ArrayList moduleDependees = smodule.getDependSubsystems();
-    String ourSubSystem = subSysMod.getSubSystem();
-    if (moduleDependees.contains(ourSubSystem))
+String ourSubSystem = subSysMod.getSubSystem();
+if (moduleDependees.contains(ourSubSystem))
 ```
 
 #### Marcadores de posição
@@ -250,31 +248,32 @@ Exemplo:
 
 ```java
 public class wc {
-  public static void main(String[] args) {
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    String line;
-    int lineCount = 0;
-    int charCount = 0;
-    int wordCount = 0;
-    try {
-      while ((line = in.readLine()) != null) {
-        lineCount++;
-        charCount += line.length();
-        String words[] = line.split("\\W");
-        wordCount += words.length;
+    public static void main(String[] args) {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String line;
+        int lineCount = 0;
+        int charCount = 0;
+        int wordCount = 0;
+        try {
+            while ((line = in .readLine()) != null) {
+                lineCount++;
+                charCount += line.length();
+                String words[] = line.split("\\W");
+                wordCount += words.length;
 
-      } //while
-      System.out.println("wordCount = " + wordCount);
-      System.out.println("lineCount = " + lineCount);
-      System.out.println("charCount = " + charCount);
+            } //while
+            System.out.println("wordCount = " + wordCount);
+            System.out.println("lineCount = " + lineCount);
+            System.out.println("charCount = " + charCount);
 
-    } // try
-    catch (IOException e) {
-      System.err.println("Error:" + e.getMessage());
+        } // try
+        catch (IOException e) {
+            System.err.println("Error:" + e.getMessage());
 
-    } //catch
+        } //catch
 
-  } //main
+    } //main
+}
 ```
 
 Você pode quebrar o código em pequenas funções para usar esse tipo de comentário.
@@ -291,7 +290,7 @@ Em vez disso, o VCS pode gerenciar essas informações.
 
 ```java
 InputStreamResponse response = new InputStreamResponse();
-    response.setBody(formatter.getResultStream(), formatter.getByteCount());
+response.setBody(formatter.getResultStream(), formatter.getByteCount());
 // InputStream resultsStream = formatter.getResultStream();
 // StreamReader reader = new StreamReader(resultsStream);
 // response.setContent(reader.read(formatter.getByteCount()));
@@ -348,6 +347,6 @@ Funções curtas não precisam de muita descrição. Um nome bem escolhido para 
 Javadocs são para APIs públicas, em código não público pode ser mais uma distração do que uma ajuda.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Blog GeekHunter</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!
