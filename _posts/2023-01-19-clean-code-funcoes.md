@@ -136,6 +136,6 @@ Embora simpatizemos com os objetivos e disciplinas da programação estruturada,
 Portanto, se você mantiver suas funções pequenas, as declarações múltiplas ocasionais `return`, `break` ou `continue` não causam danos e às vezes podem até ser mais expressivas do que a regra de entrada única e saída única. Por outro lado, `goto` só faz sentido em funções grandes, por isso deve ser evitado
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Blog GeekHunter</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!
