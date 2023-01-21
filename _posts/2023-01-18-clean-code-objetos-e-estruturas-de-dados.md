@@ -9,7 +9,7 @@ tags: [clean-code]
 
 ### Abstração de dados
 
-Ocultar a implementação não é apenas uma questão de colocar uma camada de funções entre as variáveis. Ocultar a implementação é sobre abstrações! Uma classe não simplesmente envia suas variáveis ​​por meio de getters e setters. Em vez disso, expõe interfaces abstratas que permitem que seus usuários manipulem a essência dos dados, sem precisar conhecer sua implementação.
+Ocultar a implementação não é apenas uma questão de colocar uma camada de funções entre as variáveis. Ocultar a implementação é sobre abstrações! Uma classe não simplesmente envia suas variáveis por meio de getters e setters. Em vez disso, expõe interfaces abstratas que permitem que seus usuários manipulem a essência dos dados, sem precisar conhecer sua implementação.
 
 ### Anti-simetria de dados/objetos
 

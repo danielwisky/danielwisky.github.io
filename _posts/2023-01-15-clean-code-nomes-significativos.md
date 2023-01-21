@@ -137,7 +137,7 @@ Nomes de uma única letra e constantes numéricas têm um problema específico, 
 
 ### Evite a Codificação
 
-Temos codificações suficientes para lidar sem adicionar mais ao nosso fardo. Codificar informações de tipo ou escopo em nomes simplesmente adiciona uma carga extra de decifração. Nomes codificados raramente são pronunciáveis ​​e são fáceis de digitar incorretamente. Um exemplo disso é o uso da [Notação Húngara](https://en.wikipedia.org/wiki/Hungarian_notation) ou o uso de prefixos de membros.
+Temos codificações suficientes para lidar sem adicionar mais ao nosso fardo. Codificar informações de tipo ou escopo em nomes simplesmente adiciona uma carga extra de decifração. Nomes codificados raramente são pronunciáveis e são fáceis de digitar incorretamente. Um exemplo disso é o uso da [Notação Húngara](https://en.wikipedia.org/wiki/Hungarian_notation) ou o uso de prefixos de membros.
 
 #### Interfaces e Implementações
 
@@ -151,7 +151,7 @@ Uma diferença entre um programador inteligente e um programador profissional é
 
 ### Nomes de classe
 
-Classes e objetos devem ter nomes de substantivos ou frases de substantivos como `Customer`, `WikiPage`, `Account` e `AddressParser`. Evite palavras como `Gerente`, `Processador`, `Dados` ou `Info` no nome de uma classe. Um nome de classe não deve ser um verbo.
+Classes e objetos devem ter nomes de substantivos ou frases de substantivos como `Customer`, `WikiPage`, `Account` e `AddressParser`. Evite palavras como `Manager`, `Processor`, `Data` ou `Info` no nome de uma classe. Um nome de classe não deve ser um verbo.
 
 ### Nomes de métodos
 
@@ -174,10 +174,10 @@ Considere impor seu uso tornando privados os construtores correspondentes.
 ### Não seja fofo
 
 | nome bonito       | Nome limpo    |
-| ----------------- | ------------- |
+| ----------------- |---------------|
 | `holyHandGranade` | `deleteItems` |
-| `bater`           | `matar`       |
-| `eatMyShorts`     | `abortar`     |
+| `whack`           | `kill`        |
+| `eatMyShorts`     | `abort`       |
 
 ### Escolha uma palavra por conceito
 
@@ -187,7 +187,7 @@ Escolha uma palavra para um conceito abstrato e fique com ela. Por exemplo, é c
 
 Evite usar a mesma palavra para dois propósitos. Usar o mesmo termo para duas ideias diferentes é essencialmente um trocadilho.
 
-Exemplo: em uma classe use `add` para criar um novo valor adicionando ou concatenando dois valores existentes e em outra classe use `add` para colocar um parâmetro simples em uma coleção, é uma opção melhor usar um nome como `insert` ou `acrescentar` em vez disso.
+Exemplo: em uma classe use `add` para criar um novo valor adicionando ou concatenando dois valores existentes e em outra classe use `add` para colocar um parâmetro simples em uma coleção, é uma opção melhor usar um nome como `insert` ou `append` em vez disso.
 
 ### Use nomes de domínio de solução
 
@@ -201,7 +201,7 @@ Quando não houver "programmer-eese" para o que você está fazendo, use o nome 
 
 Existem alguns nomes que são significativos por si mesmos - a maioria não é. Em vez disso, você precisa colocar os nomes no contexto para o seu leitor, colocando-os em classes, funções ou namespaces bem nomeados. Quando tudo mais falhar, prefixar o nome pode ser necessário como último recurso
 
-Variáveis como: `firstName`, `lastName`, `street`, `city`, `state`. Juntos, é bastante claro que eles formam um endereço, mas, e se você visse a variável state sendo usada sozinha em um método?, você poderia adicionar contexto usando prefixos como: `addrState` pelo menos os leitores entenderão que a variável faz parte de uma grande estrutura. Claro, uma solução melhor é criar uma classe chamada `Endereço` assim até mesmo o compilador saberá que as variáveis ​​pertencem a um conceito maior
+Variáveis como: `firstName`, `lastName`, `street`, `city`, `state`. Juntos, é bastante claro que eles formam um endereço, mas, e se você visse a variável state sendo usada sozinha em um método?, você poderia adicionar contexto usando prefixos como: `addrState` pelo menos os leitores entenderão que a variável faz parte de uma grande estrutura. Claro, uma solução melhor é criar uma classe chamada `Address` assim até mesmo o compilador saberá que as variáveis pertencem a um conceito maior
 
 ### Não adicione contexto gratuito
 
