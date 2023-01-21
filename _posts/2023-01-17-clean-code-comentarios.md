@@ -35,7 +35,7 @@ Alguns comentários são necessários ou benéficos. No entanto, o único coment
 
 #### Comentários legais
 
-Às vezes, nossos padrões de codificação corporativos nos obrigam a escrever certos comentários por motivos legais. Por exemplo, declarações de direitos autorais e autoria são coisas necessárias e razoáveis ​​para colocar em um comentário no início de cada arquivo de origem.
+Às vezes, nossos padrões de codificação corporativos nos obrigam a escrever certos comentários por motivos legais. Por exemplo, declarações de direitos autorais e autoria são coisas necessárias e razoáveis para colocar em um comentário no início de cada arquivo de origem.
 
 #### Comentários informativos
 
