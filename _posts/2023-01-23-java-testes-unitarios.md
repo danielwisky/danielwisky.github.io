@@ -12,7 +12,7 @@ Os testes unitários são uma técnica crucial na programação orientada a test
 
 Uma das bibliotecas mais populares para testes unitários em Java é o JUnit. Ele fornece uma estrutura de testes fácil de usar, além de recursos para anotar e organizar os testes. Para usar o JUnit, é necessário adicioná-lo como uma dependência no projeto e criar uma classe de teste específica para cada componente ou unidade de código a ser testado.
 
-Para escrever um teste unitário usando o JUnit, é necessário criar uma classe de teste e anotá-la com @Test. Em seguida, é preciso escrever um método de teste dentro dessa classe, onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar uma classe chamada Calculator, pode criar uma classe de teste chamada CalculatorTest e escrever um método de teste chamado testAdd, onde o método add da classe Calculator é chamado e o resultado é comparado com o valor esperado.
+Para escrever um teste unitário usando o JUnit, é necessário criar uma classe de teste e anotá-la com `@Test`. Em seguida, é preciso escrever um método de teste dentro dessa classe, onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar uma classe chamada `Calculator`, pode criar uma classe de teste chamada `CalculatorTest` e escrever um método de teste chamado `testAdd`, onde o método `add` da classe `Calculator` é chamado e o resultado é comparado com o valor esperado.
 
 Exemplo com JUnit:
 
