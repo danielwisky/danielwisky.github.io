@@ -12,7 +12,7 @@ Os testes de integração são uma técnica crucial na programação orientada a
 
 Uma das principais vantagens dos testes de integração é que eles permitem detectar erros que não podem ser encontrados em testes unitários, como problemas de comunicação entre diferentes módulos ou problemas de configuração. Isso é especialmente importante em sistemas complexos ou distribuídos, onde os erros podem ser difíceis de detectar em testes unitários isolados.
 
-Para escrever testes de integração em Java, é necessário criar uma classe de teste e anotá-la com @Test. Em seguida, é preciso escrever um método de teste dentro dessa classe, onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar a integração entre uma classe chamada Calculator e uma classe chamada Database, pode criar uma classe de teste chamada CalculatorDatabaseTest e escrever um método de teste chamado testAdd, onde o método add da classe Calculator é chamado e o resultado é armazenado na classe Database.
+Para escrever testes de integração em Java, é necessário criar uma classe de teste e anotá-la com `@Test`. Em seguida, é preciso escrever um método de teste dentro dessa classe, onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar a integração entre uma classe chamada `Calculator` e uma classe chamada `Database`, pode criar uma classe de teste chamada `CalculatorDatabaseTest` e escrever um método de teste chamado `testAdd`, onde o método `add` da classe `Calculator` é chamado e o resultado é armazenado na classe `Database`.
 
 ```java
 import org.junit.Test;
