@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean code - Objetos e Estruturas de Dados
+title: "Clean code: Objetos e Estruturas de Dados"
 thumbnail-img: /assets/img/thumbs/post-thumb-objetos-e-estrutura-de-dados.png
 tags: [clean-code]
 ---

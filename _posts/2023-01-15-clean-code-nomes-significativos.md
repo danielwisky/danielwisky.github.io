@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean code - Nomes Significativos
+title: "Clean code: Nomes Significativos"
 subtitle: Os nomes estão por toda parte no software. Arquivos, diretórios, variáveis, funções, etc.
 thumbnail-img: /assets/img/thumbs/post-thumb-nomes-significativos.png
 tags: [clean-code]

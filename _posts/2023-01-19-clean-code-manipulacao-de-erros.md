@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean code - Manipulação de erros
+title: "Clean code: Manipulação de erros"
 subtitle: Muitas bases de código são completamente dominadas pelo tratamento de erros.
 thumbnail-img: /assets/img/thumbs/post-thumb-manipulacao-de-erros.png
 tags: [clean-code]
