@@ -82,4 +82,7 @@ Além disso, existem outras técnicas que podem ser usadas para melhorar a confi
 
 É importante lembrar que os testes de mutação não são uma solução mágica para garantir a qualidade do código e não devem ser usados como uma única forma de testar a aplicação. Eles devem ser usados em conjunto com outras técnicas de teste, como testes de unidade, testes de integração e testes de aceitação, para garantir que a aplicação esteja completamente testada e livre de erros.
 
+Fonte:
+<a href="https://openai.com/blog/chatgpt/" target="\_blank">ChatGPT</a>.
+
 Um grande abraço e até o próximo post!
