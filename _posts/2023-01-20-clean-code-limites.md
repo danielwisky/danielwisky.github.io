@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean code - Limites
+title: "Clean code: Limites"
 subtitle: Raramente controlamos todo o software em nossos sistemas.
 thumbnail-img: /assets/img/thumbs/post-thumb-limites.png
 tags: [clean-code]
