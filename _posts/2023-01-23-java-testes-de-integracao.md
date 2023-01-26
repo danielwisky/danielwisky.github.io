@@ -2,7 +2,6 @@
 layout: post
 title: "Java: Testes de Integração"
 subtitle: Garantindo a confiabilidade do seu sistema com testes de integração em Java
-thumbnail-img: /assets/img/thumbs/post-thumb-test-integration.png
 tags: [java, testes-software]
 ---
 
