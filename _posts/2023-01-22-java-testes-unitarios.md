@@ -2,7 +2,6 @@
 layout: post
 title: "Java: Testes Unitários"
 subtitle: Como escrever e executar testes unitários eficazes em Java com JUnit, TestNG, Spock e Mockito.
-thumbnail-img: /assets/img/thumbs/post-thumb-unit-test.png
 tags: [java, testes-software]
 ---
 
