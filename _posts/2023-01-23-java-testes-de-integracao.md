@@ -4,7 +4,7 @@ title: "Java: Testes de Integração"
 subtitle: "Garantindo a confiabilidade do seu sistema com testes de integração em Java"
 cover-img: "/assets/img/default-bg.jpg"
 categories: [Desenvolvimento de Software]
-tags: [Testes de Integração, Testes Automatizados]
+tags: [Java, Testes de Integração, Testes Automatizados]
 ---
 
 ## Testes de Integração: garantindo a confiabilidade do seu sistema

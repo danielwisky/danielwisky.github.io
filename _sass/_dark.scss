@@ -86,6 +86,71 @@
     }
   }
 
+  .search {
+    background: #000;
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .search {
+      background-color: rgba(59, 59, 59, 0.9);
+    }
+  }
+
+  .search__box {
+    .search__close {
+      color: #e1e1e1;
+
+      &:hover {
+        transform: rotate(90deg);
+        color: #fff;
+      }
+    }
+  }
+
+  .search__group {
+    margin-bottom: 30px;
+
+    .search__text {
+      border-bottom: 5px solid #e1e1e1;
+      color: #e1e1e1;
+
+      &::-webkit-input-placeholder {
+        color: #e1e1e1;
+      }
+
+      &::placeholder {
+        color: #e1e1e1;
+      }
+
+      &:focus {
+        color: #e1e1e1;
+        border-bottom-color: #28a9e6;
+      }
+    }
+  }
+
+  .search-results-list {
+    color: #e1e1e1;
+
+    .search-results__item {
+      border-bottom: 1px solid rgba(23, 24, 30, 0.1);
+
+      &:hover {
+        .search-results__link {
+          color: #fff;
+        }
+      }
+    }
+
+    .search-results__link {
+      color: #e1e1e1;
+    }
+
+    .search-results-date {
+      color: #ddd;
+    }
+  }
+
   footer .list-inline-item a {
     color: #626262;
 
