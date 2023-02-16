@@ -3,9 +3,8 @@ layout: null
 sitemap: false
 ---
 
-{% assign counter = 0 %}
 var posts = [{% for post in site.posts %}{
-  'id': {{ counter }}{% assign counter = counter | plus: 1 %},
+  'id': {% increment counter %},
   'title': {{ post.title | jsonify }},
   'subtitle': {{ post.subtitle | jsonify }},
   'link': {{ post.url | absolute_url | jsonify }},
