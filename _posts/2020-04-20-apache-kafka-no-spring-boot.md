@@ -5,7 +5,7 @@ subtitle: "Videoaula sobre Apache Kafka no Spring Boot"
 cover-img: "/assets/img/default-bg.jpg"
 thumbnail-img: "/assets/img/thumbs/post-thumb-kafka.png"
 categories: [Distribuição de Dados]
-tags: [Apache Kafka, Sistemas de mensageria, Spring Boot, Videoaula]
+tags: [Apache Kafka, Sistemas de mensageria, Spring Boot, Java, Videoaula]
 ---
 
 <div class="video-container">
