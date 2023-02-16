@@ -1,0 +1,26 @@
+--- 
+# Only the main Sass file needs front matter (the dashes are enough) 
+--- 
+
+@import 'variables';
+
+// bootstrap
+@import 'bootstrap/bootstrap';
+
+// global CSS
+@import 'global';
+
+// components
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/highlight';
+@import 'components/navbar';
+@import 'components/search';
+@import 'components/social';
+
+// sections
+@import 'sections/footer';
+@import 'sections/masthead';
+@import 'sections/post';
+
+@import 'dark';

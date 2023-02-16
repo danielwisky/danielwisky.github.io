@@ -1,0 +1,5 @@
+{% if paginator.next_page %}
+<div class="pagination">
+  <a class="pagination__next" href="{{ paginator.next_page_path | absolute_url }}">Próxima página &rarr;</a>
+</div>
+{% endif %}

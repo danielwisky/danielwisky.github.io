@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Introdução ao SASS
-subtitle: O que é SASS? O que é SASS e quais suas vantagens para edição de CSS
-cover-img: /assets/img/post-bg-sass.jpg
-thumbnail-img: /assets/img/thumbs/post-thumb-sass.png
+title: "Introdução ao SASS"
+subtitle: "O que é SASS? O que é SASS e quais suas vantagens para edição de CSS"
+cover-img: "/assets/img/post-bg-sass.jpg"
+thumbnail-img: "/assets/img/thumbs/post-thumb-sass.png"
+categories: [Desenvolvimento Web]
 tags: [SASS, CSS]
 ---
 

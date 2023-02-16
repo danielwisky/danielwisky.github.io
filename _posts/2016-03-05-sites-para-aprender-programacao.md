@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Sites para aprender programação
-subtitle: 8 sites para você aprender a programar
-tags: [coletânea, programação]
+title: "Sites para aprender programação"
+subtitle: "8 sites para você aprender a programar"
+cover-img: "/assets/img/default-bg.jpg"
+categories: [Aprendizagem de Programação]
+tags: [Coletânea, Sites Educacionais]
 ---
 
 ## Code Academy

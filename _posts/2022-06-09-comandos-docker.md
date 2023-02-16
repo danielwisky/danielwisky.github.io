@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Comandos Docker
-subtitle: Alguns comandos docker e suas utilizades
-thumbnail-img: /assets/img/thumbs/post-thumb-docker.png
-tags: [docker]
+title: "Comandos Docker"
+subtitle: "Alguns comandos docker e suas utilizades"
+cover-img: "/assets/img/default-bg.jpg"
+thumbnail-img: "/assets/img/thumbs/post-thumb-docker.png"
+categories: [DevOps]
+tags: [Docker]
 ---
 
 ## Comandos Docker

@@ -1,0 +1,178 @@
+//
+// Posts
+//
+
+.section-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 3.75rem;
+}
+
+.caption {
+  font-size: $font-size-sm;
+  font-style: italic;
+  display: block;
+  margin: 0;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+// Styling for post previews on the blog homepage
+
+.post-preview {
+  padding-top: 1.875rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid $border-color;
+
+  > a {
+    color: $gray-900;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      color: $primary;
+    }
+
+    > .post-title {
+      font-size: 1.875rem;
+      margin-bottom: 0.625rem;
+    }
+
+    > .post-subtitle {
+      font-weight: 300;
+      margin-bottom: 0.625rem;
+    }
+  }
+
+  > .post-meta {
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0.625rem;
+    color: $gray-600;
+
+    > a {
+      text-decoration: none;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    > a {
+      > .post-title {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
+
+.post-tags {
+  > a.btn {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-font-size: 0.75rem;
+  }
+}
+
+.tag-btn {
+  margin: 0.3125rem;
+}
+
+.linked-section {
+  padding-top: 2rem;
+}
+
+#full-tags-list {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .tag-entry {
+    margin: 0 0 0.9375rem 1.5625rem;
+    a {
+      font-size: 1.25rem;
+    }
+    .entry-date {
+      color: #808080;
+      font-style: italic;
+      font-size: 1rem;
+    }
+  }
+}
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  &::after {
+    padding-top: 56.25%;
+    display: block;
+    content: "";
+  }
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// loader-ellips
+
+@keyframes reveal {
+  from {
+    transform: scale(0.001);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(1.5em);
+  }
+}
+
+.scroller-status {
+  margin: 2rem 0;
+  color: $gray-600;
+
+  p {
+    text-align: center;
+  }
+}
+
+.loader-ellips {
+  font-size: 20px;
+  position: relative;
+  width: 4em;
+  height: 1em;
+  margin: 10px auto;
+}
+
+.loader-ellips__dot {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  background: #555;
+  position: absolute;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  &:nth-child(1) {
+    left: 0;
+    animation-name: reveal;
+  }
+  &:nth-child(2) {
+    left: 0;
+    animation-name: slide;
+  }
+  &:nth-child(3) {
+    left: 1.5em;
+    animation-name: slide;
+  }
+  &:nth-child(4) {
+    left: 3em;
+    animation-name: reveal;
+    animation-direction: reverse;
+  }
+}

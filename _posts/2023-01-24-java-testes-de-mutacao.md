@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Java: Testes de Mutação"
-subtitle: Aumentando a confiança no código através de testes de mutação em Java
-tags: [java, testes-software]
+subtitle: "Aumentando a confiança no código através de testes de mutação em Java"
+cover-img: "/assets/img/default-bg.jpg"
+categories: [Desenvolvimento de Software]
+tags: [Testes de Mutação, Testes Automatizados]
 ---
 
 ## Testes de mutação em Java: uma técnica avançada para garantir a qualidade do código

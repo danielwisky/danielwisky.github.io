@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Clean code: Funções"
-subtitle: As funções são a primeira linha de organização em qualquer tópico.
-tags: [clean-code]
+subtitle: "As funções são a primeira linha de organização em qualquer tópico."
+cover-img: "/assets/img/default-bg.jpg"
+categories: [Desenvolvimento de Software]
+tags: [Clean Code]
 ---
 
 ## Funções

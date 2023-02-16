@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Desafio Defuse
-subtitle: Desafio de programação para construção de um jogo de adivinhação chamado defuse
-thumbnail-img: /assets/img/thumbs/post-thumb-defuse.png
-tags: [desafios, programação, jogos]
+title: "Desafio Defuse"
+subtitle: "Desafio de programação para construção de um jogo de adivinhação chamado defuse"
+cover-img: "/assets/img/default-bg.jpg"
+thumbnail-img: "/assets/img/thumbs/post-thumb-defuse.png"
+categories: [Programação]
+tags: [Desafio de Programação]
 ---
 
 Neste jogo você acaba de receber um telefonema para desarmar uma bomba que foi colocada em um edifício com um milhão de quartos (100 quartos de largura, 100 quartos de comprimento e 100 quartos de altura).
