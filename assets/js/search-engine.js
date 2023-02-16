@@ -9,6 +9,7 @@ var posts = [{% for post in site.posts %}{
   'title': {{ post.title | jsonify }},
   'subtitle': {{ post.subtitle | jsonify }},
   'link': {{ post.url | absolute_url | jsonify }},
+  {% if post.thumbnail-img %}'thumb': {{ post.thumbnail-img | absolute_url | jsonify }},{% endif %}
   'date': "{% include date-pt-br.html date = post.date %}",
   'datetime' : {{ post.date | date_to_xmlschema | jsonify }},
   'categories': {{ post.categories | jsonify }},
@@ -61,6 +62,14 @@ function createResultItem(ref) {
   let resultLink = document.createElement("a");
   let resultDate = document.createElement("span");
   let resultTime = document.createElement("time");
+
+  if (posts[ref].thumb) {
+    let resultThumb = document.createElement("a");
+    resultThumb.classList.add("search-results__image");
+    resultThumb.setAttribute("href", posts[ref].link);
+    resultThumb.setAttribute("style", "background-image: url(" + posts[ref].thumb + ");");
+    resultItem.append(resultThumb);
+  }
 
   resultTime.textContent = posts[ref].date;
   resultTime.setAttribute("datetime", posts[ref].datetime);
