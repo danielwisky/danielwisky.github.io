@@ -123,7 +123,4 @@ Finalmente, podemos excluir o usuário com uma solicitação DELETE para http://
 
 O DynamoDB é um banco de dados NoSQL altamente escalável e gerenciado fornecido pela AWS. Ele oferece um armazenamento de chave-valor flexível e confiável com escalabilidade automática e alta disponibilidade. Neste artigo, criamos um exemplo simples de implementação do DynamoDB usando o Spring Boot e o Java. Criamos uma tabela de usuários e realizamos operações básicas de CRUD na tabela usando um controlador REST e um repositório Spring Data JPA. Com o DynamoDB e o Spring Boot, podemos criar aplicativos altamente escaláveis e flexíveis com facilidade.
 
-Fonte:
-<a href="https://openai.com/blog/chatgpt/" target="\_blank">ChatGPT</a>.
-
 Um grande abraço e até o próximo post!

@@ -90,7 +90,4 @@ public class CalculatorTest {
 
 Em resumo, os testes unitários são uma técnica fundamental para garantir a qualidade e a confiabilidade do código. No Java, existem várias bibliotecas e ferramentas disponíveis, como JUnit, TestNG, Spock e Mockito, que ajudam a escrever e executar testes unitários de forma eficaz. Ao escrever testes unitários para cada componente ou unidade de código, os desenvolvedores podem detectar e corrigir erros rapidamente, garantindo a confiabilidade do código e melhorando a qualidade do software. É importante lembrar que escrever testes unitários é uma prática essencial para o desenvolvimento de software de qualidade.
 
-Fonte:
-<a href="https://openai.com/blog/chatgpt/" target="\_blank">ChatGPT</a>.
-
 Um grande abraço e até o próximo post!
