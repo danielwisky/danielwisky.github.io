@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Riscos de segurança em aplicações Web
-subtitle: Os 10 riscos de segurança mais críticas em aplicações WEB
-cover-img: /assets/img/post-bg-risco.jpg
-thumbnail-img: /assets/img/thumbs/post-thumb-risco.png
-tags: [segurança]
+title: "Riscos de segurança em aplicações Web"
+subtitle: "Os 10 riscos de segurança mais críticas em aplicações WEB"
+cover-img: "/assets/img/post-bg-risco.jpg"
+thumbnail-img: "/assets/img/thumbs/post-thumb-risco.png"
+categories: [Segurança da Informação]
+tags: [Segurança]
 ---
 
 ## Introdução

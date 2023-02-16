@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Desafio Recomendador de Amigos
-subtitle: Desafio de programação para construção de um sistema de recomendação de amigos
-thumbnail-img: /assets/img/thumbs/post-thumb-amigos.png
-tags: [desafios, programação]
+title: "Desafio Recomendador de Amigos"
+subtitle: "Desafio de programação para construção de um sistema de recomendação de amigos"
+cover-img: "/assets/img/default-bg.jpg"
+thumbnail-img: "/assets/img/thumbs/post-thumb-amigos.png"
+categories: [Programação]
+tags: [Desafio de Programação]
 ---
 
 Você deve implementar um sistema que permita que uma pessoa obtenha sugestões de novos amigos se baseando nas amizades já existentes.

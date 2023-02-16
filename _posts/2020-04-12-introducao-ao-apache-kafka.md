@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Introdução ao Apache Kafka
-subtitle: Videoaula sobre Apache Kafka
-thumbnail-img: /assets/img/thumbs/post-thumb-kafka.png
-tags: [kafka, videoaula]
+title: "Introdução ao Apache Kafka"
+subtitle: "Videoaula sobre Apache Kafka"
+cover-img: "/assets/img/default-bg.jpg"
+thumbnail-img: "/assets/img/thumbs/post-thumb-kafka.png"
+categories: [Distribuição de Dados]
+tags: [Apache Kafka, Sistemas de mensageria, Videoaula]
 ---
 
 <div class="video-container">

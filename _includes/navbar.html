@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="{{ '' | absolute_url }}">{{ site.title }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Alternar de navegação">Menu<i class="fas fa-bars"></i></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto py-4 py-lg-0">
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/' | relative_url }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/sobre' | relative_url }}">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/contato' | relative_url }}">Contato</a></li>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3 py-3 py-lg-4" id="nav-search-link" href="#" title="Pesquisar">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Pesquisar</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3 py-3 py-lg-4" id="nav-change-theme-link" href="#" title="Alterar tema">
+            <span id="nav-change-theme-icon" class="fa fa-moon"></span>
+            <span id="nav-change-theme-text">Alterar tema</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

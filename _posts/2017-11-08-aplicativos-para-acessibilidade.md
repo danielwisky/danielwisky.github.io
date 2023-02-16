@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Aplicativos para acessibilidade
-subtitle: 10 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência.
-tags: [coletânea, acessibilidade]
+title: "Aplicativos para acessibilidade"
+subtitle: "10 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência."
+cover-img: "/assets/img/default-bg.jpg"
+categories: [Acessibilidade]
+tags: [Coletânea, Aplicativos para acessibilidade]
 ---
 
 ## WhatsCine

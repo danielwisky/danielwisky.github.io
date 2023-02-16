@@ -1,0 +1,100 @@
+//
+// Dark Mode
+//
+
+.dark {
+  color: #e1e1e1;
+  background-color: #222;
+
+  a {
+    color: #e1e1e1;
+    &:hover,
+    &:focus {
+      color: #28a9e6;
+    }
+  }
+
+  #mainNav {
+    background-color: rgba(59, 59, 59, 1);
+    border-color: rgba(250, 250, 250, 0.125);
+
+    a {
+      color: rgba(250, 250, 250, 1);
+      &:focus,
+      &:hover {
+        color: #28a9e6;
+      }
+    }
+
+    button {
+      color: rgba(250, 250, 250, 1);
+      border-color: rgba(250, 250, 250, 0.125);
+    }
+
+    .navbar-brand {
+      color: rgba(250, 250, 250, 1);
+      &:focus,
+      &:hover {
+        color: #28a9e6;
+      }
+    }
+
+    .navbar-nav {
+      > li.nav-item {
+        > a {
+          color: rgba(250, 250, 250, 1);
+
+          &:focus,
+          &:hover {
+            color: #28a9e6;
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      border-bottom: $border-width solid transparent;
+      background: transparent;
+    }
+
+    @include media-breakpoint-up(lg) {
+      &.is-fixed {
+        background-color: rgba(59, 59, 59, 1);
+        border-color: rgba(250, 250, 250, 0.125);
+      }
+    }
+  }
+
+  .post-preview {
+    border-color: rgba(250, 250, 250, 0.125);
+  }
+
+  .btn-outline-dark {
+    border-color: #e1e1e1;
+    &:hover {
+      border-color: #28a9e6;
+      background-color: #28a9e6;
+      color: #222;
+    }
+  }
+
+  .back-to-top {
+    background: #626262;
+
+    &:hover {
+      background-color: #28a9e6;
+    }
+  }
+
+  footer .list-inline-item a {
+    color: #626262;
+
+    &:hover {
+      color: #28a9e6;
+    }
+  }
+
+  .border-top {
+    border-color: rgba(250, 250, 250, 0.125) !important;
+  }
+}

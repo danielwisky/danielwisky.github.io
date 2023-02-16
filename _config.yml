@@ -1,107 +1,63 @@
 title: Daniel Wisky
-author: Daniel Wisky
-favicon: "/assets/img/favicon.ico"
-
+email: daniel-ddw@hotmail.com
+description: "Blog de Tecnologia"
 baseurl: ""
 url: https://danielwisky.com.br
 
-navbar-links:
-  Home: "https://danielwisky.com.br"
-  Sobre: "sobre"
-  Contato: "contato"
+sass:
+  style: compressed
 
-# --- Footer social media links --- #
-social-network-links:
-  rss: true
-  linkedin: danielwisky
-  youtube: c/DanielWisky
-  github: danielwisky
-  email: "daniel-ddw@hotmail.com"
-
-# If you want your website to generate an RSS feed, provide a description
-rss-description: blog e site pessoal
-
-# --- General options --- #
-share-links-active:
-  twitter: true
-  facebook: true
-  linkedin: true
-  vk: false
-
-# How to display the link to your website in the footer
-url-pretty: "danielwisky.com.br"
-
-# Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
-excerpt_length: 50
-
-# Whether or not to show an excerpt for every blog post in the feed page
-feed_show_excerpt: false
-
-# Whether or not to show a list of tags below each post preview in the feed page
-feed_show_tags: true
-
-# Add a search button to the navbar
-post_search: true
-
-# --- Colours / background image --- #
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
-
-# --- Web Analytics Section --- #
-
-# Fill in your Google Analytics ID to track your website using Google Analytics
-google_analytics: "G-R9ZHFE3RQ5"
-
-# --- Comments --- #
-# To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-disqus: "danielwisky"
-
-# Output options (more information on Jekyll's site)
+# output options (more information on Jekyll's site)
 markdown: kramdown
 highlighter: rouge
-permalink: /:year-:month-:day-:title/
-paginate_path: /page/:num/
+permalink: "/:year-:month-:day-:title/"
+paginate_path: "/page/:num/"
 paginate: 10
 
 kramdown:
   input: GFM
 
-# Default YAML values (more information on Jekyll's site)
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
-      path: "" # any file that's not a post will be a "page" layout by default
-    values:
-      layout: "page"
+# fill in your Google Analytics ID to track your website using Google Analytics
+google_analytics: "G-R9ZHFE3RQ5"
 
-sass:
-  style: compressed
+# to use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
+disqus: "danielwisky"
 
-# Exclude these files from production site
+# --- footer social media links --- #
+social-network-links:
+  - name: "RSS"
+    url: "https://danielwisky.com.br/feed.xml"
+    icon: "fas fa-rss"
+  - name: "Me mande um e-mail"
+    url: "mailto:daniel-ddw@hotmail.com"
+    icon: "fas fa-envelope"
+  - name: "GitHub"
+    url: "https://github.com/danielwisky"
+    icon: "fab fa-github"
+  - name: "LinkedIn"
+    url: "https://www.linkedin.com/in/danielwisky"
+    icon: "fab fa-linkedin"
+  - name: "YouTube"
+    url: "https://www.youtube.com/c/DanielWisky"
+    icon: "fab fa-youtube"
+
+# archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: 'archive'
+  permalinks:
+    category: '/categorias/:name/'
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+
 exclude:
   - CNAME
   - Gemfile
   - Gemfile.lock
   - README.md
-  - beautiful-jekyll-theme.gemspec
-
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap

@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "Clean code: Objetos e Estruturas de Dados"
-tags: [clean-code]
+subtitle: "Ocultar a implementação não é apenas uma questão de colocar uma camada de funções entre as variáveis. Ocultar a implementação é sobre abstrações!"
+cover-img: "/assets/img/default-bg.jpg"
+categories: [Desenvolvimento de Software]
+tags: [Clean Code]
 ---
 
 ## Objetos e Estruturas de Dados
