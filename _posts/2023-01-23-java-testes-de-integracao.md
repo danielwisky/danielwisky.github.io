@@ -97,7 +97,4 @@ public class CalculatorDatabaseTest {
 
 É importante lembrar que escrever testes de integração é uma prática importante para garantir a confiabilidade do sistema, especialmente em sistemas complexos ou distribuídos. Com o uso das bibliotecas e ferramentas disponíveis para testes de integração em Java, os desenvolvedores podem escrever e executar testes de forma fácil e eficaz.
 
-Fonte:
-<a href="https://openai.com/blog/chatgpt/" target="\_blank">ChatGPT</a>.
-
 Um grande abraço e até o próximo post!
