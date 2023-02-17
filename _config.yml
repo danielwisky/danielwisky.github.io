@@ -1,8 +1,9 @@
 title: Daniel Wisky
 email: daniel-ddw@hotmail.com
-description: "Blog de Tecnologia"
+description: "Conteúdos sobre Desenvolvimento e Tecnologia"
 baseurl: ""
 url: https://danielwisky.com.br
+lang: pt-BR
 
 sass:
   style: compressed
