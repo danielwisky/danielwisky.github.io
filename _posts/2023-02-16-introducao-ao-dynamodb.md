@@ -32,16 +32,16 @@ Depois de criar o projeto, podemos adicionar uma nova classe chamada User, que r
 @DynamoDBTable(tableName = "users")
 public class User {
 
-    @DynamoDBHashKey(attributeName = "userId")
-    private String userId;
+  @DynamoDBHashKey(attributeName = "userId")
+  private String userId;
 
-    @DynamoDBAttribute(attributeName = "firstName")
-    private String firstName;
+  @DynamoDBAttribute(attributeName = "firstName")
+  private String firstName;
 
-    @DynamoDBAttribute(attributeName = "lastName")
-    private String lastName;
+  @DynamoDBAttribute(attributeName = "lastName")
+  private String lastName;
 
-    // getters and setters
+  // getters and setters
 }
 ```
 
