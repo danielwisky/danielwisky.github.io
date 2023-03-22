@@ -1,8 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/4.0.1/infinite-scroll.pkgd.min.js" integrity="sha512-R50vU2SAXi65G4oojvP1NIAC+0WsUN2s+AbkXqoX48WN/ysG3sJLiHuB1yBGTggOu8dl/w2qsm8x4Xr8D/6Hug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="{{'/assets/js/search-engine.js' | relative_url }}"></script>
-<script src="{{'/assets/js/main.min.js' | relative_url }}"></script>
+<script src="{{'/assets/js/search-engine.js' | relative_url }}?v={{ site.time | date: '%Y-%m-%d' }}"></script>
+<script src="{{'/assets/js/main.min.js' | relative_url }}?v={{ site.time | date: '%Y-%m-%d' }}"></script>
 {% if page.url == "/contato/" | prepend: {{site.baseurl}} %}
-<script src="{{ '/assets/js/contact.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/contact.min.js' | relative_url }}?v={{ site.time | date: '%Y-%m-%d' }}"></script>
 {% endif %}
