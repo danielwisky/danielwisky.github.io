@@ -94,6 +94,8 @@
     font-family: $headings-font-family;
     padding: 0.25em 0.65em;
     font-size: 0.75em;
+    display: inline-block;
+    margin-bottom: 0.3125rem;
 
     @include pixel-box(
       $corner-size: 1,
