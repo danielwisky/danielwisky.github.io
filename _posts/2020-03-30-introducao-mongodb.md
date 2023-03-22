@@ -3,7 +3,6 @@ layout: post
 title: "Introdução ao MongoDB"
 subtitle: "Videoaula sobre MongoDB"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-mongodb.png"
 categories: [Banco de Dados]
 tags: [MongoDB, noSQL, Videoaula]
 ---

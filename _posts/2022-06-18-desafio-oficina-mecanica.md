@@ -3,7 +3,6 @@ layout: post
 title: "Desafio da Oficina Mecânica"
 subtitle: "Desafio de programação para construção de um sistema para uma oficina mecânica"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-oficina.png"
 categories: [Programação]
 tags: [Desafio de Programação]
 ---

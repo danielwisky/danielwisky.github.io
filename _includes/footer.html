@@ -1,4 +1,4 @@
-<footer class="border-top">
+<footer>
   <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
@@ -6,10 +6,7 @@
           {% for social in site.social-network-links %}
           <li class="list-inline-item">
             <a href="{{ social.url }}" title="{{ social.name }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="{{ social.icon }} fa-stack-1x fa-inverse"></i>
-              </span>
+              <i class="{{ social.icon }}"></i>
               <span class="sr-only">{{ social.name }}</span>
             </a>
           </li>

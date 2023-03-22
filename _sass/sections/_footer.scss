@@ -3,6 +3,30 @@
 //
 
 footer {
+  border-top: 4px solid $border-color;
   padding-top: 3rem;
   padding-bottom: 3rem;
+
+  .list-inline {
+    .list-inline-item {
+      a {
+        width: 2.5em;
+        line-height: 2em;
+        font-size: 1em;
+        display: block;
+        color: $white;
+        @include pixel-box(
+          $corner-size: 1,
+          $border-size: 4px,
+          $background-color: #209cee,
+          $border-inset: true
+        );
+
+        &:focus,
+        &:hover {
+          background-color: #1190e3;
+        }
+      }
+    }
+  }
 }

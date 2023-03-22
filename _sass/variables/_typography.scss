@@ -4,13 +4,8 @@
 
 // Override Bootstrap typography variables
 
-$font-family-base: "Lora", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-$headings-font-family: "Open Sans", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-base: 'Lora', serif;
+$headings-font-family: 'Chakra Petch', sans-serif;
 
 // Links
 $link-color: $gray-900;

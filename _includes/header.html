@@ -9,7 +9,7 @@
           <span class="subheading">{{ page.subtitle }}</span>
           {% endif %}
           {% if include.type == "post" %}
-          <span class="meta">Postado em {% include date-pt-br.html date = page.date %}</span>
+          <span class="meta">{% include date-pt-br.html date = page.date %}</span>
           {% endif %}
         </div>
       </div>

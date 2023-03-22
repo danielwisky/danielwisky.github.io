@@ -1,22 +1,15 @@
 <article class="post-preview">
-  {% if post.thumbnail-img %}
-  <div class="post-image post-image-normal">
-    <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
-      <img src="{{ post.thumbnail-img | absolute_url }}" alt="Post thumbnail">
-    </a>
-  </div>
-  {% endif %}
   <a href="{{ post.url | absolute_url }}">
     <h2 class="post-title">{{ post.title | strip_html }}</h2>
     <h3 class="post-subtitle">{{ post.subtitle | strip_html }}</h3>
   </a>
   <p class="post-meta">
-    Postado em {% include date-pt-br.html date = post.date %} · {% include reading-time.html content=post.content %}
+    {% include date-pt-br.html date = post.date %} · {% include reading-time.html content=post.content %}
   </p>
   <div class="post-tags">
     {% assign tags = post.tags | sort_natural %}
     {% for tag in tags %}
-      <a href="/tags#{{ tag | slugify }}" class="btn btn-outline-dark rounded-pill">{{ tag }}</a>
+      <a href="/tags#{{ tag | slugify }}">{{ tag }}</a>
     {% endfor %}
   </div>
 </article>

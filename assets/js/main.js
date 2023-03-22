@@ -36,42 +36,6 @@
   });
 
   /*
-   * Change Theme
-   */
-  const changeThemeLink = document.getElementById("nav-change-theme-link");
-  const changeThemeIcon = document.getElementById("nav-change-theme-icon");
-
-  if (typeof(Storage) !== "undefined" && localStorage.getItem("theme") == "dark") {
-    changeToDarkTheme();
-  }
-
-  changeThemeLink.onclick = function() {
-    if (changeThemeIcon.classList.contains("fa-moon")) {
-      changeToDarkTheme();
-      if (typeof(Storage) !== "undefined") {
-        localStorage.setItem("theme", "dark");
-      }
-    } else {
-      changeToLightTheme();
-      if (typeof(Storage) !== "undefined") {
-        localStorage.setItem("theme", "light");
-      }
-    }
-  };
-
-  function changeToLightTheme() {
-    changeThemeIcon.classList.add("fa-moon");
-    changeThemeIcon.classList.remove("fa-sun");
-    document.body.classList.remove("dark");
-  }
-
-  function changeToDarkTheme() {
-    changeThemeIcon.classList.remove("fa-moon");
-    changeThemeIcon.classList.add("fa-sun");
-    document.body.classList.add("dark");
-  }
-
-  /*
    * Search Box
    */
   const searchBox = document.getElementById("search-box");

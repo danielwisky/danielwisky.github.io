@@ -3,7 +3,6 @@ layout: post
 title: "Stream API e Funções Lambda no Java 8"
 subtitle: "Videoaula sobre Stream API e Funções Lambda no Java 8"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-java.png"
 categories: [Programação]
 tags: [Java, Stream API]
 ---

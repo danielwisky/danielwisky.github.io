@@ -3,7 +3,6 @@ layout: post
 title: "Processamento em lote no Kafka"
 subtitle: "Videoaula sobre Processamento em lote no Kafka"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-kafka.png"
 categories: [Distribuição de Dados]
 tags: [Apache Kafka, Sistemas de mensageria, Videoaula]
 ---
