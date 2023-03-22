@@ -9,24 +9,30 @@
 }
 
 .back-to-top {
-  position: fixed;
+  position: fixed !important;
   visibility: hidden;
   opacity: 0;
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: $gray-900;
+  //background: $gray-900;
   width: 40px;
   height: 40px;
-  border-radius: 50px;
   transition: all 0.4s;
+
+  @include pixel-box(
+    $corner-size: 1,
+    $border-size: 4px,
+    $background-color: #e76e55,
+    $border-inset: true
+  );
+
   i {
     color: $white;
     line-height: 0;
   }
   &:hover {
-    background: $primary;
-    color: #fff;
+    background: #e45b3f;
   }
 }
 

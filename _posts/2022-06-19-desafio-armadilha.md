@@ -3,7 +3,6 @@ layout: post
 title: "Desafio Armadilha"
 subtitle: "Desafio de programação para construção de um jogo de adivinhação chamado armadilha"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-armadilha.png"
 categories: [Programação]
 tags: [Desafio de Programação]
 ---

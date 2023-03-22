@@ -7,6 +7,13 @@
 // bootstrap
 @import 'bootstrap/bootstrap';
 
+// pixel-borders
+@import 'pixel-borders/pixel-borders-mixins';
+
+// nostalgic-css
+@import 'nostalgic-css/utilities/icon-mixin';
+@import 'nostalgic-css/icons';
+
 // global CSS
 @import 'global';
 
@@ -19,8 +26,7 @@
 @import 'components/social';
 
 // sections
+@import 'sections/contact';
 @import 'sections/footer';
 @import 'sections/masthead';
 @import 'sections/post';
-
-@import 'dark';

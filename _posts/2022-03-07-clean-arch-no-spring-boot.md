@@ -3,7 +3,6 @@ layout: post
 title: "Clean Arch no Spring Boot"
 subtitle: "Videoaula sobre Clean Arch no Spring Boot"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-spring-boot.png"
 categories: [Arquitetura de Software]
 tags: [Clean Architecture, Arquitetura Limpa, Spring Boot, Java, Videoaula]
 ---

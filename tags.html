@@ -13,7 +13,7 @@ cover-img: "/assets/img/default-bg.jpg"
 {%- assign tags_list = site_tags | split:',' | sort -%}
 
 {%- for tag in tags_list -%}
-<a href="#{{- tag | slugify -}}" class="btn btn-primary btn-sm tag-btn rounded-pill">
+<a href="#{{- tag | slugify -}}" class="btn btn-sm tag-btn">
   <i class="fas fa-tag" aria-hidden="true"></i>&nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})
 </a>
 {%- endfor -%}

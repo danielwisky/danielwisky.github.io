@@ -12,7 +12,7 @@ layout: default
         <div class="post-tags">
           {% assign tags = page.tags | sort_natural %}
           {% for tag in tags %}
-          <a href="/tags#{{ tag | slugify }}" class="btn btn-outline-dark rounded-pill">{{ tag }}</a>
+          <a href="/tags#{{ tag | slugify }}">{{ tag }}</a>
           {% endfor %}
         </div>
         <br />

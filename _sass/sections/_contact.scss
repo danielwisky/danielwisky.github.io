@@ -1,0 +1,20 @@
+//
+// Contact
+//
+
+#contactForm {
+  .btn {
+    color: $white;
+    @include pixel-box(
+      $corner-size: 1,
+      $border-size: 4px,
+      $background-color: #209cee,
+      $border-inset: true
+    );
+
+    &:focus,
+    &:hover {
+      background-color: #1190e3;
+    }
+  }
+}

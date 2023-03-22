@@ -27,6 +27,6 @@ cover-img: "/assets/img/contato-bg.jpg"
       <div class="invalid-feedback">Mensagem é obrigatório.</div>
     </div>
     <br/>
-    <button class="btn btn-primary text-uppercase" type="submit">Enviar</button>
+    <button class="btn text-uppercase" type="submit">Enviar</button>
   </form>
 </div>

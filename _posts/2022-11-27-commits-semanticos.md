@@ -3,7 +3,6 @@ layout: post
 title: "Commits Semânticos"
 subtitle: "O que é Commit e como usar Commits Semânticos?"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-git.png"
 categories: [Desenvolvimento de Software]
 tags: [Commits, Boas Práticas de Commits]
 ---

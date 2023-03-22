@@ -3,7 +3,6 @@ layout: post
 title: "Redis, uma breve introdução"
 subtitle: "Introdução ao Redis, o NoSQL chave-valor mais famoso"
 cover-img: "/assets/img/default-bg.jpg"
-thumbnail-img: "/assets/img/thumbs/post-thumb-redis.png"
 categories: [Banco de Dados]
 tags: [Redis, noSQL]
 ---
