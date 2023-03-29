@@ -1,1 +1,16 @@
-(()=>{'use strict';const a=document.querySelectorAll(".needs-validation");Array.from(a).forEach(a=>{a.addEventListener("submit",b=>{a.checkValidity()||(b.preventDefault(),b.stopPropagation()),a.classList.add("was-validated")},!1)})})();
+(() => {
+  'use strict'
+
+  const forms = document.querySelectorAll('.needs-validation');
+
+  // loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})();
