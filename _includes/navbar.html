@@ -5,16 +5,27 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ms-auto py-4 py-lg-0">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/' | relative_url }}">Home</a></li>
         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/sobre' | relative_url }}">Sobre</a></li>
         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/contato' | relative_url }}">Contato</a></li>
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" id="nav-search-link" href="#" title="Pesquisar">
-            <span id="nav-search-icon" class="fa fa-search"></span>
-            <span id="nav-search-text">Pesquisar</span>
+            <span id="nav-search-icon" class="nav-icon fa fa-search"></span>
+            <span id="nav-search-text" class="nav-icon-text">Pesquisar</span>
           </a>
         </li>
+      </ul>
+      <ul class="navbar-nav sm-icons">
+        {% assign filtered_social_links_narvar = site.social-network-links | where:"display","navbar" %}
+        {% for social in filtered_social_links_narvar %}
+        <li>
+          <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}" target="_blank">
+            <span class="nav-icon {{ social.icon }}"></span>
+            <span class="nav-icon-text">{{ social.name }}</span>
+          </a>
+        </li>
+        {% endfor %}
       </ul>
     </div>
   </div>

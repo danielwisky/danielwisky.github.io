@@ -29,18 +29,23 @@ social-network-links:
   - name: "RSS"
     url: "https://danielwisky.com.br/feed.xml"
     icon: "fas fa-rss"
+    display: ["footer"]
   - name: "Me mande um e-mail"
     url: "mailto:daniel-ddw@hotmail.com"
     icon: "fas fa-envelope"
+    display: ["footer"]
   - name: "GitHub"
     url: "https://github.com/danielwisky"
     icon: "fab fa-github"
+    display: ["footer", "navbar"]
   - name: "LinkedIn"
     url: "https://www.linkedin.com/in/danielwisky"
     icon: "fab fa-linkedin"
+    display: ["footer", "navbar"]
   - name: "YouTube"
     url: "https://www.youtube.com/c/DanielWisky"
     icon: "fab fa-youtube"
+    display: ["footer", "navbar"]
 
 # archives
 jekyll-archives:
