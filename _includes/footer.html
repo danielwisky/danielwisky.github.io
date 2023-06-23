@@ -3,9 +3,10 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <ul class="list-inline text-center">
-          {% for social in site.social-network-links %}
+          {% assign filtered_social_links_footer = site.social-network-links | where:"display","footer" %}
+          {% for social in filtered_social_links_footer %}
           <li class="list-inline-item">
-            <a href="{{ social.url }}" title="{{ social.name }}">
+            <a href="{{ social.url }}" title="{{ social.name }}" target="_blank">
               <i class="{{ social.icon }}"></i>
               <span class="sr-only">{{ social.name }}</span>
             </a>

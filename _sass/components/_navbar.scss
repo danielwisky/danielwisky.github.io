@@ -36,6 +36,13 @@
     }
   }
 
+  .nav-icon-text {
+    font-size: 0.75rem;
+    font-weight: $headings-font-weight;
+    letter-spacing: 0.0625em;
+    text-transform: uppercase;
+  }
+
   // Desktop only styling for the navbar
   // Set to large breakpoint and up (this should always match the .navbar-expand-* class
 
@@ -53,7 +60,7 @@
     }
 
     .navbar-nav {
-      > li.nav-item {
+      > li {
         > a.nav-link {
           color: $white;
 
@@ -101,7 +108,7 @@
       }
 
       .navbar-nav {
-        > li.nav-item {
+        > li {
           > a {
             color: $body-color;
 
@@ -125,33 +132,19 @@
   }
 }
 
-#nav-search-icon {
+.nav-icon {
   display: inline-block;
 }
 
-#nav-change-theme-icon {
-  display: inline-block;
-}
-
-#nav-search-text {
-  display: none;
-}
-
-#nav-change-theme-text {
+.nav-icon-text {
   display: none;
 }
 
 @media (max-width: 1199px) {
-  #nav-search-icon {
+  .nav-icon {
     display: none;
   }
-  #nav-search-text {
-    display: inline-block;
-  }
-  #nav-change-theme-icon {
-    display: none;
-  }
-  #nav-change-theme-text {
+  .nav-icon-text {
     display: inline-block;
   }
 }
