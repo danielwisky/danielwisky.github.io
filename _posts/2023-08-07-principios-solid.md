@@ -7,11 +7,9 @@ categories: [Desenvolvimento de Software]
 tags: [Java, SOLID]
 ---
 
-# Introdução
-
 A Programação Orientada a Objetos (POO) tem sido a pedra angular do desenvolvimento de software há décadas, permitindo a criação de sistemas complexos e organizados. No entanto, à medida que os projetos crescem em escopo e complexidade, a manutenção e extensão do código podem se tornar um desafio. É aqui que entram os princípios SOLID, um conjunto de diretrizes que visam fortalecer a estrutura do código, tornando-o mais modular, flexível e de fácil manutenção.
 
-### Os cinco princípios SOLID
+Os cinco princípios SOLID:
 
 1. [S — Single Responsiblity Principle (Princípio da responsabilidade única)](#princípio-da-responsabilidade-única-srp---single-responsibility-principle)
 2. [O — Open-Closed Principle (Princípio Aberto-Fechado)](#princípio-do-abertofechado-ocp---openclosed-principle)
@@ -20,6 +18,7 @@ A Programação Orientada a Objetos (POO) tem sido a pedra angular do desenvolvi
 5. [D — Dependency Inversion Principle (Princípio da inversão da dependência)](#princípio-da-inversão-de-dependência-dip---dependency-inversion-principle)
 
 Neste artigo, mergulharemos profundamente em cada um desses princípios, explorando suas definições e fornecendo exemplos práticos em Java para ilustrar como eles podem ser aplicados de forma eficaz. Ao final desta jornada, você estará pronto para aproveitar ao máximo esses princípios para aprimorar a qualidade e a manutenibilidade do seu código orientado a objetos.
+
 
 ## Princípio da Responsabilidade Única (SRP - Single Responsibility Principle)
 
@@ -46,6 +45,7 @@ class ImpressoraPedido {
   public void imprimirPedido(Pedido pedido) { /* lógica para imprimir o pedido */ }
 }
 ```
+
 
 ## Princípio do Aberto/Fechado (OCP - Open/Closed Principle)
 
@@ -81,6 +81,7 @@ class GeradorRelatorioVip implements GeradorRelatorio {
 }
 ```
 
+
 ## Princípio da Substituição de Liskov (LSP - Liskov Substitution Principle)
 
 O LSP afirma que um objeto de uma classe derivada deve ser capaz de ser substituído por um objeto de sua classe base sem afetar a corretude do programa. Isso garante que as classes derivadas não alterem o comportamento esperado da classe base.
@@ -108,6 +109,7 @@ class Circulo implements Forma {
   public double calcularArea() { /* lógica para calcular a área do círculo */ }
 }
 ```
+
 
 ## Princípio da Segregação de Interface (ISP - Interface Segregation Principle)
 
@@ -140,6 +142,7 @@ class Telefone implements Ligavel, Comunicavel {
   public void fazerChamada() { /* lógica para fazer chamada pelo telefone */ }
 }
 ```
+
 
 ## Princípio da Inversão de Dependência (DIP - Dependency Inversion Principle)
 
@@ -186,6 +189,7 @@ class UsuarioService {
   }
 }
 ```
+
 
 # Conclusão
 
