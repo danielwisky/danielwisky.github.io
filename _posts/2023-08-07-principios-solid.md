@@ -51,32 +51,65 @@ class ImpressoraPedido {
 O OCP (*Princípio do Aberto/Fechado*) declara que uma classe deve estar aberta para extensão, mas fechada para modificação. Isso significa que você deve ser capaz de adicionar novos comportamentos ou funcionalidades sem alterar o código existente.
 
 ```java
-// Violando o Princípio do Aberto/Fechado
-class GeradorRelatorio {
-  public void gerarRelatorio(Cliente cliente) {
-    if (cliente instanceof ClienteRegular) {
-      /* lógica para gerar relatório de cliente regular */
-    } else if (cliente instanceof ClienteVip) {
-      /* lógica para gerar relatório de cliente VIP */
+// Interface que define um formato de saída
+interface OutputFormat {
+    String format(String text);
+}
+
+// Implementação concreta do formato de saída CSV
+class CsvOutputFormat implements OutputFormat {
+    public String format(String text) {
+        StringBuilder formattedText = new StringBuilder();
+        
+        // Lógica para formatar o texto como CSV
+        formattedText.append("CSV Format: ").append(text);
+        
+        return formattedText.toString();
     }
-  }
 }
 
-// Aplicando o Princípio do Aberto/Fechado
-interface GeradorRelatorio {
-  void gerarRelatorio(Cliente cliente);
+// Implementação concreta do formato de saída JSON
+class JsonOutputFormat implements OutputFormat {
+    public String format(String text) {
+        StringBuilder formattedText = new StringBuilder();
+        
+        // Lógica para formatar o texto como JSON
+        formattedText.append("JSON Format: ").append(text);
+        
+        return formattedText.toString();
+    }
 }
 
-class GeradorRelatorioRegular implements GeradorRelatorio {
-  public void gerarRelatorio(Cliente cliente) {
-    /* lógica para gerar relatório de cliente regular */
-  }
+// Classe que faz uso do Princípio do Aberto/Fechado
+class TextProcessor {
+    private OutputFormat outputFormat;
+
+    public TextProcessor(OutputFormat outputFormat) {
+        this.outputFormat = outputFormat;
+    }
+
+    public void processText(String text) {
+        // Lógica para processar o texto
+
+        String formattedText = outputFormat.format(text);
+        System.out.println("Texto formatado: " + formattedText);
+
+        // Mais lógica para processar o texto
+    }
 }
 
-class GeradorRelatorioVip implements GeradorRelatorio {
-  public void gerarRelatorio(Cliente cliente) {
-    /* lógica para gerar relatório de cliente VIP */
-  }
+public class Main {
+    public static void main(String[] args) {
+        String text = "Exemplo de texto a ser formatado";
+
+        OutputFormat csvFormat = new CsvOutputFormat();
+        TextProcessor csvTextProcessor = new TextProcessor(csvFormat);
+        csvTextProcessor.processText(text);
+
+        OutputFormat jsonFormat = new JsonOutputFormat();
+        TextProcessor jsonTextProcessor = new TextProcessor(jsonFormat);
+        jsonTextProcessor.processText(text);
+    }
 }
 ```
 
@@ -115,30 +148,68 @@ class Circulo implements Forma {
 O ISP (*Princípio da Segregação de Interface*) afirma que uma classe não deve ser forçada a implementar interfaces que não utiliza. Em vez disso, devemos criar interfaces específicas para os clientes que precisam delas.
 
 ```java
-// Violando o Princípio da Segregação de Interface
-interface Dispositivo {
-  void ligar();
-  void desligar();
-  void enviarEmail();
-  void fazerChamada();
+// Interface de alto nível que contém métodos para operações de leitura e escrita
+interface ReadWriteOperations {
+    void read();
+    void write();
 }
 
-// Aplicando o Princípio da Segregação de Interface
-interface Ligavel {
-  void ligar();
-  void desligar();
+// Interface de baixo nível que contém apenas o método para operações de leitura
+interface ReadOperation {
+    void read();
 }
 
-interface Comunicavel {
-  void enviarEmail();
-  void fazerChamada();
+// Interface de baixo nível que contém apenas o método para operações de escrita
+interface WriteOperation {
+    void write();
 }
 
-class Telefone implements Ligavel, Comunicavel {
-  public void ligar() { /* lógica para ligar o telefone */ }
-  public void desligar() { /* lógica para desligar o telefone */ }
-  public void enviarEmail() { /* lógica para enviar email pelo telefone */ }
-  public void fazerChamada() { /* lógica para fazer chamada pelo telefone */ }
+// Implementação concreta das interfaces
+class FileReader implements ReadOperation {
+    public void read() {
+        // Lógica para ler um arquivo
+        System.out.println("Lendo arquivo...");
+    }
+}
+
+class FileWriter implements WriteOperation {
+    public void write() {
+        // Lógica para escrever em um arquivo
+        System.out.println("Escrevendo em arquivo...");
+    }
+}
+
+// Classe que depende apenas das interfaces necessárias (segregação)
+class FileProcessor {
+    private ReadOperation reader;
+    private WriteOperation writer;
+
+    public FileProcessor(ReadOperation reader, WriteOperation writer) {
+        this.reader = reader;
+        this.writer = writer;
+    }
+
+    // Métodos que utilizam apenas as interfaces necessárias
+    public void processRead() {
+        reader.read();
+    }
+
+    public void processWrite() {
+        writer.write();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ReadOperation reader = new FileReader();
+        WriteOperation writer = new FileWriter();
+
+        FileProcessor fileProcessor = new FileProcessor(reader, writer);
+       
+        // Utilização da classe FileProcessor com apenas os métodos necessários
+        fileProcessor.processRead();
+        fileProcessor.processWrite();
+    }
 }
 ```
 
@@ -148,44 +219,37 @@ class Telefone implements Ligavel, Comunicavel {
 O DIP (*Princípio da Inversão de Dependência*) estabelece que módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações. Além disso, abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
 
 ```java
-// Violando o Princípio da Inversão de Dependência
-class Notificador {
-  public void notificar(Usuario usuario, String mensagem) {
-    /* lógica para notificar o usuário */
-  }
+// Dependência de alto nível (abstração)
+interface PaymentService {
+    void processPayment();
 }
 
-class UsuarioService {
-  private Notificador notificador;
-
-  public UsuarioService() {
-    this.notificador = new Notificador();
-  }
+// Implementação concreta da dependência de alto nível
+class BoletoPaymentServiceImpl implements PaymentService {
+    public void processPayment() {
+        // Lógica específica para processar o pagamento via boleto bancário
+        System.out.println("Processando o pagamento via boleto bancário...");
+    }
 }
 
-// Aplicando o Princípio da Inversão de Dependência
-interface Notificador {
-  void notificar(Usuario usuario, String mensagem);
-}
+// Classe dependente que utiliza a abstração
+class OrderProcessor {
+    private PaymentService paymentService; // Dependência de alto nível
 
-class EmailNotificador implements Notificador {
-  public void notificar(Usuario usuario, String mensagem) {
-    /* lógica para notificar o usuário por email */
-  }
-}
+    // Injeção de dependência via construtor
+    public OrderProcessor(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
-class SMSNotificador implements Notificador {
-  public void notificar(Usuario usuario, String mensagem) {
-    /* lógica para notificar o usuário por SMS */
-  }
-}
+    public void processOrder() {
+        // Lógica para processar o pedido
 
-class UsuarioService {
-  private Notificador notificador;
+        // Utilização da dependência de alto nível (PaymentService) através da abstração
+        paymentService.processPayment();
 
-  public UsuarioService(Notificador notificador) {
-    this.notificador = notificador;
-  }
+        // Mais lógica para processar o pedido
+        System.out.println("Pedido processado com sucesso!");
+    }
 }
 ```
 
