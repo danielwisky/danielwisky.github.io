@@ -18,21 +18,21 @@ Os cinco princípios SOLID:
 5. [D — Dependency Inversion Principle (Princípio da inversão da dependência)](#princípio-da-inversão-de-dependência-dip---dependency-inversion-principle)
 
 Neste artigo, mergulharemos profundamente em cada um desses princípios, explorando suas definições e fornecendo exemplos práticos em Java para ilustrar como eles podem ser aplicados de forma eficaz. Ao final desta jornada, você estará pronto para aproveitar ao máximo esses princípios para aprimorar a qualidade e a manutenibilidade do seu código orientado a objetos.
-
+</br>
 
 ## Princípio da Responsabilidade Única (SRP - Single Responsibility Principle)
 
-O SRP afirma que uma classe deve ter apenas uma razão para mudar. Em outras palavras, uma classe deve ter apenas uma responsabilidade. Isso ajuda a manter o código coeso e facilita a manutenção.
+O SRP (*Princípio da Responsabilidade Única*) afirma que uma classe deve ter apenas uma razão para mudar. Em outras palavras, uma classe deve ter apenas uma responsabilidade. Isso ajuda a manter o código coeso e facilita a manutenção.
 
 ```java
-// Violando o SRP
+// Violando o Princípio da Responsabilidade Única
 class Pedido {
   public void criarPedido() { /* lógica para criar o pedido */ }
   public void calcularTotal() { /* lógica para calcular o total do pedido */ }
   public void imprimirPedido() { /* lógica para imprimir o pedido */ }
 }
 
-// Aplicando o SRP
+// Aplicando o Princípio da Responsabilidade Única
 class Pedido {
   public void criarPedido() { /* lógica para criar o pedido */ }
 }
@@ -45,14 +45,14 @@ class ImpressoraPedido {
   public void imprimirPedido(Pedido pedido) { /* lógica para imprimir o pedido */ }
 }
 ```
-
+</br>
 
 ## Princípio do Aberto/Fechado (OCP - Open/Closed Principle)
 
-O OCP declara que uma classe deve estar aberta para extensão, mas fechada para modificação. Isso significa que você deve ser capaz de adicionar novos comportamentos ou funcionalidades sem alterar o código existente.
+O OCP (*Princípio do Aberto/Fechado*) declara que uma classe deve estar aberta para extensão, mas fechada para modificação. Isso significa que você deve ser capaz de adicionar novos comportamentos ou funcionalidades sem alterar o código existente.
 
 ```java
-// Violando o OCP
+// Violando o Princípio do Aberto/Fechado
 class GeradorRelatorio {
   public void gerarRelatorio(Cliente cliente) {
     if (cliente instanceof ClienteRegular) {
@@ -63,7 +63,7 @@ class GeradorRelatorio {
   }
 }
 
-// Aplicando o OCP
+// Aplicando o Princípio do Aberto/Fechado
 interface GeradorRelatorio {
   void gerarRelatorio(Cliente cliente);
 }
@@ -80,14 +80,14 @@ class GeradorRelatorioVip implements GeradorRelatorio {
   }
 }
 ```
-
+</br>
 
 ## Princípio da Substituição de Liskov (LSP - Liskov Substitution Principle)
 
-O LSP afirma que um objeto de uma classe derivada deve ser capaz de ser substituído por um objeto de sua classe base sem afetar a corretude do programa. Isso garante que as classes derivadas não alterem o comportamento esperado da classe base.
+O LSP (*Princípio da Substituição de Liskov*) afirma que um objeto de uma classe derivada deve ser capaz de ser substituído por um objeto de sua classe base sem afetar a corretude do programa. Isso garante que as classes derivadas não alterem o comportamento esperado da classe base.
 
 ```java
-// Violando o LSP
+// Violando o Princípio da Substituição de Liskov
 class Forma {
   public double calcularArea() { /* lógica para calcular a área da forma */ }
 }
@@ -96,7 +96,7 @@ class Quadrado extends Forma {
   public double calcularArea() { /* lógica para calcular a área do quadrado */ }
 }
 
-// Aplicando o LSP
+// Aplicando o Princípio da Substituição de Liskov
 interface Forma {
   double calcularArea();
 }
@@ -109,14 +109,14 @@ class Circulo implements Forma {
   public double calcularArea() { /* lógica para calcular a área do círculo */ }
 }
 ```
-
+</br>
 
 ## Princípio da Segregação de Interface (ISP - Interface Segregation Principle)
 
-O ISP afirma que uma classe não deve ser forçada a implementar interfaces que não utiliza. Em vez disso, devemos criar interfaces específicas para os clientes que precisam delas.
+O ISP (*Princípio da Segregação de Interface*) afirma que uma classe não deve ser forçada a implementar interfaces que não utiliza. Em vez disso, devemos criar interfaces específicas para os clientes que precisam delas.
 
 ```java
-// Violando o ISP
+// Violando o Princípio da Segregação de Interface
 interface Dispositivo {
   void ligar();
   void desligar();
@@ -124,7 +124,7 @@ interface Dispositivo {
   void fazerChamada();
 }
 
-// Aplicando o ISP
+// Aplicando o Princípio da Segregação de Interface
 interface Ligavel {
   void ligar();
   void desligar();
@@ -142,14 +142,14 @@ class Telefone implements Ligavel, Comunicavel {
   public void fazerChamada() { /* lógica para fazer chamada pelo telefone */ }
 }
 ```
-
+</br>
 
 ## Princípio da Inversão de Dependência (DIP - Dependency Inversion Principle)
 
-O DIP estabelece que módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações. Além disso, abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+O DIP (*Princípio da Inversão de Dependência*) estabelece que módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações. Além disso, abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
 
 ```java
-// Violando o DIP
+// Violando o Princípio da Inversão de Dependência
 class Notificador {
   public void notificar(Usuario usuario, String mensagem) {
     /* lógica para notificar o usuário */
@@ -164,7 +164,7 @@ class UsuarioService {
   }
 }
 
-// Aplicando o DIP
+// Aplicando o Princípio da Inversão de Dependência
 interface Notificador {
   void notificar(Usuario usuario, String mensagem);
 }
@@ -189,7 +189,7 @@ class UsuarioService {
   }
 }
 ```
-
+</br>
 
 # Conclusão
 
