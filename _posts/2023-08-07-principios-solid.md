@@ -18,7 +18,6 @@ Os cinco princípios SOLID:
 5. [D — Dependency Inversion Principle (Princípio da inversão da dependência)](#princípio-da-inversão-de-dependência-dip---dependency-inversion-principle)
 
 Neste artigo, mergulharemos profundamente em cada um desses princípios, explorando suas definições e fornecendo exemplos práticos em Java para ilustrar como eles podem ser aplicados de forma eficaz. Ao final desta jornada, você estará pronto para aproveitar ao máximo esses princípios para aprimorar a qualidade e a manutenibilidade do seu código orientado a objetos.
-</br>
 
 ## Princípio da Responsabilidade Única (SRP - Single Responsibility Principle)
 
@@ -45,7 +44,7 @@ class ImpressoraPedido {
   public void imprimirPedido(Pedido pedido) { /* lógica para imprimir o pedido */ }
 }
 ```
-</br>
+
 
 ## Princípio do Aberto/Fechado (OCP - Open/Closed Principle)
 
@@ -80,7 +79,7 @@ class GeradorRelatorioVip implements GeradorRelatorio {
   }
 }
 ```
-</br>
+
 
 ## Princípio da Substituição de Liskov (LSP - Liskov Substitution Principle)
 
@@ -109,7 +108,7 @@ class Circulo implements Forma {
   public double calcularArea() { /* lógica para calcular a área do círculo */ }
 }
 ```
-</br>
+
 
 ## Princípio da Segregação de Interface (ISP - Interface Segregation Principle)
 
@@ -142,7 +141,7 @@ class Telefone implements Ligavel, Comunicavel {
   public void fazerChamada() { /* lógica para fazer chamada pelo telefone */ }
 }
 ```
-</br>
+
 
 ## Princípio da Inversão de Dependência (DIP - Dependency Inversion Principle)
 
@@ -189,9 +188,9 @@ class UsuarioService {
   }
 }
 ```
-</br>
 
-# Conclusão
+
+## Conclusão
 
 A aplicação dos princípios SOLID na programação orientada a objetos resulta em um código mais coeso, extensível e fácil de manter. Embora os exemplos fornecidos neste artigo sejam em Java, os princípios SOLID são universais e podem ser aplicados em outras linguagens de programação. Ao adotar esses princípios, os desenvolvedores podem criar sistemas mais robustos e flexíveis, que são capazes de se adaptar às mudanças e evoluções do mundo do desenvolvimento de software.
 
