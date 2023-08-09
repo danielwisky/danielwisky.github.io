@@ -15,93 +15,93 @@ Princípio da Segregação da Interface explicado: De acordo com o Princípio da
 
 1. Exemplo de violação do Princípio da Segregação da Interface:
 
-```java
-interface Animal {
-    void comer();
-    void dormir();
-    void voar();
-}
-
-class Pato implements Animal {
-    @Override
-    public void comer() {
-        System.out.println("Pato comendo");
+    ```java
+    interface Animal {
+        void comer();
+        void dormir();
+        void voar();
     }
-
-    @Override
-    public void dormir() {
-        System.out.println("Pato dormindo");
+    
+    class Pato implements Animal {
+        @Override
+        public void comer() {
+            System.out.println("Pato comendo");
+        }
+    
+        @Override
+        public void dormir() {
+            System.out.println("Pato dormindo");
+        }
+    
+        @Override
+        public void voar() {
+            System.out.println("Pato voando");
+        }
     }
-
-    @Override
-    public void voar() {
-        System.out.println("Pato voando");
+    
+    class Cachorro implements Animal {
+        @Override
+        public void comer() {
+            System.out.println("Cachorro comendo");
+        }
+    
+        @Override
+        public void dormir() {
+            System.out.println("Cachorro dormindo");
+        }
+    
+        @Override
+        public void voar() {
+            // Cachorro não voa, implementação desnecessária
+        }
     }
-}
+    ```
 
-class Cachorro implements Animal {
-    @Override
-    public void comer() {
-        System.out.println("Cachorro comendo");
-    }
-
-    @Override
-    public void dormir() {
-        System.out.println("Cachorro dormindo");
-    }
-
-    @Override
-    public void voar() {
-        // Cachorro não voa, implementação desnecessária
-    }
-}
-```
-
-Neste exemplo, a interface `Animal` viola o Princípio da Segregação da Interface, pois obriga as classes `Pato` e `Cachorro` a implementarem o método voar(), sendo que apenas o pato possui essa capacidade. No caso do cachorro, a implementação do método é desnecessária e pode causar confusão.
+    Neste exemplo, a interface `Animal` viola o Princípio da Segregação da Interface, pois obriga as classes `Pato` e `Cachorro` a implementarem o método voar(), sendo que apenas o pato possui essa capacidade. No caso do cachorro, a implementação do método é desnecessária e pode causar confusão.<br><br>
 
 2. Exemplo de aplicação correta do Princípio da Segregação da Interface:
 
-```java
-interface Animal {
-    void comer();
-    void dormir();
-}
-
-interface Ave {
-    void voar();
-}
-
-class Pato implements Animal, Ave {
-    @Override
-    public void comer() {
-        System.out.println("Pato comendo");
+    ```java
+    interface Animal {
+        void comer();
+        void dormir();
     }
-
-    @Override
-    public void dormir() {
-        System.out.println("Pato dormindo");
+    
+    interface Ave {
+        void voar();
     }
-
-    @Override
-    public void voar() {
-        System.out.println("Pato voando");
+    
+    class Pato implements Animal, Ave {
+        @Override
+        public void comer() {
+            System.out.println("Pato comendo");
+        }
+    
+        @Override
+        public void dormir() {
+            System.out.println("Pato dormindo");
+        }
+    
+        @Override
+        public void voar() {
+            System.out.println("Pato voando");
+        }
     }
-}
-
-class Cachorro implements Animal {
-    @Override
-    public void comer() {
-        System.out.println("Cachorro comendo");
+    
+    class Cachorro implements Animal {
+        @Override
+        public void comer() {
+            System.out.println("Cachorro comendo");
+        }
+    
+        @Override
+        public void dormir() {
+            System.out.println("Cachorro dormindo");
+        }
     }
-
-    @Override
-    public void dormir() {
-        System.out.println("Cachorro dormindo");
-    }
-}
-```
-
-Neste exemplo, corrigimos a violação do Princípio da Segregação da Interface ao criar a interface `Ave` especificamente para os animais que possuem a capacidade de voar. A classe `Pato` agora implementa tanto a interface `Animal` quanto a interface `Ave`, atendendo apenas aos métodos relevantes para cada caso. A classe `Cachorro` depende apenas da interface `Animal`, não sendo afetada por funcionalidades desnecessárias.
+    ```
+    
+    Neste exemplo, corrigimos a violação do Princípio da Segregação da Interface ao criar a interface `Ave` especificamente para os animais que possuem a capacidade de voar. A classe `Pato` agora implementa tanto a interface `Animal` quanto a interface `Ave`, atendendo apenas aos métodos relevantes para cada caso. A classe `Cachorro` depende apenas da interface `Animal`, não sendo afetada por funcionalidades desnecessárias.<br><br>
 
 ## Conclusão
 
