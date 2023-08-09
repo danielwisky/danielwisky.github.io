@@ -24,49 +24,47 @@ O que é o Princípio da Responsabilidade Única (SRP)? O Princípio da Responsa
 
 1. Exemplo de classes com múltiplas responsabilidades (violação do SRP):
 
-```java
-class User {
-    public void register() {
-        // Lógica para criar um novo usuário no banco de dados
+    ```java
+    class User {
+        public void register() {
+            // Lógica para criar um novo usuário no banco de dados
+        }
+    
+        public void sendEmail() {
+            // Lógica para enviar um e-mail de boas-vindas
+        }
+    
+        public void generateReport() {
+            // Lógica para gerar um relatório do usuário
+        }
     }
-
-    public void sendEmail() {
-        // Lógica para enviar um e-mail de boas-vindas
-    }
-
-    public void generateReport() {
-        // Lógica para gerar um relatório do usuário
-    }
-}
-
-```
-
-Neste exemplo, a classe `User` possui três métodos que desempenham diferentes responsabilidades: registrar um usuário, enviar e-mail e gerar um relatório. Essas responsabilidades podem mudar por diferentes motivos, violando o princípio da responsabilidade única.
+    ```
+    
+    Neste exemplo, a classe `User` possui três métodos que desempenham diferentes responsabilidades: registrar um usuário, enviar e-mail e gerar um relatório. Essas responsabilidades podem mudar por diferentes motivos, violando o princípio da responsabilidade única.<br><br>
 
 2. Exemplo de classes com responsabilidades separadas (aplicação do SRP):
 
-```java
-class UserManager {
-    public void registerUser() {
-        // Lógica para criar um novo usuário no banco de dados
+    ```java
+    class UserManager {
+        public void registerUser() {
+            // Lógica para criar um novo usuário no banco de dados
+        }
     }
-}
-
-class EmailSender {
-    public void sendWelcomeEmail() {
-        // Lógica para enviar um e-mail de boas-vindas
+    
+    class EmailSender {
+        public void sendWelcomeEmail() {
+            // Lógica para enviar um e-mail de boas-vindas
+        }
     }
-}
-
-class ReportGenerator {
-    public void generateUserReport() {
-        // Lógica para gerar um relatório do usuário
+    
+    class ReportGenerator {
+        public void generateUserReport() {
+            // Lógica para gerar um relatório do usuário
+        }
     }
-}
+    ```
 
-```
-
-Neste exemplo, as responsabilidades foram divididas em classes distintas. A classe `UserManager` é responsável apenas por registrar um usuário, a classe `EmailSender` é responsável por enviar e-mails e a classe `ReportGenerator` é responsável por gerar relatórios. Cada classe tem apenas uma razão para mudar e uma única responsabilidade, aderindo ao SRP.
+    Neste exemplo, as responsabilidades foram divididas em classes distintas. A classe `UserManager` é responsável apenas por registrar um usuário, a classe `EmailSender` é responsável por enviar e-mails e a classe `ReportGenerator` é responsável por gerar relatórios. Cada classe tem apenas uma razão para mudar e uma única responsabilidade, aderindo ao SRP.<br><br>
 
 ## Conclusão
 

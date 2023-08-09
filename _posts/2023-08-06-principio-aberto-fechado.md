@@ -22,65 +22,63 @@ O que é o Princípio Aberto-Fechado (OCP)? O Princípio Aberto-Fechado declara 
 
 1. Exemplo de violação do OCP:
 
-
-```java
-class Shape {
-    private String type;
-
-    public void draw() {
-        if (type.equals("circle")) {
-            drawCircle();
-        } else if (type.equals("rectangle")) {
-            drawRectangle();
-        } else if (type.equals("triangle")) {
-            drawTriangle();
+    ```java
+    class Shape {
+        private String type;
+    
+        public void draw() {
+            if (type.equals("circle")) {
+                drawCircle();
+            } else if (type.equals("rectangle")) {
+                drawRectangle();
+            } else if (type.equals("triangle")) {
+                drawTriangle();
+            }
+        }
+    
+        private void drawCircle() {
+            // Desenhar um círculo
+        }
+    
+        private void drawRectangle() {
+            // Desenhar um retângulo
+        }
+    
+        private void drawTriangle() {
+            // Desenhar um triângulo
         }
     }
+    ```
 
-    private void drawCircle() {
-        // Desenhar um círculo
-    }
-
-    private void drawRectangle() {
-        // Desenhar um retângulo
-    }
-
-    private void drawTriangle() {
-        // Desenhar um triângulo
-    }
-}
-
-```
-
-Neste exemplo, a classe `Shape` viola o OCP, pois precisa ser modificada toda vez que um novo tipo de forma (como um hexágono) for adicionado. Isso causa acoplamento excessivo e dificulta a extensibilidade do código.
+    Neste exemplo, a classe `Shape` viola o OCP, pois precisa ser modificada toda vez que um novo tipo de forma (como um hexágono) for adicionado. Isso causa acoplamento excessivo e dificulta a extensibilidade do código.<br><br>
 
 2. Exemplo de aplicação do OCP:
 
-```java
-interface Shape {
-    void draw();
-}
-
-class Circle implements Shape {
-    public void draw() {
-        // Desenhar um círculo
+    ```java
+    interface Shape {
+        void draw();
     }
-}
-
-class Rectangle implements Shape {
-    public void draw() {
-        // Desenhar um retângulo
+    
+    class Circle implements Shape {
+        public void draw() {
+            // Desenhar um círculo
+        }
     }
-}
-
-class Triangle implements Shape {
-    public void draw() {
-        // Desenhar um triângulo
+    
+    class Rectangle implements Shape {
+        public void draw() {
+            // Desenhar um retângulo
+        }
     }
-}
-```
-
-Neste exemplo, o OCP é aplicado corretamente. As formas são representadas por classes separadas que implementam a interface `Shape`. Ao adicionar um novo tipo de forma, basta criar uma nova classe que implementa a interface `Shape` e define seu próprio comportamento de desenho. Dessa forma, o código existente não precisa ser modificado, e a extensibilidade é mantida.
+    
+    class Triangle implements Shape {
+        public void draw() {
+            // Desenhar um triângulo
+        }
+    }
+    ```
+    
+    Neste exemplo, o OCP é aplicado corretamente. As formas são representadas por classes separadas que implementam a interface `Shape`. Ao adicionar um novo tipo de forma, basta criar uma nova classe que implementa a interface `Shape` e define seu próprio comportamento de desenho. Dessa forma, o código existente não precisa ser modificado, e a extensibilidade é mantida.<br><br>
 
 ## Conclusão
 

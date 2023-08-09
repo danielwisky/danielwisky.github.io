@@ -15,56 +15,56 @@ Princípio da Inversão da Dependência explicado: O Princípio da Inversão da 
 
 1. Exemplo de violação do Princípio da Inversão da Dependência:
 
-```java
-class Motor {
-    public void ligar() {
-        // Implementação para ligar o motor
+    ```java
+    class Motor {
+        public void ligar() {
+            // Implementação para ligar o motor
+        }
     }
-}
-
-class Carro {
-    private Motor motor;
-
-    public Carro() {
-        this.motor = new Motor();
+    
+    class Carro {
+        private Motor motor;
+    
+        public Carro() {
+            this.motor = new Motor();
+        }
+    
+        public void ligarCarro() {
+            motor.ligar();
+        }
     }
-
-    public void ligarCarro() {
-        motor.ligar();
-    }
-}
-```
-
-Nesse exemplo, a classe `Carro` possui uma dependência direta da classe `Motor`, criando um acoplamento rígido. Qualquer modificação na classe `Motor` pode exigir uma adaptação no código da classe `Carro`, dificultando a manutenção e extensibilidade.
+    ```
+    
+    Nesse exemplo, a classe `Carro` possui uma dependência direta da classe `Motor`, criando um acoplamento rígido. Qualquer modificação na classe `Motor` pode exigir uma adaptação no código da classe `Carro`, dificultando a manutenção e extensibilidade.<br><br>
 
 2. Exemplo de aplicação correta do Princípio da Inversão da Dependência:
 
-```java
-interface Motor {
-    void ligar();
-}
-
-class MotorGasolina implements Motor {
-    @Override
-    public void ligar() {
-        // Implementação específica para ligar motor a gasolina
+    ```java
+    interface Motor {
+        void ligar();
     }
-}
-
-class Carro {
-    private Motor motor;
-
-    public Carro(Motor motor) {
-        this.motor = motor;
+    
+    class MotorGasolina implements Motor {
+        @Override
+        public void ligar() {
+            // Implementação específica para ligar motor a gasolina
+        }
     }
-
-    public void ligarCarro() {
-        motor.ligar();
+    
+    class Carro {
+        private Motor motor;
+    
+        public Carro(Motor motor) {
+            this.motor = motor;
+        }
+    
+        public void ligarCarro() {
+            motor.ligar();
+        }
     }
-}
-```
-
-Nesse exemplo, aplicamos o Princípio da Inversão da Dependência, introduzindo a interface `Motor` como uma abstração. A classe `Carro` agora depende da interface `Motor` em vez de depender diretamente da classe `MotorGasolina`. Isso permite a fácil substituição do motor, caso seja necessário utilizar um motor elétrico ou a diesel, por exemplo, sem modificar o código da classe `Carro`.
+    ```
+    
+   Nesse exemplo, aplicamos o Princípio da Inversão da Dependência, introduzindo a interface `Motor` como uma abstração. A classe `Carro` agora depende da interface `Motor` em vez de depender diretamente da classe `MotorGasolina`. Isso permite a fácil substituição do motor, caso seja necessário utilizar um motor elétrico ou a diesel, por exemplo, sem modificar o código da classe `Carro`.<br><br>
 
 ## Conclusão
 

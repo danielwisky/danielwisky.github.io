@@ -15,75 +15,74 @@ Princípio da Substituição de Liskov explicado: Segundo o Princípio da Substi
 
 1. Exemplo de violação do Princípio de Substituição de Liskov:
 
-```java
-class Retangulo {
-    protected int largura;
-    protected int altura;
-
-    public void setLargura(int largura) {
-        this.largura = largura;
+    ```java
+    class Retangulo {
+        protected int largura;
+        protected int altura;
+    
+        public void setLargura(int largura) {
+            this.largura = largura;
+        }
+    
+        public void setAltura(int altura) {
+            this.altura = altura;
+        }
+    
+        public int calcularArea() {
+            return largura * altura;
+        }
     }
-
-    public void setAltura(int altura) {
-        this.altura = altura;
+    
+    class Quadrado extends Retangulo {
+        public void setLado(int lado) {
+            this.largura = lado;
+            this.altura = lado;
+        }
     }
-
-    public int calcularArea() {
-        return largura * altura;
-    }
-}
-
-class Quadrado extends Retangulo {
-    public void setLado(int lado) {
-        this.largura = lado;
-        this.altura = lado;
-    }
-}
-
-```
-
-Neste exemplo, a classe `Quadrado` viola o Princípio da Substituição de Liskov, pois impõe restrições adicionais à classe base `Retangulo`. Ao modificar apenas um lado do quadrado, o outro lado também é alterado, o que não é esperado em uma hierarquia de classes correta.
+    ```
+    
+    Neste exemplo, a classe `Quadrado` viola o Princípio da Substituição de Liskov, pois impõe restrições adicionais à classe base `Retangulo`. Ao modificar apenas um lado do quadrado, o outro lado também é alterado, o que não é esperado em uma hierarquia de classes correta.<br><br>
 
 2. Exemplo de aplicação correta do Princípio de Substituição de Liskov:
 
-```java
-abstract class Forma {
-    abstract int calcularArea();
-}
-
-class Retangulo extends Forma {
-    protected int largura;
-    protected int altura;
-
-    public void setLargura(int largura) {
-        this.largura = largura;
+    ```java
+    abstract class Forma {
+        abstract int calcularArea();
     }
-
-    public void setAltura(int altura) {
-        this.altura = altura;
+    
+    class Retangulo extends Forma {
+        protected int largura;
+        protected int altura;
+    
+        public void setLargura(int largura) {
+            this.largura = largura;
+        }
+    
+        public void setAltura(int altura) {
+            this.altura = altura;
+        }
+    
+        @Override
+        int calcularArea() {
+            return largura * altura;
+        }
     }
-
-    @Override
-    int calcularArea() {
-        return largura * altura;
+    
+    class Quadrado extends Forma {
+        protected int lado;
+    
+        public void setLado(int lado) {
+            this.lado = lado;
+        }
+    
+        @Override
+        int calcularArea() {
+            return lado * lado;
+        }
     }
-}
+    ```
 
-class Quadrado extends Forma {
-    protected int lado;
-
-    public void setLado(int lado) {
-        this.lado = lado;
-    }
-
-    @Override
-    int calcularArea() {
-        return lado * lado;
-    }
-}
-```
-
-Neste exemplo, corrigimos a violação do Princípio de Substituição de Liskov introduzindo uma classe abstrata `Forma`. As classes `Retangulo` e `Quadrado` agora herdam diretamente dessa classe abstrata, garantindo que todos os métodos estejam corretamente implementados e permitindo a substituição adequada. Cada classe derivada implementa seu próprio método `calcularArea()` de acordo com suas características específicas.
+    Neste exemplo, corrigimos a violação do Princípio de Substituição de Liskov introduzindo uma classe abstrata `Forma`. As classes `Retangulo` e `Quadrado` agora herdam diretamente dessa classe abstrata, garantindo que todos os métodos estejam corretamente implementados e permitindo a substituição adequada. Cada classe derivada implementa seu próprio método `calcularArea()` de acordo com suas características específicas.<br><br>
 
 ## Conclusão
 
