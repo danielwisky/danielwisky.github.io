@@ -11,7 +11,9 @@ O Princípio da Responsabilidade Única (Single Responsibility Principle - SRP) 
 
 O SRP propõe dividir as responsabilidades em classes distintas, a fim de manter o código mais coeso, compreensível e fácil de manter. Neste artigo, vamos explorar o SRP em detalhes e fornecer exemplos de implementação em Java.
 
-O que é o Princípio da Responsabilidade Única (SRP)? O Princípio da Responsabilidade Única declara que uma classe deve ter apenas uma responsabilidade e, portanto, deve ter apenas um motivo para mudar. Cada classe deve ser responsável por fazer uma única tarefa e fazer bem. Isso ajuda a evitar acoplamento excessivo entre classes e torna o código mais modular e testável.
+## O que é o Princípio da Responsabilidade Única (SRP)? 
+
+O Princípio da Responsabilidade Única declara que uma classe deve ter apenas uma responsabilidade e, portanto, deve ter apenas um motivo para mudar. Cada classe deve ser responsável por fazer uma única tarefa e fazer bem. Isso ajuda a evitar acoplamento excessivo entre classes e torna o código mais modular e testável.
 
 ## Vantagens do SRP:
 
@@ -20,7 +22,7 @@ O que é o Princípio da Responsabilidade Única (SRP)? O Princípio da Responsa
 - **Manutenibilidade:** Quando uma mudança ocorre em uma determinada responsabilidade, apenas a classe afetada precisa ser modificada. Isso reduz o risco de introduzir efeitos colaterais em outras partes do sistema.
 - **Reutilização:** Classes coesas e com uma única responsabilidade são mais propensas a serem reutilizadas em diferentes partes do sistema.
 
-## Exemplos de implementação em Java:
+## Exemplos:
 
 1. Exemplo de classes com múltiplas responsabilidades (violação do SRP):
 
