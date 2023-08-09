@@ -9,9 +9,9 @@ tags: [Java, SOLID, LSP]
 
 O Princípio da Substituição de Liskov é um dos princípios do SOLID, um conjunto de diretrizes para o desenvolvimento de software orientado a objetos. Este princípio estabelece que uma classe derivada deve poder substituir sua classe base, mantendo a consistência do sistema. Neste artigo, exploraremos o Princípio da Substituição de Liskov e apresentaremos exemplos de implementação em Java.
 
-Princípio da Substituição de Liskov explicado: Segundo o Princípio da Substituição de Liskov, se uma classe A é um subtipo de uma classe B, então os objetos do tipo B podem ser substituídos pelos objetos do tipo A sem que isso afete o funcionamento correto do sistema. Isso significa que a classe derivada deve ser capaz de atender a todas as pré-condições, pós-condições e invariantes definidos pela classe base.
+Segundo o Princípio da Substituição de Liskov, se uma classe A é um subtipo de uma classe B, então os objetos do tipo B podem ser substituídos pelos objetos do tipo A sem que isso afete o funcionamento correto do sistema. Isso significa que a classe derivada deve ser capaz de atender a todas as pré-condições, pós-condições e invariantes definidos pela classe base.
 
-## Exemplos de implementação do Princípio da Substituição de Liskov em Java:
+## Exemplos:
 
 1. Exemplo de violação do Princípio de Substituição de Liskov:
 

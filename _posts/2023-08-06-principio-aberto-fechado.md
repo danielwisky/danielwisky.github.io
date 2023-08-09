@@ -9,7 +9,9 @@ tags: [Java, SOLID, OCP]
 
 O Princípio Aberto-Fechado (Open-Closed Principle - OCP) é um dos princípios do SOLID, um conjunto de diretrizes para desenvolvimento de software que visam promover a modularidade, extensibilidade e manutenibilidade do código. O OCP estabelece que as entidades do software (classes, módulos, funções, etc.) devem estar abertas para extensão, mas fechadas para modificação direta. Neste artigo, exploraremos em detalhes o Princípio Aberto-Fechado e forneceremos exemplos de sua aplicação.
 
-O que é o Princípio Aberto-Fechado (OCP)? O Princípio Aberto-Fechado declara que as entidades do software devem ser projetadas de maneira a permitir que novos comportamentos sejam adicionados sem a necessidade de modificar o código existente. Isso significa que, ao estender as funcionalidades do sistema, devemos ser capazes de fazer isso através de adição de novas classes ou módulos, em vez de alterar o código existente.
+## O que é o Princípio Aberto-Fechado (OCP)? 
+
+O Princípio Aberto-Fechado declara que as entidades do software devem ser projetadas de maneira a permitir que novos comportamentos sejam adicionados sem a necessidade de modificar o código existente. Isso significa que, ao estender as funcionalidades do sistema, devemos ser capazes de fazer isso através de adição de novas classes ou módulos, em vez de alterar o código existente.
 
 ## Vantagens do OCP:
 
@@ -18,7 +20,7 @@ O que é o Princípio Aberto-Fechado (OCP)? O Princípio Aberto-Fechado declara 
 - **Reutilização:** Com um design aberto para extensão, as classes e módulos podem ser reutilizados em diferentes contextos, promovendo um maior nível de modularidade e compartilhamento de código.
 - **Testabilidade:** O OCP facilita a realização de testes, já que novas funcionalidades podem ser adicionadas através da criação de novos testes, sem a necessidade de alterar os testes existentes.
 
-## Exemplos de aplicação do OCP:
+## Exemplos:
 
 1. Exemplo de violação do OCP:
 
