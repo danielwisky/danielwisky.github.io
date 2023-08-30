@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "SOLID: Princípio Aberto-Fechado (OCP)"
-subtitle: "Princípio Princípio Aberto-Fechado (OCP) e exemplos de implementação em Java"
+title: "SOLID: Princípio Aberto-Fechado"
+subtitle: "Princípio Princípio Aberto-Fechado e exemplos de implementação em Java"
 cover-img: "/assets/img/default-bg.jpg"
 categories: [Desenvolvimento de Software]
-tags: [Java, SOLID, OCP]
+tags: [Java, SOLID]
 ---
 
 O Princípio Aberto-Fechado (Open-Closed Principle - OCP) é um dos princípios do SOLID, um conjunto de diretrizes para desenvolvimento de software que visam promover a modularidade, extensibilidade e manutenibilidade do código. O OCP estabelece que as entidades do software (classes, módulos, funções, etc.) devem estar abertas para extensão, mas fechadas para modificação direta. Neste artigo, exploraremos em detalhes o Princípio Aberto-Fechado e forneceremos exemplos de sua aplicação.
 
-## O que é o Princípio Aberto-Fechado (OCP)? 
+## O que é o Princípio Aberto-Fechado (OCP)?
 
 O Princípio Aberto-Fechado declara que as entidades do software devem ser projetadas de maneira a permitir que novos comportamentos sejam adicionados sem a necessidade de modificar o código existente. Isso significa que, ao estender as funcionalidades do sistema, devemos ser capazes de fazer isso através de adição de novas classes ou módulos, em vez de alterar o código existente.
 
@@ -52,7 +52,7 @@ O Princípio Aberto-Fechado declara que as entidades do software devem ser proje
     }
     ```
 
-    Neste exemplo, a classe `Shape` viola o OCP, pois precisa ser modificada toda vez que um novo tipo de forma (como um hexágono) for adicionado. Isso causa acoplamento excessivo e dificulta a extensibilidade do código.<br><br>
+   Neste exemplo, a classe `Shape` viola o OCP, pois precisa ser modificada toda vez que um novo tipo de forma (como um hexágono) for adicionado. Isso causa acoplamento excessivo e dificulta a extensibilidade do código.<br><br>
 
 2. Exemplo de aplicação do OCP:
 
@@ -79,8 +79,8 @@ O Princípio Aberto-Fechado declara que as entidades do software devem ser proje
         }
     }
     ```
-    
-    Neste exemplo, o OCP é aplicado corretamente. As formas são representadas por classes separadas que implementam a interface `Shape`. Ao adicionar um novo tipo de forma, basta criar uma nova classe que implementa a interface `Shape` e define seu próprio comportamento de desenho. Dessa forma, o código existente não precisa ser modificado, e a extensibilidade é mantida.<br><br>
+
+   Neste exemplo, o OCP é aplicado corretamente. As formas são representadas por classes separadas que implementam a interface `Shape`. Ao adicionar um novo tipo de forma, basta criar uma nova classe que implementa a interface `Shape` e define seu próprio comportamento de desenho. Dessa forma, o código existente não precisa ser modificado, e a extensibilidade é mantida.<br><br>
 
 ## Conclusão
 

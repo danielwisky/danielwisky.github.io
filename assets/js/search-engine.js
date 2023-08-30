@@ -37,7 +37,7 @@ searchInput.onkeyup = function() {
   // clear results
   searchResults.innerHTML = "";
 
-  let query = this.value;
+  let query = this.value.replace(":", "");
   if (query.length >= 3) {
     // search for it
     let result = index.search(query);
