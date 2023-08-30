@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "SOLID: Princípio da Inversão da Dependência (DIP)"
-subtitle: "Princípio da Inversão da Dependência (DIP) e exemplos de implementação em Java"
+title: "SOLID: Princípio da Inversão da Dependência"
+subtitle: "Princípio da Inversão da Dependência e exemplos de implementação em Java"
 cover-img: "/assets/img/default-bg.jpg"
 categories: [Desenvolvimento de Software]
-tags: [Java, SOLID, DIP]
+tags: [Java, SOLID]
 ---
 
-O Princípio da Inversão da Dependência (DIP) é um dos princípios fundamentais do SOLID, um conjunto de diretrizes para desenvolvimento de software orientado a objetos. O DIP estabelece que módulos de alto nível não devem depender de módulos de baixo nível, e sim de abstrações. Neste artigo, vamos explorar o Princípio da Inversão da Dependência e discutir exemplos práticos de sua implementação.
+O Princípio da Inversão da Dependência (Dependency Inversion Principle - DIP) é um dos princípios fundamentais do SOLID, um conjunto de diretrizes para desenvolvimento de software orientado a objetos. O Princípio da Inversão da Dependência estabelece que módulos de alto nível não devem depender de módulos de baixo nível, e sim de abstrações. Neste artigo, vamos explorar o Princípio da Inversão da Dependência e discutir exemplos práticos de sua implementação.
 
 O Princípio da Inversão da Dependência propõe que as entidades de nível superior não devam depender diretamente das entidades de nível inferior. Em vez disso, ambas devem depender de abstrações. Isso permite que as dependências sejam invertidas, facilitando a extensibilidade, testabilidade e manutenção do código.
 
@@ -34,8 +34,8 @@ O Princípio da Inversão da Dependência propõe que as entidades de nível sup
         }
     }
     ```
-    
-    Nesse exemplo, a classe `Carro` possui uma dependência direta da classe `Motor`, criando um acoplamento rígido. Qualquer modificação na classe `Motor` pode exigir uma adaptação no código da classe `Carro`, dificultando a manutenção e extensibilidade.<br><br>
+
+   Nesse exemplo, a classe `Carro` possui uma dependência direta da classe `Motor`, criando um acoplamento rígido. Qualquer modificação na classe `Motor` pode exigir uma adaptação no código da classe `Carro`, dificultando a manutenção e extensibilidade.<br><br>
 
 2. Exemplo de aplicação correta do Princípio da Inversão da Dependência:
 
@@ -63,7 +63,7 @@ O Princípio da Inversão da Dependência propõe que as entidades de nível sup
         }
     }
     ```
-    
+
    Nesse exemplo, aplicamos o Princípio da Inversão da Dependência, introduzindo a interface `Motor` como uma abstração. A classe `Carro` agora depende da interface `Motor` em vez de depender diretamente da classe `MotorGasolina`. Isso permite a fácil substituição do motor, caso seja necessário utilizar um motor elétrico ou a diesel, por exemplo, sem modificar o código da classe `Carro`.<br><br>
 
 ## Conclusão

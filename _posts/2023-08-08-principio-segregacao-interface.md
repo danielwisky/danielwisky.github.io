@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "SOLID: Princípio da Segregação da Interface (ISP)"
-subtitle: "Princípio da Segregação da Interface (ISP) e exemplos de implementação em Java"
+title: "SOLID: Princípio da Segregação da Interface"
+subtitle: "Princípio da Segregação da Interface e exemplos de implementação em Java"
 cover-img: "/assets/img/default-bg.jpg"
 categories: [Desenvolvimento de Software]
-tags: [Java, SOLID, ISP]
+tags: [Java, SOLID]
 ---
 
-O Princípio da Segregação da Interface (ISP) é um dos princípios do SOLID, um conjunto de diretrizes para o desenvolvimento de software orientado a objetos. Este princípio estabelece que uma classe não deve ser forçada a depender de interfaces que não utiliza por completo. Neste artigo, iremos explorar o Princípio da Segregação da Interface e apresentar exemplos práticos de implementação em Java.
+O Princípio da Segregação da Interface (Interface Segregation Principle - ISP) é um dos princípios do SOLID, um conjunto de diretrizes para o desenvolvimento de software orientado a objetos. Este princípio estabelece que uma classe não deve ser forçada a depender de interfaces que não utiliza por completo. Neste artigo, iremos explorar o Princípio da Segregação da Interface e apresentar exemplos práticos de implementação em Java.
 
-De acordo com o Princípio da Segregação da Interface (ISP), uma interface deve ser coesa e ter apenas o mínimo necessário para seus clientes. As interfaces devem ser segregadas de forma a cada cliente depender apenas dos métodos que precisa utilizar, evitando assim a dependência de funcionalidades desnecessárias.
+De acordo com o Princípio da Segregação da Interface, uma interface deve ser coesa e ter apenas o mínimo necessário para seus clientes. As interfaces devem ser segregadas de forma a cada cliente depender apenas dos métodos que precisa utilizar, evitando assim a dependência de funcionalidades desnecessárias.
 
 ## Exemplos:
 
@@ -57,7 +57,7 @@ De acordo com o Princípio da Segregação da Interface (ISP), uma interface dev
     }
     ```
 
-    Neste exemplo, a interface `Animal` viola o Princípio da Segregação da Interface, pois obriga as classes `Pato` e `Cachorro` a implementarem o método voar(), sendo que apenas o pato possui essa capacidade. No caso do cachorro, a implementação do método é desnecessária e pode causar confusão.<br><br>
+   Neste exemplo, a interface `Animal` viola o Princípio da Segregação da Interface, pois obriga as classes `Pato` e `Cachorro` a implementarem o método voar(), sendo que apenas o pato possui essa capacidade. No caso do cachorro, a implementação do método é desnecessária e pode causar confusão.<br><br>
 
 2. Exemplo de aplicação correta do Princípio da Segregação da Interface:
 
@@ -100,8 +100,8 @@ De acordo com o Princípio da Segregação da Interface (ISP), uma interface dev
         }
     }
     ```
-    
-    Neste exemplo, corrigimos a violação do Princípio da Segregação da Interface ao criar a interface `Ave` especificamente para os animais que possuem a capacidade de voar. A classe `Pato` agora implementa tanto a interface `Animal` quanto a interface `Ave`, atendendo apenas aos métodos relevantes para cada caso. A classe `Cachorro` depende apenas da interface `Animal`, não sendo afetada por funcionalidades desnecessárias.<br><br>
+
+   Neste exemplo, corrigimos a violação do Princípio da Segregação da Interface ao criar a interface `Ave` especificamente para os animais que possuem a capacidade de voar. A classe `Pato` agora implementa tanto a interface `Animal` quanto a interface `Ave`, atendendo apenas aos métodos relevantes para cada caso. A classe `Cachorro` depende apenas da interface `Animal`, não sendo afetada por funcionalidades desnecessárias.<br><br>
 
 ## Conclusão
 
