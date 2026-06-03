@@ -5,6 +5,8 @@ baseurl: ""
 url: https://danielwisky.com.br
 lang: pt-BR
 
+wisky_3dprint_url: "https://3dprint.danielwisky.com.br"
+
 sass:
   style: compressed
 
@@ -46,6 +48,10 @@ social-network-links:
     url: "https://www.youtube.com/c/DanielWisky"
     icon: "fab fa-youtube"
     display: ["footer", "navbar"]
+  - name: "3D Print"
+    url: "https://3dprint.danielwisky.com.br"
+    icon: "fas fa-cube"
+    display: ["footer"]
 
 # archives
 jekyll-archives:
