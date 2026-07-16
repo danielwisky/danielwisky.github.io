@@ -5,7 +5,7 @@ baseurl: ""
 url: https://danielwisky.com.br
 lang: pt-BR
 
-wisky_3dprint_url: "https://3dprint.danielwisky.com.br"
+wisky_3dprint_url: "https://wisky3dprint.com.br"
 
 sass:
   style: compressed
@@ -49,7 +49,7 @@ social-network-links:
     icon: "fab fa-youtube"
     display: ["footer", "navbar"]
   - name: "3D Print"
-    url: "https://3dprint.danielwisky.com.br"
+    url: "https://wisky3dprint.com.br"
     icon: "fas fa-cube"
     display: ["footer"]
 
