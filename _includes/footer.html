@@ -6,7 +6,7 @@
           {% assign filtered_social_links_footer = site.social-network-links | where:"display","footer" %}
           {% for social in filtered_social_links_footer %}
           <li class="list-inline-item">
-            <a href="{{ social.url }}" title="{{ social.name }}" target="_blank">
+            <a href="{{ social.url }}" title="{{ social.name }}" target="_blank" rel="noopener noreferrer">
               <i class="{{ social.icon }}"></i>
               <span class="sr-only">{{ social.name }}</span>
             </a>

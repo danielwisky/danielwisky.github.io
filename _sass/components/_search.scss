@@ -16,7 +16,7 @@
   z-index: 1040;
   opacity: 0;
   visibility: hidden;
-  background-color: #fff;
+  background-color: var(--color-bg);
   transition: all 0.5s ease-in-out;
 }
 
@@ -29,7 +29,6 @@
   .search {
     -webkit-backdrop-filter: saturate(180%) blur(10px);
     backdrop-filter: saturate(180%) blur(10px);
-    background-color: rgba(255, 255, 255, 0.9);
   }
 }
 
@@ -47,13 +46,13 @@
     padding: 0 5px;
     font-size: 30px;
     line-height: 1;
-    color: #17181e;
+    color: var(--color-text);
     transition: all 0.25s;
     cursor: pointer;
 
     &:hover {
       transform: rotate(90deg);
-      color: #000;
+      color: $primary;
     }
   }
 }
@@ -88,19 +87,23 @@
     font-weight: 700;
     line-height: 1;
     border: 0;
-    border-bottom: 5px solid #17181e;
-    color: #17181e;
+    border-bottom: 5px solid $primary;
+    color: var(--color-text);
     background-color: transparent;
-    outline: none;
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 4px;
+    }
 
     &::-webkit-input-placeholder {
       font-weight: 700;
-      color: #17181e;
+      color: var(--color-text);
     }
 
     &::placeholder {
       font-weight: 700;
-      color: #17181e;
+      color: var(--color-text);
     }
 
     &::-ms-clear {
@@ -118,7 +121,7 @@
 .search__group {
   .search__text {
     &:focus {
-      color: #17181e;
+      color: var(--color-text);
     }
   }
 }
@@ -129,7 +132,7 @@
   margin: 0;
   list-style: circle;
   font-weight: 700;
-  color: #17181e;
+  color: var(--color-text);
   overflow: auto;
   white-space: normal;
 
@@ -138,11 +141,11 @@
     align-items: center;
     padding-bottom: 12px;
     margin-bottom: 12px;
-    border-bottom: 1px solid rgba(23, 24, 30, 0.1);
+    border-bottom: 1px solid var(--color-border);
 
     &:hover {
       .search-results__link {
-        color: #000;
+        color: $primary;
         transform: scale(0.97);
       }
     }
@@ -155,7 +158,7 @@
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
-    color: #17181e;
+    color: var(--color-text);
     transition: all 0.15s ease-in-out;
   }
 

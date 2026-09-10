@@ -19,6 +19,55 @@
   }
 }
 
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+
+  .theme-toggle__icon {
+    line-height: 0;
+  }
+
+  .theme-toggle__icon--light {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle {
+    .theme-toggle__icon--dark {
+      display: none;
+    }
+
+    .theme-toggle__icon--light {
+      display: inline;
+    }
+  }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  .theme-toggle__icon--dark {
+    display: none;
+  }
+
+  .theme-toggle__icon--light {
+    display: inline;
+  }
+}
+
 .back-to-top {
   position: fixed !important;
   visibility: hidden;

@@ -6,6 +6,8 @@
 
 body {
   font-size: $font-size-lg;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 // Set horizontal rule color to border color
