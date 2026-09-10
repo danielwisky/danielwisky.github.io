@@ -11,7 +11,7 @@
         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ site.wisky_3dprint_url }}" target="_blank" rel="noopener noreferrer">3D Print</a></li>
         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{'/contato' | relative_url }}">Contato</a></li>
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" id="nav-search-link" href="#" title="Pesquisar">
+          <a class="nav-link px-lg-3 py-3 py-lg-4" id="nav-search-link" href="#" title="Pesquisar" aria-label="Pesquisar">
             <span id="nav-search-icon" class="nav-icon fa fa-search"></span>
             <span id="nav-search-text" class="nav-icon-text">Pesquisar</span>
           </a>
@@ -21,7 +21,7 @@
         {% assign filtered_social_links_narvar = site.social-network-links | where:"display","navbar" %}
         {% for social in filtered_social_links_narvar %}
         <li>
-          <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}" target="_blank">
+          <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}" target="_blank" rel="noopener noreferrer">
             <span class="nav-icon {{ social.icon }}"></span>
             <span class="nav-icon-text">{{ social.name }}</span>
           </a>

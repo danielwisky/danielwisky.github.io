@@ -14,8 +14,13 @@ sass:
 markdown: kramdown
 highlighter: rouge
 permalink: "/:year-:month-:day-:title/"
-paginate_path: "/page/:num/"
-paginate: 10
+
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: '/page/:num/'
+  title: ':title - página :num'
+  sort_reverse: true
 
 kramdown:
   input: GFM
@@ -62,7 +67,7 @@ jekyll-archives:
     category: '/categorias/:name/'
 
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag

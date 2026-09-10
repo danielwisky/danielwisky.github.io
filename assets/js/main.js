@@ -42,12 +42,91 @@
   const searchOpen = document.getElementById("nav-search-link");
   const searchClose = document.getElementById("search-close");
 
-  searchOpen.onclick = function() {
+  searchOpen.addEventListener("click", function() {
     searchBox.classList.add("is-visible");
-  };
+  });
 
-  searchClose.onclick = function() {
+  const closeSearchBox = function() {
     searchBox.classList.remove("is-visible");
   };
+
+  searchClose.addEventListener("click", closeSearchBox);
+  searchClose.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      closeSearchBox();
+    }
+  });
+
+  /*
+   * Infinite scroll (vanilla, replaces the jquery-infinitescroll CDN plugin)
+   */
+  const articleFeed = document.querySelector(".article-feed");
+
+  if (articleFeed) {
+    const pagination = document.querySelector(".pagination");
+    const status = document.querySelector(".scroller-status");
+    const loader = status ? status.querySelector(".infinite-scroll-request") : null;
+    const doneMsg = status ? status.querySelector(".infinite-scroll-last") : null;
+    const errorMsg = status ? status.querySelector(".infinite-scroll-error") : null;
+
+    let nextUrl = pagination ? pagination.querySelector(".pagination__next").getAttribute("href") : null;
+    let loading = false;
+
+    if (nextUrl) {
+      if (doneMsg) doneMsg.style.display = "none";
+      pagination.style.display = "none";
+
+      const sentinel = document.createElement("div");
+      sentinel.setAttribute("aria-hidden", "true");
+      articleFeed.insertAdjacentElement("afterend", sentinel);
+
+      const observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          loadNextPage();
+        }
+      }, { rootMargin: "400px" });
+
+      const loadNextPage = function() {
+        if (loading || !nextUrl) return;
+        loading = true;
+        if (loader) loader.style.display = "";
+        if (errorMsg) errorMsg.style.display = "none";
+
+        fetch(nextUrl)
+          .then(function(response) {
+            if (!response.ok) throw new Error("network response was not ok");
+            return response.text();
+          })
+          .then(function(html) {
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            const newPosts = doc.querySelectorAll(".article-feed > .post-preview");
+            newPosts.forEach(function(post) {
+              articleFeed.appendChild(post);
+            });
+
+            const newNextLink = doc.querySelector(".pagination__next");
+            nextUrl = newNextLink ? newNextLink.getAttribute("href") : null;
+
+            loading = false;
+            if (loader) loader.style.display = "none";
+
+            if (!nextUrl) {
+              observer.disconnect();
+              sentinel.remove();
+              if (doneMsg) doneMsg.style.display = "";
+            }
+          })
+          .catch(function() {
+            loading = false;
+            if (loader) loader.style.display = "none";
+            if (errorMsg) errorMsg.style.display = "";
+            observer.disconnect();
+          });
+      };
+
+      observer.observe(sentinel);
+    }
+  }
 
 })();
