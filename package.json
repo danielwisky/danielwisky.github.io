@@ -1,0 +1,10 @@
+{
+  "name": "danielwisky.github.io",
+  "private": true,
+  "scripts": {
+    "build:js": "node scripts/build-js.mjs"
+  },
+  "devDependencies": {
+    "terser": "^5.36.0"
+  }
+}
