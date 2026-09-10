@@ -59,24 +59,6 @@
   });
 
   /*
-   * Dark mode toggle
-   * (initial theme is set synchronously in _includes/head.html to avoid a flash)
-   */
-  const themeToggle = document.getElementById("theme-toggle");
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function() {
-      const root = document.documentElement;
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const currentTheme = root.getAttribute("data-theme") || (prefersDark ? "dark" : "light");
-      const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
-      root.setAttribute("data-theme", nextTheme);
-      localStorage.setItem("theme", nextTheme);
-    });
-  }
-
-  /*
    * Infinite scroll (vanilla, replaces the jquery-infinitescroll CDN plugin)
    */
   const articleFeed = document.querySelector(".article-feed");

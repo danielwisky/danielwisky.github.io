@@ -11,7 +11,7 @@
   right: 0;
   z-index: $zindex-fixed;
   border-bottom: $border-width solid $border-color;
-  background-color: var(--color-bg);
+  background-color: $white;
   font-family: $headings-font-family;
 
   .navbar-brand {
@@ -96,10 +96,10 @@
       -moz-transition: -moz-transform 0.2s;
       transition: transform 0.2s;
       border-bottom: 1px solid darken($white, 0.05);
-      background-color: var(--color-bg);
+      background-color: fade-out($white, 0.1);
 
       .navbar-brand {
-        color: var(--color-text);
+        color: $body-color;
 
         &:focus,
         &:hover {
@@ -110,7 +110,7 @@
       .navbar-nav {
         > li {
           > a {
-            color: var(--color-text);
+            color: $body-color;
 
             &:focus,
             &:hover {
