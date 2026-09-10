@@ -32,28 +32,33 @@ var index = lunr(function() {
 const searchResults = document.getElementById("searchResults");
 const searchInput = document.getElementById("searchInput");
 
-searchInput.onkeyup = function() {
+let searchDebounceTimer;
 
-  // clear results
-  searchResults.innerHTML = "";
+searchInput.addEventListener("input", function() {
+  const input = this;
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(function() {
+    // clear results
+    searchResults.innerHTML = "";
 
-  let query = this.value.replace(":", "");
-  if (query.length >= 3) {
-    // search for it
-    let result = index.search(query);
+    let query = input.value.replace(":", "");
+    if (query.length >= 3) {
+      // search for it
+      let result = index.search(query);
 
-    if (result.length === 0) {
-      let noResults = createItemNotFound();
-      searchResults.prepend(noResults);
+      if (result.length === 0) {
+        let noResults = createItemNotFound();
+        searchResults.prepend(noResults);
+      }
+
+      for (let item in result) {
+        let ref = result[item].ref;
+        let resultItem = createResultItem(ref);
+        searchResults.append(resultItem);
+      }
     }
-
-    for (let item in result) {
-      let ref = result[item].ref;
-      let resultItem = createResultItem(ref);
-      searchResults.append(resultItem);
-    }
-  }
-};
+  }, 200);
+});
 
 function createResultItem(ref) {
   let resultItem = document.createElement("li");

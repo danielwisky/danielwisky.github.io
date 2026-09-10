@@ -8,7 +8,7 @@ layout: default
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
       {% assign posts = paginator.posts | default: site.posts %}
-      <div class="article-feed" {% if paginator.next_page %} data-infinite-scroll='{ "path": ".pagination__next", "append": ".post-preview", "status": ".scroller-status", "hideNav": ".pagination", "history": false }' {% endif %}>
+      <div class="article-feed">
         {% for post in posts %}
           {% include post-item.html %}
         {% endfor %}
