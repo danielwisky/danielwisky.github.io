@@ -7,12 +7,11 @@
 // bootstrap
 @import 'bootstrap/bootstrap';
 
+// theme (light/dark custom properties)
+@import 'theme';
+
 // pixel-borders
 @import 'pixel-borders/pixel-borders-mixins';
-
-// nostalgic-css
-@import 'nostalgic-css/utilities/icon-mixin';
-@import 'nostalgic-css/icons';
 
 // global CSS
 @import 'global';
@@ -21,6 +20,7 @@
 @import 'components/buttons';
 @import 'components/forms';
 @import 'components/highlight';
+@import 'components/icons';
 @import 'components/navbar';
 @import 'components/search';
 @import 'components/social';
