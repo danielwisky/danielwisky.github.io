@@ -6,8 +6,6 @@ footer {
   border-top: 4px solid $border-color;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: var(--color-bg-alt);
-  color: var(--color-text);
 
   .list-inline {
     .list-inline-item {
@@ -30,10 +28,5 @@ footer {
         }
       }
     }
-  }
-
-  .text-muted {
-    color: var(--color-text) !important;
-    opacity: 0.7;
   }
 }

@@ -1,6 +1,6 @@
-//
+// 
 // Colors
-//
+// 
 
 // Define Grayscale values used in variables before Bootstrap loads
 $gray-900: #212529;
@@ -11,8 +11,3 @@ $primary: $blue;
 
 // Override Bootstrap default contrast ratio
 $min-contrast-ratio: 3;
-
-// Dark-mode surface colors, consumed as CSS custom properties in _theme.scss
-$dark-bg: #181a1f;
-$dark-bg-alt: #22252b;
-$dark-text: #e8e9ea;
