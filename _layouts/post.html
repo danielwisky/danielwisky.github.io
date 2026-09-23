@@ -31,7 +31,12 @@ layout: default
       <img src="{% include post-cover.html post=page %}" width="1200" height="900"
            decoding="async" alt="">
     </div>
-    {%- assign credit = site.data.photo_credits[page.slug] -%}
+    {%- comment -%}
+    Só credita quando a foto creditada é a que está na tela: cover-img no front
+    matter tem precedência sobre a foto de _photos/, e creditar assim mesmo
+    seria atribuir a autoria errada.
+    {%- endcomment -%}
+    {%- unless page.cover-img -%}{%- assign credit = site.data.photo_credits[page.slug] -%}{%- endunless -%}
     {%- if credit %}
     <figcaption class="post__cover-credit">
       Foto de <a href="{{ credit.author_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ credit.author }}</a>

@@ -350,6 +350,7 @@ const yaml = [
     .flatMap(([slug, label]) => [
       `${JSON.stringify(label)}:`,
       `  cover: /${OUT_DIR}/${slug}.svg`,
+      `  card: /${OUT_DIR}/${slug}.svg`,
       `  thumb: /${OUT_DIR}/thumbs/${slug}.svg`,
       `  og: /${OUT_DIR}/og/${slug}.jpg`,
     ]),

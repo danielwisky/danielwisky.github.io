@@ -1,25 +1,242 @@
 # Gerado por scripts/build-photos.mjs — não editar à mão.
+# Mapa slug-do-post -> variantes da foto de capa.
+"apache-kafka-no-spring-boot":
+  cover: /assets/img/photos/apache-kafka-no-spring-boot.webp
+  card: /assets/img/photos/cards/apache-kafka-no-spring-boot.webp
+  thumb: /assets/img/photos/thumbs/apache-kafka-no-spring-boot.webp
+  og: /assets/img/photos/og/apache-kafka-no-spring-boot.jpg
+"apache-kafka-processamento-lote":
+  cover: /assets/img/photos/apache-kafka-processamento-lote.webp
+  card: /assets/img/photos/cards/apache-kafka-processamento-lote.webp
+  thumb: /assets/img/photos/thumbs/apache-kafka-processamento-lote.webp
+  og: /assets/img/photos/og/apache-kafka-processamento-lote.jpg
 "aplicativos-para-acessibilidade":
   cover: /assets/img/photos/aplicativos-para-acessibilidade.webp
+  card: /assets/img/photos/cards/aplicativos-para-acessibilidade.webp
   thumb: /assets/img/photos/thumbs/aplicativos-para-acessibilidade.webp
   og: /assets/img/photos/og/aplicativos-para-acessibilidade.jpg
+"atualizando-dependencias-projeto-maven":
+  cover: /assets/img/photos/atualizando-dependencias-projeto-maven.webp
+  card: /assets/img/photos/cards/atualizando-dependencias-projeto-maven.webp
+  thumb: /assets/img/photos/thumbs/atualizando-dependencias-projeto-maven.webp
+  og: /assets/img/photos/og/atualizando-dependencias-projeto-maven.jpg
+"bulk-operations-in-mongodb":
+  cover: /assets/img/photos/bulk-operations-in-mongodb.webp
+  card: /assets/img/photos/cards/bulk-operations-in-mongodb.webp
+  thumb: /assets/img/photos/thumbs/bulk-operations-in-mongodb.webp
+  og: /assets/img/photos/og/bulk-operations-in-mongodb.jpg
+"clean-arch-no-spring-boot":
+  cover: /assets/img/photos/clean-arch-no-spring-boot.webp
+  card: /assets/img/photos/cards/clean-arch-no-spring-boot.webp
+  thumb: /assets/img/photos/thumbs/clean-arch-no-spring-boot.webp
+  og: /assets/img/photos/og/clean-arch-no-spring-boot.jpg
+"clean-code-comentarios":
+  cover: /assets/img/photos/clean-code-comentarios.webp
+  card: /assets/img/photos/cards/clean-code-comentarios.webp
+  thumb: /assets/img/photos/thumbs/clean-code-comentarios.webp
+  og: /assets/img/photos/og/clean-code-comentarios.jpg
+"clean-code-funcoes":
+  cover: /assets/img/photos/clean-code-funcoes.webp
+  card: /assets/img/photos/cards/clean-code-funcoes.webp
+  thumb: /assets/img/photos/thumbs/clean-code-funcoes.webp
+  og: /assets/img/photos/og/clean-code-funcoes.jpg
+"clean-code-limites":
+  cover: /assets/img/photos/clean-code-limites.webp
+  card: /assets/img/photos/cards/clean-code-limites.webp
+  thumb: /assets/img/photos/thumbs/clean-code-limites.webp
+  og: /assets/img/photos/og/clean-code-limites.jpg
+"clean-code-manipulacao-de-erros":
+  cover: /assets/img/photos/clean-code-manipulacao-de-erros.webp
+  card: /assets/img/photos/cards/clean-code-manipulacao-de-erros.webp
+  thumb: /assets/img/photos/thumbs/clean-code-manipulacao-de-erros.webp
+  og: /assets/img/photos/og/clean-code-manipulacao-de-erros.jpg
+"clean-code-nomes-significativos":
+  cover: /assets/img/photos/clean-code-nomes-significativos.webp
+  card: /assets/img/photos/cards/clean-code-nomes-significativos.webp
+  thumb: /assets/img/photos/thumbs/clean-code-nomes-significativos.webp
+  og: /assets/img/photos/og/clean-code-nomes-significativos.jpg
+"clean-code-objetos-e-estruturas-de-dados":
+  cover: /assets/img/photos/clean-code-objetos-e-estruturas-de-dados.webp
+  card: /assets/img/photos/cards/clean-code-objetos-e-estruturas-de-dados.webp
+  thumb: /assets/img/photos/thumbs/clean-code-objetos-e-estruturas-de-dados.webp
+  og: /assets/img/photos/og/clean-code-objetos-e-estruturas-de-dados.jpg
+"comandos-docker":
+  cover: /assets/img/photos/comandos-docker.webp
+  card: /assets/img/photos/cards/comandos-docker.webp
+  thumb: /assets/img/photos/thumbs/comandos-docker.webp
+  og: /assets/img/photos/og/comandos-docker.jpg
+"commits-semanticos":
+  cover: /assets/img/photos/commits-semanticos.webp
+  card: /assets/img/photos/cards/commits-semanticos.webp
+  thumb: /assets/img/photos/thumbs/commits-semanticos.webp
+  og: /assets/img/photos/og/commits-semanticos.jpg
 "como-se-tornar-programador-destacar-mercado-trabalho":
   cover: /assets/img/photos/como-se-tornar-programador-destacar-mercado-trabalho.webp
+  card: /assets/img/photos/cards/como-se-tornar-programador-destacar-mercado-trabalho.webp
   thumb: /assets/img/photos/thumbs/como-se-tornar-programador-destacar-mercado-trabalho.webp
   og: /assets/img/photos/og/como-se-tornar-programador-destacar-mercado-trabalho.jpg
 "conceito-fila-fifo":
   cover: /assets/img/photos/conceito-fila-fifo.webp
+  card: /assets/img/photos/cards/conceito-fila-fifo.webp
   thumb: /assets/img/photos/thumbs/conceito-fila-fifo.webp
   og: /assets/img/photos/og/conceito-fila-fifo.jpg
 "conceito-pilha-lifo":
   cover: /assets/img/photos/conceito-pilha-lifo.webp
+  card: /assets/img/photos/cards/conceito-pilha-lifo.webp
   thumb: /assets/img/photos/thumbs/conceito-pilha-lifo.webp
   og: /assets/img/photos/og/conceito-pilha-lifo.jpg
+"desafio-armadilha":
+  cover: /assets/img/photos/desafio-armadilha.webp
+  card: /assets/img/photos/cards/desafio-armadilha.webp
+  thumb: /assets/img/photos/thumbs/desafio-armadilha.webp
+  og: /assets/img/photos/og/desafio-armadilha.jpg
+"desafio-bobstone":
+  cover: /assets/img/photos/desafio-bobstone.webp
+  card: /assets/img/photos/cards/desafio-bobstone.webp
+  thumb: /assets/img/photos/thumbs/desafio-bobstone.webp
+  og: /assets/img/photos/og/desafio-bobstone.jpg
+"desafio-clock":
+  cover: /assets/img/photos/desafio-clock.webp
+  card: /assets/img/photos/cards/desafio-clock.webp
+  thumb: /assets/img/photos/thumbs/desafio-clock.webp
+  og: /assets/img/photos/og/desafio-clock.jpg
+"desafio-defuse":
+  cover: /assets/img/photos/desafio-defuse.webp
+  card: /assets/img/photos/cards/desafio-defuse.webp
+  thumb: /assets/img/photos/thumbs/desafio-defuse.webp
+  og: /assets/img/photos/og/desafio-defuse.jpg
+"desafio-estrelas":
+  cover: /assets/img/photos/desafio-estrelas.webp
+  card: /assets/img/photos/cards/desafio-estrelas.webp
+  thumb: /assets/img/photos/thumbs/desafio-estrelas.webp
+  og: /assets/img/photos/og/desafio-estrelas.jpg
+"desafio-oficina-mecanica":
+  cover: /assets/img/photos/desafio-oficina-mecanica.webp
+  card: /assets/img/photos/cards/desafio-oficina-mecanica.webp
+  thumb: /assets/img/photos/thumbs/desafio-oficina-mecanica.webp
+  og: /assets/img/photos/og/desafio-oficina-mecanica.jpg
+"desafio-recomendador-de-amigos":
+  cover: /assets/img/photos/desafio-recomendador-de-amigos.webp
+  card: /assets/img/photos/cards/desafio-recomendador-de-amigos.webp
+  thumb: /assets/img/photos/thumbs/desafio-recomendador-de-amigos.webp
+  og: /assets/img/photos/og/desafio-recomendador-de-amigos.jpg
+"entendendo-busca-binaria":
+  cover: /assets/img/photos/entendendo-busca-binaria.webp
+  card: /assets/img/photos/cards/entendendo-busca-binaria.webp
+  thumb: /assets/img/photos/thumbs/entendendo-busca-binaria.webp
+  og: /assets/img/photos/og/entendendo-busca-binaria.jpg
+"html5-web-storage":
+  cover: /assets/img/photos/html5-web-storage.webp
+  card: /assets/img/photos/cards/html5-web-storage.webp
+  thumb: /assets/img/photos/thumbs/html5-web-storage.webp
+  og: /assets/img/photos/og/html5-web-storage.jpg
+"introducao-ao-apache-kafka":
+  cover: /assets/img/photos/introducao-ao-apache-kafka.webp
+  card: /assets/img/photos/cards/introducao-ao-apache-kafka.webp
+  thumb: /assets/img/photos/thumbs/introducao-ao-apache-kafka.webp
+  og: /assets/img/photos/og/introducao-ao-apache-kafka.jpg
+"introducao-ao-dynamodb":
+  cover: /assets/img/photos/introducao-ao-dynamodb.webp
+  card: /assets/img/photos/cards/introducao-ao-dynamodb.webp
+  thumb: /assets/img/photos/thumbs/introducao-ao-dynamodb.webp
+  og: /assets/img/photos/og/introducao-ao-dynamodb.jpg
+"introducao-ao-mapstruct":
+  cover: /assets/img/photos/introducao-ao-mapstruct.webp
+  card: /assets/img/photos/cards/introducao-ao-mapstruct.webp
+  thumb: /assets/img/photos/thumbs/introducao-ao-mapstruct.webp
+  og: /assets/img/photos/og/introducao-ao-mapstruct.jpg
+"introducao-ao-sass":
+  cover: /assets/img/photos/introducao-ao-sass.webp
+  card: /assets/img/photos/cards/introducao-ao-sass.webp
+  thumb: /assets/img/photos/thumbs/introducao-ao-sass.webp
+  og: /assets/img/photos/og/introducao-ao-sass.jpg
+"introducao-mongodb":
+  cover: /assets/img/photos/introducao-mongodb.webp
+  card: /assets/img/photos/cards/introducao-mongodb.webp
+  thumb: /assets/img/photos/thumbs/introducao-mongodb.webp
+  og: /assets/img/photos/og/introducao-mongodb.jpg
+"java-testes-de-integracao":
+  cover: /assets/img/photos/java-testes-de-integracao.webp
+  card: /assets/img/photos/cards/java-testes-de-integracao.webp
+  thumb: /assets/img/photos/thumbs/java-testes-de-integracao.webp
+  og: /assets/img/photos/og/java-testes-de-integracao.jpg
+"java-testes-de-mutacao":
+  cover: /assets/img/photos/java-testes-de-mutacao.webp
+  card: /assets/img/photos/cards/java-testes-de-mutacao.webp
+  thumb: /assets/img/photos/thumbs/java-testes-de-mutacao.webp
+  og: /assets/img/photos/og/java-testes-de-mutacao.jpg
+"java-testes-unitarios":
+  cover: /assets/img/photos/java-testes-unitarios.webp
+  card: /assets/img/photos/cards/java-testes-unitarios.webp
+  thumb: /assets/img/photos/thumbs/java-testes-unitarios.webp
+  og: /assets/img/photos/og/java-testes-unitarios.jpg
+"jquery-alteracao-formulario":
+  cover: /assets/img/photos/jquery-alteracao-formulario.webp
+  card: /assets/img/photos/cards/jquery-alteracao-formulario.webp
+  thumb: /assets/img/photos/thumbs/jquery-alteracao-formulario.webp
+  og: /assets/img/photos/og/jquery-alteracao-formulario.jpg
+"minhas-imagens-preferidas-docker":
+  cover: /assets/img/photos/minhas-imagens-preferidas-docker.webp
+  card: /assets/img/photos/cards/minhas-imagens-preferidas-docker.webp
+  thumb: /assets/img/photos/thumbs/minhas-imagens-preferidas-docker.webp
+  og: /assets/img/photos/og/minhas-imagens-preferidas-docker.jpg
 "o-que-exatamente-e-um-doutorado":
   cover: /assets/img/photos/o-que-exatamente-e-um-doutorado.webp
+  card: /assets/img/photos/cards/o-que-exatamente-e-um-doutorado.webp
   thumb: /assets/img/photos/thumbs/o-que-exatamente-e-um-doutorado.webp
   og: /assets/img/photos/og/o-que-exatamente-e-um-doutorado.jpg
+"principio-aberto-fechado":
+  cover: /assets/img/photos/principio-aberto-fechado.webp
+  card: /assets/img/photos/cards/principio-aberto-fechado.webp
+  thumb: /assets/img/photos/thumbs/principio-aberto-fechado.webp
+  og: /assets/img/photos/og/principio-aberto-fechado.jpg
+"principio-inversao-dependencia":
+  cover: /assets/img/photos/principio-inversao-dependencia.webp
+  card: /assets/img/photos/cards/principio-inversao-dependencia.webp
+  thumb: /assets/img/photos/thumbs/principio-inversao-dependencia.webp
+  og: /assets/img/photos/og/principio-inversao-dependencia.jpg
+"principio-responsabilidade-unica":
+  cover: /assets/img/photos/principio-responsabilidade-unica.webp
+  card: /assets/img/photos/cards/principio-responsabilidade-unica.webp
+  thumb: /assets/img/photos/thumbs/principio-responsabilidade-unica.webp
+  og: /assets/img/photos/og/principio-responsabilidade-unica.jpg
+"principio-segregacao-interface":
+  cover: /assets/img/photos/principio-segregacao-interface.webp
+  card: /assets/img/photos/cards/principio-segregacao-interface.webp
+  thumb: /assets/img/photos/thumbs/principio-segregacao-interface.webp
+  og: /assets/img/photos/og/principio-segregacao-interface.jpg
+"principio-substituicao-liskov":
+  cover: /assets/img/photos/principio-substituicao-liskov.webp
+  card: /assets/img/photos/cards/principio-substituicao-liskov.webp
+  thumb: /assets/img/photos/thumbs/principio-substituicao-liskov.webp
+  og: /assets/img/photos/og/principio-substituicao-liskov.jpg
+"redis-uma-breve-introducao":
+  cover: /assets/img/photos/redis-uma-breve-introducao.webp
+  card: /assets/img/photos/cards/redis-uma-breve-introducao.webp
+  thumb: /assets/img/photos/thumbs/redis-uma-breve-introducao.webp
+  og: /assets/img/photos/og/redis-uma-breve-introducao.jpg
+"riscos-seguranca-aplicacoes-web":
+  cover: /assets/img/photos/riscos-seguranca-aplicacoes-web.webp
+  card: /assets/img/photos/cards/riscos-seguranca-aplicacoes-web.webp
+  thumb: /assets/img/photos/thumbs/riscos-seguranca-aplicacoes-web.webp
+  og: /assets/img/photos/og/riscos-seguranca-aplicacoes-web.jpg
+"sharding-no-mongodb":
+  cover: /assets/img/photos/sharding-no-mongodb.webp
+  card: /assets/img/photos/cards/sharding-no-mongodb.webp
+  thumb: /assets/img/photos/thumbs/sharding-no-mongodb.webp
+  og: /assets/img/photos/og/sharding-no-mongodb.jpg
+"singleton-design-pattern":
+  cover: /assets/img/photos/singleton-design-pattern.webp
+  card: /assets/img/photos/cards/singleton-design-pattern.webp
+  thumb: /assets/img/photos/thumbs/singleton-design-pattern.webp
+  og: /assets/img/photos/og/singleton-design-pattern.jpg
 "sites-para-aprender-programacao":
   cover: /assets/img/photos/sites-para-aprender-programacao.webp
+  card: /assets/img/photos/cards/sites-para-aprender-programacao.webp
   thumb: /assets/img/photos/thumbs/sites-para-aprender-programacao.webp
   og: /assets/img/photos/og/sites-para-aprender-programacao.jpg
+"stream-api-e-funcoes-lambda-no-java8":
+  cover: /assets/img/photos/stream-api-e-funcoes-lambda-no-java8.webp
+  card: /assets/img/photos/cards/stream-api-e-funcoes-lambda-no-java8.webp
+  thumb: /assets/img/photos/thumbs/stream-api-e-funcoes-lambda-no-java8.webp
+  og: /assets/img/photos/og/stream-api-e-funcoes-lambda-no-java8.jpg

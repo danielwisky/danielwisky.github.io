@@ -5,6 +5,7 @@ Uso: inclua com post=post (ou post=page, na página do post).
 
 Variantes:
   cover (padrão) 4:3, usada nos cards do feed e no topo do post
+  card           560px, para o card do feed (via srcset)
   thumb          menor, para os 72px da sidebar e da busca
   og             1200x630 bitmap para og:image, já que redes sociais não
                  aceitam SVG
@@ -24,9 +25,9 @@ Imprime só a URL, sem espaços em volta, para poder ir direto num atributo.
 {%- if p.cover-img -%}
 {{- p.cover-img | relative_url -}}
 {%- elsif photo -%}
-{{- photo[variant] | relative_url -}}
+{{- photo[variant] | default: photo.cover | relative_url -}}
 {%- elsif tag_cover -%}
-{{- tag_cover[variant] | relative_url -}}
+{{- tag_cover[variant] | default: tag_cover.cover | relative_url -}}
 {%- elsif variant == 'thumb' -%}
 {{- '/assets/img/covers/thumbs/default.svg' | relative_url -}}
 {%- elsif variant == 'og' -%}

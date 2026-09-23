@@ -62,7 +62,11 @@
 
 .post__cover {
   position: relative;
-  aspect-ratio: 21 / 9;
+  // 3:2 casa com a variante `cover` gerada em scripts/build-photos.mjs. Com o
+  // 21:9 anterior o CSS recortava 43% da imagem que o navegador já tinha
+  // baixado e decodificado, e o recorte inteligente do sharp era calculado
+  // para um enquadramento que nunca aparecia inteiro.
+  aspect-ratio: 3 / 2;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--bg-alt);
@@ -282,7 +286,7 @@
 
 @media (max-width: 768px) {
   .post__title { font-size: 30px; }
-  .post__cover { aspect-ratio: 16 / 9; }
+  .post__cover { aspect-ratio: 3 / 2; }
 
   .post-nav {
     flex-direction: column;
