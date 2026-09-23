@@ -1,0 +1,23 @@
+# Gerado por scripts/build-video-thumbs.mjs — não editar à mão.
+# Mapa slug-do-post -> vídeo do YouTube embutido no post.
+"stream-api-e-funcoes-lambda-no-java8":
+  id: jNz8IVXkV6A
+  url: https://www.youtube.com/watch?v=jNz8IVXkV6A
+"bulk-operations-in-mongodb":
+  id: Dqi7OKeANV8
+  url: https://www.youtube.com/watch?v=Dqi7OKeANV8
+"introducao-mongodb":
+  id: yt1mguYLjEo
+  url: https://www.youtube.com/watch?v=yt1mguYLjEo
+"introducao-ao-apache-kafka":
+  id: tsBdfTHstTw
+  url: https://www.youtube.com/watch?v=tsBdfTHstTw
+"apache-kafka-no-spring-boot":
+  id: tkj0Qpm4OgI
+  url: https://www.youtube.com/watch?v=tkj0Qpm4OgI
+"clean-arch-no-spring-boot":
+  id: 6D6TWhSB7hE
+  url: https://www.youtube.com/watch?v=6D6TWhSB7hE
+"apache-kafka-processamento-lote":
+  id: Rj_sv6dqVVE
+  url: https://www.youtube.com/watch?v=Rj_sv6dqVVE

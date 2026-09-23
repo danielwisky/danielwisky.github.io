@@ -300,3 +300,24 @@
     }
   }
 }
+
+// Capa de videoaula: leva para o vídeo, então se comporta como um player.
+.post__cover--video {
+  display: block;
+  cursor: pointer;
+
+  .video-icon {
+    top: 50%;
+    right: auto;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    font-size: 22px;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover .video-icon {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(0, 0, 0, 0.6);
+  }
+}

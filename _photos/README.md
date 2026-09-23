@@ -28,5 +28,9 @@ Por isso:
 - `--prune` (que remove versões otimizadas sem original) é ignorado quando esta
   pasta está vazia, justamente para não apagar o site inteiro.
 
+As thumbnails dos posts com vídeo também pousam aqui, baixadas por
+`npm run build:videos` a partir do embed do YouTube. Não precisa fazer nada à
+mão para elas.
+
 Anote a autoria de qualquer foto de banco de imagens em
-`_data/photo_credits.yml`.
+`_data/photo_credits.yml`. Posts com vídeo não entram lá: a imagem é sua.
