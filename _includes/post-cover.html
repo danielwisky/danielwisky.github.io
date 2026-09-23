@@ -4,29 +4,34 @@ Resolve a URL da capa de um post.
 Uso: inclua com post=post (ou post=page, na página do post).
 
 Variantes:
-  cover (padrão) SVG 4:3, com ícone e nome da tag
-  thumb          SVG só com o ícone, para os 72px da sidebar e da busca, onde
-                 o nome da tag ficaria ilegível
-  og             JPEG 1200x630 para og:image, já que redes sociais não aceitam SVG
+  cover (padrão) 4:3, usada nos cards do feed e no topo do post
+  card           560px, para o card do feed (via srcset)
+  thumb          menor, para os 72px da sidebar e da busca
+  og             1200x630 bitmap para og:image, já que redes sociais não
+                 aceitam SVG
 
-Ordem: cover-img explícito no front matter -> capa da primeira tag
-(_data/covers.yml, gerado por scripts/build-covers.mjs) -> capa padrão.
+Precedência:
+  1. cover-img no front matter, para apontar uma imagem específica ou externa
+  2. foto própria em _photos/<slug>.jpg, otimizada por scripts/build-photos.mjs
+  3. capa gerada a partir da primeira tag, por scripts/build-covers.mjs
+  4. capa padrão
+
 Imprime só a URL, sem espaços em volta, para poder ir direto num atributo.
 {%- endcomment -%}
 {%- assign p = include.post -%}
 {%- assign variant = include.variant | default: 'cover' -%}
+{%- assign photo = site.data.photos[p.slug] -%}
+{%- assign tag_cover = site.data.covers[p.tags.first] -%}
 {%- if p.cover-img -%}
 {{- p.cover-img | relative_url -}}
-{%- else -%}
-{%- assign first_tag = p.tags | first -%}
-{%- assign mapped = site.data.covers[first_tag] -%}
-{%- if mapped -%}
-{{- mapped[variant] | relative_url -}}
+{%- elsif photo -%}
+{{- photo[variant] | default: photo.cover | relative_url -}}
+{%- elsif tag_cover -%}
+{{- tag_cover[variant] | default: tag_cover.cover | relative_url -}}
 {%- elsif variant == 'thumb' -%}
 {{- '/assets/img/covers/thumbs/default.svg' | relative_url -}}
 {%- elsif variant == 'og' -%}
 {{- '/assets/img/covers/og/default.jpg' | relative_url -}}
 {%- else -%}
 {{- '/assets/img/covers/default.svg' | relative_url -}}
-{%- endif -%}
 {%- endif -%}
