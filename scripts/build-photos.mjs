@@ -19,6 +19,12 @@ import sharp from "sharp";
 const SRC_DIR = "_photos";
 const OUT_DIR = "assets/img/photos";
 
+// Nome reservado: `_photos/avatar.*` não é capa de post, é a foto do hero.
+// Sai quadrada em 2x (o hero exibe 132px) e vai para um mapa próprio.
+const AVATAR = "avatar";
+const AVATAR_OUT = "assets/img/avatar.webp";
+const AVATAR_SIZE = 264;
+
 // Mesmas proporções das capas geradas, para os layouts não precisarem saber
 // de onde a imagem veio.
 const VARIANTS = [
@@ -53,6 +59,8 @@ const writeMap = async (body) => {
 await rm(OUT_DIR, { recursive: true, force: true });
 
 if (!sources.length) {
+  await rm(AVATAR_OUT, { force: true });
+  await writeFile("_data/site_images.yml", "# Gerado por scripts/build-photos.mjs — não editar à mão.\n");
   await writeMap("");
   console.log(`nenhuma foto em ${SRC_DIR}/ — assets/img/photos e o mapa foram limpos`);
   process.exit(0);
@@ -63,10 +71,20 @@ for (const variant of VARIANTS) {
 }
 
 const entries = [];
+let avatar = null;
 
 for (const file of sources.sort()) {
   const slug = path.basename(file, path.extname(file));
   const input = path.join(SRC_DIR, file);
+
+  if (slug === AVATAR) {
+    // A fonte já vem recortada em quadrado; aqui é só redimensionar.
+    await sharp(input).resize(AVATAR_SIZE, AVATAR_SIZE, { fit: "cover" }).webp({ quality: 86 }).toFile(AVATAR_OUT);
+    avatar = `/${AVATAR_OUT}`;
+    console.log("avatar otimizado");
+    continue;
+  }
+
   const paths = {};
 
   for (const variant of VARIANTS) {
@@ -98,6 +116,12 @@ await writeMap(
       ...VARIANTS.map((v) => `  ${v.name}: ${paths[v.name]}`),
     ])
     .join("\n") + "\n"
+);
+
+await writeFile(
+  "_data/site_images.yml",
+  "# Gerado por scripts/build-photos.mjs — não editar à mão.\n" +
+    (avatar ? `avatar: ${avatar}\n` : "")
 );
 
 console.log(`${entries.length} foto(s) em ${OUT_DIR} e _data/photos.yml`);

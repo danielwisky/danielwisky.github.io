@@ -26,10 +26,19 @@ layout: default
     </div>
   </header>
 
-  <div class="post__cover">
-    <img src="{% include post-cover.html post=page %}" width="1200" height="900"
-         decoding="async" alt="">
-  </div>
+  <figure class="post__cover-wrap">
+    <div class="post__cover">
+      <img src="{% include post-cover.html post=page %}" width="1200" height="900"
+           decoding="async" alt="">
+    </div>
+    {%- assign credit = site.data.photo_credits[page.slug] -%}
+    {%- if credit %}
+    <figcaption class="post__cover-credit">
+      Foto de <a href="{{ credit.author_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ credit.author }}</a>
+      no <a href="{{ credit.source_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ credit.source }}</a>
+    </figcaption>
+    {%- endif %}
+  </figure>
 
   <div class="prose">
     {{ content }}

@@ -2,8 +2,13 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__avatar">
-        <img src="{{ '/assets/img/avatar.svg' | relative_url }}" width="132" height="132"
-             alt="{{ site.title }}">
+        {%- comment -%}
+        A foto vem de _photos/avatar.jpg, otimizada por scripts/build-photos.mjs.
+        Sem ela, cai no monograma gerado por scripts/build-covers.mjs.
+        {%- endcomment -%}
+        {%- assign avatar = site.data.site_images.avatar | default: '/assets/img/avatar.svg' %}
+        <img src="{{ avatar | relative_url }}" width="132" height="132"
+             alt="Foto de {{ site.title }}">
       </div>
       <div class="hero__content">
         <h1 class="hero__title">Olá, eu sou o Daniel 👋</h1>
