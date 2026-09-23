@@ -137,17 +137,43 @@ for (const file of sources) {
     continue;
   }
 
+  const meta = await sharp(input).metadata();
+  const sourceRatio = meta.width / meta.height;
+
   for (const variant of VARIANTS) {
+    const targetRatio = variant.width / variant.height;
+    const encode = (p) =>
+      variant.ext === "webp" ? p.webp({ quality: variant.q }) : p.jpeg({ quality: variant.q, mozjpeg: true });
+
+    /*
+     * Fonte muito mais larga (ou mais alta) que o destino não pode ser
+     * recortada: thumbnail de YouTube é 16:9 e tem o título nas bordas, que o
+     * corte 4:3 decepa. Nesses casos o quadro inteiro entra reduzido, sobre
+     * uma cópia ampliada e desfocada de si mesmo, que preenche as laterais.
+     *
+     * O limiar de 0.14 fica entre os dois casos reais: 16:9 numa caixa 3:2 dá
+     * 0.170 (precisa de letterbox) e 3:2 numa caixa 4:3 dá 0.118 (o corte não
+     * incomoda).
+     */
+    if (Math.abs(Math.log(sourceRatio / targetRatio)) > 0.14) {
+      const background = await encode(
+        sharp(input).resize(variant.width, variant.height, { fit: "cover" }).blur(18).modulate({ brightness: 0.8 })
+      ).toBuffer();
+
+      const foreground = await sharp(input)
+        .resize(variant.width, variant.height, { fit: "inside" })
+        .toBuffer();
+
+      await encode(sharp(background).composite([{ input: foreground, gravity: "center" }])).toFile(
+        outputFor(slug, variant)
+      );
+      continue;
+    }
+
     // `position: attention` recorta em volta da região de maior contraste, o
     // que costuma preservar o assunto da foto melhor que um corte central.
-    const pipeline = sharp(input).resize(variant.width, variant.height, {
-      fit: "cover",
-      position: sharp.strategy.attention,
-    });
-
-    await (variant.ext === "webp"
-      ? pipeline.webp({ quality: variant.q })
-      : pipeline.jpeg({ quality: variant.q, mozjpeg: true })
+    await encode(
+      sharp(input).resize(variant.width, variant.height, { fit: "cover", position: sharp.strategy.attention })
     ).toFile(outputFor(slug, variant));
   }
 

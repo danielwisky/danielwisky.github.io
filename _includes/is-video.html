@@ -2,14 +2,14 @@
 Diz se um post é videoaula. Imprime "1" quando é e nada quando não é, então o
 uso é capturar a saída e testar contra string vazia.
 
-Checa a tag Videoaula e também o embed do YouTube no corpo, para um post com
-vídeo não ficar sem o selo só porque a tag foi esquecida.
+A fonte é _data/videos.yml, gerado por scripts/build-video-thumbs.mjs a
+partir do embed no corpo do post, então um post com vídeo não fica sem o selo
+por esquecimento da tag. A tag Videoaula entra como rede de segurança.
 
 Nota: nada de tags Liquid dentro deste comentário — o Liquid continua
 interpretando tags dentro de comment, e um if sem endif aqui quebra o build.
 {%- endcomment -%}
 {%- assign p = include.post -%}
-{%- if p.tags contains 'Videoaula' -%}1
-{%- elsif p.content contains 'youtube-nocookie.com/embed' -%}1
-{%- elsif p.content contains 'youtube.com/embed' -%}1
+{%- if site.data.videos[p.slug] -%}1
+{%- elsif p.tags contains 'Videoaula' -%}1
 {%- endif -%}

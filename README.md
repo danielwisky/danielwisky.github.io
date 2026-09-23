@@ -32,6 +32,10 @@ Para usar uma foto no lugar dela, coloque o original em `_photos/<slug>.jpg`
 (o slug é o nome do arquivo do post sem a data) e rode `npm run build:photos`.
 Detalhes em [`_photos/README.md`](_photos/README.md).
 
+**Post com vídeo**: basta embutir o iframe do YouTube no corpo. O
+`npm run build:videos` acha o embed, baixa a thumbnail do próprio vídeo e a usa
+como capa; a capa vira link para o vídeo e ganha o botão de play.
+
 ## Scripts
 
 Os artefatos gerados são commitados: o deploy roda só o Jekyll. Rode
@@ -42,6 +46,7 @@ fotos.
 |---|---|
 | `npm run build:js` | Minifica `assets/js/*.js` |
 | `npm run build:covers` | Gera as capas das tags e `_data/covers.yml` |
+| `npm run build:videos` | Baixa a thumbnail do YouTube dos posts com vídeo |
 | `npm run build:photos` | Otimiza as fotos novas de `_photos/` e `_data/photos.yml` |
 
 Cada imagem sai em quatro variantes, para cada lugar do site receber o tamanho
