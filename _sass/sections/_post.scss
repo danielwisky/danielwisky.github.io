@@ -38,10 +38,35 @@
   }
 }
 
+.post__cover-wrap {
+  margin: 0 0 var(--space-6);
+}
+
+.post__cover-credit {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  color: var(--text-alt);
+
+  a {
+    color: var(--text-alt);
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
 .post__cover {
   position: relative;
-  margin-bottom: var(--space-6);
-  aspect-ratio: 21 / 9;
+  // 3:2 casa com a variante `cover` gerada em scripts/build-photos.mjs. Com o
+  // 21:9 anterior o CSS recortava 43% da imagem que o navegador já tinha
+  // baixado e decodificado, e o recorte inteligente do sharp era calculado
+  // para um enquadramento que nunca aparecia inteiro.
+  aspect-ratio: 3 / 2;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--bg-alt);
@@ -261,7 +286,7 @@
 
 @media (max-width: 768px) {
   .post__title { font-size: 30px; }
-  .post__cover { aspect-ratio: 16 / 9; }
+  .post__cover { aspect-ratio: 3 / 2; }
 
   .post-nav {
     flex-direction: column;

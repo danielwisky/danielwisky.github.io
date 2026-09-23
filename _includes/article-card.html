@@ -4,8 +4,16 @@
 <article class="article">
   <a class="article__image{% if is_video != '' %} article__image--video{% endif %}"
      href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
-    <img src="{% include post-cover.html post=p %}" loading="lazy" decoding="async"
-         width="1200" height="900" alt="">
+    {%- comment -%}
+    srcset entre a variante card (560px) e a cover (1000px): o card é exibido
+    a ~370px, então servir a cover para todo mundo era o maior desperdício de
+    banda da home.
+    {%- endcomment -%}
+    <img src="{% include post-cover.html post=p variant='card' %}"
+         srcset="{% include post-cover.html post=p variant='card' %} 560w,
+                 {% include post-cover.html post=p variant='cover' %} 1000w"
+         sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 46vw, 370px"
+         loading="lazy" decoding="async" width="1200" height="900" alt="">
     {%- if is_video != '' %}
     <span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>
     {%- endif %}

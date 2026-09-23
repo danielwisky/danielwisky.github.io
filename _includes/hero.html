@@ -2,16 +2,22 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__avatar">
-        <img src="{{ '/assets/img/avatar.svg' | relative_url }}" width="132" height="132"
-             alt="{{ site.title }}">
+        {%- comment -%}
+        A foto vem de _photos/avatar.jpg, otimizada por scripts/build-photos.mjs.
+        Sem ela, cai no monograma gerado por scripts/build-covers.mjs.
+        {%- endcomment -%}
+        {%- assign avatar = site.data.site_images.avatar | default: '/assets/img/avatar.svg' %}
+        <img src="{{ avatar | relative_url }}" width="132" height="132"
+             alt="Foto de {{ site.title }}">
       </div>
       <div class="hero__content">
-        <h1 class="hero__title">Olá, eu sou o Daniel 👋</h1>
+        <h1 class="hero__title">Olá, eu sou o Daniel Wisky 👋</h1>
         <p class="hero__subtitle">Engenheiro de Software · Clojure · Java · Kotlin</p>
         <div class="hero__description">
           <p>
-            Escrevo aqui sobre o que uso no dia a dia: arquitetura, clean code,
-            bancos de dados, mensageria e as coisas que aprendo no caminho.
+            Aqui eu registro o que aprendo sobre arquitetura, clean code,
+            bancos de dados e mensageria. Às vezes ensinando, quase sempre
+            estudando.
           </p>
         </div>
         <a class="button button--primary" href="{{ '/contato/' | relative_url }}">

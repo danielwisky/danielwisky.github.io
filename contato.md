@@ -5,10 +5,18 @@ permalink: /contato/
 plain: true
 ---
 
-<form id="contactForm" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" novalidate>
+<p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
+
+{%- comment -%}
+O action continua no HTML para o form funcionar sem JS (aí quem recebe é a
+página de obrigado do próprio Formspree, que o plano gratuito não deixa
+trocar). Com JS, o assets/js/contact.js envia por AJAX e leva para /thanks/,
+que é uma página nossa.
+{%- endcomment -%}
+<form id="contactForm" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST"
+      data-success="{{ '/thanks/' | relative_url }}" novalidate>
   <input type="text" name="_gotcha" style="display:none" />
   <input type="hidden" name="_subject" value="Contato - Blog" />
-  <input type="hidden" name="_next" value="{{ '/obrigado/' | absolute_url }}" />
 
   <div class="field">
     <label class="field__label" for="nome">Nome</label>

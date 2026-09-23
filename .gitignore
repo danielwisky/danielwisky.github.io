@@ -11,3 +11,8 @@ Thumbs.db
 ehthumbs.db
 
 beautiful-jekyll-theme-*.gem
+
+# fotos originais: pesadas e recuperáveis; só as versões otimizadas
+# em assets/img/photos são versionadas
+_photos/*
+!_photos/README.md
