@@ -1,306 +1,190 @@
+//
+// Blocos de código (Rouge) — visual de janela de terminal
+//
+// A estrutura que o Rouge gera é:
+//   div.language-java.highlighter-rouge > div.highlight > pre.highlight > code
+// O assets/js/code-blocks.js injeta `div.code-bar` como primeiro filho do
+// wrapper, com os semáforos, o badge da linguagem e o botão de copiar.
+//
+// As cores vêm todas de custom properties definidas em _tokens.scss, então o
+// tema escuro é trocado junto com o resto do site — sem !important.
+//
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+}
+
+// código inline
+:not(pre) > code {
+  padding: 2px 6px;
+  font-size: 0.875em;
+  line-height: 1.4;
+  color: var(--accent);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  word-break: break-word;
+}
+
+// `div.` é obrigatório: o kramdown usa a mesma classe no código INLINE
+// (`<code class="language-plaintext highlighter-rouge">`), que é estilizado
+// como chip logo acima.
+div.highlighter-rouge {
+  position: relative;
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--code-bg);
+}
+
+// barra superior injetada pelo JS
+.code-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--code-bar);
+}
+
+.code-bar__dots {
+  display: flex;
+  gap: 6px;
+
+  span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.85;
+
+    &:nth-child(1) { background: #ff5f57; }
+    &:nth-child(2) { background: #febc2e; }
+    &:nth-child(3) { background: #28c840; }
+  }
+}
+
+.code-bar__lang {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-alt);
+}
+
+.code-bar__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-alt);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  opacity: 0;
+  transition: opacity var(--transition), color var(--transition), border-color var(--transition);
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  &.is-done {
+    color: var(--accent-start);
+    border-color: var(--accent-start);
+  }
+}
+
+div.highlighter-rouge:hover .code-bar__copy,
+.code-bar__copy:focus-visible,
+.code-bar__copy.is-done {
+  opacity: 1;
+}
+
+// em telas de toque não há hover: o botão fica sempre visível
+@media (hover: none) {
+  .code-bar__copy {
+    opacity: 1;
+  }
+}
+
 .highlight {
-  background: #282a36 !important;
-  color: #f8f8f2 !important;
-  background: #282a36 !important;
-  color: #f8f8f2 !important;
-  background-color: #282a36 !important;
-  pre {
-    background: #282a36 !important;
-    color: #f8f8f2 !important;
-    font-size: 0.875rem;
-    line-height: 1.5em;
-    border-radius: 0.25rem;
-    padding: 0.59375rem;
-  }
-  table {
-    background: #282a36 !important;
-    color: #f8f8f2 !important;
-  }
-  .hll {
-    background-color: #ffffcc !important;
-  }
-  .c {
-    color: #6272a4 !important;
-    background-color: #282a36 !important;
-  }
-  .err {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .g {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .k {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .l {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .n {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .h {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .o {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .x {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .p {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .cm {
-    color: #6272a4 !important;
-    background-color: #282a36 !important;
-  }
-  .cp {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .c1 {
-    color: #6272a4 !important;
-    background-color: #282a36 !important;
-  }
-  .cs {
-    color: #6272a4 !important;
-    background-color: #282a36 !important;
-  }
-  .gd {
-    color: #8b080b !important;
-    background-color: #282a36 !important;
-  }
-  .ge {
-    color: #f8f8f2 !important;
-    text-decoration: underline !important;
-    background-color: #282a36 !important;
-  }
-  .gr {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .gh {
-    color: #f8f8f2 !important;
-    font-weight: bold !important;
-    background-color: #282a36 !important;
-  }
-  .gi {
-    color: #f8f8f2 !important;
-    font-weight: bold !important;
-    background-color: #468410 !important;
-  }
-  .go {
-    color: #3b3a32 !important;
-    background-color: #32343f !important;
-  }
-  .gp {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .gs {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .gu {
-    color: #f8f8f2 !important;
-    font-weight: bold !important;
-    background-color: #282a36 !important;
-  }
-  .gt {
-    color: #f8f8f0 !important;
-    background-color: #ff79c6 !important;
-  }
-  .kc {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .kd {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .kn {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .kp {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .kr {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .kt {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .ld {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .m {
-    color: #bd93f9 !important;
-    background-color: #282a36 !important;
-  }
-  .s {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .na {
-    color: #50fa7b !important;
-    background-color: #282a36 !important;
-  }
-  .nb {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .nc {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .no {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .nd {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .ni {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .ne {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .nf {
-    color: #50fa7b !important;
-    background-color: #282a36 !important;
-  }
-  .nl {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .nn {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .nx {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .py {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .nt {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .nv {
-    color: #8be9fd !important;
-    font-style: italic !important;
-    background-color: #282a36 !important;
-  }
-  .ow {
-    color: #ff79c6 !important;
-    background-color: #282a36 !important;
-  }
-  .w {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .mf {
-    color: #bd93f9 !important;
-    background-color: #282a36 !important;
-  }
-  .mh {
-    color: #bd93f9 !important;
-    background-color: #282a36 !important;
-  }
-  .mi {
-    color: #bd93f9 !important;
-    background-color: #282a36 !important;
-  }
-  .mo {
-    color: #bd93f9 !important;
-    background-color: #282a36 !important;
-  }
-  .sb {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .sc {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .sd {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .s2 {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .se {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .sh {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .si {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .sx {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .sr {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .s1 {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .ss {
-    color: #f1fa8c !important;
-    background-color: #282a36 !important;
-  }
-  .bp {
-    color: #f8f8f2 !important;
-    background-color: #282a36 !important;
-  }
-  .vc {
-    color: #8be9fd !important;
-    font-style: italic !important;
-    background-color: #282a36 !important;
-  }
-  .vg {
-    color: #8be9fd !important;
-    font-style: italic !important;
-    background-color: #282a36 !important;
-  }
-  .vi {
-    color: #8be9fd !important;
-    font-style: italic !important;
-    background-color: #282a36 !important;
-  }
-  .il {
-    color: #bd93f9 !important;
-    background-color: #282a36 !important;
-  }
+  background: transparent;
+}
+
+pre.highlight,
+.highlight pre {
+  margin: 0;
+  padding: var(--space-4) var(--space-5);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--code-text);
+  background: transparent;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  tab-size: 2;
+
+  code {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  // scrollbar discreta
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-pill);
+    background: var(--border-strong);
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+//
+// Mapeamento dos tokens do Rouge
+//
+.highlight {
+  .c, .cd, .cm, .c1, .cs { color: var(--code-comment); font-style: italic; }
+  .cp { color: var(--code-comment); }
+
+  .k, .kc, .kd, .kn, .kp, .kr, .kt, .kv { color: var(--code-keyword); font-weight: 500; }
+  .o, .ow { color: var(--code-punct); }
+  .p, .pi { color: var(--code-punct); }
+
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: var(--code-string); }
+
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx { color: var(--code-number); }
+  .no, .nl { color: var(--code-number); }
+
+  .nc, .nn, .ne, .nt { color: var(--code-type); }
+  .nf, .fm { color: var(--code-fn); }
+  .na, .nv, .vc, .vg, .vi { color: var(--code-fn); }
+  .nb, .bp { color: var(--code-type); }
+  .nd { color: var(--code-fn); font-style: italic; }
+
+  .err { color: #e5484d; }
+  .gd { color: #e5484d; }
+  .gi { color: var(--code-string); }
+  .ge { font-style: italic; }
+  .gs { font-weight: 600; }
+
+  .gl, .gt, .gh, .gu, .gp { color: var(--code-comment); }
+  .w { color: transparent; }
 }

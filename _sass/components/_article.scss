@@ -1,0 +1,136 @@
+//
+// Card de post no feed
+//
+
+.article-feed {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--space-6) / -2);
+  margin-right: calc(var(--space-6) / -2);
+}
+
+.article {
+  width: 50%;
+  padding-left: calc(var(--space-6) / 2);
+  padding-right: calc(var(--space-6) / 2);
+  margin-bottom: var(--space-7);
+}
+
+.article__image {
+  position: relative;
+  display: block;
+  margin-bottom: var(--space-4);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-alt);
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+  }
+
+  &:hover {
+    transform: scale3d(1.03, 1.03, 1);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Selo de play nas capas de post que são videoaula.
+//
+// Fica no canto, e não no centro: o centro da capa já é ocupado pelo ícone da
+// tag, e os dois sobrepostos viravam um borrão.
+.video-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 14px;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  transition: transform var(--transition);
+
+  // compensa o vazio à esquerda do triângulo do ícone
+  i {
+    margin-left: 2px;
+  }
+}
+
+.article__image:hover .video-icon,
+.post-nav__image--video:hover .video-icon {
+  transform: scale(1.12);
+}
+
+// versões menores, na sidebar e na navegação entre posts
+.mini-post__image .video-icon,
+.post-nav__image .video-icon,
+.search-results__thumb .video-icon {
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  font-size: 7px;
+  border-width: 1px;
+
+  i {
+    margin-left: 1px;
+  }
+}
+
+.article__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.article__title {
+  margin-bottom: var(--space-3);
+  font-size: 22px;
+  line-height: 1.3;
+
+  a:hover {
+    color: var(--accent);
+  }
+}
+
+.article__excerpt {
+  margin-bottom: var(--space-3);
+  font-size: 15px;
+  color: var(--text-alt);
+}
+
+.article__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-alt);
+
+  .article__sep {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .article {
+    width: 100%;
+    margin-bottom: var(--space-6);
+  }
+}

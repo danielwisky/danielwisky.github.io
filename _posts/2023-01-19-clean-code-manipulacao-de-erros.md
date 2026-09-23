@@ -2,8 +2,6 @@
 layout: post
 title: "Clean code: Manipulação de erros"
 subtitle: "Muitas bases de código são completamente dominadas pelo tratamento de erros."
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Clean Code]
 ---
 

@@ -1,8 +1,6 @@
 ---
 layout: post
 title: "jQuery - Verificar alteração no formulário HTML"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento Web]
 tags: [jQuery, JavaScript]
 ---
 

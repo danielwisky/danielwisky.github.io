@@ -2,8 +2,6 @@
 layout: post
 title: "Desafio Clock"
 subtitle: "Desafio de programação para construção de um jogo de adivinhação chamado clock"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Programação]
 tags: [Desafio de Programação]
 ---
 

@@ -2,8 +2,6 @@
 layout: post
 title: "Como se Tornar um Programador Excepcional e se Destacar no Mercado de Trabalho"
 subtitle: "Estratégias e Dicas para Impulsionar sua Carreira como Programador e Alcançar Destaque Profissionalmente"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Carreira]
 tags: [Programação, Aprendizado Contínuo]
 ---
 

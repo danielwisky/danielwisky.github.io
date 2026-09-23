@@ -2,8 +2,6 @@
 layout: post
 title: "Conceito de Filas (FIFO)"
 subtitle: "Introdução ao conceito de filas (FIFO – first in, first out)"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Algoritmos e Estruturas de Dados]
 tags: [Estruturas de Dados, Filas, FIFO]
 ---
 

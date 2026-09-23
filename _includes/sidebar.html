@@ -1,0 +1,51 @@
+<aside class="sidebar">
+  <div class="widget">
+    <h2 class="widget__title">Tópicos</h2>
+    <div class="widget__tags">
+      {%- comment -%}
+      site.tags já vem ordenado alfabeticamente pelo Jekyll; ordenar por
+      frequência exigiria montar a lista à mão no Liquid, sem ganho real aqui.
+      {%- endcomment -%}
+      {%- for tag in site.tags limit: 14 %}
+      <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">
+        {{ tag[0] }}<span class="tag-cloud__count">{{ tag[1].size }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Posts recentes</h2>
+    {%- for post in site.posts limit: 5 %}
+    {%- capture is_video %}{% include is-video.html post=post %}{% endcapture %}
+    <div class="mini-post">
+      <a class="mini-post__image" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+        <img src="{% include post-cover.html post=post variant='thumb' %}" loading="lazy" decoding="async"
+             width="72" height="54" alt="">
+        {%- if is_video != '' %}<span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>{% endif %}
+      </a>
+      <div>
+        <h3 class="mini-post__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
+        </h3>
+        <span class="mini-post__date">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-pt-br.html date = post.date %}</time>
+        </span>
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <div class="widget">
+    <h2 class="widget__title">Onde me encontrar</h2>
+    <div class="widget__social">
+      {%- for social in site.social-network-links %}
+      <a class="social-icon social-icon--{{ social.brand }}" href="{{ social.url }}" title="{{ social.name }}"
+         target="_blank" rel="noopener noreferrer">
+        <i class="{{ social.icon }}" aria-hidden="true"></i>
+        <span class="sr-only">{{ social.name }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</aside>
