@@ -32,9 +32,10 @@ google_analytics: "G-R9ZHFE3RQ5"
 disqus: "danielwisky"
 
 # ID do formulário do Formspree, de formspree.io -> seu form -> "Integration".
-# O endpoint /f/ espera este ID (algo como "xmzbqkva"), não um e-mail: usar o
-# e-mail aqui é o formato antigo, descontinuado, e o envio falha em silêncio.
-formspree_id: "COLE_O_ID_AQUI"
+# O endpoint /f/ espera este ID, não um e-mail: o painel chega a exibir a URL
+# com o e-mail, mas ela responde FORM_NOT_FOUND. O ID é o mesmo que aparece
+# como `formId` nos exemplos de JS e React da própria documentação.
+formspree_id: "mzbovjdk"
 
 # O jekyll-seo-tag emite twitter:card; sem isto ele usaria "summary" (miniatura
 # pequena) e ficaria duplicado com a tag do og:image em _includes/head.html.
