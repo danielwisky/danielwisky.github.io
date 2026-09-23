@@ -26,25 +26,18 @@ layout: default
     </div>
   </header>
 
-  {%- assign video = site.data.videos[page.slug] -%}
+  {%- comment -%}
+  Post de videoaula não recebe capa: o player do YouTube vem logo abaixo, no
+  corpo do post, e uma thumbnail com botão de play em cima dele daria dois
+  pontos de partida para o mesmo vídeo. A thumbnail continua sendo usada nos
+  cards, na sidebar, na busca e no og:image.
+  {%- endcomment -%}
+  {%- unless site.data.videos[page.slug] %}
   <figure class="post__cover-wrap">
-    {%- comment -%}
-    Em post de videoaula a capa é a thumbnail do próprio vídeo e leva para ele,
-    como um player faria. Nos demais é só uma imagem.
-    {%- endcomment -%}
-    {%- if video %}
-    <a class="post__cover post__cover--video" href="{{ video.url }}"
-       target="_blank" rel="noopener noreferrer" aria-label="Assistir ao vídeo no YouTube">
-      <img src="{% include post-cover.html post=page %}" width="1200" height="900"
-           decoding="async" alt="">
-      <span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>
-    </a>
-    {%- else %}
     <div class="post__cover">
       <img src="{% include post-cover.html post=page %}" width="1200" height="900"
            decoding="async" alt="">
     </div>
-    {%- endif %}
     {%- comment -%}
     Só credita quando a foto creditada é a que está na tela: cover-img no front
     matter tem precedência sobre a foto de _photos/, e creditar assim mesmo
@@ -58,6 +51,7 @@ layout: default
     </figcaption>
     {%- endif %}
   </figure>
+  {%- endunless %}
 
   <div class="prose">
     {{ content }}

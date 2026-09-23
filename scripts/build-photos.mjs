@@ -157,11 +157,15 @@ for (const file of sources) {
      */
     if (Math.abs(Math.log(sourceRatio / targetRatio)) > 0.14) {
       const background = await encode(
-        sharp(input).resize(variant.width, variant.height, { fit: "cover" }).blur(18).modulate({ brightness: 0.8 })
+        sharp(input).resize(variant.width, variant.height, { fit: "cover" }).blur(18).modulate({ brightness: 0.72 })
       ).toBuffer();
 
+      // 86% da caixa: o quadro precisa de borda visível dos quatro lados,
+      // senão encosta no fundo desfocado e volta a parecer corte. Abaixo disso
+      // o conteúdo começa a ficar pequeno demais no card.
+      const inset = 0.86;
       const foreground = await sharp(input)
-        .resize(variant.width, variant.height, { fit: "inside" })
+        .resize(Math.round(variant.width * inset), Math.round(variant.height * inset), { fit: "inside" })
         .toBuffer();
 
       await encode(sharp(background).composite([{ input: foreground, gravity: "center" }])).toFile(
