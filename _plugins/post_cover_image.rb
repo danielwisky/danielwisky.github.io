@@ -30,15 +30,18 @@ module Jekyll
     private
 
     def og_for(post, photos, covers)
-      return post.data["cover-img"] if post.data["cover-img"]
+      # cover-img só serve como og:image se for bitmap: o motivo de este
+      # plugin existir é justamente que redes sociais rejeitam SVG, e as capas
+      # geradas são todas SVG.
+      manual = post.data["cover-img"]
+      return manual if manual && !manual.to_s.end_with?(".svg")
 
       photo = photos[post.data["slug"]]
-      return photo["og"] if photo
-
       cover = covers[Array(post.data["tags"]).first]
-      return cover["og"] if cover
 
-      DEFAULT_OG
+      # `||` em cadeia em vez de returns: uma entrada existir mas não ter a
+      # chave "og" deixaria page.image nil, e o seo-tag omitiria a imagem.
+      (photo && photo["og"]) || (cover && cover["og"]) || DEFAULT_OG
     end
   end
 end

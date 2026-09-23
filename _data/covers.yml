@@ -1,85 +1,106 @@
 # Gerado por scripts/build-covers.mjs — não editar à mão.
 "Apache Kafka":
   cover: /assets/img/covers/apache-kafka.svg
+  card: /assets/img/covers/apache-kafka.svg
   thumb: /assets/img/covers/thumbs/apache-kafka.svg
   og: /assets/img/covers/og/apache-kafka.jpg
 "Busca Binária":
   cover: /assets/img/covers/busca-binaria.svg
+  card: /assets/img/covers/busca-binaria.svg
   thumb: /assets/img/covers/thumbs/busca-binaria.svg
   og: /assets/img/covers/og/busca-binaria.jpg
 "Clean Architecture":
   cover: /assets/img/covers/clean-architecture.svg
+  card: /assets/img/covers/clean-architecture.svg
   thumb: /assets/img/covers/thumbs/clean-architecture.svg
   og: /assets/img/covers/og/clean-architecture.jpg
 "Clean Code":
   cover: /assets/img/covers/clean-code.svg
+  card: /assets/img/covers/clean-code.svg
   thumb: /assets/img/covers/thumbs/clean-code.svg
   og: /assets/img/covers/og/clean-code.jpg
 "Coletânea":
   cover: /assets/img/covers/coletanea.svg
+  card: /assets/img/covers/coletanea.svg
   thumb: /assets/img/covers/thumbs/coletanea.svg
   og: /assets/img/covers/og/coletanea.jpg
 "Commits":
   cover: /assets/img/covers/commits.svg
+  card: /assets/img/covers/commits.svg
   thumb: /assets/img/covers/thumbs/commits.svg
   og: /assets/img/covers/og/commits.jpg
 "Desafio de Programação":
   cover: /assets/img/covers/desafio-de-programacao.svg
+  card: /assets/img/covers/desafio-de-programacao.svg
   thumb: /assets/img/covers/thumbs/desafio-de-programacao.svg
   og: /assets/img/covers/og/desafio-de-programacao.jpg
 "Design Pattern":
   cover: /assets/img/covers/design-pattern.svg
+  card: /assets/img/covers/design-pattern.svg
   thumb: /assets/img/covers/thumbs/design-pattern.svg
   og: /assets/img/covers/og/design-pattern.jpg
 "Docker":
   cover: /assets/img/covers/docker.svg
+  card: /assets/img/covers/docker.svg
   thumb: /assets/img/covers/thumbs/docker.svg
   og: /assets/img/covers/og/docker.jpg
 "Doutorado":
   cover: /assets/img/covers/doutorado.svg
+  card: /assets/img/covers/doutorado.svg
   thumb: /assets/img/covers/thumbs/doutorado.svg
   og: /assets/img/covers/og/doutorado.jpg
 "DynamoDB":
   cover: /assets/img/covers/dynamodb.svg
+  card: /assets/img/covers/dynamodb.svg
   thumb: /assets/img/covers/thumbs/dynamodb.svg
   og: /assets/img/covers/og/dynamodb.jpg
 "Estruturas de Dados":
   cover: /assets/img/covers/estruturas-de-dados.svg
+  card: /assets/img/covers/estruturas-de-dados.svg
   thumb: /assets/img/covers/thumbs/estruturas-de-dados.svg
   og: /assets/img/covers/og/estruturas-de-dados.jpg
 "HTML5":
   cover: /assets/img/covers/html5.svg
+  card: /assets/img/covers/html5.svg
   thumb: /assets/img/covers/thumbs/html5.svg
   og: /assets/img/covers/og/html5.jpg
 "Java":
   cover: /assets/img/covers/java.svg
+  card: /assets/img/covers/java.svg
   thumb: /assets/img/covers/thumbs/java.svg
   og: /assets/img/covers/og/java.jpg
 "jQuery":
   cover: /assets/img/covers/jquery.svg
+  card: /assets/img/covers/jquery.svg
   thumb: /assets/img/covers/thumbs/jquery.svg
   og: /assets/img/covers/og/jquery.jpg
 "Maven":
   cover: /assets/img/covers/maven.svg
+  card: /assets/img/covers/maven.svg
   thumb: /assets/img/covers/thumbs/maven.svg
   og: /assets/img/covers/og/maven.jpg
 "MongoDB":
   cover: /assets/img/covers/mongodb.svg
+  card: /assets/img/covers/mongodb.svg
   thumb: /assets/img/covers/thumbs/mongodb.svg
   og: /assets/img/covers/og/mongodb.jpg
 "Programação":
   cover: /assets/img/covers/programacao.svg
+  card: /assets/img/covers/programacao.svg
   thumb: /assets/img/covers/thumbs/programacao.svg
   og: /assets/img/covers/og/programacao.jpg
 "Redis":
   cover: /assets/img/covers/redis.svg
+  card: /assets/img/covers/redis.svg
   thumb: /assets/img/covers/thumbs/redis.svg
   og: /assets/img/covers/og/redis.jpg
 "SASS":
   cover: /assets/img/covers/sass.svg
+  card: /assets/img/covers/sass.svg
   thumb: /assets/img/covers/thumbs/sass.svg
   og: /assets/img/covers/og/sass.jpg
 "Segurança":
   cover: /assets/img/covers/seguranca.svg
+  card: /assets/img/covers/seguranca.svg
   thumb: /assets/img/covers/thumbs/seguranca.svg
   og: /assets/img/covers/og/seguranca.jpg
