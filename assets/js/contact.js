@@ -2,9 +2,8 @@
  * Formulário de contato: validação e envio por AJAX.
  *
  * O envio vai por fetch em vez de deixar o navegador postar o form porque o
- * Formspree ignora o campo `_next` (o redirecionamento agora se configura no
- * painel deles) e mandaria a pessoa para uma página de obrigado no domínio
- * deles. Com AJAX a resposta aparece aqui mesmo.
+ * Formspree, no plano gratuito, sempre despeja a pessoa na página de obrigado
+ * do domínio dele. Com AJAX conseguimos levar para a nossa /thanks/.
  *
  * Sem JS o form ainda funciona: o `action` continua no HTML e o Formspree
  * cuida do resto.
@@ -70,6 +69,9 @@
       form.reset();
       form.style.display = "none";
       say("Mensagem enviada. Respondo assim que possível.");
+
+      const success = form.dataset.success;
+      if (success) window.location.assign(success);
     } catch (error) {
       submit.disabled = false;
       say("Não consegui enviar. Tente de novo, ou me escreva direto por e-mail.", true);
