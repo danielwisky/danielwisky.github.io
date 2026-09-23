@@ -50,6 +50,23 @@ a sidebar, a busca e as redes sociais passam a usar a foto.
 
 Remover o arquivo de `_photos/` e rodar o script de novo devolve a capa gerada.
 
+Quando a foto vier de um banco de imagens, registre a autoria em
+`_data/photo_credits.yml` (arquivo mantido à mão) e ela aparece como legenda
+discreta abaixo da capa:
+
+```yaml
+"conceito-pilha-lifo":
+  author: "Marta Branco"
+  author_url: "https://www.pexels.com/@martabranco"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/..."
+```
+
+`avatar` é um nome reservado: `_photos/avatar.jpg` vira a foto do hero
+(`assets/img/avatar.webp`, 264px para telas retina) em vez de capa de post.
+Grave a fonte já recortada em quadrado. Sem ela, o hero cai no monograma
+gerado por `build-covers.mjs`.
+
 Se precisar apontar uma imagem que não siga esse fluxo (uma URL externa, por
 exemplo), o `cover-img` no front matter continua tendo precedência sobre tudo.
 

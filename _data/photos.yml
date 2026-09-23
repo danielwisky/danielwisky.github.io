@@ -1,1 +1,25 @@
 # Gerado por scripts/build-photos.mjs — não editar à mão.
+"aplicativos-para-acessibilidade":
+  cover: /assets/img/photos/aplicativos-para-acessibilidade.webp
+  thumb: /assets/img/photos/thumbs/aplicativos-para-acessibilidade.webp
+  og: /assets/img/photos/og/aplicativos-para-acessibilidade.jpg
+"como-se-tornar-programador-destacar-mercado-trabalho":
+  cover: /assets/img/photos/como-se-tornar-programador-destacar-mercado-trabalho.webp
+  thumb: /assets/img/photos/thumbs/como-se-tornar-programador-destacar-mercado-trabalho.webp
+  og: /assets/img/photos/og/como-se-tornar-programador-destacar-mercado-trabalho.jpg
+"conceito-fila-fifo":
+  cover: /assets/img/photos/conceito-fila-fifo.webp
+  thumb: /assets/img/photos/thumbs/conceito-fila-fifo.webp
+  og: /assets/img/photos/og/conceito-fila-fifo.jpg
+"conceito-pilha-lifo":
+  cover: /assets/img/photos/conceito-pilha-lifo.webp
+  thumb: /assets/img/photos/thumbs/conceito-pilha-lifo.webp
+  og: /assets/img/photos/og/conceito-pilha-lifo.jpg
+"o-que-exatamente-e-um-doutorado":
+  cover: /assets/img/photos/o-que-exatamente-e-um-doutorado.webp
+  thumb: /assets/img/photos/thumbs/o-que-exatamente-e-um-doutorado.webp
+  og: /assets/img/photos/og/o-que-exatamente-e-um-doutorado.jpg
+"sites-para-aprender-programacao":
+  cover: /assets/img/photos/sites-para-aprender-programacao.webp
+  thumb: /assets/img/photos/thumbs/sites-para-aprender-programacao.webp
+  og: /assets/img/photos/og/sites-para-aprender-programacao.jpg

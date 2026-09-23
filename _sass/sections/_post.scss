@@ -38,9 +38,30 @@
   }
 }
 
+.post__cover-wrap {
+  margin: 0 0 var(--space-6);
+}
+
+.post__cover-credit {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  color: var(--text-alt);
+
+  a {
+    color: var(--text-alt);
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
 .post__cover {
   position: relative;
-  margin-bottom: var(--space-6);
   aspect-ratio: 21 / 9;
   border-radius: var(--radius-lg);
   overflow: hidden;
