@@ -57,3 +57,22 @@ textarea.field__control {
     display: block;
   }
 }
+
+// Retorno do envio do formulário de contato, preenchido por contact.js.
+.form-status {
+  display: none;
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt-2);
+
+  &.is-visible {
+    display: block;
+  }
+
+  &.is-error {
+    border-color: #e5484d;
+    color: #e5484d;
+  }
+}
