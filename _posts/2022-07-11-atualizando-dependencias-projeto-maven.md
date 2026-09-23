@@ -2,8 +2,6 @@
 layout: post
 title: "Atualizando as dependências do seu projeto maven"
 subtitle: "Atualizando as dependências do seu projeto maven como um verdadeiro bibliotecário"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Maven, Gerenciamento de Dependências]
 ---
 

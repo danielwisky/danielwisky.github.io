@@ -1,0 +1,39 @@
+//
+// Páginas simples (sobre, contato, obrigado, 404, tags)
+//
+
+.page__header {
+  margin-bottom: var(--space-6);
+}
+
+.page__title {
+  margin-bottom: var(--space-3);
+  font-size: 40px;
+}
+
+.page__subtitle {
+  font-size: 17px;
+  color: var(--text-alt);
+}
+
+.page-404 {
+  padding: var(--space-8) 0;
+  text-align: center;
+
+  .page-404__code {
+    font-family: var(--font-mono);
+    font-size: clamp(72px, 18vw, 140px);
+    font-weight: 700;
+    line-height: 1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .page__title {
+    font-size: 30px;
+  }
+}

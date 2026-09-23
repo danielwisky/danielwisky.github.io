@@ -5,11 +5,13 @@
 
 <body>
 
-{% include navbar.html %}
+{% include header.html %}
 
 {% include search-box.html %}
 
-{{ content }}
+<main class="content">
+  {{ content }}
+</main>
 
 {% include footer.html %}
 

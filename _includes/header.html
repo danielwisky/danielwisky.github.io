@@ -1,17 +1,60 @@
-{% capture cover-img %}{% if page.cover-img %}{{ page.cover-img }}{% else %}/assets/img/default-bg.jpg{% endif %}{% endcapture %}
-<header class="masthead" style="background-image: url('{{ cover-img }}');">
-  <div class="container position-relative px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="{{ include.type }}-heading">
-          <h1>{{ page.title }}</h1>
-          {% if page.subtitle %}
-          <span class="subheading">{{ page.subtitle }}</span>
-          {% endif %}
-          {% if include.type == "post" %}
-          <span class="meta">{% include date-pt-br.html date = page.date %}</span>
-          {% endif %}
+<header class="header">
+  <div class="container-wide">
+    <div class="header__inner">
+      <a class="header__logo" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+      <nav class="header__nav" id="site-nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          {%- comment -%}
+          page.url da home vem como "/index.html" e das páginas paginadas como
+          "/page/2/", por isso a normalização antes de comparar.
+          {%- endcomment -%}
+          {%- assign current = page.url | replace: 'index.html', '' -%}
+          {%- if page.layout == 'home' %}{% assign current = '/' %}{% endif -%}
+
+          {%- assign nav_items = "/,Home|/sobre/,Sobre|/tags/,Tags|/contato/,Contato" | split: "|" -%}
+          {%- for item in nav_items -%}
+            {%- assign parts = item | split: "," -%}
+            {%- assign href = parts[0] -%}
+            <li>
+              <a class="nav__link{% if current == href %} is-active{% endif %}"
+                 href="{{ href | relative_url }}">{{ parts[1] }}</a>
+            </li>
+          {%- endfor -%}
+          <li>
+            <a class="nav__link" href="{{ site.wisky_3dprint_url }}" target="_blank" rel="noopener noreferrer">
+              3D Print
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <div class="header__social">
+          {%- assign navbar_social = site.social-network-links | where: "display", "navbar" -%}
+          {%- for social in navbar_social -%}
+            <a class="social-icon social-icon--{{ social.brand }}" href="{{ social.url }}" title="{{ social.name }}"
+               target="_blank" rel="noopener noreferrer">
+              <i class="{{ social.icon }}" aria-hidden="true"></i>
+              <span class="sr-only">{{ social.name }}</span>
+            </a>
+          {%- endfor -%}
         </div>
+
+        <button class="icon-button" id="search-open" type="button" aria-label="Pesquisar">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button"
+                aria-label="Alternar tema claro e escuro">
+          <span class="theme-toggle__sun"><i class="fa-solid fa-sun" aria-hidden="true"></i></span>
+          <span class="theme-toggle__moon"><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
+        </button>
+
+        <button class="hamburger" id="nav-toggle" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>

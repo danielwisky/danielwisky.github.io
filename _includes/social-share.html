@@ -1,28 +1,40 @@
-<section id="social-share-section">
-  <span class="sr-only">Compartilhar: </span>
-  <a href="https://twitter.com/intent/tweet?text={{ page.title | strip_html | url_encode }}&url={{ page.url | absolute_url | url_encode }}"
-     class="btn btn-social-icon btn-twitter" title="Share on Twitter">
-    <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
-    <span class="sr-only">Twitter</span>
+{%- assign share_url = page.url | absolute_url | url_encode -%}
+{%- assign share_title = page.title | strip_html | url_encode -%}
+<section class="share">
+  <span class="share__label">Compartilhar:</span>
+
+  <a class="social-icon social-icon--twitter" title="Compartilhar no X"
+     href="https://twitter.com/intent/tweet?text={{ share_title }}&url={{ share_url }}"
+     target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+    <span class="sr-only">X</span>
   </a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
-     class="btn btn-social-icon btn-facebook" title="Share on Facebook">
-    <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
-    <span class="sr-only">Facebook</span>
-  </a>
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}"
-     class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
-    <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+
+  <a class="social-icon social-icon--linkedin" title="Compartilhar no LinkedIn"
+     href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_url }}"
+     target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
     <span class="sr-only">LinkedIn</span>
   </a>
-  <a href="https://vk.com/share.php?url={{ page.url | absolute_url | url_encode }}"
-     class="btn btn-social-icon btn-vk" title="Share on VK">
-    <span class="fab fa-fw fa-vk" aria-hidden="true"></span>
-    <span class="sr-only">VK</span>
+
+  <a class="social-icon social-icon--facebook" title="Compartilhar no Facebook"
+     href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}"
+     target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    <span class="sr-only">Facebook</span>
   </a>
-  <a href="https://www.reddit.com/submit?url={{ page.url | absolute_url | url_encode }}"
-     class="btn btn-social-icon btn-reddit" title="Share on Reddit">
-    <span class="fab fa-fw fa-reddit" aria-hidden="true"></span>
+
+  <a class="social-icon social-icon--whatsapp" title="Compartilhar no WhatsApp"
+     href="https://api.whatsapp.com/send?text={{ share_title }}%20{{ share_url }}"
+     target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span class="sr-only">WhatsApp</span>
+  </a>
+
+  <a class="social-icon social-icon--reddit" title="Compartilhar no Reddit"
+     href="https://www.reddit.com/submit?url={{ share_url }}&title={{ share_title }}"
+     target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-reddit-alien" aria-hidden="true"></i>
     <span class="sr-only">Reddit</span>
   </a>
 </section>

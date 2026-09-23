@@ -2,8 +2,6 @@
 layout: post
 title: "SOLID: Princípio da Inversão da Dependência"
 subtitle: "Princípio da Inversão da Dependência e exemplos de implementação em Java"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Java, SOLID]
 ---
 

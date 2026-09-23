@@ -1,6 +1,6 @@
 title: Daniel Wisky
 email: daniel-ddw@hotmail.com
-description: "Conteúdos sobre Desenvolvimento e Tecnologia"
+description: "Conteúdos sobre desenvolvimento de software e tecnologia"
 baseurl: ""
 url: https://danielwisky.com.br
 lang: pt-BR
@@ -31,50 +31,70 @@ google_analytics: "G-R9ZHFE3RQ5"
 # to use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
 disqus: "danielwisky"
 
+# ID do formulário do Formspree, de formspree.io -> seu form -> "Integration".
+# O endpoint /f/ espera este ID (algo como "xmzbqkva"), não um e-mail: usar o
+# e-mail aqui é o formato antigo, descontinuado, e o envio falha em silêncio.
+formspree_id: "COLE_O_ID_AQUI"
+
+# O jekyll-seo-tag emite twitter:card; sem isto ele usaria "summary" (miniatura
+# pequena) e ficaria duplicado com a tag do og:image em _includes/head.html.
+twitter:
+  card: summary_large_image
+
 # --- footer social media links --- #
+# `brand` casa com o modificador .social-icon--<brand> do _sass/components/_social-share.scss,
+# que define a cor da marca no hover.
 social-network-links:
-  - name: "RSS"
-    url: "https://danielwisky.com.br/feed.xml"
-    icon: "fas fa-rss"
-    display: ["footer"]
-  - name: "Me mande um e-mail"
-    url: "mailto:daniel-ddw@hotmail.com"
-    icon: "fas fa-envelope"
-    display: ["footer"]
   - name: "GitHub"
     url: "https://github.com/danielwisky"
     icon: "fab fa-github"
+    brand: "github"
     display: ["footer", "navbar"]
   - name: "LinkedIn"
     url: "https://www.linkedin.com/in/danielwisky"
     icon: "fab fa-linkedin"
+    brand: "linkedin"
     display: ["footer", "navbar"]
   - name: "YouTube"
     url: "https://www.youtube.com/c/DanielWisky"
     icon: "fab fa-youtube"
+    brand: "youtube"
+    display: ["footer", "navbar"]
+  - name: "Instagram"
+    url: "https://www.instagram.com/danielwisky"
+    icon: "fab fa-instagram"
+    brand: "instagram"
     display: ["footer", "navbar"]
   - name: "3D Print"
     url: "https://wisky3dprint.com.br"
     icon: "fas fa-cube"
+    brand: "print3d"
     display: ["footer"]
 
-# archives
-jekyll-archives:
-  enabled:
-    - categories
-  layout: 'archive'
-  permalinks:
-    category: '/categorias/:name/'
+# Imagem de fallback nas redes sociais para as páginas que não são post. O
+# jekyll-seo-tag só olha page.image, então precisa vir por defaults e não por
+# uma chave solta no topo. Nos posts, _plugins/post_cover_image.rb sobrescreve
+# com a capa da tag.
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      image: "/assets/img/covers/og/default.jpg"
 
 plugins:
   - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-archives
 
 exclude:
   - CNAME
   - Gemfile
   - Gemfile.lock
   - README.md
+  # ferramentas de build: geram assets, mas não fazem parte do site publicado
+  - package.json
+  - package-lock.json
+  - scripts
+  - "*.tmp.mjs"

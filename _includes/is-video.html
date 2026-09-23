@@ -1,0 +1,15 @@
+{%- comment -%}
+Diz se um post é videoaula. Imprime "1" quando é e nada quando não é, então o
+uso é capturar a saída e testar contra string vazia.
+
+Checa a tag Videoaula e também o embed do YouTube no corpo, para um post com
+vídeo não ficar sem o selo só porque a tag foi esquecida.
+
+Nota: nada de tags Liquid dentro deste comentário — o Liquid continua
+interpretando tags dentro de comment, e um if sem endif aqui quebra o build.
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- if p.tags contains 'Videoaula' -%}1
+{%- elsif p.content contains 'youtube-nocookie.com/embed' -%}1
+{%- elsif p.content contains 'youtube.com/embed' -%}1
+{%- endif -%}

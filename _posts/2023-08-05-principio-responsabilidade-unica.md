@@ -2,8 +2,6 @@
 layout: post
 title: "SOLID: Princípio da Responsabilidade Única"
 subtitle: "Princípio da Responsabilidade Única e exemplos de implementação em Java"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Java, SOLID]
 ---
 

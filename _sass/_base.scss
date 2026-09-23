@@ -1,0 +1,142 @@
+//
+// Base: tipografia, links e containers
+//
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: -0.1px;
+  color: var(--text);
+  background-color: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition), color var(--transition);
+
+  &.is-locked {
+    overflow: hidden;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--space-4);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.6px;
+  color: var(--heading);
+}
+
+h1 { font-size: 42px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+h6 { font-size: 16px; }
+
+p {
+  margin-bottom: var(--space-5);
+}
+
+a {
+  color: var(--heading);
+  text-decoration: none;
+  transition: color var(--transition), opacity var(--transition);
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  margin: var(--space-6) 0;
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end), transparent);
+  opacity: 0.35;
+}
+
+small {
+  font-size: 14px;
+}
+
+// texto acessível apenas para leitores de tela
+.sr-only,
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+// containers
+.container,
+.container-wide {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.container-wide {
+  max-width: 1400px;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
+}
+
+@media (max-width: 575px) {
+  body { font-size: 16px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 25px; }
+  h3 { font-size: 21px; }
+
+  .container,
+  .container-wide,
+  .container-narrow {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+// título de seção com a linha degradê
+.section {
+  margin-bottom: var(--space-8);
+}
+
+.section__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.section__title {
+  margin-bottom: 0;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.section__rule {
+  flex: 1;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient);
+  opacity: 0.4;
+}

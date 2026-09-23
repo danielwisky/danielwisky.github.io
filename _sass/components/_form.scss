@@ -1,0 +1,59 @@
+//
+// Formulários (substitui .form-floating do Bootstrap)
+//
+
+.field {
+  margin-bottom: var(--space-5);
+}
+
+.field__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.field__control {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: var(--heading);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--bg-alt-2);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+
+  &::placeholder {
+    color: var(--text-alt);
+  }
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--selection);
+  }
+}
+
+textarea.field__control {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.field__error {
+  display: none;
+  margin-top: var(--space-2);
+  font-size: 13px;
+  color: #e5484d;
+}
+
+.field.is-invalid {
+  .field__control {
+    border-color: #e5484d;
+  }
+
+  .field__error {
+    display: block;
+  }
+}

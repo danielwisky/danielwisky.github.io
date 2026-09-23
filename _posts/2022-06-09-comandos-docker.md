@@ -2,8 +2,6 @@
 layout: post
 title: "Comandos Docker"
 subtitle: "Alguns comandos docker e suas utilizades"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [DevOps]
 tags: [Docker]
 ---
 

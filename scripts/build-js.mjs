@@ -3,6 +3,8 @@ import { minify } from "terser";
 
 const entries = [
   { in: "assets/js/main.js", out: "assets/js/main.min.js" },
+  { in: "assets/js/search.js", out: "assets/js/search.min.js" },
+  { in: "assets/js/code-blocks.js", out: "assets/js/code-blocks.min.js" },
   { in: "assets/js/contact.js", out: "assets/js/contact.min.js" },
 ];
 

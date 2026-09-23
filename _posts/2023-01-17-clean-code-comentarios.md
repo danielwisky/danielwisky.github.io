@@ -2,8 +2,6 @@
 layout: post
 title: "Clean code: Comentários"
 subtitle: "Nada pode ser tão útil quanto um comentário bem colocado."
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Clean Code]
 ---
 

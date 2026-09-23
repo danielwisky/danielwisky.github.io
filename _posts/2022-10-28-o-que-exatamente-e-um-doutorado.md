@@ -2,8 +2,6 @@
 layout: post
 title: "O que exatamente é um doutorado?"
 subtitle: "Você já pensou exatamente no que significa um doutorado?"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Educação]
 tags: [Doutorado, Educação Superior]
 ---
 
