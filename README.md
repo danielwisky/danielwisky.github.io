@@ -22,6 +22,7 @@ dos posts.
 |---|---|
 | `npm run build:js` | Minifica `assets/js/*.js` com terser |
 | `npm run build:covers` | Gera as capas e `_data/covers.yml` a partir da primeira tag de cada post |
+| `npm run build:photos` | Otimiza as fotos de `_photos/` e gera `_data/photos.yml` |
 
 As capas saem em três variantes, todas derivadas da primeira tag:
 
@@ -34,6 +35,30 @@ As capas saem em três variantes, todas derivadas da primeira tag:
 Cor e ícone de cada tag ficam nas tabelas `TAG_HUES` e `TAG_ICONS` em
 `scripts/build-covers.mjs`. Ao criar uma tag nova, vale acrescentar as duas
 entradas antes de rodar o script.
+
+### Foto própria num post
+
+Para um post específico usar uma foto no lugar da capa gerada, largue o
+original em `_photos/` com o nome do slug do post:
+
+    _posts/2023-01-16-clean-code-funcoes.md  ->  _photos/clean-code-funcoes.jpg
+
+E rode `npm run build:photos`. O script recorta as três variantes (WebP 4:3,
+WebP para miniatura e JPEG 1200x630 para `og:image`) e escreve o mapa em
+`_data/photos.yml`. Nenhum front matter precisa mudar: o card, o topo do post,
+a sidebar, a busca e as redes sociais passam a usar a foto.
+
+Remover o arquivo de `_photos/` e rodar o script de novo devolve a capa gerada.
+
+Se precisar apontar uma imagem que não siga esse fluxo (uma URL externa, por
+exemplo), o `cover-img` no front matter continua tendo precedência sobre tudo.
+
+`_photos/` não é publicada — o Jekyll ignora diretórios com underscore. Só as
+versões otimizadas em `assets/img/photos/` vão para o site.
+
+**Atenção à licença.** Foto de banco de imagens só pode entrar aqui se a
+licença permitir (Unsplash, Pexels e Pixabay permitem; resultado de busca
+genérica, não). Algumas fontes exigem atribuição visível.
 
 ### Pendência
 
