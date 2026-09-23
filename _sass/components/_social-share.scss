@@ -1,0 +1,57 @@
+//
+// Compartilhamento e ícones sociais
+//
+// Substitui os 27,8 KB de _social.scss: uma única regra com a cor da marca
+// aplicada via custom property por modificador.
+//
+
+.share {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-5) 0;
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.share__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-alt);
+}
+
+.social-icon {
+  --brand: var(--accent);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  font-size: 15px;
+  color: var(--text-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt-2);
+  transition: color var(--transition), border-color var(--transition), transform var(--transition);
+
+  &:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+    transform: translateY(-2px);
+  }
+}
+
+.social-icon--twitter  { --brand: #1da1f2; }
+.social-icon--instagram { --brand: #e1306c; }
+.social-icon--facebook { --brand: #1877f2; }
+.social-icon--linkedin { --brand: #0a66c2; }
+.social-icon--reddit   { --brand: #ff4500; }
+.social-icon--whatsapp { --brand: #25d366; }
+.social-icon--github   { --brand: #6e5494; }
+.social-icon--youtube  { --brand: #ff0000; }
+.social-icon--rss      { --brand: #f26522; }
+.social-icon--email    { --brand: #ea4335; }
+.social-icon--print3d  { --brand: #f59e0b; }

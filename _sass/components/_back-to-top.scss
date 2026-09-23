@@ -1,0 +1,44 @@
+//
+// Botão "voltar ao topo"
+//
+
+.back-to-top {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 15px;
+  color: var(--on-accent);
+  border-radius: var(--radius);
+  background: var(--gradient);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  // depois de .is-active: mesma especificidade, então a ordem decide — e o
+  // botão só existe visualmente no estado .is-active.
+  &.is-active:hover {
+    color: var(--on-accent);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 575px) {
+  .back-to-top {
+    right: var(--space-4);
+    bottom: var(--space-4);
+  }
+}

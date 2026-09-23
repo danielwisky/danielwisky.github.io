@@ -2,8 +2,6 @@
 layout: post
 title: "SOLID: Princípio da Substituição de Liskov"
 subtitle: "Princípio da Substituição de Liskov e exemplos de implementação em Java"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Java, SOLID]
 ---
 

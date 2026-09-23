@@ -1,0 +1,59 @@
+//
+// Paginação e estados do infinite scroll
+//
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-5);
+}
+
+.scroller-status {
+  margin-top: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-alt);
+
+  // flex em coluna em vez de text-align: o Font Awesome fixa a largura do
+  // ícone, então um `display: block` nele não o centraliza.
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  i {
+    font-size: 22px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.loader-ellips {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-5) 0;
+}
+
+.loader-ellips__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+  animation: loader-pulse 1.2s infinite ease-in-out;
+
+  &:nth-child(2) { animation-delay: 0.15s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.45s; }
+}
+
+@keyframes loader-pulse {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.7); }
+  40% { opacity: 1; transform: scale(1); }
+}

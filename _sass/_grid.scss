@@ -1,0 +1,54 @@
+//
+// Grid flex de 12 colunas
+//
+// .col-N     -> largura a partir de desktop grande
+// .col-d-N   -> a partir de 1024px para baixo (desktop pequeno / tablet paisagem)
+// .col-t-N   -> a partir de 768px para baixo (tablet / mobile)
+//
+// Substitui o grid do Bootstrap; o gutter é controlado por --gutter na .row.
+//
+
+.row {
+  --gutter: var(--space-6);
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--gutter) / -2);
+  margin-right: calc(var(--gutter) / -2);
+}
+
+.row--tight {
+  --gutter: var(--space-5);
+}
+
+[class*="col-"],
+.col {
+  width: 100%;
+  padding-left: calc(var(--gutter) / 2);
+  padding-right: calc(var(--gutter) / 2);
+}
+
+@mixin cols($suffix: "") {
+  @for $i from 1 through 12 {
+    .col#{$suffix}-#{$i} {
+      // calc do CSS em vez de divisão do Sass: evita o aviso de depreciação
+      // do operador `/` no Dart Sass sem precisar de `@use "sass:math"`.
+      width: calc(#{$i} / 12 * 100%);
+    }
+  }
+}
+
+@include cols();
+
+@media (max-width: 1024px) {
+  @include cols("-d");
+}
+
+@media (max-width: 768px) {
+  @include cols("-t");
+}
+
+// espaçamento vertical entre itens do grid
+.grid > [class*="col-"] {
+  margin-bottom: var(--gutter);
+}

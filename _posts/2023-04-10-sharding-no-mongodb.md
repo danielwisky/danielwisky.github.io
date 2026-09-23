@@ -2,8 +2,6 @@
 layout: post
 title: "Sharding no MongoDB: uma forma eficiente de armazenar dados"
 subtitle: "Entenda como o sharding pode ajudar a melhorar o desempenho do seu banco de dados"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Banco de Dados]
 tags: [MongoDB, noSQL, Sharding]
 ---
 

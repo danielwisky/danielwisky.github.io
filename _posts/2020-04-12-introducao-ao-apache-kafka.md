@@ -2,8 +2,6 @@
 layout: post
 title: "Introdução ao Apache Kafka"
 subtitle: "Videoaula sobre Apache Kafka"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Distribuição de Dados]
 tags: [Apache Kafka, Sistemas de mensageria, Videoaula]
 ---
 

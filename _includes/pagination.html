@@ -1,5 +1,11 @@
+{%- comment -%}
+relative_url em vez de absolute_url: o scroll infinito faz fetch desse href, e
+uma URL absoluta com host diferente do atual vira requisição cross-origin.
+{%- endcomment -%}
 {% if paginator.next_page %}
 <div class="pagination">
-  <a class="pagination__next" href="{{ paginator.next_page_path | absolute_url }}">Próxima página &rarr;</a>
+  <a class="pagination__next button button--ghost" href="{{ paginator.next_page_path | relative_url }}">
+    Próxima página &rarr;
+  </a>
 </div>
 {% endif %}

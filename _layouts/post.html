@@ -2,27 +2,42 @@
 layout: default
 ---
 
-{% include header.html type="post" %}
-
-<article class="mb-4">
-  <div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-
-        <div class="post-tags">
-          {% assign tags = page.tags | sort_natural %}
-          {% for tag in tags %}
-          <a href="/tags#{{ tag | slugify }}">{{ tag }}</a>
-          {% endfor %}
-        </div>
-        <br />
-
-        {{ content }}
-
-        {% include social-share.html %}
-
-        {% include comments.html %}
-      </div>
+<article class="container-narrow">
+  <header class="post__header">
+    {%- if page.tags.size > 0 %}
+    <div class="post__tags">
+      {%- assign tags = page.tags | sort_natural -%}
+      {%- for tag in tags %}
+      <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+      {%- endfor %}
     </div>
+    {%- endif %}
+
+    <h1 class="post__title">{{ page.title }}</h1>
+
+    {%- if page.subtitle %}
+    <p class="post__subtitle">{{ page.subtitle }}</p>
+    {%- endif %}
+
+    <div class="post__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{% include date-pt-br.html date = page.date %}</time>
+      <span class="post__sep">·</span>
+      {% include reading-time.html content=page.content %}
+    </div>
+  </header>
+
+  <div class="post__cover">
+    <img src="{% include post-cover.html post=page %}" width="1200" height="900"
+         decoding="async" alt="">
   </div>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% include social-share.html %}
+
+  {% include post-nav.html %}
+
+  {% include comments.html %}
 </article>

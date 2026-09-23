@@ -2,8 +2,6 @@
 layout: post
 title: "Minhas imagens preferidas do Docker"
 subtitle: "Algumas de minhas imagens preferidas do Docker e alguns comandos que utilizo com frequência"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [DevOps]
 tags: [Docker]
 ---
 

@@ -73,8 +73,6 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-archives (2.3.0)
-      jekyll (>= 3.6, < 5.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate-v2 (3.0.0)
@@ -170,7 +168,6 @@ PLATFORMS
 DEPENDENCIES
   http_parser.rb
   jekyll (~> 4.4)
-  jekyll-archives
   jekyll-feed
   jekyll-paginate-v2
   jekyll-seo-tag

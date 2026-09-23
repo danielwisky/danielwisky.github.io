@@ -2,8 +2,6 @@
 layout: post
 title: "Singleton Design Pattern"
 subtitle: "Padrões de Projeto"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Padrões de Projeto]
 tags: [Design Pattern]
 ---
 

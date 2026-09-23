@@ -2,8 +2,6 @@
 layout: post
 title: "Desafio Bobstone"
 subtitle: "Desafio de programação para construção de um jogo de adivinhação chamado bobstone"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Programação]
 tags: [Desafio de Programação]
 ---
 
