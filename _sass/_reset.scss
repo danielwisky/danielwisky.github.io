@@ -1,0 +1,80 @@
+//
+// Reset
+//
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + var(--space-5));
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, dd, ol, ul,
+figure, fieldset, legend, hr {
+  margin: 0;
+  padding: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

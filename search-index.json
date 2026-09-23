@@ -1,0 +1,22 @@
+---
+layout: null
+sitemap: false
+permalink: /search-index.json
+---
+{
+  "posts": [
+    {%- for post in site.posts %}
+    {
+      "id": {{ forloop.index0 }},
+      "title": {{ post.title | strip_html | jsonify }},
+      "subtitle": {{ post.subtitle | strip_html | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "date": {{ post.date | date: "%d/%m/%Y" | jsonify }},
+      "datetime": {{ post.date | date_to_xmlschema | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "cover": {% capture cover %}{% include post-cover.html post=post variant='thumb' %}{% endcapture %}{{ cover | jsonify }},
+      "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor %}
+  ]
+}

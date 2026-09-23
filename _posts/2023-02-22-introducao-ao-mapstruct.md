@@ -2,8 +2,6 @@
 layout: post
 title: "Introdução ao MapStruct"
 subtitle: "Aprenda como usar o MapStruct para criar mapeamentos de objetos eficientes e de alta qualidade em seus projetos Java"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Java, MapStruct, Mapeamento de Objetos]
 ---
 

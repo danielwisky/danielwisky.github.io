@@ -1,0 +1,77 @@
+//
+// Hero da home
+//
+
+.hero {
+  margin-bottom: var(--space-8);
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+  padding: var(--space-7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-alt-2);
+}
+
+.hero__avatar {
+  flex-shrink: 0;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-alt);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero__title {
+  margin-bottom: var(--space-2);
+  font-size: 34px;
+}
+
+.hero__subtitle {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__description {
+  max-width: 62ch;
+  margin-bottom: var(--space-5);
+  font-size: 16px;
+  color: var(--text-alt);
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: var(--space-5);
+  }
+
+  .hero__avatar {
+    width: 96px;
+    height: 96px;
+  }
+
+  .hero__title {
+    font-size: 27px;
+  }
+}

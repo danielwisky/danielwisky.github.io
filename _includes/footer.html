@@ -1,22 +1,44 @@
-<footer>
-  <div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <ul class="list-inline text-center">
-          {% assign filtered_social_links_footer = site.social-network-links | where:"display","footer" %}
-          {% for social in filtered_social_links_footer %}
-          <li class="list-inline-item">
-            <a href="{{ social.url }}" title="{{ social.name }}" target="_blank" rel="noopener noreferrer">
-              <i class="{{ social.icon }}"></i>
-              <span class="sr-only">{{ social.name }}</span>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-        <div class="small text-center text-muted fst-italic">
-          Copyright © {{ site.time | date: '%Y' }} {{ site.title }}
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-5 col-d-12">
+        <a class="footer__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <p class="footer__description">{{ site.description }}</p>
+        <div class="footer__social">
+          {%- assign footer_social = site.social-network-links | where: "display", "footer" -%}
+          {%- for social in footer_social %}
+          <a class="social-icon social-icon--{{ social.brand }}" href="{{ social.url }}" title="{{ social.name }}"
+             target="_blank" rel="noopener noreferrer">
+            <i class="{{ social.icon }}" aria-hidden="true"></i>
+            <span class="sr-only">{{ social.name }}</span>
+          </a>
+          {%- endfor %}
         </div>
       </div>
+
+      <div class="col-4 col-d-6 col-t-12">
+        <h2 class="footer__title">Últimos posts</h2>
+        <ul class="footer__list">
+          {%- for post in site.posts limit: 4 %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div class="col-3 col-d-6 col-t-12">
+        <h2 class="footer__title">Navegar</h2>
+        <ul class="footer__list">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/sobre/' | relative_url }}">Sobre</a></li>
+          <li><a href="{{ '/tags/' | relative_url }}">Tags</a></li>
+          <li><a href="{{ '/contato/' | relative_url }}">Contato</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      {{ site.time | date: '%Y' }} © {{ site.title }}
     </div>
   </div>
 </footer>

@@ -1,0 +1,35 @@
+{%- comment -%} Card de post no feed. Inclua com post=post. {%- endcomment -%}
+{%- assign p = include.post -%}
+{%- capture is_video %}{% include is-video.html post=p %}{% endcapture -%}
+<article class="article">
+  <a class="article__image{% if is_video != '' %} article__image--video{% endif %}"
+     href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{% include post-cover.html post=p %}" loading="lazy" decoding="async"
+         width="1200" height="900" alt="">
+    {%- if is_video != '' %}
+    <span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+    {%- endif %}
+  </a>
+
+  {%- if p.tags.size > 0 %}
+  <div class="article__tags">
+    {%- for tag in p.tags limit: 2 %}
+    <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  <h2 class="article__title">
+    <a href="{{ p.url | relative_url }}">{{ p.title | strip_html }}</a>
+  </h2>
+
+  {%- if p.subtitle %}
+  <p class="article__excerpt">{{ p.subtitle | strip_html }}</p>
+  {%- endif %}
+
+  <div class="article__meta">
+    <time datetime="{{ p.date | date_to_xmlschema }}">{% include date-pt-br.html date = p.date %}</time>
+    <span class="article__sep">·</span>
+    {% include reading-time.html content=p.content %}
+  </div>
+</article>

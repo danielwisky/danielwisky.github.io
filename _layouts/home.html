@@ -2,22 +2,32 @@
 layout: default
 ---
 
-{% include header.html type="site" %}
+{% include hero.html %}
 
-<div class="container px-4 px-lg-5">
-  <div class="row gx-4 gx-lg-5 justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-7">
-      {% assign posts = paginator.posts | default: site.posts %}
-      <div class="article-feed">
-        {% for post in posts %}
-          {% include post-item.html %}
-        {% endfor %}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 col-d-12">
+        <div class="section__head">
+          <h2 class="section__title">Últimos posts</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        {% assign posts = paginator.posts | default: site.posts %}
+        <div class="article-feed">
+          {% for post in posts %}
+            {% include article-card.html post=post %}
+          {% endfor %}
+        </div>
+
+        {% include scroller-status.html %}
+
+        {% include pagination.html %}
       </div>
 
-      {% include scroller-status.html %}
-
-      {% include pagination.html %}
-
+      <div class="col-4 col-d-12">
+        {% include sidebar.html %}
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -2,9 +2,12 @@
   "name": "danielwisky.github.io",
   "private": true,
   "scripts": {
-    "build:js": "node scripts/build-js.mjs"
+    "build": "npm run build:js && npm run build:covers",
+    "build:js": "node scripts/build-js.mjs",
+    "build:covers": "node scripts/build-covers.mjs"
   },
   "devDependencies": {
-    "terser": "^5.36.0"
+    "terser": "^5.36.0",
+    "sharp": "^0.34.0"
   }
 }

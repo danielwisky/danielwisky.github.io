@@ -1,0 +1,42 @@
+//
+// Toggle de tema (sol / lua)
+//
+// Os dois ícones ficam no mesmo botão; o CSS decide qual aparece a partir do
+// data-theme aplicado no <html> pelo script anti-FOUC no <head>.
+//
+
+.theme-toggle {
+  position: relative;
+  overflow: hidden;
+
+  .theme-toggle__sun,
+  .theme-toggle__moon {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    inset: 0;
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .theme-toggle__sun {
+    opacity: 0;
+    transform: translateY(100%) rotate(-90deg);
+  }
+
+  .theme-toggle__moon {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  .theme-toggle__sun {
+    opacity: 1;
+    transform: none;
+  }
+
+  .theme-toggle__moon {
+    opacity: 0;
+    transform: translateY(-100%) rotate(90deg);
+  }
+}

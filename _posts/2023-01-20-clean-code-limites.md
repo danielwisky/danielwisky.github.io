@@ -2,8 +2,6 @@
 layout: post
 title: "Clean code: Limites"
 subtitle: "Raramente controlamos todo o software em nossos sistemas."
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Desenvolvimento de Software]
 tags: [Clean Code]
 ---
 

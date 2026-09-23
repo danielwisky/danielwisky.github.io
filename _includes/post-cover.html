@@ -1,0 +1,32 @@
+{%- comment -%}
+Resolve a URL da capa de um post.
+
+Uso: inclua com post=post (ou post=page, na página do post).
+
+Variantes:
+  cover (padrão) SVG 4:3, com ícone e nome da tag
+  thumb          SVG só com o ícone, para os 72px da sidebar e da busca, onde
+                 o nome da tag ficaria ilegível
+  og             JPEG 1200x630 para og:image, já que redes sociais não aceitam SVG
+
+Ordem: cover-img explícito no front matter -> capa da primeira tag
+(_data/covers.yml, gerado por scripts/build-covers.mjs) -> capa padrão.
+Imprime só a URL, sem espaços em volta, para poder ir direto num atributo.
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign variant = include.variant | default: 'cover' -%}
+{%- if p.cover-img -%}
+{{- p.cover-img | relative_url -}}
+{%- else -%}
+{%- assign first_tag = p.tags | first -%}
+{%- assign mapped = site.data.covers[first_tag] -%}
+{%- if mapped -%}
+{{- mapped[variant] | relative_url -}}
+{%- elsif variant == 'thumb' -%}
+{{- '/assets/img/covers/thumbs/default.svg' | relative_url -}}
+{%- elsif variant == 'og' -%}
+{{- '/assets/img/covers/og/default.jpg' | relative_url -}}
+{%- else -%}
+{{- '/assets/img/covers/default.svg' | relative_url -}}
+{%- endif -%}
+{%- endif -%}

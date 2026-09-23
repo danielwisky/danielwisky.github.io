@@ -2,8 +2,6 @@
 layout: post
 title: "Introdução ao DynamoDB"
 subtitle: "Implementando um exemplo simples de aplicação com DynamoDB, Spring Boot e Java"
-cover-img: "/assets/img/default-bg.jpg"
-categories: [Banco de Dados]
 tags: [DynamoDB, noSQL, Spring Boot, Java]
 ---
 

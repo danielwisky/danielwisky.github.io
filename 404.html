@@ -1,11 +1,17 @@
 ---
-layout: page
+layout: default
 title: 404
-subtitle: Desculpe-nos, página não encontrada
-cover-img: /assets/img/404-bg.png
 permalink: /404.html
 ---
 
-<h1>Ops!</h1>
-
-<p>Página não encontrada.</p>
+<div class="container-narrow">
+  <div class="page-404">
+    <div class="page-404__code">404</div>
+    <h1>Página não encontrada</h1>
+    <p>O endereço que você abriu não existe (ou não existe mais).</p>
+    <a class="button button--primary" href="{{ '/' | relative_url }}">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      Voltar para a home
+    </a>
+  </div>
+</div>

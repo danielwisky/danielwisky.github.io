@@ -1,32 +1,29 @@
---- 
-# Only the main Sass file needs front matter (the dashes are enough) 
---- 
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
 
-@import 'variables';
-
-// bootstrap
-@import 'bootstrap/bootstrap';
-
-// pixel-borders
-@import 'pixel-borders/pixel-borders-mixins';
-
-// nostalgic-css
-@import 'nostalgic-css/utilities/icon-mixin';
-@import 'nostalgic-css/icons';
-
-// global CSS
-@import 'global';
+// base
+@use 'tokens';
+@use 'reset';
+@use 'base';
+@use 'grid';
 
 // components
-@import 'components/buttons';
-@import 'components/forms';
-@import 'components/highlight';
-@import 'components/navbar';
-@import 'components/search';
-@import 'components/social';
+@use 'components/button';
+@use 'components/header';
+@use 'components/theme-toggle';
+@use 'components/search';
+@use 'components/article';
+@use 'components/sidebar';
+@use 'components/tag-cloud';
+@use 'components/pagination';
+@use 'components/form';
+@use 'components/social-share';
+@use 'components/back-to-top';
+@use 'components/highlight';
 
 // sections
-@import 'sections/contact';
-@import 'sections/footer';
-@import 'sections/masthead';
-@import 'sections/post';
+@use 'sections/hero';
+@use 'sections/post';
+@use 'sections/page';
+@use 'sections/footer';
