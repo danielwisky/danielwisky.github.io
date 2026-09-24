@@ -166,10 +166,11 @@ for (const file of sources) {
         sharp(input).resize(variant.width, variant.height, { fit: "cover" }).blur(18).modulate({ brightness: 0.72 })
       ).toBuffer();
 
-      // 86% da caixa: o quadro precisa de borda visível dos quatro lados,
-      // senão encosta no fundo desfocado e volta a parecer corte. Abaixo disso
-      // o conteúdo começa a ficar pequeno demais no card.
-      const inset = 0.86;
+      // 96% da caixa: borda fina só pra não encostar no fundo desfocado e
+      // parecer corte. Em 86% a borda ficava grande demais, sobretudo em
+      // cima/baixo (a caixa é 4:3 e o vídeo é 16:9, então o encaixe por
+      // largura já deixa uma sobra vertical; um inset menor só piorava isso).
+      const inset = 0.96;
       const foreground = await sharp(input)
         .resize(Math.round(variant.width * inset), Math.round(variant.height * inset), { fit: "inside" })
         .toBuffer();
