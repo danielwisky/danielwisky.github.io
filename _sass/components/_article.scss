@@ -26,7 +26,6 @@
   background: var(--bg-alt);
   transform: scale3d(1, 1, 1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  will-change: transform;
 
   img {
     position: absolute;

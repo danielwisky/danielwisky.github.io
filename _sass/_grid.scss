@@ -17,10 +17,6 @@
   margin-right: calc(var(--gutter) / -2);
 }
 
-.row--tight {
-  --gutter: var(--space-5);
-}
-
 [class*="col-"],
 .col {
   width: 100%;
@@ -46,9 +42,4 @@
 
 @media (max-width: 768px) {
   @include cols("-t");
-}
-
-// espaçamento vertical entre itens do grid
-.grid > [class*="col-"] {
-  margin-bottom: var(--gutter);
 }
