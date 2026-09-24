@@ -39,6 +39,6 @@ que é uma página nossa.
 
   <button class="button button--primary" type="submit">
     Enviar
-    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+    {% include icon.html name="paper-plane" %}
   </button>
 </form>

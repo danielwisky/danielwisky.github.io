@@ -7,6 +7,10 @@
  * da classe `language-*` que o kramdown coloca no wrapper.
  */
 (() => {
+  // Mesmo sprite do resto do site (assets/img/icons.svg), via <use>.
+  const icon = (name) =>
+    `<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg#${name}"></use></svg>`;
+
   const blocks = document.querySelectorAll("div.highlighter-rouge");
   if (!blocks.length) return;
 
@@ -31,7 +35,7 @@
     copy.type = "button";
     copy.className = "code-bar__copy";
     copy.setAttribute("aria-label", "Copiar código");
-    copy.innerHTML = '<i class="fa-solid fa-copy" aria-hidden="true"></i> Copiar';
+    copy.innerHTML = icon('copy') + ' Copiar';
 
     let resetTimer;
 
@@ -39,15 +43,15 @@
       try {
         await navigator.clipboard.writeText(code.innerText);
         copy.classList.add("is-done");
-        copy.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Copiado!';
+        copy.innerHTML = icon('check') + ' Copiado!';
       } catch (e) {
-        copy.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i> Falhou';
+        copy.innerHTML = icon('xmark') + ' Falhou';
       }
 
       clearTimeout(resetTimer);
       resetTimer = setTimeout(() => {
         copy.classList.remove("is-done");
-        copy.innerHTML = '<i class="fa-solid fa-copy" aria-hidden="true"></i> Copiar';
+        copy.innerHTML = icon('copy') + ' Copiar';
       }, 2000);
     });
 

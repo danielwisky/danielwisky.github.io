@@ -6,7 +6,7 @@
     <span class="post-nav__image{% if is_video != '' %} post-nav__image--video{% endif %}">
       <img src="{% include post-cover.html post=page.previous variant='thumb' %}" loading="lazy" decoding="async"
            width="84" height="63" alt="">
-      {%- if is_video != '' %}<span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>{% endif %}
+      {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
     </span>
     <span>
       <span class="post-nav__direction">← Anterior</span>
@@ -21,7 +21,7 @@
     <span class="post-nav__image{% if is_video != '' %} post-nav__image--video{% endif %}">
       <img src="{% include post-cover.html post=page.next variant='thumb' %}" loading="lazy" decoding="async"
            width="84" height="63" alt="">
-      {%- if is_video != '' %}<span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>{% endif %}
+      {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
     </span>
     <span>
       <span class="post-nav__direction">Próximo →</span>

@@ -35,20 +35,20 @@
           {%- for social in navbar_social -%}
             <a class="social-icon social-icon--{{ social.brand }}" href="{{ social.url }}" title="{{ social.name }}"
                target="_blank" rel="noopener noreferrer">
-              <i class="{{ social.icon }}" aria-hidden="true"></i>
+              {% include icon.html name=social.icon %}
               <span class="sr-only">{{ social.name }}</span>
             </a>
           {%- endfor -%}
         </div>
 
         <button class="icon-button" id="search-open" type="button" aria-label="Pesquisar">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          {% include icon.html name="magnifying-glass" %}
         </button>
 
         <button class="icon-button theme-toggle" id="theme-toggle" type="button"
                 aria-label="Alternar tema claro e escuro">
-          <span class="theme-toggle__sun"><i class="fa-solid fa-sun" aria-hidden="true"></i></span>
-          <span class="theme-toggle__moon"><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
+          <span class="theme-toggle__sun">{% include icon.html name="sun" %}</span>
+          <span class="theme-toggle__moon">{% include icon.html name="moon" %}</span>
         </button>
 
         <button class="hamburger" id="nav-toggle" type="button"

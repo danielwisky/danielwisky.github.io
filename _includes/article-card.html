@@ -15,7 +15,7 @@
          sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 46vw, 370px"
          loading="lazy" decoding="async" width="1200" height="900" alt="">
     {%- if is_video != '' %}
-    <span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+    <span class="video-icon">{% include icon.html name="play" %}</span>
     {%- endif %}
   </a>
 

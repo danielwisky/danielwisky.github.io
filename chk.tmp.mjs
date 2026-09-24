@@ -1,23 +1,18 @@
 import { chromium } from "playwright";
 const b = await chromium.launch();
-const page = await b.newPage({ viewport: { width: 1100, height: 900 } });
+const page = await b.newPage({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 2 });
+const errs=[]; page.on("pageerror", e=>errs.push(e.message));
 await page.goto("http://127.0.0.1:4000/", { waitUntil: "domcontentloaded" });
-await page.waitForTimeout(1200);
-
-// skip link aparece no primeiro Tab
-await page.keyboard.press("Tab");
-const skip = page.locator(".skip-link");
-console.log("skip link focado:", await skip.evaluate(el => el === document.activeElement));
-console.log("skip link visível:", await skip.isVisible());
-
-// focus trap da busca
-await page.click("#search-open");
-await page.waitForTimeout(800);
-const who = () => page.evaluate(() => document.activeElement?.id || document.activeElement?.className || "?");
-console.log("ao abrir, foco em:", await who());
-await page.keyboard.press("Tab"); console.log("Tab 1 ->", await who());
-await page.keyboard.press("Tab"); console.log("Tab 2 ->", await who());
-await page.keyboard.press("Tab"); console.log("Tab 3 ->", await who());
-await page.keyboard.press("Escape"); await page.waitForTimeout(400);
-console.log("após Esc, foco em:", await who());
+await page.waitForTimeout(1500);
+await page.locator(".header").screenshot({ path: "/tmp/i-header.png" });
+await page.evaluate(() => document.querySelector(".footer").scrollIntoView());
+await page.waitForTimeout(600);
+await page.locator(".footer").screenshot({ path: "/tmp/i-footer.png" });
+await page.goto("http://127.0.0.1:4000/2023-01-16-clean-code-funcoes/", { waitUntil: "domcontentloaded" });
+await page.waitForTimeout(1500);
+const blk = page.locator("div.language-java").first();
+await blk.scrollIntoViewIfNeeded(); await blk.hover(); await page.waitForTimeout(500);
+await blk.screenshot({ path: "/tmp/i-code.png" });
+await page.locator(".share").screenshot({ path: "/tmp/i-share.png" });
+console.log("erros JS:", errs.length?errs:"nenhum");
 await b.close();

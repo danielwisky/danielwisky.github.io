@@ -2,12 +2,12 @@
      data-index="{{ '/search-index.json' | relative_url }}">
   <div class="search__box">
     <div class="search__group">
-      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      {% include icon.html name="magnifying-glass" %}
       <label for="searchInput" class="screen-reader-text">Pesquisar</label>
       <input id="searchInput" type="text" name="q" maxlength="255" class="search__text"
              autocomplete="off" spellcheck="false" placeholder="Escreva para pesquisar...">
       <button id="search-close" class="search__close" type="button" aria-label="Fechar pesquisa">
-        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        {% include icon.html name="xmark" %}
       </button>
     </div>
 
