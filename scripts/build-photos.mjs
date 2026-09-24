@@ -23,7 +23,7 @@
 // `_photos/` começa com underscore: o Jekyll não publica a pasta, só as
 // versões otimizadas em assets/ vão para o site.
 
-import { readdir, writeFile, mkdir, rm, access, stat } from "node:fs/promises";
+import { readdir, readFile, writeFile, mkdir, rm, access, stat } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
@@ -55,6 +55,10 @@ const VARIANTS = [
 
 const SOURCE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".tif", ".tiff"]);
 
+// Slugs cuja fonte é thumbnail do YouTube, de _data/videos.yml. Só eles
+// recebem letterbox; foto comum é sempre recortada.
+const VIDEO_SLUGS = new Set();
+
 const FORCE = process.argv.includes("--force");
 const PRUNE = process.argv.includes("--prune");
 
@@ -68,6 +72,11 @@ const exists = async (p) => {
 };
 
 const outputFor = (slug, v) => path.join(OUT_DIR, v.dir, `${slug}.${v.ext}`);
+
+if (await exists("_data/videos.yml")) {
+  const yml = await readFile("_data/videos.yml", "utf8");
+  for (const [, slug] of yml.matchAll(/^"([^"]+)":/gm)) VIDEO_SLUGS.add(slug);
+}
 
 // path.join usa "\\" no Windows; URL precisa de "/".
 const urlFor = (slug, v) => `/${outputFor(slug, v).split(path.sep).join("/")}`;
@@ -137,25 +146,22 @@ for (const file of sources) {
     continue;
   }
 
-  const meta = await sharp(input).metadata();
-  const sourceRatio = meta.width / meta.height;
+  /*
+   * Thumbnail de YouTube não pode ser recortada: é 16:9 e tem o título na
+   * borda, que o corte 4:3 decepa. Nesses casos o quadro inteiro entra
+   * reduzido, sobre uma cópia ampliada e desfocada de si mesmo.
+   *
+   * A decisão é por slug, e não por diferença de proporção: um limiar
+   * genérico pegava também a variante og das fotos comuns (3:2 numa caixa
+   * 1200x630), mudando imagens que estavam boas com o recorte inteligente.
+   */
+  const letterbox = VIDEO_SLUGS.has(slug);
 
   for (const variant of VARIANTS) {
-    const targetRatio = variant.width / variant.height;
     const encode = (p) =>
       variant.ext === "webp" ? p.webp({ quality: variant.q }) : p.jpeg({ quality: variant.q, mozjpeg: true });
 
-    /*
-     * Fonte muito mais larga (ou mais alta) que o destino não pode ser
-     * recortada: thumbnail de YouTube é 16:9 e tem o título nas bordas, que o
-     * corte 4:3 decepa. Nesses casos o quadro inteiro entra reduzido, sobre
-     * uma cópia ampliada e desfocada de si mesmo, que preenche as laterais.
-     *
-     * O limiar de 0.14 fica entre os dois casos reais: 16:9 numa caixa 3:2 dá
-     * 0.170 (precisa de letterbox) e 3:2 numa caixa 4:3 dá 0.118 (o corte não
-     * incomoda).
-     */
-    if (Math.abs(Math.log(sourceRatio / targetRatio)) > 0.14) {
+    if (letterbox) {
       const background = await encode(
         sharp(input).resize(variant.width, variant.height, { fit: "cover" }).blur(18).modulate({ brightness: 0.72 })
       ).toBuffer();
