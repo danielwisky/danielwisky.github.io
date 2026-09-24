@@ -15,19 +15,19 @@ O MapStruct é facilmente instalado adicionando sua dependência ao seu arquivo 
 
 No Maven, adicione a dependência do MapStruct no bloco `dependencies`:
 
-```
+```xml
 <dependency>
     <groupId>org.mapstruct</groupId>
     <artifactId>mapstruct</artifactId>
-    <version>1.4.2.Final</version>
+    <version>1.6.2</version>
 </dependency>
 ```
 
 No Gradle, adicione a dependência do MapStruct na seção dependencies:
 
-```
-implementation 'org.mapstruct:mapstruct:1.4.2.Final'
-annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+```groovy
+implementation 'org.mapstruct:mapstruct:1.6.2'
+annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
 ```
 
 ## Usando MapStruct
@@ -36,7 +36,7 @@ Para usar o MapStruct, você precisa criar interfaces de mapeamento anotadas com
 
 Aqui está um exemplo de como criar uma interface de mapeamento:
 
-```
+```java
 @Mapper
 public interface CarMapper {
     CarDto carToCarDto(Car car);
@@ -45,7 +45,7 @@ public interface CarMapper {
 
 Neste exemplo, estamos mapeando um objeto `Car` para um objeto `CarDto`. O MapStruct gera automaticamente o código de mapeamento para essa interface. Para usar o mapeamento, você precisa criar uma instância do mapper e chamar o método de mapeamento.
 
-```
+```java
 CarMapper carMapper = Mappers.getMapper(CarMapper.class);
 CarDto carDto = carMapper.carToCarDto(car);
 ```
@@ -58,7 +58,7 @@ O MapStruct permite que você defina mapeamentos personalizados usando o método
 
 Aqui está um exemplo de como definir um mapeamento personalizado:
 
-```
+```java
 @Mapper
 public interface CarMapper {
     @Mapping(source = "numberOfSeats", target = "seatCount")
@@ -74,7 +74,7 @@ O MapStruct também permite que você defina mapeamentos reversos, que permitem 
 
 Aqui está um exemplo de como definir um mapeamento reverso:
 
-```
+```java
 @Mapper
 public interface CarMapper {
     CarDto carToCarDto(Car car);
@@ -92,10 +92,10 @@ O MapStruct também suporta mapeamento de coleções de objetos. Você pode usar
 
 Aqui está um exemplo de como definir o mapeamento de uma coleção de objetos:
 
-```
+```java
 @Mapper
 public interface CarMapper {
-CarDto carToCarDto(Car car);
+    CarDto carToCarDto(Car car);
 
     @IterableMapping(elementTargetType = CarDto.class)
     List<CarDto> carsToCarDtos(List<Car> cars);
@@ -115,6 +115,6 @@ O MapStruct é uma biblioteca de mapeamento de objetos Java para Java que simpli
 Para começar a usar o MapStruct, basta adicioná-lo como uma dependência em seu projeto e criar interfaces de mapeamento anotadas. Com essas interfaces, você pode converter objetos de um tipo em outro sem escrever o código de mapeamento manualmente.
 
 Fonte:
-<a href="https://mapstruct.org/" target="\_blank">MapStruct</a>.
+<a href="https://mapstruct.org/" target="_blank">MapStruct</a>.
 
 Um grande abraço e até o próximo post!
