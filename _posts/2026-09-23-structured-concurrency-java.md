@@ -5,7 +5,7 @@ subtitle: "Como tratar um grupo de tarefas assíncronas como uma unidade só, co
 tags: [Java, Structured Concurrency]
 ---
 
-No post anterior sobre [Virtual Threads](/2026-09-23-virtual-threads-java/) eu mostrei como o Java passou a suportar centenas de milhares de threads baratas pra código bloqueante. Isso resolve o custo de criar threads, mas não resolve um problema mais antigo: quando várias tarefas concorrentes trabalham juntas pra produzir um resultado, quem garante que todas terminam, que erro não se perde no meio do caminho, e que cancelar uma cancela as outras? É esse o problema que a Structured Concurrency ataca.
+No post anterior sobre [Virtual Threads](/2026-09-22-virtual-threads-java/) eu mostrei como o Java passou a suportar centenas de milhares de threads baratas pra código bloqueante. Isso resolve o custo de criar threads, mas não resolve um problema mais antigo: quando várias tarefas concorrentes trabalham juntas pra produzir um resultado, quem garante que todas terminam, que erro não se perde no meio do caminho, e que cancelar uma cancela as outras? É esse o problema que a Structured Concurrency ataca.
 
 ## O problema da concorrência solta
 

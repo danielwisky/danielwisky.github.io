@@ -43,7 +43,7 @@ try (ExecutorService pool = Executors.newVirtualThreadPerTaskExecutor()) {
 }
 ```
 
-Cada tarefa ganha a própria virtual thread, criada sob demanda e descartada no fim. Não existe mais "pool com N threads reutilizáveis". A JVM que cuida de intercalar o trabalho real nas carrier threads que estão livres.
+Cada tarefa ganha a própria virtual thread, criada sob demanda e descartada no fim. Não existe mais "pool com N threads reutilizáveis". É a JVM que cuida de intercalar o trabalho real nas carrier threads que estão livres.
 
 ## Onde isso não ajuda
 

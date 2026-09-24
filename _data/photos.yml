@@ -185,6 +185,11 @@
   card: /assets/img/photos/cards/o-que-exatamente-e-um-doutorado.webp
   thumb: /assets/img/photos/thumbs/o-que-exatamente-e-um-doutorado.webp
   og: /assets/img/photos/og/o-que-exatamente-e-um-doutorado.jpg
+"o-que-mudou-em-cada-versao-do-java":
+  cover: /assets/img/photos/o-que-mudou-em-cada-versao-do-java.webp
+  card: /assets/img/photos/cards/o-que-mudou-em-cada-versao-do-java.webp
+  thumb: /assets/img/photos/thumbs/o-que-mudou-em-cada-versao-do-java.webp
+  og: /assets/img/photos/og/o-que-mudou-em-cada-versao-do-java.jpg
 "principio-aberto-fechado":
   cover: /assets/img/photos/principio-aberto-fechado.webp
   card: /assets/img/photos/cards/principio-aberto-fechado.webp
