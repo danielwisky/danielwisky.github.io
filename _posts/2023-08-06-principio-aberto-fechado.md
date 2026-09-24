@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SOLID: Princípio Aberto-Fechado"
-subtitle: "Princípio Princípio Aberto-Fechado e exemplos de implementação em Java"
+subtitle: "Princípio Aberto-Fechado e exemplos de implementação em Java"
 tags: [Java, SOLID]
 ---
 
