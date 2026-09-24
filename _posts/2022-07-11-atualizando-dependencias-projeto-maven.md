@@ -121,9 +121,9 @@ Process finished with exit code 0
 
 Após a execução do comando `versions:update-properties`, podemos notar que as seguintes versões foram atualizadas:
 
-- `pitest-pluginpitest-maven` foi atualizada da versão `1.9.0` para `1.9.2`
+- `pitest-maven` foi atualizada da versão `1.9.0` para `1.9.2`
 - `springdoc-openapi-ui` foi atualizada da versão `1.6.1` para `1.6.9`
-- `testcontainers foi` atualizada da versão `1.17.2` para `1.17.3`
+- `testcontainers` foi atualizada da versão `1.17.2` para `1.17.3`
 - `sonar-maven-plugin` foi atualizada da versão `3.7.0.1746` para `3.9.1.2184`
 
 Arquivo `pom.xml` após a nossa atualização:
@@ -183,6 +183,6 @@ mvn versions:commit
 ```
 
 Fonte:
-<a href="https://www.mojohaus.org/versions-maven-plugin/index.html" target="\_blank">Versions Maven Plugin</a>.
+<a href="https://www.mojohaus.org/versions-maven-plugin/index.html" target="_blank">Versions Maven Plugin</a>.
 
 Um grande abraço e até o próximo post!
