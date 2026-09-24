@@ -27,10 +27,10 @@ Esse padrão tem nome: concorrência não estruturada. O ciclo de vida das taref
 
 ## O que muda com escopos estruturados
 
-A ideia da API `StructuredTaskScope`, finalizada no Java 25 depois de várias rodadas de preview, é simples de enunciar: tarefas disparadas dentro de um escopo não podem escapar dele. O escopo só termina quando todas as tarefas terminam, com sucesso, com erro ou canceladas. E um erro em qualquer uma delas pode propagar e cancelar as irmãs de forma automática.
+A ideia da API `StructuredTaskScope`, em preview desde o Java 21 e já na quinta rodada de preview no Java 25 (ainda exige a flag `--enable-preview` pra compilar e rodar), é simples de enunciar: tarefas disparadas dentro de um escopo não podem escapar dele. O escopo só termina quando todas as tarefas terminam, com sucesso, com erro ou canceladas. E um erro em qualquer uma delas pode propagar e cancelar as irmãs de forma automática.
 
 ```java
-try (var scope = StructuredTaskScope.open(Joiner.<Usuario, List<Pedido>>awaitAll())) {
+try (var scope = StructuredTaskScope.open(Joiner.<Usuario, List<Pedido>>awaitAllSuccessfulOrThrow())) {
     var usuarioTask = scope.fork(() -> buscarUsuario(id));
     var pedidosTask = scope.fork(() -> buscarPedidos(id));
 

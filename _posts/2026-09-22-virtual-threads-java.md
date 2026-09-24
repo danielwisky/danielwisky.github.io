@@ -49,7 +49,7 @@ Cada tarefa ganha a própria virtual thread, criada sob demanda e descartada no 
 
 Virtual threads resolvem escala em I/O bloqueante, não paralelismo de CPU. Um laço que só faz conta pesada não fica mais rápido rodando em virtual threads, porque ali o gargalo é o número de núcleos disponíveis, e não a quantidade de threads. Pra isso, `ForkJoinPool` e streams paralelos continuam sendo a ferramenta certa.
 
-Tem também o problema do *pinning*: um bloco `synchronized` prende a virtual thread na carrier thread durante toda a execução. Se esse bloco fizer I/O lento por dentro, parte do ganho desaparece. Quando isso vira gargalo de verdade, a saída costuma ser trocar `synchronized` por `ReentrantLock` nos pontos mais quentes do código.
+Também existia o problema do *pinning*: até o Java 23, um bloco `synchronized` prendia a virtual thread na carrier thread durante toda a execução, e um I/O lento ali dentro cancelava boa parte do ganho. Desde o Java 24 isso deixou de ser regra: a JVM passou a liberar a carrier thread mesmo dentro de um `synchronized`, desde que threads diferentes não disputem o mesmo monitor. Quem ainda roda em versão anterior ao 24 continua se beneficiando de trocar `synchronized` por `ReentrantLock` nos pontos mais quentes do código.
 
 ## Vale a pena migrar
 

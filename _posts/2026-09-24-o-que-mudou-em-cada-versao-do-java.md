@@ -62,7 +62,7 @@ Também chegaram as *sequenced collections*, que finalmente deram um jeito padr�
 
 ## Java 22 a 25: os passos seguintes
 
-Nas versões mais recentes, o destaque é a Structured Concurrency, que eu detalhei [no post seguinte a este](/2026-09-23-structured-concurrency-java/): depois de rodar como preview por várias versões, ela chegou como API estável no Java 25, dando um jeito de tratar um grupo de tarefas concorrentes como uma unidade só, com cancelamento e propagação de erro previsíveis.
+Nas versões mais recentes, o destaque é a Structured Concurrency, que eu detalhei [no post seguinte a este](/2026-09-23-structured-concurrency-java/): já vai na quinta rodada de preview no Java 25, dando um jeito de tratar um grupo de tarefas concorrentes como uma unidade só, com cancelamento e propagação de erro previsíveis. Ainda exige a flag `--enable-preview`, mas a API já está estável o bastante pra valer a pena conhecer antes dela sair do preview de vez.
 
 O Java 25 também é a versão LTS mais recente, o que significa que é candidata natural pra quem está decidindo pra qual versão migrar depois do 17 ou do 21.
 
