@@ -10,9 +10,9 @@ tags: [Apache Kafka, Sistemas de mensageria, Videoaula]
 </div>
 
 Links:
-<a href="https://github.com/danielwisky/daily-challenge" target="\_blank">Projeto Git</a>.
+<a href="https://github.com/danielwisky/daily-challenge" target="_blank">Projeto Git</a>.
 
 Fonte:
-<a href="https://kafka.apache.org/documentation/" target="\_blank">Documentação do Apache Kafka</a>.
+<a href="https://kafka.apache.org/documentation/" target="_blank">Documentação do Apache Kafka</a>.
 
 Um grande abraço e até o próximo post!

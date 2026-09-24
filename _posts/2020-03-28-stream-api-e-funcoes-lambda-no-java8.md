@@ -10,6 +10,6 @@ tags: [Java, Stream API]
 </div>
 
 Fonte:
-<a href="https://github.com/danielwisky/javalambda" target="\_blank">Projeto GitHub</a>.
+<a href="https://github.com/danielwisky/javalambda" target="_blank">Projeto GitHub</a>.
 
 Um grande abraço e até o próximo post!

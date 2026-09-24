@@ -12,13 +12,15 @@ Algumas das minhas imagens favoritas:
 **RabbitMQ**
 
 ```
-docker run -d --name rabbit -e RABBITMQ_DEFAULT_USER=developer -e RABBITMQ_DEFAULT_PASS=developer -e RABBITMQ_DEFAULT_VHOST=localhost -p 15672:15672 -p 15673:15673 -p 5672:5672 -p 5673:5673 rabbitmq:3.6.0-management
+docker run -d --name rabbit -e RABBITMQ_DEFAULT_USER=developer -e RABBITMQ_DEFAULT_PASS=developer -e RABBITMQ_DEFAULT_VHOST=localhost -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 ```
 
 **Kafka**
 
+> A imagem `spotify/kafka` usada aqui originalmente está abandonada desde 2015. O exemplo abaixo usa a imagem oficial do projeto Apache Kafka, que roda em modo KRaft (sem necessidade de Zookeeper).
+
 ```
-docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka
+docker run -d --name kafka -p 9092:9092 apache/kafka:latest
 ```
 
 **Redis**
@@ -30,13 +32,13 @@ docker run --name redis -d -p 6379:6379 redis
 **SonarQube**
 
 ```
-docker run -d -p 9000:9000 sonarqube:8.3.1-community
+docker run -d -p 9000:9000 sonarqube:community
 ```
 
 **MongoDB**
 
 ```
-docker run -d --name mongodb -p 27017:27017 -d mongo:3.4.2
+docker run -d --name mongodb -p 27017:27017 -d mongo:7
 ```
 
 ### Comandos

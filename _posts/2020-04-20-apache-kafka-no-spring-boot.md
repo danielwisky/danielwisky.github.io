@@ -10,8 +10,8 @@ tags: [Apache Kafka, Sistemas de mensageria, Spring Boot, Java, Videoaula]
 </div>
 
 Links:
-<a href="https://github.com/danielwisky/sistema-saude" target="\_blank">Sistema Saúde
+<a href="https://github.com/danielwisky/sistema-saude" target="_blank">Sistema Saúde
 </a>,
-<a href="https://github.com/danielwisky/sistema-financeiro" target="\_blank">Sistema Financeiro</a>.
+<a href="https://github.com/danielwisky/sistema-financeiro" target="_blank">Sistema Financeiro</a>.
 
 Um grande abraço e até o próximo post!

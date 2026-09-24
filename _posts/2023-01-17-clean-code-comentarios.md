@@ -67,7 +67,7 @@ public int compareTo(Object o) {
 
 Às vezes, é útil traduzir o significado de algum argumento obscuro ou valor de retorno em algo legível. Em geral, é melhor encontrar uma maneira de tornar esse argumento ou valor de retorno claro por si só; mas quando faz parte da biblioteca padrão ou no código que você não pode alterar, um comentário esclarecedor útil pode ser útil.
 
-#### Aviso de concequencias
+#### Aviso de consequências
 
 Às vezes é útil avisar outros programadores sobre certas consequências.
 
@@ -176,7 +176,7 @@ public void addCD(String title, String author, int tracks, int durationInMinutes
     cd.title = title;
     cd.author = author;
     cd.tracks = tracks;
-    cd.duration = duration;
+    cd.duration = durationInMinutes;
     cdList.add(cd);
 }
 ```
@@ -346,6 +346,6 @@ Funções curtas não precisam de muita descrição. Um nome bem escolhido para 
 Javadocs são para APIs públicas, em código não público pode ser mais uma distração do que uma ajuda.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!

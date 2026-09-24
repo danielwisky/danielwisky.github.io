@@ -140,7 +140,7 @@ Temos codificações suficientes para lidar sem adicionar mais ao nosso fardo. C
 
 #### Interfaces e Implementações
 
-Às vezes, esses são um caso especial para codificações. Por exemplo, digamos que você esteja construindo uma FÁBRICA ABSTRATA para a criação de formas. Esta fábrica será uma interface e será implementada por uma classe concreta. O que você deve nomeá-los? `ISapeFactory` e `ShapeFactory`? É preferível deixar as interfaces sem adornos. Não quero que meus usuários saibam que estou entregando uma interface a eles. Eu só quero que eles saibam que é uma `ShapeFactory`. Portanto, se devo codificar a interface ou a implementação, escolho a implementação. Chamá-lo `ShapeFactoryImp`, ou mesmo o hediondo `CShapeFactory`, é preferível a codificar a interface.
+Às vezes, esses são um caso especial para codificações. Por exemplo, digamos que você esteja construindo uma FÁBRICA ABSTRATA para a criação de formas. Esta fábrica será uma interface e será implementada por uma classe concreta. O que você deve nomeá-los? `IShapeFactory` e `ShapeFactory`? É preferível deixar as interfaces sem adornos. Não quero que meus usuários saibam que estou entregando uma interface a eles. Eu só quero que eles saibam que é uma `ShapeFactory`. Portanto, se devo codificar a interface ou a implementação, escolho a implementação. Chamá-lo `ShapeFactoryImp`, ou mesmo o hediondo `CShapeFactory`, é preferível a codificar a interface.
 
 ### Evite o Mapeamento Mental
 
@@ -209,6 +209,6 @@ Em um aplicativo imaginário chamado "Gas Station Deluxe", é uma má ideia pref
 Nomes mais curtos geralmente são melhores do que nomes mais longos, desde que sejam claros. Não adicione mais contexto a um nome do que o necessário.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!

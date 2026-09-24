@@ -22,13 +22,12 @@ Alguns comandos docker e suas utilizades:
 - <code>docker images</code> - lista as imagens disponíveis no host.
 - <code>docker import</code> - importa uma imagem .tar para o host.
 - <code>docker info</code> - exibe as informações sobre o host.
-- <code>docker inspect</code> - exibe r o json com todas as configurações do container.
+- <code>docker inspect</code> - exibe o json com todas as configurações do container.
 - <code>docker kill</code> - da poweroff no container.
 - <code>docker load</code> - carrega a imagem de um arquivo .tar.
 - <code>docker login</code> - registra ou faz o login em um servidor de registry.
 - <code>docker logout</code> - faz o logout de um servidor de registry.
 - <code>docker logs</code> - exibe os logs de um container.
-- <code>docker port</code> - abre uma porta do host e do container.
 - <code>docker network</code> - gerenciamento das redes do docker.
 - <code>docker node</code> - gerenciamento dos nodes do docker swarm.
 - <code>docker pause</code> - pausa o container.
@@ -56,9 +55,9 @@ Alguns comandos docker e suas utilizades:
 - <code>docker volume</code> - gerenciamento dos volumes no docker.
 - <code>docker wait</code> - aguarda o retorno da execução de um container para iniciar esse container.
 
-É possível ver todos os comandos que o Docker possui, tendo o docker instalado, basta digitar no terminal <code>docker –help</code>
+É possível ver todos os comandos que o Docker possui, tendo o docker instalado, basta digitar no terminal <code>docker --help</code>
 
 Fonte:
-<a href="https://gist.github.com/morvanabonin/862a973c330107540f28fab0f26181d8" target="\_blank">Comandos Docker</a>.
+<a href="https://gist.github.com/morvanabonin/862a973c330107540f28fab0f26181d8" target="_blank">Comandos Docker</a>.
 
 Um grande abraço e até o próximo post!

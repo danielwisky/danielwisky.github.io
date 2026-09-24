@@ -56,6 +56,6 @@ Algumas vezes é necessário trabalhar em um módulo que será conectado a outro
 Coisas interessantes acontecem nos limites. A mudança é uma dessas coisas. Bons projetos de software acomodam mudanças sem grandes investimentos e retrabalho. Quando usamos código que está fora de nosso controle, cuidados especiais devem ser tomados para proteger nosso investimento e garantir que alterações futuras não sejam muito caras.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!

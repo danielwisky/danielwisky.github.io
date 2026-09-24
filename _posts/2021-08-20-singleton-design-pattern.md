@@ -13,7 +13,7 @@ O Singleton é um padrão de projeto criacional que permite a você garantir que
 
 O padrão Singleton resolve dois problemas de uma só vez, violando o princípio de responsabilidade única:
 
-1. Garantir que uma classe tenha apenas uma única instância. Por que alguém iria querer controlar quantas instâncias uma classe tem? A razão mais comum para isso é para controlar o acesso a algum recurso compartilhado—por exemplo, uma base de dados ou um arquivo.
+1. Garantir que uma classe tenha apenas uma única instância. Por que alguém iria querer controlar quantas instâncias uma classe tem? A razão mais comum para isso é para controlar o acesso a algum recurso compartilhado, por exemplo, uma base de dados ou um arquivo.
 
    Funciona assim: imagine que você criou um objeto, mas depois de um tempo você decidiu criar um novo. Ao invés de receber um objeto fresco, você obterá um que já foi criado.
 
@@ -43,9 +43,9 @@ Segue abaixo um exemplo de implementação em Java utilizando o Padrão Singleto
     }
 
 Fonte:
-<a href="https://refactoring.guru/pt-br/design-patterns/singleton" target="\_blank">Refactoring</a>.
+<a href="https://refactoring.guru/pt-br/design-patterns/singleton" target="_blank">Refactoring</a>.
 
 Para saber mais:
-<a href="https://sourcemaking.com/design_patterns/singleton" target="\_blank">Singleton Design Pattern</a>.
+<a href="https://sourcemaking.com/design_patterns/singleton" target="_blank">Singleton Design Pattern</a>.
 
 Um grande abraço e até o próximo post!

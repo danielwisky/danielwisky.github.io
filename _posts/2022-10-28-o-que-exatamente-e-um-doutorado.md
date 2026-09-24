@@ -5,7 +5,7 @@ subtitle: "Você já pensou exatamente no que significa um doutorado?"
 tags: [Doutorado, Educação Superior]
 ---
 
-Você já pensou exatamente no que significa um doutorado? Matt Might, professor de Ciências da Computação na Universidade de Utah, explica perfeitamente nesta apresentação gráfica que começa com um simples círcul
+Você já pensou exatamente no que significa um doutorado? Matt Might, professor de Ciências da Computação na Universidade de Utah, explica perfeitamente nesta apresentação gráfica que começa com um simples círculo
 
 Quando você completa o ensino básico, você sabe um pouco:
 
@@ -78,6 +78,6 @@ Continue ultrapassando os limites.
 > <a href="http://matt.might.net/">Matt Might</a> é professor de Ciências da Computação na Universidade de Utah (EUA). Ele completou seu calombo na Georgia Tech em 2007 e agora ajuda seus próprios estudantes a completarem os seus. Ele twitta em <a href="http://www.twitter.com/mattmight/">@mattmight</a> e tem um blog em <a href="http://blog.might.net/">blog.might.net</a>.
 
 Fonte:
-<a href="https://gizmodo.uol.com.br/o-que-exatamente-e-um-doutorado/amp/" target="\_blank">Gizmodo</a>.
+<a href="https://gizmodo.uol.com.br/o-que-exatamente-e-um-doutorado/amp/" target="_blank">Gizmodo</a>.
 
 Um grande abraço e até o próximo post!

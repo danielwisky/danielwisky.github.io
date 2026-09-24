@@ -42,6 +42,6 @@ Verificando se o formulário foi alterado.
     }
 
 Fonte:
-<a href="http://stackoverflow.com/questions/959670/generic-way-to-detect-if-html-form-is-edited" target="\_blank">stackoverflow</a>.
+<a href="http://stackoverflow.com/questions/959670/generic-way-to-detect-if-html-form-is-edited" target="_blank">stackoverflow</a>.
 
 Um grande abraço e até o próximo post!

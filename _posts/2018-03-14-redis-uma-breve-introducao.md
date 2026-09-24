@@ -44,6 +44,6 @@ Diferente do Windows, toda a plataforma do Redis pode ser utilizada em ambiente 
 Esse foi um texto introdutório sobre a ferramenta, em breve postarei novos conteúdos e exemplos de aplicações utilizando Redis, no entanto, caso queira pesquisar mais sobre o assunto, comece com a documentação oficial, presente em http://redis.io/.
 
 Fonte:
-<a href="https://medium.com/@prog.tiago/redis-uma-breve-introdu%C3%A7%C3%A3o-9ea19e61b8d9" target="\_blank">Medium - Tiago Silva</a>.
+<a href="https://medium.com/@prog.tiago/redis-uma-breve-introdu%C3%A7%C3%A3o-9ea19e61b8d9" target="_blank">Medium - Tiago Silva</a>.
 
 Um grande abraço e até o próximo post!

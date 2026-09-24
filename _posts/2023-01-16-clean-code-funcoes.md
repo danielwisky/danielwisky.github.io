@@ -44,7 +44,7 @@ Para dizer isso de forma diferente, queremos ser capazes de ler o programa como 
 - Para procurar o pai...
 ```
 
-Acontece que é muito difícil para os programadores aprender a seguir essa regra e escrever funções que ficam em um único nível de abstração. Mas aprender esse truque também é muito importante. É a chave para manter as funções curtas e garantir que elas façam "uma coisa". Fazer o código ser lido como um conjunto de parágrafos TO de cima para baixo é uma técnica eficaz para manter o nível de abstração consistente.
+Acontece que é muito difícil para os programadores aprender a seguir essa regra e escrever funções que ficam em um único nível de abstração. Mas aprender esse truque também é muito importante. É a chave para manter as funções curtas e garantir que elas façam "uma coisa". Fazer o código ser lido como um conjunto de parágrafos "para fazer isso" (os chamados parágrafos TO), de cima para baixo, é uma técnica eficaz para manter o nível de abstração consistente.
 
 ### Instruções de troca
 
@@ -84,7 +84,7 @@ Há momentos, é claro, em que dois argumentos são apropriados. Por exemplo, `P
 
 Mesmo funções diádicas óbvias como assertEquals(esperado, real) são problemáticas. Quantas vezes você colocou o real onde deveria estar o esperado? Os dois argumentos não têm ordem natural. A ordem esperada e real é uma convenção que requer prática para aprender.
 
-Díades não são más, e você certamente terá que escrevê-las. No entanto, você deve estar ciente de que eles têm um custo e devem aproveitar os mecanismos disponíveis para convertê-los em mônadas. Por exemplo, você pode tornar o método writeField um membro de outputStream para poder dizer outputStream. escrevaCampo(nome) . Ou você pode tornar o outputStream uma variável de membro da classe atual para que não precise transmiti-lo. Ou você pode extrair uma nova classe como FieldWriter que usa o outputStream em seu construtor e tem um método de gravação.
+Díades não são más, e você certamente terá que escrevê-las. No entanto, você deve estar ciente de que eles têm um custo e devem aproveitar os mecanismos disponíveis para convertê-los em mônadas. Por exemplo, você pode tornar o método writeField um membro de outputStream para poder dizer outputStream.writeField(nome). Ou você pode tornar o outputStream uma variável de membro da classe atual para que não precise transmiti-lo. Ou você pode extrair uma nova classe como FieldWriter que usa o outputStream em seu construtor e tem um método de gravação.
 
 #### Tríades
 
@@ -135,6 +135,6 @@ Embora simpatizemos com os objetivos e disciplinas da programação estruturada,
 Portanto, se você mantiver suas funções pequenas, as declarações múltiplas ocasionais `return`, `break` ou `continue` não causam danos e às vezes podem até ser mais expressivas do que a regra de entrada única e saída única. Por outro lado, `goto` só faz sentido em funções grandes, por isso deve ser evitado
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!

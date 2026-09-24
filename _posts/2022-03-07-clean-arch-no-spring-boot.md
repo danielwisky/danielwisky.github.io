@@ -10,9 +10,9 @@ tags: [Clean Architecture, Arquitetura Limpa, Spring Boot, Java, Videoaula]
 </div>
 
 Links:
-<a href="https://github.com/danielwisky/clean-arch" target="\_blank">Clean Arch (projeto git)</a>.
+<a href="https://github.com/danielwisky/clean-arch" target="_blank">Clean Arch (projeto git)</a>.
 
 Fonte:
-<a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" target="\_blank">The Clean Code Blog</a>.
+<a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" target="_blank">The Clean Code Blog</a>.
 
 Um grande abraço e até o próximo post!
