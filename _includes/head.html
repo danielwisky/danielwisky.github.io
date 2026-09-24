@@ -36,6 +36,11 @@
   JPEG, porque redes sociais ignoram SVG em og:image.
   {%- endcomment -%}
   {% seo %}
+  {%- comment -%}
+  Sem isto nenhuma página anuncia o RSS, e leitores e agregadores não o
+  descobrem: o feed só existia como link de texto no rodapé.
+  {%- endcomment -%}
+  {% feed_meta %}
 
   {% include google_analytics.html %}
 

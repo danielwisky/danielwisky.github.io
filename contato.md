@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Contato"
+description: "Fale comigo: dúvidas sobre os posts, sugestões de pauta ou uma conversa sobre software."
 permalink: /contato/
 plain: true
 ---

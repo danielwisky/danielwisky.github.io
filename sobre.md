@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Sobre"
+description: "Bacharel em Engenharia da Computação e engenheiro de software, hoje em Clojure, Java e Kotlin."
 permalink: /sobre/
 ---
 
