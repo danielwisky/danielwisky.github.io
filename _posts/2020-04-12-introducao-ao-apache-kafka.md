@@ -10,6 +10,6 @@ tags: [Apache Kafka, Sistemas de mensageria, Videoaula]
 </div>
 
 Links:
-<a href="https://kafka.apache.org/" target="\_blank">Apache Kafka</a>.
+<a href="https://kafka.apache.org/" target="_blank">Apache Kafka</a>.
 
 Um grande abraço e até o próximo post!

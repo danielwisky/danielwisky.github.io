@@ -10,7 +10,7 @@ tags: [MongoDB, noSQL, Videoaula]
 </div>
 
 Links:
-<a href="https://www.mongodb.com/" target="\_blank">MongoDB</a>,
-<a href="https://nosqlbooster.com/" target="\_blank">NoSQLBooster</a>.
+<a href="https://www.mongodb.com/" target="_blank">MongoDB</a>,
+<a href="https://nosqlbooster.com/" target="_blank">NoSQLBooster</a>.
 
 Um grande abraço e até o próximo post!

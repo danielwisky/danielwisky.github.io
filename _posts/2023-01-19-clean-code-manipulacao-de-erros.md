@@ -32,6 +32,6 @@ Se você for tentado a retornar nulo de um método, considere lançar uma exceç
 Retornar nulo de métodos é ruim, mas passar nulo para métodos é pior. A menos que você esteja trabalhando com uma API que espera que você passe nulo, evite passar nulo em seu código sempre que possível.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!

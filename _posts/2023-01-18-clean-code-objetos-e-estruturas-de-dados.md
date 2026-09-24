@@ -114,6 +114,6 @@ O método não deve invocar métodos em objetos que são retornados por qualquer
 A forma quintessencial de uma estrutura de dados é uma classe com variáveis públicas e sem funções. Às vezes, isso é chamado de objeto de transferência de dados ou DTO. DTOs são estruturas muito úteis, especialmente ao se comunicar com bancos de dados ou analisar mensagens de soquetes e assim por diante. Eles geralmente se tornam os primeiros de uma série de estágios de conversão que convertem dados brutos em um banco de dados em objetos no código do aplicativo.
 
 Fonte:
-<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="\_blank">Clean Code Notes</a>.
+<a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.
 
 Um grande abraço e até o próximo post!
