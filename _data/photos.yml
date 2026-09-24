@@ -185,6 +185,11 @@
   card: /assets/img/photos/cards/o-que-exatamente-e-um-doutorado.webp
   thumb: /assets/img/photos/thumbs/o-que-exatamente-e-um-doutorado.webp
   og: /assets/img/photos/og/o-que-exatamente-e-um-doutorado.jpg
+"o-que-mudou-em-cada-versao-do-java":
+  cover: /assets/img/photos/o-que-mudou-em-cada-versao-do-java.webp
+  card: /assets/img/photos/cards/o-que-mudou-em-cada-versao-do-java.webp
+  thumb: /assets/img/photos/thumbs/o-que-mudou-em-cada-versao-do-java.webp
+  og: /assets/img/photos/og/o-que-mudou-em-cada-versao-do-java.jpg
 "principio-aberto-fechado":
   cover: /assets/img/photos/principio-aberto-fechado.webp
   card: /assets/img/photos/cards/principio-aberto-fechado.webp
@@ -240,3 +245,13 @@
   card: /assets/img/photos/cards/stream-api-e-funcoes-lambda-no-java8.webp
   thumb: /assets/img/photos/thumbs/stream-api-e-funcoes-lambda-no-java8.webp
   og: /assets/img/photos/og/stream-api-e-funcoes-lambda-no-java8.jpg
+"structured-concurrency-java":
+  cover: /assets/img/photos/structured-concurrency-java.webp
+  card: /assets/img/photos/cards/structured-concurrency-java.webp
+  thumb: /assets/img/photos/thumbs/structured-concurrency-java.webp
+  og: /assets/img/photos/og/structured-concurrency-java.jpg
+"virtual-threads-java":
+  cover: /assets/img/photos/virtual-threads-java.webp
+  card: /assets/img/photos/cards/virtual-threads-java.webp
+  thumb: /assets/img/photos/thumbs/virtual-threads-java.webp
+  og: /assets/img/photos/og/virtual-threads-java.jpg
