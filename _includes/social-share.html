@@ -6,35 +6,35 @@
   <a class="social-icon social-icon--twitter" title="Compartilhar no X"
      href="https://twitter.com/intent/tweet?text={{ share_title }}&url={{ share_url }}"
      target="_blank" rel="noopener noreferrer">
-    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+    {% include icon.html name="x-twitter" %}
     <span class="sr-only">X</span>
   </a>
 
   <a class="social-icon social-icon--linkedin" title="Compartilhar no LinkedIn"
      href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_url }}"
      target="_blank" rel="noopener noreferrer">
-    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+    {% include icon.html name="linkedin-in" %}
     <span class="sr-only">LinkedIn</span>
   </a>
 
   <a class="social-icon social-icon--facebook" title="Compartilhar no Facebook"
      href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}"
      target="_blank" rel="noopener noreferrer">
-    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    {% include icon.html name="facebook-f" %}
     <span class="sr-only">Facebook</span>
   </a>
 
   <a class="social-icon social-icon--whatsapp" title="Compartilhar no WhatsApp"
      href="https://api.whatsapp.com/send?text={{ share_title }}%20{{ share_url }}"
      target="_blank" rel="noopener noreferrer">
-    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    {% include icon.html name="whatsapp" %}
     <span class="sr-only">WhatsApp</span>
   </a>
 
   <a class="social-icon social-icon--reddit" title="Compartilhar no Reddit"
      href="https://www.reddit.com/submit?url={{ share_url }}&title={{ share_title }}"
      target="_blank" rel="noopener noreferrer">
-    <i class="fa-brands fa-reddit-alien" aria-hidden="true"></i>
+    {% include icon.html name="reddit-alien" %}
     <span class="sr-only">Reddit</span>
   </a>
 </section>

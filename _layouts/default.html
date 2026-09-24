@@ -5,11 +5,17 @@
 
 <body>
 
+{%- comment -%}
+São ~10 pontos de tabulação entre o topo e o conteúdo: logo, 5 itens de menu,
+4 ícones sociais e 3 botões. O link abaixo só aparece ao receber foco.
+{%- endcomment -%}
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
 {% include header.html %}
 
 {% include search-box.html %}
 
-<main class="content">
+<main id="conteudo">
   {{ content }}
 </main>
 

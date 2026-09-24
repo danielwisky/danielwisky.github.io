@@ -346,7 +346,10 @@ await writeFile("assets/img/avatar.svg", avatarSvg("DW"));
 const yaml = [
   "# Gerado por scripts/build-covers.mjs — não editar à mão.",
   ...[...tags.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
+    // Comparação simples e não localeCompare: a ordem precisa ser a mesma
+    // em qualquer máquina, senão o arquivo gerado difere entre o seu
+    // ambiente e o do CI.
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
     .flatMap(([slug, label]) => [
       `${JSON.stringify(label)}:`,
       `  cover: /${OUT_DIR}/${slug}.svg`,

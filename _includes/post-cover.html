@@ -22,8 +22,8 @@ Imprime só a URL, sem espaços em volta, para poder ir direto num atributo.
 {%- assign variant = include.variant | default: 'cover' -%}
 {%- assign photo = site.data.photos[p.slug] -%}
 {%- assign tag_cover = site.data.covers[p.tags.first] -%}
-{%- if p.cover-img -%}
-{{- p.cover-img | relative_url -}}
+{%- if p['cover-img'] -%}
+{{- p['cover-img'] | relative_url -}}
 {%- elsif photo -%}
 {{- photo[variant] | default: photo.cover | relative_url -}}
 {%- elsif tag_cover -%}
