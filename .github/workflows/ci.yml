@@ -1,0 +1,52 @@
+# Checagem em pull request.
+#
+# O deploy roda só o Jekyll, e os artefatos gerados (os .min.js, as capas das
+# tags, os arquivos em _data/) são commitados. Sem esta checagem, editar
+# assets/js/main.js e esquecer de rodar `npm run build:js` publica o .min.js
+# antigo, em silêncio. O `git diff --exit-code` abaixo é o detector: se o build
+# mudar algum arquivo versionado, é porque o commit está fora de sincronia.
+#
+# Ficam de fora do check, de propósito:
+#   build:videos  baixa thumbnails do YouTube, dependeria da rede e seria instável
+#   build:photos  depende de _photos/, que não é versionada; num runner limpo
+#                 ele não gera nada (o script trata a pasta ausente)
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Regenerar os artefatos determinísticos
+        run: |
+          npm run build:js
+          npm run build:covers
+
+      - name: Conferir se os artefatos commitados estão em dia
+        run: |
+          if ! git diff --exit-code; then
+            echo "::error::Artefatos fora de sincronia. Rode 'npm run build' e commite o resultado."
+            exit 1
+          fi
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build do Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production

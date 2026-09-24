@@ -1,4 +1,5 @@
 title: Daniel Wisky
+author: Daniel Wisky
 email: daniel-ddw@hotmail.com
 description: "Conteúdos sobre desenvolvimento de software e tecnologia"
 baseurl: ""
@@ -37,9 +38,11 @@ disqus: "danielwisky"
 # como `formId` nos exemplos de JS e React da própria documentação.
 formspree_id: "mzbovjdk"
 
-# O jekyll-seo-tag emite twitter:card; sem isto ele usaria "summary" (miniatura
-# pequena) e ficaria duplicado com a tag do og:image em _includes/head.html.
+# O jekyll-seo-tag emite twitter:card; sem isto ele usaria "summary", com
+# miniatura pequena. O username é necessário porque o plugin emite twitter:site
+# de qualquer jeito, e sem ele a tag sai como "@" vazio.
 twitter:
+  username: danielwisky
   card: summary_large_image
 
 # --- footer social media links --- #
