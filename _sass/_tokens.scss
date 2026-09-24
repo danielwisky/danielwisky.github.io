@@ -11,7 +11,13 @@
   --accent-end: #2b59ff;
   --gradient: linear-gradient(90deg, var(--accent-start) 0%, var(--accent-end) 100%);
   --gradient-hover: linear-gradient(180deg, var(--accent-start) 0%, var(--accent-end) 160%);
-  --accent: #1279d4;
+
+  // Texto branco sobre o teal vivo dá 2,49:1 e reprova o AA. Superfícies com
+  // texto por cima usam esta variante escurecida (4,86:1); o teal original
+  // segue nos elementos decorativos, onde não há texto.
+  --gradient-strong: linear-gradient(90deg, #00806f 0%, var(--accent-end) 100%);
+
+  --accent: #1170c4;
 
   --bg: #ffffff;
   --bg-rgb: 255, 255, 255;
@@ -37,7 +43,7 @@
   --code-text: #1f2937;
   --code-keyword: #b3008f;
   --code-string: #0a7d46;
-  --code-comment: #7b8794;
+  --code-comment: #5c6775;
   --code-number: #b45309;
   --code-type: #1d4ed8;
   --code-fn: #6d28d9;
@@ -71,6 +77,9 @@
 :root[data-theme="dark"] {
   --accent-start: #14d8c4;
   --accent-end: #5b7cff;
+  // No tema escuro o texto sobre o acento é escuro (--on-accent), então o
+  // gradiente vivo já passa: 10,46:1 e 5,18:1.
+  --gradient-strong: var(--gradient);
   --accent: #5b7cff;
 
   --bg: #0d1220;
@@ -96,7 +105,7 @@
   --code-text: #ccd3e0;
   --code-keyword: #ff7ac6;
   --code-string: #5fe3a1;
-  --code-comment: #5d6b85;
+  --code-comment: #7b88a3;
   --code-number: #ffb86c;
   --code-type: #7cc4ff;
   --code-fn: #c3a6ff;

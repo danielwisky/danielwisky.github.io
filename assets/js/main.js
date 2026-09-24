@@ -27,7 +27,10 @@
       // O Disqus só resolve o esquema de cor quando o embed carrega, e o
       // reset() dele não recalcula. O _includes/comments.html expõe uma função
       // que recria o embed inteiro, que é o que de fato troca a cor.
-      window.loadDisqus?.();
+      //
+      // Só recarrega se já estiver montado: o embed agora é preguiçoso, e
+      // trocar o tema no topo do post não deve puxá-lo antes da hora.
+      if (window.DISQUS) window.loadDisqus?.();
     });
   }
 

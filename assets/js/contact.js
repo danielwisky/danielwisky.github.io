@@ -22,6 +22,9 @@
 
     const valid = control.checkValidity();
     field.classList.toggle("is-invalid", !valid);
+    // Sem aria-invalid a mensagem de erro é só visual: quem usa leitor de tela
+    // era jogado para o campo sem saber o motivo.
+    control.setAttribute("aria-invalid", String(!valid));
     return valid;
   };
 

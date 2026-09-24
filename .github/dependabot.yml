@@ -1,0 +1,26 @@
+# Sem este arquivo o Dependabot só abre security updates, sem agendamento nem
+# agrupamento. As dependências de npm aqui são ferramentas de build que rodam
+# só localmente e no CI, então o risco de segurança delas é baixo: o interesse
+# é manter tudo atualizado sem receber um PR por pacote.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    groups:
+      build-tools:
+        patterns: ["*"]
+
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: monthly
+    groups:
+      jekyll:
+        patterns: ["*"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly

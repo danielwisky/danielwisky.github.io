@@ -41,6 +41,14 @@
   gap: var(--space-3);
   padding-bottom: var(--space-4);
   border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+
+  // O input zera o outline; sem isto o foco ficaria invisível ao voltar por Tab.
+  &:focus-within {
+    border-bottom-color: var(--accent);
+    box-shadow: 0 3px 0 -1px var(--selection);
+  }
 
   > i {
     color: var(--text-alt);
@@ -188,7 +196,6 @@
   color: var(--text-alt);
 }
 
-.search-results mark,
 .search-results__link mark {
   padding: 0 2px;
   border-radius: 3px;

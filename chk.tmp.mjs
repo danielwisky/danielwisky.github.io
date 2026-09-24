@@ -1,0 +1,18 @@
+import { chromium } from "playwright";
+const b = await chromium.launch();
+const page = await b.newPage({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 2 });
+const errs=[]; page.on("pageerror", e=>errs.push(e.message));
+await page.goto("http://127.0.0.1:4000/", { waitUntil: "domcontentloaded" });
+await page.waitForTimeout(1500);
+await page.locator(".header").screenshot({ path: "/tmp/i-header.png" });
+await page.evaluate(() => document.querySelector(".footer").scrollIntoView());
+await page.waitForTimeout(600);
+await page.locator(".footer").screenshot({ path: "/tmp/i-footer.png" });
+await page.goto("http://127.0.0.1:4000/2023-01-16-clean-code-funcoes/", { waitUntil: "domcontentloaded" });
+await page.waitForTimeout(1500);
+const blk = page.locator("div.language-java").first();
+await blk.scrollIntoViewIfNeeded(); await blk.hover(); await page.waitForTimeout(500);
+await blk.screenshot({ path: "/tmp/i-code.png" });
+await page.locator(".share").screenshot({ path: "/tmp/i-share.png" });
+console.log("erros JS:", errs.length?errs:"nenhum");
+await b.close();
