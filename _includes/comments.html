@@ -3,9 +3,12 @@
   <div id="disqus_thread"></div>
   <script>
     /*
-     * O Disqus decide o esquema de cor uma única vez, no carregamento do
-     * embed. Por isso a cor vai explícita em page.colorScheme, e o toggle de
-     * tema (assets/js/main.js) chama DISQUS.reset() para recarregar a thread.
+     * O Disqus resolve o esquema de cor uma vez só, quando o embed carrega, e
+     * DISQUS.reset() não o recalcula: voltando de escuro para claro o iframe
+     * ficava com fundo claro e texto claro, ilegível.
+     *
+     * Por isso o embed é recriado do zero a cada troca de tema. É mais bruto
+     * que reset(), mas é o único caminho que faz o Disqus reavaliar a cor.
      */
     var disqus_shortname = '{{ site.disqus }}';
 
@@ -17,13 +20,26 @@
         document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     }
 
-    (function () {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    window.loadDisqus = function () {
+      var d = document;
+      var thread = d.getElementById('disqus_thread');
+      if (!thread) return;
+
+      // Sem limpar o estado anterior o embed.js volta cedo, achando que já
+      // está montado, e nada é recarregado.
+      thread.innerHTML = '';
+      d.querySelectorAll('script[data-disqus]').forEach(function (el) { el.remove(); });
+      try { delete window.DISQUS; } catch (e) { window.DISQUS = undefined; }
+
+      var s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js?' + (+new Date());
       s.setAttribute('data-timestamp', +new Date());
+      s.setAttribute('data-disqus', '');
       s.async = true;
       (d.head || d.body).appendChild(s);
-    })();
+    };
+
+    window.loadDisqus();
   </script>
   <noscript>
     Ative o JavaScript para ver os
