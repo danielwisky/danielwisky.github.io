@@ -9,7 +9,7 @@ tags: [Commits, Boas Práticas de Commits]
 
 O <a href="https://git-scm.com">Git</a> é, com certeza, o sistema de controle de versão mais amplamente usado no mundo. Ele é um projeto de código aberto, distribuído e mantido ativamente, desenvolvido em 2005 por <a href="https://pt.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>, o famoso criador do kernel do sistema operacional Linux.
 
-Conheceu o Git há pouco tempo? Confira o <a href="https://git-scm.com/book/en/v1/Getting-Started">guia oficial do iniciante</a>.
+Conheceu o Git há pouco tempo? Confira o <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">guia oficial do iniciante</a>.
 
 ## O que é uma mensagem de commit?
 
@@ -68,7 +68,7 @@ A primeira e principal descrição de um commit semântico, refere-se a seu tipo
 Abaixo será enumerado os principais types descritos na documentação do Angular Commit Message Guidelines:
 
 1. `build`: Alterações que afetam o sistema de construção ou dependências externas (escopos de exemplo: gulp, broccoli, npm),
-2. `ci`: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs);
+2. `ci`: Alterações nos arquivos e scripts de configuração de CI (escopos de exemplo: Travis, Circle, BrowserStack, SauceLabs);
 3. `docs`: referem-se a inclusão ou alteração somente de arquivos de documentação;
 4. `feat`: Tratam adições de novas funcionalidades ou de quaisquer outras novas implantações ao código;
 5. `fix`: Essencialmente definem o tratamento de correções de bugs;
@@ -142,6 +142,6 @@ Pronto, agora você já sabe o que precisa sobre commits!
 Vale ressaltar que, de forma gradativa, pode-se introduzir e adequar a padronização à cultura de seu time de desenvolvimento, ou mesmo ao seu uso pessoal.
 
 Fonte:
-<a href="https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos" target="\_blank">Blog GeekHunter</a>.
+<a href="https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos" target="_blank">Blog GeekHunter</a>.
 
 Um grande abraço e até o próximo post!
