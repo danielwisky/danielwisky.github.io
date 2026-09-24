@@ -90,6 +90,7 @@ char pop(Pilha *p1) {
     char resposta;
     if(empty(p1)) {
         printf("\nPilha VAZIA!!!\n");
+        return '\0';
     } else {
         resposta = p1->dados[p1->topo];
         p1->topo--;

@@ -59,10 +59,12 @@ Vamos ver primeiramente uma implementação em que sabemos o limite da fila, e u
 Estrutura básica de uma Fila:
 
 ```
+#define MAX 50
+
 typedef struct {
     int inicio;
     int fim;
-    int dados[50];
+    int dados[MAX];
 } Fila;
 ```
 
@@ -78,7 +80,7 @@ Operação ENQUEUE:
 
 ```
 void enqueue(Fila *f, int x) {
-    if(f->fim == (max-1)) {
+    if(f->fim == (MAX-1)) {
         printf("\n Fila Cheia!\n");
     } else {
         f->fim++;
@@ -94,6 +96,7 @@ int dequeue(Fila *f) {
     int removido;
     if(empty(f)) {
         printf("\n\n Fila Vazia!!!\n\n");
+        return -1;
     } else {
         removido = f->dados[f->inicio];
         f->inicio++;
