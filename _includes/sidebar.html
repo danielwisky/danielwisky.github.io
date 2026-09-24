@@ -3,10 +3,12 @@
     <h2 class="widget__title">Tópicos</h2>
     <div class="widget__tags">
       {%- comment -%}
-      site.tags já vem ordenado alfabeticamente pelo Jekyll; ordenar por
-      frequência exigiria montar a lista à mão no Liquid, sem ganho real aqui.
+      O for do Liquid ignora filtros aplicados na própria expressão da
+      coleção (`for x in y | filtro`) — silenciosamente, sem erro. Por isso o
+      assign antes.
       {%- endcomment -%}
-      {%- for tag in site.tags limit: 14 %}
+      {%- assign top_tags = site.tags | tags_by_count -%}
+      {%- for tag in top_tags limit: 14 %}
       <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">
         {{ tag[0] }}<span class="tag-cloud__count">{{ tag[1].size }}</span>
       </a>
