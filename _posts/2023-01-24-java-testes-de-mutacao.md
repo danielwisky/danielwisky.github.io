@@ -9,7 +9,7 @@ tags: [Java, Testes de Mutação, Testes Automatizados]
 
 Os testes de mutação são uma técnica de teste de software que consiste em modificar intencionalmente o código fonte de uma aplicação e, em seguida, executar testes automatizados para verificar se essas modificações foram detectadas e corrigidas corretamente. Eles são usados para aumentar a confiança no código e na cobertura dos testes, pois ajudam a garantir que as modificações intencionais no código sejam detectadas e corrigidas.
 
-Existem várias ferramentas de teste de mutação disponíveis para Java, como o PIT, o Major, o Mutator e o Javalanche. Essas ferramentas funcionam de maneira semelhante, gerando automaticamente variantes do código fonte da aplicação e, em seguida, executando testes automatizados para detectar se essas variantes foram corrigidas corretamente.
+A ferramenta de teste de mutação mais usada e ativamente mantida para Java hoje é o <a href="https://pitest.org" target="_blank">PIT (Pitest)</a>, com plugins prontos para Maven e Gradle. Outras ferramentas como Major e Javalanche são projetos acadêmicos que não recebem mais manutenção. Todas funcionam de maneira semelhante: geram automaticamente variantes do código fonte da aplicação e, em seguida, executam os testes automatizados para detectar se essas variantes foram corrigidas corretamente.
 
 Para usar uma dessas ferramentas, é necessário escrever testes automatizados para a aplicação e configurar a ferramenta de teste de mutação para usar esses testes. Em seguida, a ferramenta gera automaticamente variantes do código fonte e executa os testes automatizados para verificar se essas variantes foram corrigidas corretamente.
 

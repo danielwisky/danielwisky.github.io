@@ -13,6 +13,8 @@ Uma das principais vantagens dos testes de integração é que eles permitem det
 
 Para escrever testes de integração em Java, é necessário criar uma classe de teste e anotá-la com `@Test`. Em seguida, é preciso escrever um método de teste dentro dessa classe, onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar a integração entre uma classe chamada `Calculator` e uma classe chamada `Database`, pode criar uma classe de teste chamada `CalculatorDatabaseTest` e escrever um método de teste chamado `testAdd`, onde o método `add` da classe `Calculator` é chamado e o resultado é armazenado na classe `Database`.
 
+O exemplo abaixo é simplificado, com uma classe `Database` em memória apenas para ilustrar a integração entre os dois componentes. Em um cenário real, o teste de integração deve exercitar a dependência de verdade (um banco de dados, uma fila, uma API externa), por exemplo com o auxílio do <a href="https://testcontainers.com" target="_blank">Testcontainers</a>, que sobe essas dependências em containers Docker durante o teste.
+
 ```java
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -29,7 +31,7 @@ public class CalculatorDatabaseTest {
 }
 ```
 
-Além do JUnit, outras bibliotecas e ferramentas populares para testes de integração em Java incluem o TestNG, o Spock e o Arquillian. Cada uma dessas ferramentas fornece recursos adicionais, como suporte para testes paralelos, testes de desempenho e testes automatizados em ambientes de produção.
+Além do JUnit, outras bibliotecas e ferramentas populares para testes de integração em Java incluem o TestNG, o Spock e o Arquillian. Cada uma dessas ferramentas fornece recursos adicionais, como suporte para testes paralelos e testes de desempenho. Vale notar que o Arquillian, focado em testes dentro de containers Java EE, caiu bastante em desuso — hoje a combinação mais comum em projetos Spring é `@SpringBootTest` com Testcontainers.
 
 Exemplo com TestNG:
 
