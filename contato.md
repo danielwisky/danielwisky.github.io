@@ -33,7 +33,7 @@ que é uma página nossa.
 
   <div class="field">
     <label class="field__label" for="mensagem">Mensagem</label>
-    <textarea class="field__control" id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required aria-describedby="mensagem-erro" /></textarea>
+    <textarea class="field__control" id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required aria-describedby="mensagem-erro"></textarea>
     <p class="field__error" id="mensagem-erro">Mensagem é obrigatória.</p>
   </div>
 
