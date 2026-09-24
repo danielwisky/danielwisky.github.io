@@ -17,14 +17,14 @@
   </div>
 
   <div class="widget">
-    <h2 class="widget__title">Posts recentes</h2>
-    {%- for post in site.posts limit: 5 %}
-    {%- capture is_video %}{% include is-video.html post=post %}{% endcapture %}
+    <h2 class="widget__title">Últimos vídeos</h2>
+    {%- assign video_posts = site.posts | where_exp: "post", "site.data.videos[post.slug] or post.tags contains 'Videoaula'" -%}
+    {%- for post in video_posts limit: 4 %}
     <div class="mini-post">
       <a class="mini-post__image" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
         <img src="{% include post-cover.html post=post variant='thumb' %}" loading="lazy" decoding="async"
              width="72" height="54" alt="">
-        {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
+        <span class="video-icon">{% include icon.html name="play" %}</span>
       </a>
       <div>
         <h3 class="mini-post__title">
