@@ -243,7 +243,11 @@
     items[selected].scrollIntoView({ block: "nearest" });
   }
 
+  /* Guardado para devolver o foco a quem abriu, em vez de largar no <body>. */
+  let lastFocused = null;
+
   function open() {
+    lastFocused = document.activeElement;
     searchBox.classList.add("is-visible");
     document.body.classList.add("is-locked");
     input.focus();
@@ -253,6 +257,26 @@
   function close() {
     searchBox.classList.remove("is-visible");
     document.body.classList.remove("is-locked");
+    lastFocused?.focus?.();
+  }
+
+  /*
+   * Prende o Tab no overlay. Os resultados são navegados por seta, então os
+   * únicos focáveis são o campo e o botão de fechar: sem isto, tabular levava
+   * para o header e o conteúdo atrás, que está visualmente coberto.
+   */
+  function trapTab(event) {
+    const closeButton = document.getElementById("search-close");
+    if (!closeButton) return;
+
+    const first = input;
+    const last = closeButton;
+    const atEdge = event.shiftKey ? document.activeElement === first : document.activeElement === last;
+
+    if (atEdge) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+    }
   }
 
   const isOpen = () => searchBox.classList.contains("is-visible");
@@ -286,7 +310,9 @@
 
     if (!isOpen()) return;
 
-    if (event.key === "Escape") {
+    if (event.key === "Tab") {
+      trapTab(event);
+    } else if (event.key === "Escape") {
       close();
     } else if (event.key === "ArrowDown") {
       event.preventDefault();

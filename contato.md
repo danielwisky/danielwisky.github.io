@@ -21,20 +21,20 @@ que é uma página nossa.
 
   <div class="field">
     <label class="field__label" for="nome">Nome</label>
-    <input class="field__control" id="nome" type="text" name="nome" placeholder="Digite seu nome..." required />
-    <p class="field__error">Nome é obrigatório.</p>
+    <input class="field__control" id="nome" type="text" name="nome" placeholder="Digite seu nome..." required aria-describedby="nome-erro" />
+    <p class="field__error" id="nome-erro">Nome é obrigatório.</p>
   </div>
 
   <div class="field">
     <label class="field__label" for="email">E-mail</label>
-    <input class="field__control" id="email" type="email" name="_replyto" placeholder="Digite seu e-mail..." required />
-    <p class="field__error">Por favor, insira um endereço de e-mail válido.</p>
+    <input class="field__control" id="email" type="email" name="_replyto" placeholder="Digite seu e-mail..." required aria-describedby="email-erro" />
+    <p class="field__error" id="email-erro">Por favor, insira um endereço de e-mail válido.</p>
   </div>
 
   <div class="field">
     <label class="field__label" for="mensagem">Mensagem</label>
-    <textarea class="field__control" id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required></textarea>
-    <p class="field__error">Mensagem é obrigatória.</p>
+    <textarea class="field__control" id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required aria-describedby="mensagem-erro" /></textarea>
+    <p class="field__error" id="mensagem-erro">Mensagem é obrigatória.</p>
   </div>
 
   <button class="button button--primary" type="submit">

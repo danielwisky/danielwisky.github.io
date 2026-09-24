@@ -140,3 +140,23 @@ small {
   background: var(--gradient);
   opacity: 0.4;
 }
+
+// Link de pular navegação: fora da tela até receber foco.
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 200;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--on-accent);
+  border-radius: var(--radius-sm);
+  background: var(--gradient-strong);
+  transform: translateY(-200%);
+
+  &:focus {
+    color: var(--on-accent);
+    transform: none;
+  }
+}
