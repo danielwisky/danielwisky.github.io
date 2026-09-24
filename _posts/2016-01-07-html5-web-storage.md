@@ -16,7 +16,7 @@ Desvantagens do uso de Cookies:
 
 ## HTML5 - Web Storage
 
-Os dados são armazenados em forma de chave/valor, permitindo o armazenamento de até 10 MB de dados por domínio. Ao contrário de cookies, os dados armazenados não são incluídos com cada solicitação HTTP.
+Os dados são armazenados em forma de chave/valor, permitindo o armazenamento de cerca de 5 MB de dados por domínio (o limite exato varia de navegador para navegador). Ao contrário de cookies, os dados armazenados não são incluídos com cada solicitação HTTP.
 
 Tipos de armazenamento:
 
@@ -58,7 +58,7 @@ Utilizamos o `removeItem('key')` para remover uma informação armazenada.
     localStorage.removeItem("nome"); // ou sessionStorage.removeItem("nome");
 
 Para saber mais:
-<a href="http://tableless.com.br/web-storage-html5/" target="\_blank">tableless</a>,
-<a href="http://www.w3schools.com/html/html5_webstorage.asp" target="\_blank">w3schools</a>.
+<a href="http://tableless.com.br/web-storage-html5/" target="_blank">tableless</a>,
+<a href="http://www.w3schools.com/html/html5_webstorage.asp" target="_blank">w3schools</a>.
 
 Um grande abraço e até o próximo post!
