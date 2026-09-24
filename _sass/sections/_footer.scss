@@ -45,6 +45,17 @@
   }
 }
 
+.footer__list--posts li {
+  margin-bottom: var(--space-4);
+}
+
+.footer__post-date {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: 13px;
+  color: var(--text-alt);
+}
+
 .footer__social {
   display: flex;
   flex-wrap: wrap;
