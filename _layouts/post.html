@@ -26,6 +26,13 @@ layout: default
     </div>
   </header>
 
+  {%- comment -%}
+  Post de videoaula não recebe capa: o player do YouTube vem logo abaixo, no
+  corpo do post, e uma thumbnail com botão de play em cima dele daria dois
+  pontos de partida para o mesmo vídeo. A thumbnail continua sendo usada nos
+  cards, na sidebar, na busca e no og:image.
+  {%- endcomment -%}
+  {%- unless site.data.videos[page.slug] %}
   <figure class="post__cover-wrap">
     <div class="post__cover">
       <img src="{% include post-cover.html post=page %}" width="1200" height="900"
@@ -44,6 +51,7 @@ layout: default
     </figcaption>
     {%- endif %}
   </figure>
+  {%- endunless %}
 
   <div class="prose">
     {{ content }}

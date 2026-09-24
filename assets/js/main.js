@@ -24,11 +24,10 @@
         /* modo privativo: segue sem persistir */
       }
 
-      // O Disqus só lê o colorScheme no carregamento do embed, então a thread
-      // precisa ser recarregada para acompanhar o tema.
-      if (window.DISQUS && typeof window.disqus_config === "function") {
-        window.DISQUS.reset({ reload: true, config: window.disqus_config });
-      }
+      // O Disqus só resolve o esquema de cor quando o embed carrega, e o
+      // reset() dele não recalcula. O _includes/comments.html expõe uma função
+      // que recria o embed inteiro, que é o que de fato troca a cor.
+      window.loadDisqus?.();
     });
   }
 
