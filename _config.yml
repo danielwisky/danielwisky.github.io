@@ -10,6 +10,8 @@ wisky_3dprint_url: "https://wisky3dprint.com.br"
 
 sass:
   style: compressed
+  # o .map de 53 KB ia para produção e nunca era requisitado
+  sourcemap: never
 
 # output options (more information on Jekyll's site)
 markdown: kramdown
@@ -102,3 +104,8 @@ exclude:
   - package-lock.json
   - scripts
   - "*.tmp.mjs"
+  # os fontes do JS: só as versões .min.js são carregadas pelo site
+  - assets/js/main.js
+  - assets/js/search.js
+  - assets/js/code-blocks.js
+  - assets/js/contact.js
