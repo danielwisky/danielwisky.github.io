@@ -34,6 +34,14 @@ jobs:
           npm run build:js
           npm run build:covers
 
+      - name: Descartar os artefatos que não são reproduzíveis entre sistemas
+        run: |
+          # As capas .jpg das tags são rasterizadas do SVG pelo sharp, e o
+          # resultado depende das fontes do sistema: macOS e Linux produzem
+          # bytes diferentes para a mesma entrada. Os .svg, que são geração
+          # pura de string, continuam no check.
+          git checkout -- assets/img/covers/og
+
       - name: Conferir se os artefatos commitados estão em dia
         run: |
           if ! git diff --exit-code; then
