@@ -22,40 +22,81 @@ Para começar, precisamos configurar o ambiente de desenvolvimento com o Spring 
 3. `Versão do Spring Boot`: 2.5.6
 4. `Group`: com.example
 5. `Artifact`: spring-boot-dynamodb-example
-6. `Dependencies`: DynamoDB, Spring Web, Spring Data JPA
+6. `Dependencies`: Spring Web
+
+Além dessas, precisamos adicionar manualmente ao `pom.xml` o SDK v2 da AWS para o DynamoDB, já que o DynamoDB não é um banco relacional e não é acessado via Spring Data JPA:
+
+```xml
+<dependency>
+  <groupId>software.amazon.awssdk</groupId>
+  <artifactId>dynamodb-enhanced</artifactId>
+  <version>2.20.0</version>
+</dependency>
+```
 
 Depois de criar o projeto, podemos adicionar uma nova classe chamada User, que representará um item em nossa tabela do DynamoDB. A classe User deve ter as seguintes propriedades:
 
 ```java
-@DynamoDBTable(tableName = "users")
+@DynamoDbBean
 public class User {
 
-  @DynamoDBHashKey(attributeName = "userId")
   private String userId;
-
-  @DynamoDBAttribute(attributeName = "firstName")
   private String firstName;
-
-  @DynamoDBAttribute(attributeName = "lastName")
   private String lastName;
 
-  // getters and setters
+  @DynamoDbPartitionKey
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 }
 ```
 
-Observe que estamos usando as anotações `@DynamoDBTable`, `@DynamoDBHashKey` e `@DynamoDBAttribute` para mapear nossa classe para uma tabela do DynamoDB. A anotação `@DynamoDBTable` é usada para especificar o nome da tabela, enquanto a anotação `@DynamoDBHashKey` é usada para especificar a chave primária da tabela. As outras propriedades da classe são mapeadas como atributos da tabela usando a anotação `@DynamoDBAttribute`.
+Observe que estamos usando as anotações `@DynamoDbBean` e `@DynamoDbPartitionKey` do SDK v2 (Enhanced Client) para mapear nossa classe para uma tabela do DynamoDB. A anotação `@DynamoDbBean` marca a classe como mapeável, enquanto `@DynamoDbPartitionKey` identifica a chave primária da tabela.
 
-Agora podemos criar um repositório para realizar operações CRUD na tabela do DynamoDB. Vamos criar uma nova interface chamada UserRepository com os métodos necessários para realizar operações na tabela. A interface deve estender a interface CrudRepository do Spring Data JPA.
+Agora podemos criar um repositório para realizar operações CRUD na tabela do DynamoDB. Como o DynamoDB não é suportado pelo Spring Data JPA, usamos diretamente o `DynamoDbEnhancedClient` do SDK v2 para montar a tabela mapeada:
 
 ```java
-public interface UserRepository extends CrudRepository<User, String> {
+@Repository
+public class UserRepository {
 
-  @Override
-  Optional<User> findById(String id);
+  private final DynamoDbTable<User> table;
 
-  @Override
-  void deleteById(String id);
+  public UserRepository(DynamoDbEnhancedClient enhancedClient) {
+    this.table = enhancedClient.table("users", TableSchema.fromBean(User.class));
+  }
 
+  public User save(User user) {
+    table.putItem(user);
+    return user;
+  }
+
+  public Optional<User> findById(String userId) {
+    return Optional.ofNullable(table.getItem(Key.builder().partitionValue(userId).build()));
+  }
+
+  public void deleteById(String userId) {
+    table.deleteItem(Key.builder().partitionValue(userId).build());
+  }
 }
 ```
 
@@ -119,6 +160,6 @@ Finalmente, podemos excluir o usuário com uma solicitação DELETE para http://
 
 ## Conclusão
 
-O DynamoDB é um banco de dados NoSQL altamente escalável e gerenciado fornecido pela AWS. Ele oferece um armazenamento de chave-valor flexível e confiável com escalabilidade automática e alta disponibilidade. Neste artigo, criamos um exemplo simples de implementação do DynamoDB usando o Spring Boot e o Java. Criamos uma tabela de usuários e realizamos operações básicas de CRUD na tabela usando um controlador REST e um repositório Spring Data JPA. Com o DynamoDB e o Spring Boot, podemos criar aplicativos altamente escaláveis e flexíveis com facilidade.
+O DynamoDB é um banco de dados NoSQL altamente escalável e gerenciado fornecido pela AWS. Ele oferece um armazenamento de chave-valor flexível e confiável com escalabilidade automática e alta disponibilidade. Neste artigo, criamos um exemplo simples de implementação do DynamoDB usando o Spring Boot e o Java. Criamos uma tabela de usuários e realizamos operações básicas de CRUD na tabela usando um controlador REST e o SDK v2 da AWS (Enhanced Client). Com o DynamoDB e o Spring Boot, podemos criar aplicativos altamente escaláveis e flexíveis com facilidade.
 
 Um grande abraço e até o próximo post!
