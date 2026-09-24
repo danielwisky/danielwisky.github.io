@@ -5,27 +5,23 @@ subtitle: "Como threads virtuais mudam a forma de escrever código concorrente s
 tags: [Java, Virtual Threads]
 ---
 
-Desde sempre, escalar uma aplicação Java que faz muita chamada bloqueante (banco, HTTP, fila) significou uma escolha difícil: ou você aceita o custo de uma thread de sistema operacional por requisição, ou reescreve tudo em cima de programação reativa. As **Virtual Threads**, estáveis desde o Java 21 (JEP 444), resolvem esse dilema sem exigir a segunda opção.
+Toda aplicação Java que faz muita chamada bloqueante (banco, HTTP, fila) esbarra cedo ou tarde no mesmo dilema: aceitar o custo de uma thread de sistema operacional por requisição, ou reescrever tudo em cima de programação reativa. As Virtual Threads, estáveis desde o Java 21 (JEP 444), resolvem isso sem obrigar ninguém a escolher a segunda opção.
 
-## O problema das threads de plataforma
+## Por que threads de plataforma não escalam
 
-Cada `Thread` tradicional do Java (agora chamada de *platform thread*) é, por baixo dos panos, uma thread do sistema operacional. Isso tem um custo real: alguns megabytes de stack por thread, e um limite prático de alguns milhares de threads simultâneas antes do sistema começar a sofrer com troca de contexto.
+Cada `Thread` tradicional (hoje chamada de *platform thread*) é, por baixo dos panos, uma thread do sistema operacional. Isso custa memória: alguns megabytes de stack por thread. E custa desempenho quando o número de threads simultâneas passa de alguns milhares, porque o sistema operacional gasta cada vez mais tempo só trocando contexto entre elas.
 
-Isso empurrou boa parte do ecossistema Java para programação reativa (WebFlux, RxJava): em vez de bloquear uma thread esperando I/O, o código é reescrito como uma cadeia de callbacks não bloqueantes. Funciona, mas o preço é a legibilidade — depurar uma stack trace de código reativo é notoriamente mais difícil que a de código sequencial.
+Foi esse limite que empurrou parte do ecossistema Java para programação reativa. WebFlux e RxJava evitam bloquear threads reescrevendo o fluxo como uma cadeia de callbacks. Funciona, só que o código fica bem mais difícil de ler e de depurar. Uma stack trace de código reativo raramente aponta pra onde o problema realmente está.
 
-## O que muda com Virtual Threads
+## O que muda na prática
 
-Uma *virtual thread* também é uma `Thread` do ponto de vista da API — mesma classe, mesmos métodos —, mas não corresponde a uma thread de sistema operacional dedicada. A JVM mantém um pool pequeno de *carrier threads* (threads de plataforma) e vai "montando" as virtual threads sobre elas apenas enquanto há trabalho de CPU a fazer. Quando uma virtual thread bloqueia em I/O, a JVM desmonta ela da carrier thread, libera a carrier thread para outra virtual thread, e retoma a original quando o I/O termina.
+Uma virtual thread ainda é uma `Thread` do ponto de vista da API, mesma classe, mesmos métodos. A diferença é que ela não ocupa uma thread de sistema operacional o tempo todo. A JVM mantém um número pequeno de *carrier threads* reais e vai montando virtual threads sobre elas só enquanto existe trabalho de CPU pra fazer. Quando uma virtual thread bloqueia esperando I/O, a JVM a desmonta da carrier thread, libera essa carrier thread pra outra tarefa, e retoma a original quando a resposta chega.
 
-Na prática, isso significa:
+O resultado é que dá pra ter centenas de milhares de virtual threads vivas ao mesmo tempo, gastando muito menos memória que o mesmo número de threads de plataforma. E o código continua sequencial e bloqueante, do jeito que sempre se escreveu Java. Sem callback, sem operador encadeado. Bibliotecas de I/O já existentes, como JDBC ou `HttpClient`, se beneficiam automaticamente, sem precisar reescrever nada.
 
-- Custo de criação e memória muito menor — dá para ter centenas de milhares de virtual threads ativas ao mesmo tempo.
-- Código continua sequencial e bloqueante, como sempre foi escrito em Java. Sem callbacks, sem operadores encadeados.
-- Bibliotecas de I/O bloqueante já existentes (JDBC, `HttpClient`, `java.io`) se beneficiam automaticamente, sem reescrita.
+## Comparando os dois modelos
 
-## Um exemplo prático
-
-Antes, com um pool de threads de plataforma limitado:
+Um jeito comum de disparar chamadas em paralelo usa um pool de tamanho fixo:
 
 ```java
 ExecutorService pool = Executors.newFixedThreadPool(200);
@@ -35,9 +31,9 @@ List<Future<String>> resultados = pedidos.stream()
     .toList();
 ```
 
-Aqui, 200 é um número escolhido para não sobrecarregar o sistema — e é também o limite de chamadas simultâneas, mesmo que `consultarEstoque` passe a maior parte do tempo esperando a rede.
+O número 200 ali não é arbitrário: é o limite máximo de chamadas simultâneas que o sistema aguenta, mesmo que `consultarEstoque` passe a maior parte do tempo apenas esperando a rede responder.
 
-Com virtual threads, o executor muda, e o limite artificial desaparece:
+Com virtual threads o executor muda e esse limite artificial some:
 
 ```java
 try (ExecutorService pool = Executors.newVirtualThreadPerTaskExecutor()) {
@@ -47,16 +43,16 @@ try (ExecutorService pool = Executors.newVirtualThreadPerTaskExecutor()) {
 }
 ```
 
-Cada tarefa ganha sua própria virtual thread, descartável, criada sob demanda. Não existe mais o conceito de "pool com N threads reutilizáveis" — a JVM cuida de intercalar o trabalho real nas carrier threads disponíveis.
+Cada tarefa ganha a própria virtual thread, criada sob demanda e descartada no fim. Não existe mais "pool com N threads reutilizáveis". A JVM que cuida de intercalar o trabalho real nas carrier threads que estão livres.
 
-## O que Virtual Threads não resolvem
+## Onde isso não ajuda
 
-Vale deixar claro: virtual threads atacam o problema de *escala em I/O bloqueante*, não de *paralelismo de CPU*. Um laço que só faz cálculo pesado não anda mais rápido rodando em virtual threads — para isso o gargalo continua sendo o número de núcleos disponíveis, e `ForkJoinPool`/streams paralelos continuam a ferramenta certa.
+Virtual threads resolvem escala em I/O bloqueante, não paralelismo de CPU. Um laço que só faz conta pesada não fica mais rápido rodando em virtual threads, porque ali o gargalo é o número de núcleos disponíveis, e não a quantidade de threads. Pra isso, `ForkJoinPool` e streams paralelos continuam sendo a ferramenta certa.
 
-Outro ponto de atenção é o *pinning*: blocos `synchronized` ainda prendem a virtual thread na sua carrier thread durante a execução, anulando parte do ganho se o bloco sincronizado fizer I/O lento por dentro. A recomendação, quando isso for um problema real, é trocar `synchronized` por `java.util.concurrent.locks.ReentrantLock` nos pontos mais quentes.
+Tem também o problema do *pinning*: um bloco `synchronized` prende a virtual thread na carrier thread durante toda a execução. Se esse bloco fizer I/O lento por dentro, parte do ganho desaparece. Quando isso vira gargalo de verdade, a saída costuma ser trocar `synchronized` por `ReentrantLock` nos pontos mais quentes do código.
 
-## Conclusão
+## Vale a pena migrar
 
-Virtual threads não introduzem um paradigma novo — o ganho é justamente esse: o mesmo estilo de código bloqueante e sequencial que qualquer desenvolvedor Java já escreve, agora escalando como se fosse assíncrono por baixo dos panos. Para aplicações dominadas por I/O (a maioria dos serviços web e de integração), é uma troca de duas linhas de configuração com potencial de ganho real de throughput.
+Não é preciso reescrever nada pra começar a usar. O ganho aparece já na troca do executor, em código que já existe. Pra aplicações dominadas por I/O, que é a maioria dos serviços web e de integração que a gente escreve no dia a dia, essa é uma daquelas mudanças que custam pouco e entregam throughput real.
 
-No próximo post, sigo nesse mesmo assunto com **Structured Concurrency**, que resolve o outro lado do problema: gerenciar o ciclo de vida de várias tarefas concorrentes relacionadas sem perder o controle sobre cancelamento e erros.
+No próximo post eu sigo nesse mesmo assunto com Structured Concurrency, que resolve o outro lado do problema: como gerenciar o ciclo de vida de várias tarefas concorrentes relacionadas sem perder o controle sobre cancelamento e erro.
