@@ -48,32 +48,33 @@ twitter:
   card: summary_large_image
 
 # --- footer social media links --- #
+# `icon` é o id no sprite de assets/img/icons.svg.
 # `brand` casa com o modificador .social-icon--<brand> do _sass/components/_social-share.scss,
 # que define a cor da marca no hover.
 social-network-links:
   - name: "GitHub"
     url: "https://github.com/danielwisky"
-    icon: "fab fa-github"
+    icon: "github"
     brand: "github"
     display: ["footer", "navbar"]
   - name: "LinkedIn"
     url: "https://www.linkedin.com/in/danielwisky"
-    icon: "fab fa-linkedin"
+    icon: "linkedin"
     brand: "linkedin"
     display: ["footer", "navbar"]
   - name: "YouTube"
     url: "https://www.youtube.com/c/DanielWisky"
-    icon: "fab fa-youtube"
+    icon: "youtube"
     brand: "youtube"
     display: ["footer", "navbar"]
   - name: "Instagram"
     url: "https://www.instagram.com/danielwisky"
-    icon: "fab fa-instagram"
+    icon: "instagram"
     brand: "instagram"
     display: ["footer", "navbar"]
   - name: "3D Print"
     url: "https://wisky3dprint.com.br"
-    icon: "fas fa-cube"
+    icon: "cube"
     brand: "print3d"
     display: ["footer"]
 

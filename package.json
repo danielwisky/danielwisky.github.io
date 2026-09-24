@@ -2,11 +2,12 @@
   "name": "danielwisky.github.io",
   "private": true,
   "scripts": {
-    "build": "npm run build:js && npm run build:covers && npm run build:videos && npm run build:photos",
+    "build": "npm run build:js && npm run build:icons && npm run build:covers && npm run build:videos && npm run build:photos",
     "build:js": "node scripts/build-js.mjs",
     "build:covers": "node scripts/build-covers.mjs",
     "build:videos": "node scripts/build-video-thumbs.mjs",
-    "build:photos": "node scripts/build-photos.mjs"
+    "build:photos": "node scripts/build-photos.mjs",
+    "build:icons": "node scripts/build-icons.mjs"
   },
   "devDependencies": {
     "terser": "^5.36.0",

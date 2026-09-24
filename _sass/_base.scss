@@ -160,3 +160,13 @@ small {
     transform: none;
   }
 }
+
+// Ícones do sprite em assets/img/icons.svg. Dimensionam com a fonte e herdam
+// a cor, do mesmo jeito que os glifos do Font Awesome faziam.
+.icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}

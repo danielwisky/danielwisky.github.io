@@ -39,7 +39,28 @@
       (d.head || d.body).appendChild(s);
     };
 
-    window.loadDisqus();
+    /*
+     * Carrega só quando a área de comentários se aproxima da viewport. O embed
+     * do Disqus puxa centenas de KB de terceiros, e a maioria das visitas a um
+     * post nunca chega até aqui.
+     */
+    (function () {
+      var thread = document.getElementById('disqus_thread');
+      if (!thread) return;
+
+      if (!('IntersectionObserver' in window)) {
+        window.loadDisqus();
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        observer.disconnect();
+        window.loadDisqus();
+      }, { rootMargin: '400px' });
+
+      observer.observe(thread);
+    })();
   </script>
   <noscript>
     Ative o JavaScript para ver os

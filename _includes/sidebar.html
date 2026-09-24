@@ -22,7 +22,7 @@
       <a class="mini-post__image" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
         <img src="{% include post-cover.html post=post variant='thumb' %}" loading="lazy" decoding="async"
              width="72" height="54" alt="">
-        {%- if is_video != '' %}<span class="video-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>{% endif %}
+        {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
       </a>
       <div>
         <h3 class="mini-post__title">
@@ -42,7 +42,7 @@
       {%- for social in site.social-network-links %}
       <a class="social-icon social-icon--{{ social.brand }}" href="{{ social.url }}" title="{{ social.name }}"
          target="_blank" rel="noopener noreferrer">
-        <i class="{{ social.icon }}" aria-hidden="true"></i>
+        {% include icon.html name=social.icon %}
         <span class="sr-only">{{ social.name }}</span>
       </a>
       {%- endfor %}

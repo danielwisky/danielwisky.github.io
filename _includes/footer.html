@@ -9,7 +9,7 @@
           {%- for social in footer_social %}
           <a class="social-icon social-icon--{{ social.brand }}" href="{{ social.url }}" title="{{ social.name }}"
              target="_blank" rel="noopener noreferrer">
-            <i class="{{ social.icon }}" aria-hidden="true"></i>
+            {% include icon.html name=social.icon %}
             <span class="sr-only">{{ social.name }}</span>
           </a>
           {%- endfor %}

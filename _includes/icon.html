@@ -1,0 +1,11 @@
+{%- comment -%}
+Ícone do sprite em assets/img/icons.svg, gerado por scripts/build-icons.mjs.
+
+Uso: {% include icon.html name="github" %}
+     {% include icon.html name="play" class="video-icon__glyph" %}
+
+Substitui o Font Awesome, que trazia três CSS bloqueantes e dois webfonts do
+cdnjs para exibir 24 ícones. O `fill` é currentColor, então a cor continua vindo
+do CSS como vinha da fonte.
+{%- endcomment -%}
+<svg class="icon{% if include.class %} {{ include.class }}{% endif %}" aria-hidden="true" focusable="false"><use href="{{ '/assets/img/icons.svg' | relative_url }}#{{ include.name }}"></use></svg>

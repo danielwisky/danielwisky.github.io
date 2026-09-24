@@ -24,7 +24,7 @@ plain: true
 {%- for tag in tags_list %}
 <section class="tag-group">
   <h2 class="tag-group__title" id="{{ tag | slugify }}">
-    <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    {% include icon.html name="tag" %}
     {{ tag }}
     <span class="tag-group__count">({{ site.tags[tag].size }})</span>
   </h2>
