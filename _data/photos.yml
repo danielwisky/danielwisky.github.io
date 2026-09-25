@@ -85,6 +85,11 @@
   card: /assets/img/photos/cards/conceito-pilha-lifo.webp
   thumb: /assets/img/photos/thumbs/conceito-pilha-lifo.webp
   og: /assets/img/photos/og/conceito-pilha-lifo.jpg
+"cursor-claude-code-ia-no-desenvolvimento":
+  cover: /assets/img/photos/cursor-claude-code-ia-no-desenvolvimento.webp
+  card: /assets/img/photos/cards/cursor-claude-code-ia-no-desenvolvimento.webp
+  thumb: /assets/img/photos/thumbs/cursor-claude-code-ia-no-desenvolvimento.webp
+  og: /assets/img/photos/og/cursor-claude-code-ia-no-desenvolvimento.jpg
 "desafio-armadilha":
   cover: /assets/img/photos/desafio-armadilha.webp
   card: /assets/img/photos/cards/desafio-armadilha.webp
