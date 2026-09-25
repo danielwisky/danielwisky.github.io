@@ -4,6 +4,7 @@ _site
 .vagrant
 .idea
 node_modules
+.claude/skills
 
 # general
 .DS_Store
