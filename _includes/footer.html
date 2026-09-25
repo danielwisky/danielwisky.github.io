@@ -19,7 +19,7 @@
       <div class="col-4 col-d-6 col-t-12">
         <h2 class="footer__title">Últimos posts</h2>
         <ul class="footer__list footer__list--posts">
-          {%- for post in site.posts limit: 4 %}
+          {%- for post in site.posts limit: 3 %}
           <li>
             <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
             <time class="footer__post-date" datetime="{{ post.date | date_to_xmlschema }}">
