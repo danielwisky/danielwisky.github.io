@@ -64,6 +64,11 @@
   card: /assets/img/covers/html5.svg
   thumb: /assets/img/covers/thumbs/html5.svg
   og: /assets/img/covers/og/html5.jpg
+"Inteligência Artificial":
+  cover: /assets/img/covers/inteligencia-artificial.svg
+  card: /assets/img/covers/inteligencia-artificial.svg
+  thumb: /assets/img/covers/thumbs/inteligencia-artificial.svg
+  og: /assets/img/covers/og/inteligencia-artificial.jpg
 "Java":
   cover: /assets/img/covers/java.svg
   card: /assets/img/covers/java.svg

@@ -62,6 +62,9 @@ const TAG_ICONS = {
   coletanea: "layers",
   "sites-educacionais": "book",
   "aplicativos-para-acessibilidade": "book",
+  "inteligencia-artificial": "robot",
+  cursor: "robot",
+  "claude-code": "robot",
 };
 
 const slugify = (value) =>
@@ -125,6 +128,9 @@ const TAG_HUES = {
   coletanea: 160,
   "sites-educacionais": 152,
   "aplicativos-para-acessibilidade": 100,
+  "inteligencia-artificial": 258,
+  cursor: 252,
+  "claude-code": 24,
 };
 
 // O gradiente sempre gira o matiz para trás (-12°, -20°) enquanto escurece.
