@@ -130,6 +130,11 @@
   card: /assets/img/photos/cards/entendendo-busca-binaria.webp
   thumb: /assets/img/photos/thumbs/entendendo-busca-binaria.webp
   og: /assets/img/photos/og/entendendo-busca-binaria.jpg
+"gcode-a-linguagem-por-tras-da-impressao-3d":
+  cover: /assets/img/photos/gcode-a-linguagem-por-tras-da-impressao-3d.webp
+  card: /assets/img/photos/cards/gcode-a-linguagem-por-tras-da-impressao-3d.webp
+  thumb: /assets/img/photos/thumbs/gcode-a-linguagem-por-tras-da-impressao-3d.webp
+  og: /assets/img/photos/og/gcode-a-linguagem-por-tras-da-impressao-3d.jpg
 "html5-web-storage":
   cover: /assets/img/photos/html5-web-storage.webp
   card: /assets/img/photos/cards/html5-web-storage.webp
@@ -175,6 +180,11 @@
   card: /assets/img/photos/cards/java-testes-unitarios.webp
   thumb: /assets/img/photos/thumbs/java-testes-unitarios.webp
   og: /assets/img/photos/og/java-testes-unitarios.jpg
+"jdk-27-o-que-mudou":
+  cover: /assets/img/photos/jdk-27-o-que-mudou.webp
+  card: /assets/img/photos/cards/jdk-27-o-que-mudou.webp
+  thumb: /assets/img/photos/thumbs/jdk-27-o-que-mudou.webp
+  og: /assets/img/photos/og/jdk-27-o-que-mudou.jpg
 "jquery-alteracao-formulario":
   cover: /assets/img/photos/jquery-alteracao-formulario.webp
   card: /assets/img/photos/cards/jquery-alteracao-formulario.webp
