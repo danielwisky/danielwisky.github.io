@@ -17,10 +17,18 @@
     })();
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {%- comment -%}
+  Fontes self-hosted (assets/fonts/), não mais fonts.googleapis.com: uma
+  origem cross-origin a menos no caminho crítico antes do primeiro paint.
+  Precarrega só os pesos visíveis logo na entrada da página (título e
+  meta/tags) — os demais pesos chegam via @font-face normalmente, sem
+  competir com a imagem de capa pela prioridade de rede.
+  {%- endcomment -%}
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ '/assets/fonts/poppins-v24-latin-700.woff2' | relative_url }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ '/assets/fonts/roboto-mono-v31-latin-400.woff2' | relative_url }}">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" />
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ '/assets/css/style.scss' | sass_hash }}" />
 
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
