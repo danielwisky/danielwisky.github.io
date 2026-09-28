@@ -65,6 +65,7 @@ const TAG_ICONS = {
   "inteligencia-artificial": "robot",
   cursor: "robot",
   "claude-code": "robot",
+  "impressao-3d": "cubes",
 };
 
 const slugify = (value) =>
@@ -131,6 +132,7 @@ const TAG_HUES = {
   "inteligencia-artificial": 258,
   cursor: 252,
   "claude-code": 24,
+  "impressao-3d": 190,
 };
 
 // O gradiente sempre gira o matiz para trás (-12°, -20°) enquanto escurece.

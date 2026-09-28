@@ -64,6 +64,11 @@
   card: /assets/img/covers/html5.svg
   thumb: /assets/img/covers/thumbs/html5.svg
   og: /assets/img/covers/og/html5.jpg
+"Impressão 3D":
+  cover: /assets/img/covers/impressao-3d.svg
+  card: /assets/img/covers/impressao-3d.svg
+  thumb: /assets/img/covers/thumbs/impressao-3d.svg
+  og: /assets/img/covers/og/impressao-3d.jpg
 "Inteligência Artificial":
   cover: /assets/img/covers/inteligencia-artificial.svg
   card: /assets/img/covers/inteligencia-artificial.svg
