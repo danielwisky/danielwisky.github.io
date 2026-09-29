@@ -47,6 +47,8 @@
     });
   });
 
+  const recaptchaSiteKey = form.dataset.recaptchaSiteKey;
+
   form.addEventListener("submit", async (event) => {
     const results = fields.map(validate);
 
@@ -61,9 +63,20 @@
     say("Enviando...");
 
     try {
+      // v3 não tem checkbox: gera um token de score em background a cada envio.
+      const formData = new FormData(form);
+      if (recaptchaSiteKey && typeof grecaptcha !== "undefined") {
+        const token = await new Promise((resolve) => {
+          grecaptcha.ready(() => {
+            grecaptcha.execute(recaptchaSiteKey, { action: "contato" }).then(resolve);
+          });
+        });
+        formData.set("g-recaptcha-response", token);
+      }
+
       const response = await fetch(form.action, {
         method: "POST",
-        body: new FormData(form),
+        body: formData,
         headers: { Accept: "application/json" },
       });
 
