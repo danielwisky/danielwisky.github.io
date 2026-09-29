@@ -4,6 +4,11 @@
   card: /assets/img/covers/apache-kafka.svg
   thumb: /assets/img/covers/thumbs/apache-kafka.svg
   og: /assets/img/covers/og/apache-kafka.jpg
+"APIs":
+  cover: /assets/img/covers/apis.svg
+  card: /assets/img/covers/apis.svg
+  thumb: /assets/img/covers/thumbs/apis.svg
+  og: /assets/img/covers/og/apis.jpg
 "Busca Binária":
   cover: /assets/img/covers/busca-binaria.svg
   card: /assets/img/covers/busca-binaria.svg
