@@ -140,6 +140,11 @@
   card: /assets/img/photos/cards/html5-web-storage.webp
   thumb: /assets/img/photos/thumbs/html5-web-storage.webp
   og: /assets/img/photos/og/html5-web-storage.jpg
+"idempotencia-em-apis":
+  cover: /assets/img/photos/idempotencia-em-apis.webp
+  card: /assets/img/photos/cards/idempotencia-em-apis.webp
+  thumb: /assets/img/photos/thumbs/idempotencia-em-apis.webp
+  og: /assets/img/photos/og/idempotencia-em-apis.jpg
 "introducao-ao-apache-kafka":
   cover: /assets/img/photos/introducao-ao-apache-kafka.webp
   card: /assets/img/photos/cards/introducao-ao-apache-kafka.webp
