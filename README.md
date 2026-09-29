@@ -1,20 +1,20 @@
 # danielwisky.com.br
 
-Blog pessoal em Jekyll, com tema próprio: CSS escrito do zero (sem framework),
-tema claro/escuro, busca client-side e capas de post geradas por tag.
+Blog pessoal em Jekyll: CSS próprio (sem framework), tema claro/escuro, busca
+client-side e capas de post geradas por tag.
 
 ## Rodando
 
 ```bash
 bundle install
 npm install
-npm run build          # minifica o JS e gera capas e fotos
+npm run build          # minifica JS, gera capas e fotos
 bundle exec jekyll serve
 ```
 
 ## Publicando um post
 
-Crie o arquivo em `_posts/AAAA-MM-DD-slug.md`:
+Crie `_posts/AAAA-MM-DD-slug.md`:
 
 ```yaml
 ---
@@ -25,39 +25,28 @@ tags: [Java, SOLID]
 ---
 ```
 
-A capa sai automática a partir da **primeira tag**: um ícone e o nome da tag
-sobre um gradiente de cor fixa. Nada mais é preciso.
-
-Para usar uma foto no lugar dela, coloque o original em `_photos/<slug>.jpg`
-(o slug é o nome do arquivo do post sem a data) e rode `npm run build:photos`.
-Detalhes em [`_photos/README.md`](_photos/README.md).
-
-**Post com vídeo**: basta embutir o iframe do YouTube no corpo. O
-`npm run build:videos` acha o embed, baixa a thumbnail do próprio vídeo e a usa
-como capa; a capa vira link para o vídeo e ganha o botão de play.
+A capa sai automática da **primeira tag** (ícone + gradiente). Pra usar foto
+real, coloque o original em `_photos/<slug>.jpg` e rode `npm run build:photos`
+(detalhes em [`_photos/README.md`](_photos/README.md)). Pra vídeo, embuta o
+iframe do YouTube no corpo e rode `npm run build:videos`: ele acha o embed,
+baixa a thumbnail e a capa vira link com botão de play.
 
 ## Scripts
 
-Os artefatos gerados são commitados: o deploy roda só o Jekyll. Rode
-`npm run build` sempre que mexer em `assets/js/*.js`, nas tags dos posts ou nas
-fotos.
+Artefatos gerados são commitados, o deploy roda só o Jekyll. Rode
+`npm run build` sempre que mexer em `assets/js/*.js`, tags ou fotos.
 
 | Script | O que faz |
 |---|---|
-| `npm run build:js` | Minifica `assets/js/*.js` |
-| `npm run build:covers` | Gera as capas das tags e `_data/covers.yml` |
-| `npm run build:videos` | Baixa a thumbnail do YouTube dos posts com vídeo |
-| `npm run build:photos` | Otimiza as fotos novas de `_photos/` e `_data/photos.yml` |
+| `build:js` | Minifica `assets/js/*.js` |
+| `build:covers` | Gera capas das tags e `_data/covers.yml` |
+| `build:videos` | Baixa thumbnail do YouTube dos posts com vídeo |
+| `build:photos` | Otimiza fotos novas de `_photos/` e `_data/photos.yml` |
 
-Cada imagem sai em quatro variantes, para cada lugar do site receber o tamanho
-que realmente exibe:
-
-| Variante | Onde aparece |
-|---|---|
-| `cover` | topo do post, e retina dos cards |
-| `card` | card do feed (via `srcset`) |
-| `thumb` | sidebar, busca e navegação entre posts |
-| `og` | `og:image`, já que redes sociais não aceitam SVG |
+Cada imagem gera 4 variantes: `cover` (topo do post), `card` (feed, via
+`srcset`), `thumb` (sidebar/busca/navegação) e `og` (redes sociais, que não
+aceitam SVG). Cor e ícone de cada tag ficam em `TAG_HUES`/`TAG_ICONS`, em
+`scripts/build-covers.mjs`.
 
 ## Estrutura
 
@@ -70,12 +59,9 @@ _plugins/    cache-busting e page.image para o SEO
 scripts/     geração de assets
 ```
 
-Cor e ícone de cada tag ficam em `TAG_HUES` e `TAG_ICONS`, dentro de
-`scripts/build-covers.mjs`.
-
 ## Formulário de contato
 
-O form em `/contato/` envia pro Formspree (`formspree_id` no `_config.yml`) e
-tem reCAPTCHA v3 (`recaptcha_site_key` no `_config.yml`): a validação do score
-roda no lado do Formspree, com a secret key configurada no painel deles. Sem
-JS o form ainda funciona via POST direto, mas sem o reCAPTCHA.
+`/contato/` envia pro Formspree (`formspree_id`) com reCAPTCHA v3
+(`recaptcha_site_key`), ambos em `_config.yml`. A validação do score roda no
+Formspree, com a secret key configurada no painel deles. Sem JS o form ainda
+funciona via POST direto, mas sem o reCAPTCHA.
