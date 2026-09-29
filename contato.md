@@ -15,7 +15,7 @@ trocar). Com JS, o assets/js/contact.js envia por AJAX e leva para /thanks/,
 que é uma página nossa.
 {%- endcomment -%}
 <form id="contactForm" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST"
-      data-success="{{ '/thanks/' | relative_url }}" novalidate>
+      data-success="{{ '/thanks/' | relative_url }}" data-recaptcha-site-key="{{ site.recaptcha_site_key }}" novalidate>
   <input type="text" name="_gotcha" style="display:none" />
   <input type="hidden" name="_subject" value="Contato - Blog" />
 

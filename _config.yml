@@ -40,6 +40,11 @@ disqus: "danielwisky"
 # como `formId` nos exemplos de JS e React da própria documentação.
 formspree_id: "mzbovjdk"
 
+# Site key pública do reCAPTCHA v3, de google.com/recaptcha/admin. Não é
+# segredo — a chave que protege de fato é a secret key, configurada no
+# painel do Formspree.
+recaptcha_site_key: "6Le88tUtAAAAAD79aS6UJYPGfXnlWw-RxC8ufBQF"
+
 # O jekyll-seo-tag emite twitter:card; sem isto ele usaria "summary", com
 # miniatura pequena. O username é necessário porque o plugin emite twitter:site
 # de qualquer jeito, e sem ele a tag sai como "@" vazio.

@@ -8,5 +8,6 @@ dois sob demanda, na primeira vez que o overlay de busca é aberto.
 <script defer src="{{ '/assets/js/code-blocks.min.js' | relative_url }}?v={{ '/assets/js/code-blocks.min.js' | asset_hash }}"></script>
 {%- endif %}
 {%- if page.url contains '/contato' %}
+<script defer src="https://www.google.com/recaptcha/api.js?render={{ site.recaptcha_site_key }}"></script>
 <script defer src="{{ '/assets/js/contact.min.js' | relative_url }}?v={{ '/assets/js/contact.min.js' | asset_hash }}"></script>
 {%- endif %}
