@@ -73,7 +73,9 @@ scripts/     geração de assets
 Cor e ícone de cada tag ficam em `TAG_HUES` e `TAG_ICONS`, dentro de
 `scripts/build-covers.mjs`.
 
-## Pendência
+## Formulário de contato
 
-`formspree_id` no `_config.yml` está com um placeholder. Até ser preenchido com
-o ID real, o formulário de `/contato/` não envia.
+O form em `/contato/` envia pro Formspree (`formspree_id` no `_config.yml`) e
+tem reCAPTCHA v3 (`recaptcha_site_key` no `_config.yml`): a validação do score
+roda no lado do Formspree, com a secret key configurada no painel deles. Sem
+JS o form ainda funciona via POST direto, mas sem o reCAPTCHA.
