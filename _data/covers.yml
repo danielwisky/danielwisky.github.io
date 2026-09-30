@@ -104,11 +104,6 @@
   card: /assets/img/covers/mongodb.svg
   thumb: /assets/img/covers/thumbs/mongodb.svg
   og: /assets/img/covers/og/mongodb.jpg
-"Produtividade":
-  cover: /assets/img/covers/produtividade.svg
-  card: /assets/img/covers/produtividade.svg
-  thumb: /assets/img/covers/thumbs/produtividade.svg
-  og: /assets/img/covers/og/produtividade.jpg
 "Programação":
   cover: /assets/img/covers/programacao.svg
   card: /assets/img/covers/programacao.svg
