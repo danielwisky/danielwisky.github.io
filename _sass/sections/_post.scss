@@ -282,6 +282,10 @@
 
 .disqus-comments {
   margin-top: var(--space-7);
+  // Reserva espaço antes do embed carregar (via IntersectionObserver em
+  // comments.html) para evitar que o iframe, ao ser injetado, empurre o
+  // post-nav e o footer para baixo.
+  min-height: 400px;
 }
 
 @media (max-width: 768px) {
