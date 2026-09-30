@@ -14,6 +14,11 @@
   card: /assets/img/covers/busca-binaria.svg
   thumb: /assets/img/covers/thumbs/busca-binaria.svg
   og: /assets/img/covers/og/busca-binaria.jpg
+"Carreira":
+  cover: /assets/img/covers/carreira.svg
+  card: /assets/img/covers/carreira.svg
+  thumb: /assets/img/covers/thumbs/carreira.svg
+  og: /assets/img/covers/og/carreira.jpg
 "Clean Architecture":
   cover: /assets/img/covers/clean-architecture.svg
   card: /assets/img/covers/clean-architecture.svg
