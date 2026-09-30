@@ -14,6 +14,11 @@
   card: /assets/img/covers/busca-binaria.svg
   thumb: /assets/img/covers/thumbs/busca-binaria.svg
   og: /assets/img/covers/og/busca-binaria.jpg
+"Carreira":
+  cover: /assets/img/covers/carreira.svg
+  card: /assets/img/covers/carreira.svg
+  thumb: /assets/img/covers/thumbs/carreira.svg
+  og: /assets/img/covers/og/carreira.jpg
 "Clean Architecture":
   cover: /assets/img/covers/clean-architecture.svg
   card: /assets/img/covers/clean-architecture.svg
@@ -99,6 +104,11 @@
   card: /assets/img/covers/mongodb.svg
   thumb: /assets/img/covers/thumbs/mongodb.svg
   og: /assets/img/covers/og/mongodb.jpg
+"Produtividade":
+  cover: /assets/img/covers/produtividade.svg
+  card: /assets/img/covers/produtividade.svg
+  thumb: /assets/img/covers/thumbs/produtividade.svg
+  og: /assets/img/covers/og/produtividade.jpg
 "Programação":
   cover: /assets/img/covers/programacao.svg
   card: /assets/img/covers/programacao.svg
