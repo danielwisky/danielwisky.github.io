@@ -60,6 +60,11 @@
   card: /assets/img/photos/cards/clean-code-objetos-e-estruturas-de-dados.webp
   thumb: /assets/img/photos/thumbs/clean-code-objetos-e-estruturas-de-dados.webp
   og: /assets/img/photos/og/clean-code-objetos-e-estruturas-de-dados.jpg
+"code-review-que-ensina":
+  cover: /assets/img/photos/code-review-que-ensina.webp
+  card: /assets/img/photos/cards/code-review-que-ensina.webp
+  thumb: /assets/img/photos/thumbs/code-review-que-ensina.webp
+  og: /assets/img/photos/og/code-review-que-ensina.jpg
 "comandos-docker":
   cover: /assets/img/photos/comandos-docker.webp
   card: /assets/img/photos/cards/comandos-docker.webp
