@@ -59,13 +59,6 @@
   }
 }
 
-// linha de botões lado a lado, usado na página sobre
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
 // chip de tag reutilizado em cards, post e nuvem de tags
 .tag-chip {
   display: inline-flex;

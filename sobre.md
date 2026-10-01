@@ -19,15 +19,4 @@ Esse blog é onde registro o que vou aprendendo pelo caminho. Às vezes o post n
   {%- endfor %}
 </div>
 
-Clique numa tag pra ver os posts sobre o assunto. Se algum te interessa, ou você só quer trocar uma ideia sobre software, bora conversar.
-
-<div class="button-group">
-  <a class="button button--primary" href="{{ '/contato/' | relative_url }}">
-    Vamos conversar
-    {% include icon.html name="arrow-right" %}
-  </a>
-  <a class="button button--ghost" href="https://www.linkedin.com/in/danielwisky" target="_blank" rel="noopener noreferrer">
-    {% include icon.html name="linkedin" %}
-    LinkedIn
-  </a>
-</div>
+Clique numa tag pra ver os posts sobre o assunto. Se algum te interessa, ou você só quer trocar uma ideia sobre software, [bora conversar]({{ '/contato/' | relative_url }}).
