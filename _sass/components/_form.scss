@@ -58,6 +58,38 @@ textarea.field__control {
   }
 }
 
+.contact-intro {
+  margin-bottom: var(--space-6);
+  font-size: 17px;
+  color: var(--text-alt);
+}
+
+// Separador "ou" entre o formulário e o contato alternativo.
+.contact-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-alt);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+}
+
+// O botão fica com a mesma largura do form acima, em vez do inline-flex padrão.
+.contact-alt {
+  display: flex;
+  width: 100%;
+}
+
 // Retorno do envio do formulário de contato, preenchido por contact.js.
 .form-status {
   display: none;

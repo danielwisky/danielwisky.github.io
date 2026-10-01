@@ -6,6 +6,11 @@ permalink: /contato/
 plain: true
 ---
 
+<p class="contact-intro">
+  Manda sua dúvida sobre algum post, uma sugestão de pauta ou só um "oi": toda
+  mensagem cai na minha caixa de entrada e eu respondo pessoalmente.
+</p>
+
 <p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
 
 {%- comment -%}
@@ -42,3 +47,12 @@ que é uma página nossa.
     {% include icon.html name="paper-plane" %}
   </button>
 </form>
+
+<div class="contact-divider"><span>ou</span></div>
+
+<div>
+  <a class="button button--ghost contact-alt" href="https://www.linkedin.com/in/danielwisky" target="_blank" rel="noopener noreferrer">
+    {% include icon.html name="linkedin" %}
+    Fala comigo no LinkedIn
+  </a>
+</div>

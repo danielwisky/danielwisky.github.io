@@ -35,12 +35,11 @@
   font-size: 20px;
   border-bottom: 1px solid var(--border);
 
-  i {
+  // A cor via gradiente real (texto Font Awesome) não funciona em SVG, já
+  // que background-clip: text só recorta glifos de texto, não paths de ícone.
+  .icon {
     font-size: 14px;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent);
   }
 
   .tag-group__count {

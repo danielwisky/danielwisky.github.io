@@ -5,11 +5,29 @@ description: "Bacharel em Engenharia da Computação e engenheiro de software, h
 permalink: /sobre/
 ---
 
-Bacharel em Engenharia da Computação (UMESP) e pós-graduado em Engenharia de Software (FIT). Trabalho com desenvolvimento de software, hoje principalmente em Clojure, Java e Kotlin.
+Sou o Daniel: bacharel em Engenharia da Computação (UMESP) e pós-graduado em Engenharia de Software (FIT). No dia a dia, trabalho com desenvolvimento de software, hoje principalmente em Clojure, Java e Kotlin.
+
+Esse blog é onde registro o que vou aprendendo pelo caminho. Às vezes o post nasce de uma decisão de arquitetura que testei na prática e quero deixar documentada, às vezes de um conceito que precisei revisitar do zero pra entender de verdade antes de explicar pra outra pessoa.
 
 ### Áreas de interesse
 
-* Engenharia e arquitetura de software
-* Sistemas distribuídos e mensageria
-* Bancos de dados relacionais e não-relacionais
-* Inteligência artificial
+{% assign interesses = "Clean Architecture,Sistemas de mensageria,noSQL,Inteligência Artificial" | split: "," %}
+
+<div class="tag-cloud">
+  {%- for tag in interesses %}
+  <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+  {%- endfor %}
+</div>
+
+Clique numa tag pra ver os posts sobre o assunto. Se algum te interessa, ou você só quer trocar uma ideia sobre software, bora conversar.
+
+<div class="button-group">
+  <a class="button button--primary" href="{{ '/contato/' | relative_url }}">
+    Vamos conversar
+    {% include icon.html name="arrow-right" %}
+  </a>
+  <a class="button button--ghost" href="https://www.linkedin.com/in/danielwisky" target="_blank" rel="noopener noreferrer">
+    {% include icon.html name="linkedin" %}
+    LinkedIn
+  </a>
+</div>
