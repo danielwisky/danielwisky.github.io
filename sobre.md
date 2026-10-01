@@ -11,7 +11,7 @@ Esse blog é onde registro o que vou aprendendo pelo caminho. Às vezes o post n
 
 ### Áreas de interesse
 
-{% assign interesses = "Clean Architecture,Sistemas de mensageria,noSQL,Inteligência Artificial" | split: "," %}
+{% assign interesses = "Clean Code,Apache Kafka,noSQL,Inteligência Artificial" | split: "," %}
 
 <div class="tag-cloud">
   {%- for tag in interesses %}
