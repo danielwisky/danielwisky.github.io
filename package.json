@@ -11,6 +11,6 @@
   },
   "devDependencies": {
     "terser": "^5.36.0",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.5"
   }
 }
