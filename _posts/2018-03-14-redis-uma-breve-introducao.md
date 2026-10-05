@@ -37,7 +37,7 @@ Isso, calma! O Redis, como já disse, é baseado em "chave-valor", diferente do 
 
 **6. Ele NÃO possui suporte oficial para Windows**
 
-Até há alguns projetos para utilização no ambiente do Tio Gates, mas nada oficial. Assim, utilize Redis em ambiente Windows apenas se seu foco for testes.
+A própria documentação oficial do Redis recomenda WSL2 para rodar o binário de verdade em ambiente Windows, ou a Memurai, uma porta comercial mantida como parceira oficial do Redis para Windows. O antigo port mantido pela Microsoft foi abandonado ainda na versão 3.2 e está obsoleto.
 
 Diferente do Windows, toda a plataforma do Redis pode ser utilizada em ambiente Linux sem nenhuma dificuldade.
 

@@ -9,6 +9,11 @@
   card: /assets/img/covers/apis.svg
   thumb: /assets/img/covers/thumbs/apis.svg
   og: /assets/img/covers/og/apis.jpg
+"Arquitetura":
+  cover: /assets/img/covers/arquitetura.svg
+  card: /assets/img/covers/arquitetura.svg
+  thumb: /assets/img/covers/thumbs/arquitetura.svg
+  og: /assets/img/covers/og/arquitetura.jpg
 "Busca Binária":
   cover: /assets/img/covers/busca-binaria.svg
   card: /assets/img/covers/busca-binaria.svg
