@@ -2,7 +2,7 @@
 layout: post
 title: "Commits Semânticos"
 subtitle: "O que é Commit e como usar Commits Semânticos?"
-tags: [Commits, Boas Práticas de Commits]
+tags: [Commits]
 ---
 
 ## Introdução
