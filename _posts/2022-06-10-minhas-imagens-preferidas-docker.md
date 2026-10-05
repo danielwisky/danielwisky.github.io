@@ -38,7 +38,7 @@ docker run -d -p 9000:9000 sonarqube:community
 **MongoDB**
 
 ```
-docker run -d --name mongodb -p 27017:27017 -d mongo:7
+docker run -d --name mongodb -p 27017:27017 mongo:7
 ```
 
 ### Comandos
