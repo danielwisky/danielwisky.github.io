@@ -37,8 +37,8 @@ O Aplicativo **Hand Talk** é um tradutor de bolso que é usado como um recurso 
 
 **Biomob** mapeia as cidades e traz avaliações de restaurantes, bares, teatros, hotéis, praças, museus e tantos outros lugares no quesito de acessibilidade. Nesta versão você encontrará mais de 1.000 endereços avaliados. Agora você saberá onde há rampas, cardápios em braile, banheiros adaptados, intérpretes de LIBRAS, vagas exclusivas de idosos e outros itens importantes. O usuário também pode fazer sua própria avaliação e fotos, auxiliando aos demais usuários de forma colaborativa.
 
-<a href="https://play.google.com/store/apps/details?id=com.biomob.biomob" target="_blank">Biomob Android</a>,
-<a href="https://itunes.apple.com/de/app/biomob/id1090156739?mt=8" target="_blank">Biomob iOS</a>
+<a href="https://play.google.com/store/apps/details?id=com.biomobplusmobile&hl=pt_BR" target="_blank">Biomob Android</a>,
+<a href="https://apps.apple.com/br/app/biomob/id6739507052" target="_blank">Biomob iOS</a>
 
 ## CittaMobi Acessibilidade
 
