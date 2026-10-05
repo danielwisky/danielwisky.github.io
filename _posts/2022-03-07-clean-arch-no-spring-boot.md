@@ -2,7 +2,7 @@
 layout: post
 title: "Clean Arch no Spring Boot"
 subtitle: "Videoaula sobre Clean Arch no Spring Boot"
-tags: [Clean Architecture, Arquitetura Limpa, Spring Boot, Java, Videoaula]
+tags: [Clean Architecture, Spring Boot, Java, Videoaula]
 ---
 
 <div class="video-container">
