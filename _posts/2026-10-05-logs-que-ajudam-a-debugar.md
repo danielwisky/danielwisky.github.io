@@ -2,7 +2,7 @@
 layout: post
 title: "Logs que ajudam a debugar, não só que existem"
 subtitle: "A diferença entre ter observabilidade e só ter um monte de linha no console"
-tags: [Programação, APIs]
+tags: [APIs, Programação]
 ---
 
 Toda aplicação em produção tem logs. Poucas têm logs que realmente ajudam a resolver um incidente às três da manhã. A diferença não está na quantidade de linhas escritas, está em três perguntas que o time raramente para pra responder antes de adicionar mais um `log.info`: esse log vai me dizer o que eu preciso saber quando algo quebrar? Eu consigo achar essa linha específica no meio de milhões de outras? E consigo seguir o rastro de uma requisição por todos os serviços que ela passou?

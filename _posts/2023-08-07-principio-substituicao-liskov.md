@@ -2,7 +2,7 @@
 layout: post
 title: "SOLID: Princípio da Substituição de Liskov"
 subtitle: "Princípio da Substituição de Liskov e exemplos de implementação em Java"
-tags: [Java, SOLID]
+tags: [SOLID, Java]
 ---
 
 O Princípio da Substituição de Liskov (Liskov Substitution Principle - LSP) é um dos princípios do SOLID, um conjunto de diretrizes para o desenvolvimento de software orientado a objetos. Este princípio estabelece que uma classe derivada deve poder substituir sua classe base, mantendo a consistência do sistema. Neste artigo, exploraremos o Princípio da Substituição de Liskov e apresentaremos exemplos de implementação em Java.

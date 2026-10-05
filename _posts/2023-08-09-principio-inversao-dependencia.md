@@ -2,7 +2,7 @@
 layout: post
 title: "SOLID: Princípio da Inversão da Dependência"
 subtitle: "Princípio da Inversão da Dependência e exemplos de implementação em Java"
-tags: [Java, SOLID]
+tags: [SOLID, Java]
 ---
 
 O Princípio da Inversão da Dependência (Dependency Inversion Principle - DIP) é um dos princípios fundamentais do SOLID, um conjunto de diretrizes para desenvolvimento de software orientado a objetos. O Princípio da Inversão da Dependência estabelece que módulos de alto nível não devem depender de módulos de baixo nível, e sim de abstrações. Neste artigo, vamos explorar o Princípio da Inversão da Dependência e discutir exemplos práticos de sua implementação.

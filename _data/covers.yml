@@ -124,3 +124,18 @@
   card: /assets/img/covers/seguranca.svg
   thumb: /assets/img/covers/thumbs/seguranca.svg
   og: /assets/img/covers/og/seguranca.jpg
+"SOLID":
+  cover: /assets/img/covers/solid.svg
+  card: /assets/img/covers/solid.svg
+  thumb: /assets/img/covers/thumbs/solid.svg
+  og: /assets/img/covers/og/solid.jpg
+"Structured Concurrency":
+  cover: /assets/img/covers/structured-concurrency.svg
+  card: /assets/img/covers/structured-concurrency.svg
+  thumb: /assets/img/covers/thumbs/structured-concurrency.svg
+  og: /assets/img/covers/og/structured-concurrency.jpg
+"Virtual Threads":
+  cover: /assets/img/covers/virtual-threads.svg
+  card: /assets/img/covers/virtual-threads.svg
+  thumb: /assets/img/covers/thumbs/virtual-threads.svg
+  og: /assets/img/covers/og/virtual-threads.jpg
