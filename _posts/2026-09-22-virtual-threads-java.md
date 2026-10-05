@@ -2,7 +2,7 @@
 layout: post
 title: "Virtual Threads: a Concorrência mais Simples do Java 21+"
 subtitle: "Como threads virtuais mudam a forma de escrever código concorrente sem trocar o modelo de programação"
-tags: [Java, Virtual Threads]
+tags: [Virtual Threads, Java]
 ---
 
 Toda aplicação Java que faz muita chamada bloqueante (banco, HTTP, fila) esbarra cedo ou tarde no mesmo dilema: aceitar o custo de uma thread de sistema operacional por requisição, ou reescrever tudo em cima de programação reativa. As Virtual Threads, estáveis desde o Java 21 (JEP 444), resolvem isso sem obrigar ninguém a escolher a segunda opção.

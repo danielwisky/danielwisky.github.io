@@ -2,7 +2,7 @@
 layout: post
 title: "SOLID: Princípio da Responsabilidade Única"
 subtitle: "Princípio da Responsabilidade Única e exemplos de implementação em Java"
-tags: [Java, SOLID]
+tags: [SOLID, Java]
 ---
 
 O Princípio da Responsabilidade Única (Single Responsibility Principle - SRP) é um dos princípios do SOLID, um conjunto de princípios de design de software que visam aprimorar a qualidade, a manutenibilidade e a extensibilidade do código. O SRP estabelece que uma classe deve ter apenas uma razão para mudar, ou seja, deve ter uma única responsabilidade.

@@ -2,7 +2,7 @@
 layout: post
 title: "Code review que ensina, não só aponta defeito"
 subtitle: "A diferença entre revisar código e formar o time que escreve esse código"
-tags: [Programação, Carreira]
+tags: [Carreira, Programação]
 ---
 
 Tem um jeito de fazer code review que resolve o problema imediato e não deixa nada pra trás: aponta a linha errada, sugere a correção, aprova depois do ajuste. Funciona, o código sobe melhor do que entrou. Mas existe outro jeito de revisar que, além de melhorar aquele pull request específico, deixa quem escreveu o código um pouco mais capaz de não cometer o mesmo erro no próximo. A diferença entre os dois não está na quantidade de comentários, está na intenção por trás deles.

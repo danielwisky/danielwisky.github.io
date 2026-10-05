@@ -2,7 +2,7 @@
 layout: post
 title: "SOLID: Princípio da Segregação da Interface"
 subtitle: "Princípio da Segregação da Interface e exemplos de implementação em Java"
-tags: [Java, SOLID]
+tags: [SOLID, Java]
 ---
 
 O Princípio da Segregação da Interface (Interface Segregation Principle - ISP) é um dos princípios do SOLID, um conjunto de diretrizes para o desenvolvimento de software orientado a objetos. Este princípio estabelece que uma classe não deve ser forçada a depender de interfaces que não utiliza por completo. Neste artigo, iremos explorar o Princípio da Segregação da Interface e apresentar exemplos práticos de implementação em Java.
