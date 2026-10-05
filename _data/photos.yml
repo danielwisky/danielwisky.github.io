@@ -90,6 +90,11 @@
   card: /assets/img/photos/cards/conceito-pilha-lifo.webp
   thumb: /assets/img/photos/thumbs/conceito-pilha-lifo.webp
   og: /assets/img/photos/og/conceito-pilha-lifo.jpg
+"cqrs-separando-leitura-e-escrita":
+  cover: /assets/img/photos/cqrs-separando-leitura-e-escrita.webp
+  card: /assets/img/photos/cards/cqrs-separando-leitura-e-escrita.webp
+  thumb: /assets/img/photos/thumbs/cqrs-separando-leitura-e-escrita.webp
+  og: /assets/img/photos/og/cqrs-separando-leitura-e-escrita.jpg
 "cursor-claude-code-ia-no-desenvolvimento":
   cover: /assets/img/photos/cursor-claude-code-ia-no-desenvolvimento.webp
   card: /assets/img/photos/cards/cursor-claude-code-ia-no-desenvolvimento.webp
@@ -135,6 +140,11 @@
   card: /assets/img/photos/cards/entendendo-busca-binaria.webp
   thumb: /assets/img/photos/thumbs/entendendo-busca-binaria.webp
   og: /assets/img/photos/og/entendendo-busca-binaria.jpg
+"feature-flags-na-pratica":
+  cover: /assets/img/photos/feature-flags-na-pratica.webp
+  card: /assets/img/photos/cards/feature-flags-na-pratica.webp
+  thumb: /assets/img/photos/thumbs/feature-flags-na-pratica.webp
+  og: /assets/img/photos/og/feature-flags-na-pratica.jpg
 "gcode-a-linguagem-por-tras-da-impressao-3d":
   cover: /assets/img/photos/gcode-a-linguagem-por-tras-da-impressao-3d.webp
   card: /assets/img/photos/cards/gcode-a-linguagem-por-tras-da-impressao-3d.webp

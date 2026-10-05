@@ -45,7 +45,7 @@ Filas de mensageria como Kafka já embutem uma forma natural de backpressure: o 
 
 Rate limiting e backpressure cuidam do volume de trabalho, mas não resolvem o caso em que uma dependência downstream está simplesmente fora do ar ou respondendo devagar demais. Continuar tentando chamar um serviço que não vai responder só desperdiça threads e conexões que poderiam estar atendendo outras requisições saudáveis.
 
-Um circuit breaker monitora a taxa de falha das chamadas a uma dependência e, ao ultrapassar um limiar, para de tentar por um tempo, devolvendo erro imediatamente em vez de deixar a requisição esperar um timeout:
+Um circuit breaker monitora a taxa de falha das chamadas a uma dependência e opera em três estados: fechado, deixando as chamadas passarem normalmente enquanto observa a taxa de falha; aberto, quando essa taxa ultrapassa um limiar e toda chamada seguinte falha na hora, sem nem tentar contatar a dependência; e semiaberto, um estado de teste que, depois de um intervalo de espera, deixa passar algumas chamadas para verificar se o serviço já voltou, antes de fechar totalmente de novo.
 
 ```java
 CircuitBreaker breaker = CircuitBreaker.ofDefaults("pagamentos");
@@ -53,7 +53,7 @@ Supplier<Pagamento> decorado = CircuitBreaker
     .decorateSupplier(breaker, () -> pagamentoClient.processar(request));
 ```
 
-Com o circuito aberto, chamadas falham rápido, o que dá tempo para a dependência se recuperar sem o peso adicional de um volume de tentativas que ela não tem capacidade de atender. Depois de um intervalo, o circuito entra num estado de teste, deixando passar algumas chamadas para verificar se o serviço já voltou, antes de fechar totalmente de novo.
+Com o circuito aberto, chamadas falham rápido, o que dá tempo para a dependência se recuperar sem o peso adicional de um volume de tentativas que ela não tem capacidade de atender. Um detalhe que merece atenção é a ordem ao combinar com retry: o circuit breaker precisa envolver o retry, nunca o contrário, porque um retry por dentro do circuit breaker multiplica tentativas justamente sobre a dependência que já está sofrendo, em vez de aliviar a carga sobre ela. Um fallback, como um valor em cache ou uma resposta degradada, também costuma ser mais útil do que simplesmente devolver erro, desde que exista uma alternativa de verdade para a operação.
 
 ## Como as três técnicas se complementam
 

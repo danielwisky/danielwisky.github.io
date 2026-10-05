@@ -46,7 +46,7 @@ Vamos explorar alguns outros recursos disponíveis no Sass.
         background: $main-color;
     }
 
-### Unindo popriedades
+### Unindo propriedades
 
     .texto {
         font: {

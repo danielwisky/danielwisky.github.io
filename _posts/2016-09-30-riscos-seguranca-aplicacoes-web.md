@@ -38,10 +38,10 @@ O trabalho mais conhecido da OWASP é sua lista "The Top 10 Most Critical Web Ap
 - **A10 – Redirecionamentos e Encaminhamentos Inválidos**: Aplicações web frequentemente redirecionam e encaminham usuários para outras páginas e sites, e usam dados não confiáveis para determinar as páginas de destino. Sem uma validação adequada, os atacantes podem redirecionar as vítimas para sites de phishing ou malware, ou usar encaminhamentos para acessar páginas não autorizadas.
 
 Fonte:
-<a href="https://www.owasp.org/images/9/9c/OWASP_Top_10_2013_PT-BR.pdf" target="_blank">OWASP Top 10 – 2013</a>.
+<a href="https://github.com/OWASP/Top10/blob/master/2013/OWASP%20Top%2010%20-%202013.pdf" target="_blank">OWASP Top 10 – 2013</a>.
 
 Para saber mais:
-<a href="https://www.owasp.org/index.php/Main_Page" target="_blank">OWASP</a>,
-<a href="https://www.owasp.org/index.php/OWASP_Guide_Project" target="_blank">OWASP Developer Guide</a>.
+<a href="https://owasp.org/" target="_blank">OWASP</a>,
+<a href="https://owasp.org/www-project-developer-guide/" target="_blank">OWASP Developer Guide</a>.
 
 Um grande abraço e até o próximo post!

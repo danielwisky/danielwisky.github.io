@@ -44,6 +44,6 @@ Digite o limite inferior: -> 36
 Digite o limite superior: -> 12
 ```
 
-Internamente deverá ser limite inferior 12 e limite superior 32. Não se esqueça de mostrar o número de tentativas ao final do jogo.
+Internamente deverá ser limite inferior 12 e limite superior 36. Não se esqueça de mostrar o número de tentativas ao final do jogo.
 
 Um grande abraço e até o próximo post!

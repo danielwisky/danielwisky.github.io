@@ -13,12 +13,12 @@ Plataforma interativa online que oferece aulas gratuitas de codificação em lin
 
 ## Hora do Código
 
-<a href="https://br.code.org/" target="_blank">https://br.code.org/</a>
+<a href="https://code.org/" target="_blank">https://code.org/</a>
 
 Organização sem fins lucrativos dedicada à crescente educação de ciência da computação. Tem a visão de que todos podem aprender programação.
 
 Alguns sites parceiros da hora do código:
-<a href="http://programae.org.br/horadocodigo/" target="_blank">Programaê</a> e
+<a href="https://web.archive.org/web/2024/https://programae.org.br/horadocodigo/" target="_blank">Programaê</a> (domínio original fora do ar, link para versão arquivada) e
 <a href="https://pt.khanacademy.org/hourofcode" target="_blank">khanacademy</a>.
 
 ## Code Combat

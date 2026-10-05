@@ -43,17 +43,19 @@ Vencedor apos 7 tentativas
 Por exemplo:
 
 ```
-#include <iostream.h>
+#include <iostream>
 
-void main() {
+int main() {
 
     int i;
 
     for(i=1;i<=10;i++){
-        cout<<i<<"\a ";
+        std::cout<<i<<"\a ";
     }
 
-    cout<<"\n";
+    std::cout<<"\n";
+
+    return 0;
 
 }
 ```
