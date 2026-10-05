@@ -245,6 +245,11 @@
   card: /assets/img/photos/cards/principio-substituicao-liskov.webp
   thumb: /assets/img/photos/thumbs/principio-substituicao-liskov.webp
   og: /assets/img/photos/og/principio-substituicao-liskov.jpg
+"rate-limiting-e-backpressure-em-apis":
+  cover: /assets/img/photos/rate-limiting-e-backpressure-em-apis.webp
+  card: /assets/img/photos/cards/rate-limiting-e-backpressure-em-apis.webp
+  thumb: /assets/img/photos/thumbs/rate-limiting-e-backpressure-em-apis.webp
+  og: /assets/img/photos/og/rate-limiting-e-backpressure-em-apis.jpg
 "redis-uma-breve-introducao":
   cover: /assets/img/photos/redis-uma-breve-introducao.webp
   card: /assets/img/photos/cards/redis-uma-breve-introducao.webp

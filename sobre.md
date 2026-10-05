@@ -5,7 +5,7 @@ description: "Bacharel em Engenharia da Computação e engenheiro de software, h
 permalink: /sobre/
 ---
 
-Sou o Daniel: bacharel em Engenharia da Computação (UMESP) e pós-graduado em Engenharia de Software (FIT). No dia a dia, trabalho com desenvolvimento de software, hoje principalmente em Clojure, Java e Kotlin.
+Sou o Daniel: bacharel em Engenharia da Computação (UMESP), pós-graduado em Engenharia de Software (FIT) e em Arquitetura de Software e Soluções (XP Educação). No dia a dia, trabalho com desenvolvimento de software, hoje principalmente em Clojure, Java e Kotlin.
 
 Esse blog é onde registro o que vou aprendendo pelo caminho. Às vezes o post nasce de uma decisão de arquitetura que testei na prática e quero deixar documentada, às vezes de um conceito que precisei revisitar do zero pra entender de verdade antes de explicar pra outra pessoa.
 

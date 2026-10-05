@@ -1,14 +1,15 @@
 ---
 layout: page
 title: "Contato"
-description: "Fale comigo: dúvidas sobre os posts, sugestões de pauta ou uma conversa sobre software."
+description: "Fale comigo: dúvidas sobre os posts, uma ideia de tema ou uma conversa sobre software."
 permalink: /contato/
 plain: true
 ---
 
 <p class="contact-intro">
-  Manda sua dúvida sobre algum post, uma sugestão de pauta ou só um "oi": toda
-  mensagem cai na minha caixa de entrada e eu respondo pessoalmente.
+  Bora trocar uma ideia? Mande sua dúvida sobre algum post, sugira um tema ou
+  só apareça pra dar um "oi": toda mensagem cai direto na minha caixa de
+  entrada e eu mesmo respondo.
 </p>
 
 <p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
