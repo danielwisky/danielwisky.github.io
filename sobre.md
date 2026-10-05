@@ -11,11 +11,14 @@ Esse blog é onde registro o que vou aprendendo pelo caminho. Às vezes o post n
 
 ### Áreas de interesse
 
-{% assign interesses = "Clean Code,Apache Kafka,noSQL,Inteligência Artificial" | split: "," %}
+{% capture tag_data %}{% for tag in site.tags %}{{ tag[1].size | plus: 1000 }}:{{ tag[0] }}|{% endfor %}{% endcapture %}
+{% assign tag_entries = tag_data | split: "|" | sort | reverse %}
+{% assign top_tags = tag_entries | slice: 0, 4 %}
 
 <div class="tag-cloud">
-  {%- for tag in interesses %}
-  <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+  {%- for entry in top_tags %}
+  {%- assign tag_name = entry | split: ":" | last %}
+  <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag_name | slugify }}">{{ tag_name }}</a>
   {%- endfor %}
 </div>
 
