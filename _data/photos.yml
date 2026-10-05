@@ -200,6 +200,11 @@
   card: /assets/img/photos/cards/jquery-alteracao-formulario.webp
   thumb: /assets/img/photos/thumbs/jquery-alteracao-formulario.webp
   og: /assets/img/photos/og/jquery-alteracao-formulario.jpg
+"logs-que-ajudam-a-debugar":
+  cover: /assets/img/photos/logs-que-ajudam-a-debugar.webp
+  card: /assets/img/photos/cards/logs-que-ajudam-a-debugar.webp
+  thumb: /assets/img/photos/thumbs/logs-que-ajudam-a-debugar.webp
+  og: /assets/img/photos/og/logs-que-ajudam-a-debugar.jpg
 "minhas-imagens-preferidas-docker":
   cover: /assets/img/photos/minhas-imagens-preferidas-docker.webp
   card: /assets/img/photos/cards/minhas-imagens-preferidas-docker.webp
