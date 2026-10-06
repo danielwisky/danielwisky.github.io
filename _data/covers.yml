@@ -139,6 +139,11 @@
   card: /assets/img/covers/structured-concurrency.svg
   thumb: /assets/img/covers/thumbs/structured-concurrency.svg
   og: /assets/img/covers/og/structured-concurrency.jpg
+"Terminal":
+  cover: /assets/img/covers/terminal.svg
+  card: /assets/img/covers/terminal.svg
+  thumb: /assets/img/covers/thumbs/terminal.svg
+  og: /assets/img/covers/og/terminal.jpg
 "Virtual Threads":
   cover: /assets/img/covers/virtual-threads.svg
   card: /assets/img/covers/virtual-threads.svg

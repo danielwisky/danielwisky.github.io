@@ -145,6 +145,11 @@
   card: /assets/img/photos/cards/feature-flags-na-pratica.webp
   thumb: /assets/img/photos/thumbs/feature-flags-na-pratica.webp
   og: /assets/img/photos/og/feature-flags-na-pratica.jpg
+"ferramentas-de-terminal-para-produtividade":
+  cover: /assets/img/photos/ferramentas-de-terminal-para-produtividade.webp
+  card: /assets/img/photos/cards/ferramentas-de-terminal-para-produtividade.webp
+  thumb: /assets/img/photos/thumbs/ferramentas-de-terminal-para-produtividade.webp
+  og: /assets/img/photos/og/ferramentas-de-terminal-para-produtividade.jpg
 "gcode-a-linguagem-por-tras-da-impressao-3d":
   cover: /assets/img/photos/gcode-a-linguagem-por-tras-da-impressao-3d.webp
   card: /assets/img/photos/cards/gcode-a-linguagem-por-tras-da-impressao-3d.webp
