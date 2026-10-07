@@ -1,13 +1,12 @@
 {%- comment -%}
-Posts com tag em comum com o atual. O post-nav logo acima já cobre
-anterior/próximo, mas só por ordem cronológica, sem relação de assunto — esta
-seção é o caminho de quem quer continuar no mesmo tema.
+Posts com tag em comum com o atual, diferente do post-nav acima que só segue
+ordem cronológica.
 {%- endcomment -%}
 {%- assign related = page | related_posts: site.posts -%}
 {%- if related.size > 0 %}
 <section class="related-posts" aria-labelledby="related-posts-title">
   <h2 id="related-posts-title" class="related-posts__title">Posts relacionados</h2>
-  <div class="related-posts__grid">
+  <div class="related-posts__list">
     {%- for post in related %}
     {%- capture is_video %}{% include is-video.html post=post %}{% endcapture -%}
     <a class="related-post" href="{{ post.url | relative_url }}">
@@ -16,7 +15,20 @@ seção é o caminho de quem quer continuar no mesmo tema.
              width="120" height="90" alt="">
         {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
       </span>
-      <span class="related-post__title">{{ post.title | strip_html }}</span>
+      <span class="related-post__body">
+        {%- if post.tags.size > 0 %}
+        <span class="related-post__tag">{{ post.tags.first }}</span>
+        {%- endif %}
+        <span class="related-post__title">{{ post.title | strip_html }}</span>
+        {%- if post.subtitle %}
+        <span class="related-post__excerpt">{{ post.subtitle | strip_html }}</span>
+        {%- endif %}
+        <span class="related-post__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-pt-br.html date = post.date %}</time>
+          <span class="related-post__sep">·</span>
+          {% include reading-time.html content=post.content %}
+        </span>
+      </span>
     </a>
     {%- endfor %}
   </div>
