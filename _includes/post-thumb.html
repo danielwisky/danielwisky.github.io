@@ -1,0 +1,16 @@
+{%- comment -%}
+Capa em miniatura (variant=thumb) com selo de play se o post for vídeo.
+Uso: post, class, width, height. Passe href para virar um link próprio
+(decorativo, ao lado de outro link com o título — ver sidebar.html); sem
+href, vira um span, pensado para ficar dentro de um <a> maior (post-nav.html,
+related-posts.html).
+{%- endcomment -%}
+{%- capture is_video %}{% include is-video.html post=include.post %}{% endcapture -%}
+{%- assign tag = "span" -%}
+{%- if include.href %}{% assign tag = "a" %}{% endif -%}
+<{{ tag }} class="{{ include.class }}{% if is_video != '' %} {{ include.class }}--video{% endif %}"
+  {%- if include.href %} href="{{ include.href }}" tabindex="-1" aria-hidden="true"{% endif %}>
+  <img src="{% include post-cover.html post=include.post variant='thumb' %}" loading="lazy" decoding="async"
+       width="{{ include.width }}" height="{{ include.height }}" alt="">
+  {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
+</{{ tag }}>
