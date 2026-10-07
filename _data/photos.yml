@@ -305,6 +305,11 @@
   card: /assets/img/photos/cards/structured-concurrency-java.webp
   thumb: /assets/img/photos/thumbs/structured-concurrency-java.webp
   og: /assets/img/photos/og/structured-concurrency-java.jpg
+"versionamento-de-api-sem-quebrar-clientes":
+  cover: /assets/img/photos/versionamento-de-api-sem-quebrar-clientes.webp
+  card: /assets/img/photos/cards/versionamento-de-api-sem-quebrar-clientes.webp
+  thumb: /assets/img/photos/thumbs/versionamento-de-api-sem-quebrar-clientes.webp
+  og: /assets/img/photos/og/versionamento-de-api-sem-quebrar-clientes.jpg
 "virtual-threads-java":
   cover: /assets/img/photos/virtual-threads-java.webp
   card: /assets/img/photos/cards/virtual-threads-java.webp
