@@ -77,8 +77,7 @@ Abaixo será enumerado os principais types descritos na documentação do Angula
 8. `style`: Alterações referentes a formatações na apresentação do código que não afetam o significado do código, como por exemplo: espaço em branco, formatação, ponto e vírgula ausente etc.);
 9. `test`: Adicionando testes ausentes ou corrigindo testes existentes nos processos de testes automatizados (TDD);
 10. `chore`: Atualização de tarefas que não ocasionam alteração no código de produção, mas mudanças de ferramentas, mudanças de configuração e bibliotecas que realmente não entram em produção;
-11. `env`: basicamente utilizado na descrição de modificações ou adições em arquivos de configuração em processos e métodos de integração contínua (CI), como parâmetros em arquivos de configuração de containers.
-    Também, o Guidelines, recomenda o tipo improvement para commits que melhoram uma implementação atual sem adicionar um novo recurso ou consertar um bug.
+11. `improvement`: tipo não oficial, mas adotado por diversos times, para commits que melhoram uma implementação atual sem adicionar um novo recurso ou consertar um bug.
 
 Observe que esses tipos não são obrigatórios pela especificação do Conventional Commits.
 
@@ -125,7 +124,7 @@ feat: ensure LoadSurveysController returns 204 if there is no content
 
 Por fim o rodapé também não possui uso obrigatório. Restringindo-se às alterações de estado via smart commit, como resoluções de problemas (issues), através de chamados de atendimentos, ou sprints de projetos de implantação os quais podem ser descritos no rodapé.
 
-Pode ser fornecido um ou mais rodapés, o primeiro sempre iniciando uma linha em branco após o corpo. Cada rodapé deve consistir em um token de palavra, seguido pelo símbolo ":" (dois pontos) e posteriormente um espaço em branco e o símbolo "#" (sustenido) como separador da string descritiva do rodapé (conceito inspirado na convenção do Git Trailer).
+Pode ser fornecido um ou mais rodapés, o primeiro sempre iniciando uma linha em branco após o corpo. Cada rodapé deve consistir em um token de palavra seguido de um separador, que pode ser ": " (dois pontos e espaço) ou " #" (espaço e sustenido), e então a string descritiva do rodapé (conceito inspirado na convenção do Git Trailer).
 
 O token de um rodapé DEVE usar o símbolo "-" (hífen) no lugar de caracteres de espaço em branco, por exemplo, Reviewed-by, permitindo uma diferenciação de um rodapé em relação a um corpo com vários parágrafos.
 

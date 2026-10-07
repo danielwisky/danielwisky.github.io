@@ -64,7 +64,7 @@ O **Wheelmap** é um mapa online, em todo o mundo, para encontrar e marcar lugar
 
 Enable Viacam é um programa para PC e um aplicativo para dispositivos móveis para o controle do cursor no mouse através dos movimentos da cabeça. Depois de instalado será preciso calibrar a sensibilidade do reconhecimento facial. Através do programa o usuário poderá controlar completamente o cursor do mouse, habilitar o teclado virtual padrão do sistema, posicionar a barra de rolagem da tela, abrir e fechar programas. A sensibilidade dos movimentos pode ser ajustada conforme a necessidade e redefinida sempre que for necessário.
 
-<a href="http://eviacam.sourceforge.net/" target="_blank">Enable Viacam site</a>
+<a href="https://viacam.org/" target="_blank">Enable Viacam site</a>
 
 ## LetMeTalk
 

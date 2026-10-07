@@ -19,15 +19,15 @@ No Maven, adicione a dependência do MapStruct no bloco `dependencies`:
 <dependency>
     <groupId>org.mapstruct</groupId>
     <artifactId>mapstruct</artifactId>
-    <version>1.6.2</version>
+    <version>1.5.3.Final</version>
 </dependency>
 ```
 
 No Gradle, adicione a dependência do MapStruct na seção dependencies:
 
 ```groovy
-implementation 'org.mapstruct:mapstruct:1.6.2'
-annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
+implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 ```
 
 ## Usando MapStruct
