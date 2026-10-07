@@ -1,0 +1,67 @@
+//
+// Posts relacionados (por tag em comum), na página do post
+//
+
+.related-posts {
+  margin-top: var(--space-7);
+}
+
+.related-posts__title {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  font-size: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.related-posts__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.related-post {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: calc((100% - var(--space-4) * 2) / 3);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-alt-2);
+  transition: border-color var(--transition);
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+.related-post__image {
+  position: relative;
+  flex-shrink: 0;
+  width: 60px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-alt);
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.related-post__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--heading);
+}
+
+@media (max-width: 768px) {
+  .related-post {
+    width: 100%;
+  }
+}
