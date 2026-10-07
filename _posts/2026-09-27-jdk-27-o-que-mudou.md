@@ -9,7 +9,7 @@ O JDK 27 teve disponibilidade geral em 15 de setembro de 2026, seguindo o calend
 
 ## Compact object headers, agora ligado por padrão
 
-O JEP 534 reduz o tamanho do cabeçalho de cada objeto na JVM de 96 para 64 bits. Isso não muda uma linha de código da aplicação, mas reduz o uso de heap em algo entre 10% e 20%, dependendo do perfil de alocação, e junto com isso vem ganho de throughput. Esse recurso já existia como preview em versões anteriores; no 27 ele passa a vir ativado por padrão, sem flag nenhuma.
+O JEP 534 reduz o tamanho do cabeçalho de cada objeto na JVM de 96 para 64 bits. Isso não muda uma linha de código da aplicação, mas reduz o uso de heap em algo entre 10% e 20%, dependendo do perfil de alocação, e junto com isso vem ganho de throughput. Esse recurso, parte do Project Lilliput, já estava disponível como opção de produção desde o Java 25 (JEP 519); no 27 ele passa a vir ativado por padrão, sem flag nenhuma.
 
 Pra quem administra cluster com muitos objetos pequenos, como aplicações que fazem parsing intenso ou mantêm coleções grandes em memória, esse tipo de mudança de baixo nível costuma se traduzir direto em menos pressão de garbage collector e menos instâncias precisando de mais memória alocada.
 
