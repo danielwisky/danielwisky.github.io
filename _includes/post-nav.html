@@ -2,12 +2,7 @@
 <nav class="post-nav" aria-label="Navegação entre posts">
   {%- if page.previous %}
   <a class="post-nav__item post-nav__item--prev" href="{{ page.previous.url | relative_url }}">
-    {% capture is_video %}{% include is-video.html post=page.previous %}{% endcapture %}
-    <span class="post-nav__image{% if is_video != '' %} post-nav__image--video{% endif %}">
-      <img src="{% include post-cover.html post=page.previous variant='thumb' %}" loading="lazy" decoding="async"
-           width="84" height="63" alt="">
-      {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
-    </span>
+    {% include post-thumb.html post=page.previous class="post-nav__image" width=84 height=63 %}
     <span>
       <span class="post-nav__direction">← Anterior</span>
       <span class="post-nav__title">{{ page.previous.title | strip_html }}</span>
@@ -17,12 +12,7 @@
 
   {%- if page.next %}
   <a class="post-nav__item post-nav__item--next" href="{{ page.next.url | relative_url }}">
-    {% capture is_video %}{% include is-video.html post=page.next %}{% endcapture %}
-    <span class="post-nav__image{% if is_video != '' %} post-nav__image--video{% endif %}">
-      <img src="{% include post-cover.html post=page.next variant='thumb' %}" loading="lazy" decoding="async"
-           width="84" height="63" alt="">
-      {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
-    </span>
+    {% include post-thumb.html post=page.next class="post-nav__image" width=84 height=63 %}
     <span>
       <span class="post-nav__direction">Próximo →</span>
       <span class="post-nav__title">{{ page.next.title | strip_html }}</span>

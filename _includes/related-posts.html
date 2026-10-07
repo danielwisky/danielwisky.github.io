@@ -7,18 +7,12 @@ ordem cronológica.
 <section class="related-posts" aria-labelledby="related-posts-title">
   <h2 id="related-posts-title" class="related-posts__title">Posts relacionados</h2>
   <div class="related-posts__list">
-    {%- for post in related %}
-    {%- capture is_video %}{% include is-video.html post=post %}{% endcapture -%}
+    {%- for item in related %}
+    {%- assign post = item.post -%}
     <a class="related-post" href="{{ post.url | relative_url }}">
-      <span class="related-post__image{% if is_video != '' %} related-post__image--video{% endif %}">
-        <img src="{% include post-cover.html post=post variant='thumb' %}" loading="lazy" decoding="async"
-             width="120" height="90" alt="">
-        {%- if is_video != '' %}<span class="video-icon">{% include icon.html name="play" %}</span>{% endif %}
-      </span>
+      {% include post-thumb.html post=post class="related-post__image" width=120 height=90 %}
       <span class="related-post__body">
-        {%- if post.tags.size > 0 %}
-        <span class="related-post__tag">{{ post.tags.first }}</span>
-        {%- endif %}
+        <span class="related-post__tag">{{ item.tag }}</span>
         <span class="related-post__title">{{ post.title | strip_html }}</span>
         {%- if post.subtitle %}
         <span class="related-post__excerpt">{{ post.subtitle | strip_html }}</span>

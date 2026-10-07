@@ -21,11 +21,8 @@
     {%- assign video_posts = site.posts | where_exp: "post", "site.data.videos[post.slug] or post.tags contains 'Videoaula'" -%}
     {%- for post in video_posts limit: 4 %}
     <div class="mini-post">
-      <a class="mini-post__image" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-        <img src="{% include post-cover.html post=post variant='thumb' %}" loading="lazy" decoding="async"
-             width="72" height="54" alt="">
-        <span class="video-icon">{% include icon.html name="play" %}</span>
-      </a>
+      {%- assign post_url = post.url | relative_url -%}
+      {% include post-thumb.html post=post class="mini-post__image" width=72 height=54 href=post_url %}
       <div>
         <h3 class="mini-post__title">
           <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
