@@ -18,12 +18,12 @@ Alguns comandos docker e suas utilizades:
 - <code>docker events</code> - exibe os eventos do container em tempo real.
 - <code>docker exec</code> - executa uma instrução dentro do container que está rodando sem precisar atachar nele.
 - <code>docker export</code> - exporta um container para um arquivo .tar.
-- <code>docker history</code> - exibe o histórico de comandos que foram executados dentro do container.
+- <code>docker history</code> - exibe o histórico de criação de uma imagem, com as camadas, tamanho e instrução do Dockerfile que gerou cada uma.
 - <code>docker images</code> - lista as imagens disponíveis no host.
 - <code>docker import</code> - importa uma imagem .tar para o host.
 - <code>docker info</code> - exibe as informações sobre o host.
 - <code>docker inspect</code> - exibe o json com todas as configurações do container.
-- <code>docker kill</code> - da poweroff no container.
+- <code>docker kill</code> - para o container imediatamente, enviando SIGKILL, sem a tentativa de parada graciosa que o <code>docker stop</code> faz.
 - <code>docker load</code> - carrega a imagem de um arquivo .tar.
 - <code>docker login</code> - registra ou faz o login em um servidor de registry.
 - <code>docker logout</code> - faz o logout de um servidor de registry.
@@ -42,7 +42,7 @@ Alguns comandos docker e suas utilizades:
 - <code>docker run</code> - executa um comando em um novo container.
 - <code>docker save</code> - salva a imagem em um arquivo .tar.
 - <code>docker search</code> - procura por uma imagem no docker hub.
-- <code>docker service</code> - gernciamento dos serviços do docker.
+- <code>docker service</code> - gerenciamento dos serviços do docker.
 - <code>docker start</code> - inicia um container que esteja parado.
 - <code>docker stats</code> - exibe informações de uso de cpu, memória e rede.
 - <code>docker stop</code> - para um container que esteja rodando.
@@ -53,7 +53,7 @@ Alguns comandos docker e suas utilizades:
 - <code>docker update</code> - atualiza a configuração de um ou mais containers.
 - <code>docker version</code> - exibe as versões de api, client e server do host.
 - <code>docker volume</code> - gerenciamento dos volumes no docker.
-- <code>docker wait</code> - aguarda o retorno da execução de um container para iniciar esse container.
+- <code>docker wait</code> - aguarda um ou mais containers pararem e retorna o código de saída (exit code) de cada um.
 
 É possível ver todos os comandos que o Docker possui, tendo o docker instalado, basta digitar no terminal <code>docker --help</code>
 

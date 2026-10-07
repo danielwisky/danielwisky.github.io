@@ -87,6 +87,6 @@ Mais informações sobre Sass:
 
 Pesquise também outros pré-processadores de css:  
 <a href="http://lesscss.org/" target="_blank">LESS</a>,
-<a href="http://foundation.zurb.com/" target="_blank">Foundation</a>.
+<a href="https://get.foundation/" target="_blank">Foundation</a>.
 
 Um grande abraço e até o próximo post!
