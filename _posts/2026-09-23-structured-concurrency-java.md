@@ -27,7 +27,7 @@ Esse padrão tem nome: concorrência não estruturada. O ciclo de vida das taref
 
 ## O que muda com escopos estruturados
 
-A ideia da API `StructuredTaskScope`, em preview desde o Java 21 e já na quinta rodada de preview no Java 25 (ainda exige a flag `--enable-preview` pra compilar e rodar), é simples de enunciar: tarefas disparadas dentro de um escopo não podem escapar dele. O escopo só termina quando todas as tarefas terminam, com sucesso, com erro ou canceladas. E um erro em qualquer uma delas pode propagar e cancelar as irmãs de forma automática.
+A ideia da API `StructuredTaskScope`, em preview desde o Java 21 e já na sétima rodada de preview no Java 27 (JEP 533, ainda exige a flag `--enable-preview` pra compilar e rodar), é simples de enunciar: tarefas disparadas dentro de um escopo não podem escapar dele. O escopo só termina quando todas as tarefas terminam, com sucesso, com erro ou canceladas. E um erro em qualquer uma delas pode propagar e cancelar as irmãs de forma automática.
 
 ```java
 try (var scope = StructuredTaskScope.open(Joiner.<Usuario, List<Pedido>>awaitAllSuccessfulOrThrow())) {
@@ -61,6 +61,8 @@ Assim que uma das duas retorna com sucesso, a outra é cancelada na hora, sem pr
 ## Por que isso importa junto com Virtual Threads
 
 Virtual threads tornaram barato disparar uma tarefa concorrente pra cada sub-chamada de I/O. Sem structured concurrency, isso tende a produzir código cheio de tarefas soltas, cada uma com seu próprio tratamento de erro e cancelamento. É exatamente o tipo de bug que só aparece em produção, sob carga, difícil de reproduzir num ambiente controlado. A structured concurrency dá a essas tarefas baratas uma estrutura de ciclo de vida clara, do mesmo jeito que `try-with-resources` já faz com conexões e arquivos.
+
+A API já está bem perto do fim dessa jornada: a forma dela se mantém estável desde a quinta rodada, e o JEP 543 propõe finalizá-la sem mais mudanças no Java 28.
 
 ## Conclusão
 
