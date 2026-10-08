@@ -235,6 +235,11 @@
   card: /assets/img/photos/cards/o-que-mudou-em-cada-versao-do-java.webp
   thumb: /assets/img/photos/thumbs/o-que-mudou-em-cada-versao-do-java.webp
   og: /assets/img/photos/og/o-que-mudou-em-cada-versao-do-java.jpg
+"outbox-pattern":
+  cover: /assets/img/photos/outbox-pattern.webp
+  card: /assets/img/photos/cards/outbox-pattern.webp
+  thumb: /assets/img/photos/thumbs/outbox-pattern.webp
+  og: /assets/img/photos/og/outbox-pattern.jpg
 "principio-aberto-fechado":
   cover: /assets/img/photos/principio-aberto-fechado.webp
   card: /assets/img/photos/cards/principio-aberto-fechado.webp
