@@ -1,8 +1,11 @@
 {%- comment -%}
 Posts com tag em comum com o atual, diferente do post-nav acima que só segue
-ordem cronológica.
+ordem cronológica. Exclui previous/next para não duplicar o mesmo link na página.
 {%- endcomment -%}
-{%- assign related = page | related_posts: site.posts -%}
+{%- assign nav_posts = "" | split: "" -%}
+{%- if page.previous %}{%- assign nav_posts = nav_posts | push: page.previous -%}{%- endif -%}
+{%- if page.next %}{%- assign nav_posts = nav_posts | push: page.next -%}{%- endif -%}
+{%- assign related = page | related_posts: site.posts, 3, nav_posts -%}
 {%- if related.size > 0 %}
 <section class="related-posts" aria-labelledby="related-posts-title">
   <h2 id="related-posts-title" class="related-posts__title">Posts relacionados</h2>

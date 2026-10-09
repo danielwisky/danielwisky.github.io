@@ -2,16 +2,18 @@
 # compartilham e, em empate, pelos mais recentes primeiro.
 module Jekyll
   module RelatedPostsFilter
-    def related_posts(post, all_posts, limit = 3)
+    def related_posts(post, all_posts, limit = 3, exclude = [])
       tags = Array(post["tags"])
       return [] if tags.empty?
 
       current_url = post["url"]
+      excluded_urls = Array(exclude).filter_map { |item| item["url"] if item }
 
       scored = all_posts.filter_map do |candidate|
         # `.url`, não `["id"]`: candidatos de site.posts são Document puros, e
         # candidate["id"] sempre volta nil neles.
         next if candidate.url == current_url
+        next if excluded_urls.include?(candidate.url)
 
         shared = tags & Array(candidate.data["tags"])
         [candidate, shared] unless shared.empty?
