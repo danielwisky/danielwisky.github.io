@@ -25,6 +25,11 @@
   card: /assets/img/photos/cards/bulk-operations-in-mongodb.webp
   thumb: /assets/img/photos/thumbs/bulk-operations-in-mongodb.webp
   og: /assets/img/photos/og/bulk-operations-in-mongodb.jpg
+"circuit-breaker":
+  cover: /assets/img/photos/circuit-breaker.webp
+  card: /assets/img/photos/cards/circuit-breaker.webp
+  thumb: /assets/img/photos/thumbs/circuit-breaker.webp
+  og: /assets/img/photos/og/circuit-breaker.jpg
 "clean-arch-no-spring-boot":
   cover: /assets/img/photos/clean-arch-no-spring-boot.webp
   card: /assets/img/photos/cards/clean-arch-no-spring-boot.webp
