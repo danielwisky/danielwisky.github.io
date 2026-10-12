@@ -285,6 +285,11 @@
   card: /assets/img/photos/cards/riscos-seguranca-aplicacoes-web.webp
   thumb: /assets/img/photos/thumbs/riscos-seguranca-aplicacoes-web.webp
   og: /assets/img/photos/og/riscos-seguranca-aplicacoes-web.jpg
+"saga-pattern":
+  cover: /assets/img/photos/saga-pattern.webp
+  card: /assets/img/photos/cards/saga-pattern.webp
+  thumb: /assets/img/photos/thumbs/saga-pattern.webp
+  og: /assets/img/photos/og/saga-pattern.jpg
 "sharding-no-mongodb":
   cover: /assets/img/photos/sharding-no-mongodb.webp
   card: /assets/img/photos/cards/sharding-no-mongodb.webp
