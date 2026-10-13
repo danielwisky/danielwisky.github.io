@@ -1,41 +1,87 @@
 ---
 layout: page
 title: "Tags"
-subtitle: "Todos os assuntos do blog, agrupados por tema. Clique numa tag pra pular direto pra ela."
+subtitle: "Todos os assuntos do blog, dos mais frequentes aos mais pontuais. Clique numa tag pra ver só os posts dela."
 description: "Todos os assuntos do blog agrupados por tag: Java, Clean Code, Docker, Kafka, MongoDB e mais."
 permalink: /tags/
 plain: true
 ---
 
-{%- capture site_tags -%}
-  {%- for tag in site.tags -%}
-    {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%}
-  {%- endfor -%}
-{%- endcapture -%}
-{%- assign tags_list = site_tags | split: ',' | sort_natural -%}
+{%- comment -%}
+Abaixo de main_min posts a tag vai para "Outros assuntos". O filtro e o clique
+que isola uma tag vêm do assets/js/tags.js; sem JS a página continua sendo a
+listagem completa com âncoras.
+{%- endcomment -%}
+{%- assign main_min = 3 -%}
+{%- assign tags_sorted = site.tags | tags_by_count -%}
 
-<div class="tag-cloud">
-  {%- for tag in tags_list %}
-  <a class="tag-chip" href="#{{ tag | slugify }}">
-    {{ tag }}<span class="tag-cloud__count">{{ site.tags[tag].size }}</span>
-  </a>
-  {%- endfor %}
+<div class="tag-filter" data-tag-filter hidden>
+  {% include icon.html name="magnifying-glass" %}
+  <label for="tagFilterInput" class="screen-reader-text">Filtrar assuntos</label>
+  <input id="tagFilterInput" type="search" class="tag-filter__input" autocomplete="off"
+         spellcheck="false" placeholder="Filtrar assuntos...">
+  <button type="button" class="tag-filter__clear" data-tag-clear hidden>
+    {% include icon.html name="xmark" %} Ver todas
+  </button>
+</div>
+<p class="tag-filter__status" data-tag-status role="status" aria-live="polite"></p>
+
+<nav class="tag-cloud" aria-label="Assuntos">
+  <div class="tag-cloud__group" data-tag-group>
+    <p class="tag-cloud__label">Principais</p>
+    <div class="tag-cloud__chips">
+      {%- for tag_item in tags_sorted %}
+      {%- if tag_item[1].size >= main_min %}
+      <a class="tag-chip tag-chip--main" href="#{{ tag_item[0] | slugify }}" data-tag="{{ tag_item[0] | slugify }}">
+        {{ tag_item[0] }}<span class="tag-cloud__count">{{ tag_item[1].size }}</span>
+      </a>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="tag-cloud__group" data-tag-group>
+    <p class="tag-cloud__label">Outros assuntos</p>
+    <div class="tag-cloud__chips">
+      {%- for tag_item in tags_sorted %}
+      {%- if tag_item[1].size < main_min %}
+      <a class="tag-chip" href="#{{ tag_item[0] | slugify }}" data-tag="{{ tag_item[0] | slugify }}">
+        {{ tag_item[0] }}<span class="tag-cloud__count">{{ tag_item[1].size }}</span>
+      </a>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+  </div>
+</nav>
+
+<div class="tag-selected" data-tag-selected hidden>
+  <p class="tag-selected__text" data-tag-selected-text role="status" aria-live="polite"></p>
+  <button type="button" class="tag-filter__clear" data-tag-clear>
+    {% include icon.html name="xmark" %} Ver todas
+  </button>
 </div>
 
-{%- for tag in tags_list %}
-<section class="tag-group">
-  <h2 class="tag-group__title" id="{{ tag | slugify }}">
+{%- for tag_item in tags_sorted %}
+{%- assign tag_slug = tag_item[0] | slugify %}
+<section class="tag-group" id="{{ tag_slug }}" data-tag-section="{{ tag_slug }}" data-tag-name="{{ tag_item[0] }}">
+  <h2 class="tag-group__title">
     {% include icon.html name="tag" %}
-    {{ tag }}
-    <span class="tag-group__count">({{ site.tags[tag].size }})</span>
+    {{ tag_item[0] }}
+    <span class="tag-group__count">({{ tag_item[1].size }})</span>
   </h2>
-  {%- for post in site.tags[tag] %}
-  <div class="tag-entry">
-    <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
-    <span class="tag-entry__date">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-pt-br.html date = post.date %}</time>
-    </span>
-  </div>
+  {%- for post in tag_item[1] %}
+  {%- assign post_url = post.url | relative_url %}
+  <article class="tag-entry">
+    {% include post-thumb.html post=post class="tag-entry__thumb" width=64 height=48 href=post_url %}
+    <div class="tag-entry__body">
+      <h3 class="tag-entry__title"><a href="{{ post_url }}">{{ post.title | strip_html }}</a></h3>
+      <p class="tag-entry__meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-pt-br.html date = post.date %}</time>
+        <span class="tag-entry__sep" aria-hidden="true">·</span>
+        {% include reading-time.html content=post.content %}
+      </p>
+    </div>
+  </article>
   {%- endfor %}
 </section>
 {%- endfor %}
