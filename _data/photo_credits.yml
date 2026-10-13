@@ -295,3 +295,33 @@
   author_url: "https://www.pexels.com/@freestockpro/"
   source: "Pexels"
   source_url: "https://www.pexels.com/photo/a-hand-blocking-the-dominoes-12969258/"
+"factory-method":
+  author: "Frans van Heerden"
+  author_url: "https://www.pexels.com/@frans-van-heerden-201846/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/factory-production-line-13974251/"
+"strategy-pattern":
+  author: "Nothing Ahead"
+  author_url: "https://www.pexels.com/@ian-panelo/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/wooden-chess-pieces-on-a-chess-board-4576322/"
+"decorator-pattern":
+  author: "Rahib Yaqubov"
+  author_url: "https://www.pexels.com/@rahibyaqubov/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/nesting-dolls-beside-the-glass-window-13242202/"
+"builder-pattern":
+  author: "https://kaboompics.com/"
+  author_url: "https://www.pexels.com/@karola-g/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/photograph-of-wooden-building-blocks-near-a-kid-7269687/"
+"observer-pattern":
+  author: "Matt Barnard"
+  author_url: "https://www.pexels.com/@matt-barnard-21952098/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/man-looking-through-binoculars-15692450/"
+"adapter-pattern":
+  author: "Castorly Stock"
+  author_url: "https://www.pexels.com/@castorlystock/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/black-wall-plugs-3639031/"
