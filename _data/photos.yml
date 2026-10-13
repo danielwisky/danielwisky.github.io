@@ -1,5 +1,10 @@
 # Gerado por scripts/build-photos.mjs — não editar à mão.
 # Mapa slug-do-post -> variantes da foto de capa.
+"adapter-pattern":
+  cover: /assets/img/photos/adapter-pattern.webp
+  card: /assets/img/photos/cards/adapter-pattern.webp
+  thumb: /assets/img/photos/thumbs/adapter-pattern.webp
+  og: /assets/img/photos/og/adapter-pattern.jpg
 "apache-kafka-no-spring-boot":
   cover: /assets/img/photos/apache-kafka-no-spring-boot.webp
   card: /assets/img/photos/cards/apache-kafka-no-spring-boot.webp
@@ -20,6 +25,11 @@
   card: /assets/img/photos/cards/atualizando-dependencias-projeto-maven.webp
   thumb: /assets/img/photos/thumbs/atualizando-dependencias-projeto-maven.webp
   og: /assets/img/photos/og/atualizando-dependencias-projeto-maven.jpg
+"builder-pattern":
+  cover: /assets/img/photos/builder-pattern.webp
+  card: /assets/img/photos/cards/builder-pattern.webp
+  thumb: /assets/img/photos/thumbs/builder-pattern.webp
+  og: /assets/img/photos/og/builder-pattern.jpg
 "bulk-operations-in-mongodb":
   cover: /assets/img/photos/bulk-operations-in-mongodb.webp
   card: /assets/img/photos/cards/bulk-operations-in-mongodb.webp
@@ -105,6 +115,11 @@
   card: /assets/img/photos/cards/cursor-claude-code-ia-no-desenvolvimento.webp
   thumb: /assets/img/photos/thumbs/cursor-claude-code-ia-no-desenvolvimento.webp
   og: /assets/img/photos/og/cursor-claude-code-ia-no-desenvolvimento.jpg
+"decorator-pattern":
+  cover: /assets/img/photos/decorator-pattern.webp
+  card: /assets/img/photos/cards/decorator-pattern.webp
+  thumb: /assets/img/photos/thumbs/decorator-pattern.webp
+  og: /assets/img/photos/og/decorator-pattern.jpg
 "desafio-armadilha":
   cover: /assets/img/photos/desafio-armadilha.webp
   card: /assets/img/photos/cards/desafio-armadilha.webp
@@ -145,6 +160,11 @@
   card: /assets/img/photos/cards/entendendo-busca-binaria.webp
   thumb: /assets/img/photos/thumbs/entendendo-busca-binaria.webp
   og: /assets/img/photos/og/entendendo-busca-binaria.jpg
+"factory-method":
+  cover: /assets/img/photos/factory-method.webp
+  card: /assets/img/photos/cards/factory-method.webp
+  thumb: /assets/img/photos/thumbs/factory-method.webp
+  og: /assets/img/photos/og/factory-method.jpg
 "feature-flags-na-pratica":
   cover: /assets/img/photos/feature-flags-na-pratica.webp
   card: /assets/img/photos/cards/feature-flags-na-pratica.webp
@@ -240,6 +260,11 @@
   card: /assets/img/photos/cards/o-que-mudou-em-cada-versao-do-java.webp
   thumb: /assets/img/photos/thumbs/o-que-mudou-em-cada-versao-do-java.webp
   og: /assets/img/photos/og/o-que-mudou-em-cada-versao-do-java.jpg
+"observer-pattern":
+  cover: /assets/img/photos/observer-pattern.webp
+  card: /assets/img/photos/cards/observer-pattern.webp
+  thumb: /assets/img/photos/thumbs/observer-pattern.webp
+  og: /assets/img/photos/og/observer-pattern.jpg
 "outbox-pattern":
   cover: /assets/img/photos/outbox-pattern.webp
   card: /assets/img/photos/cards/outbox-pattern.webp
@@ -310,6 +335,11 @@
   card: /assets/img/photos/cards/sites-para-aprender-programacao.webp
   thumb: /assets/img/photos/thumbs/sites-para-aprender-programacao.webp
   og: /assets/img/photos/og/sites-para-aprender-programacao.jpg
+"strategy-pattern":
+  cover: /assets/img/photos/strategy-pattern.webp
+  card: /assets/img/photos/cards/strategy-pattern.webp
+  thumb: /assets/img/photos/thumbs/strategy-pattern.webp
+  og: /assets/img/photos/og/strategy-pattern.jpg
 "stream-api-e-funcoes-lambda-no-java8":
   cover: /assets/img/photos/stream-api-e-funcoes-lambda-no-java8.webp
   card: /assets/img/photos/cards/stream-api-e-funcoes-lambda-no-java8.webp
