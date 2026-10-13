@@ -305,6 +305,11 @@
   card: /assets/img/photos/cards/redis-uma-breve-introducao.webp
   thumb: /assets/img/photos/thumbs/redis-uma-breve-introducao.webp
   og: /assets/img/photos/og/redis-uma-breve-introducao.jpg
+"retry-backoff-e-jitter":
+  cover: /assets/img/photos/retry-backoff-e-jitter.webp
+  card: /assets/img/photos/cards/retry-backoff-e-jitter.webp
+  thumb: /assets/img/photos/thumbs/retry-backoff-e-jitter.webp
+  og: /assets/img/photos/og/retry-backoff-e-jitter.jpg
 "riscos-seguranca-aplicacoes-web":
   cover: /assets/img/photos/riscos-seguranca-aplicacoes-web.webp
   card: /assets/img/photos/cards/riscos-seguranca-aplicacoes-web.webp
