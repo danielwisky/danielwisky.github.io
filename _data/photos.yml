@@ -35,6 +35,11 @@
   card: /assets/img/photos/cards/bulk-operations-in-mongodb.webp
   thumb: /assets/img/photos/thumbs/bulk-operations-in-mongodb.webp
   og: /assets/img/photos/og/bulk-operations-in-mongodb.jpg
+"bulkhead-pattern":
+  cover: /assets/img/photos/bulkhead-pattern.webp
+  card: /assets/img/photos/cards/bulkhead-pattern.webp
+  thumb: /assets/img/photos/thumbs/bulkhead-pattern.webp
+  og: /assets/img/photos/og/bulkhead-pattern.jpg
 "circuit-breaker":
   cover: /assets/img/photos/circuit-breaker.webp
   card: /assets/img/photos/cards/circuit-breaker.webp
