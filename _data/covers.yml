@@ -14,6 +14,11 @@
   card: /assets/img/covers/arquitetura.svg
   thumb: /assets/img/covers/thumbs/arquitetura.svg
   og: /assets/img/covers/og/arquitetura.jpg
+"Banco de Dados":
+  cover: /assets/img/covers/banco-de-dados.svg
+  card: /assets/img/covers/banco-de-dados.svg
+  thumb: /assets/img/covers/thumbs/banco-de-dados.svg
+  og: /assets/img/covers/og/banco-de-dados.jpg
 "Busca Binária":
   cover: /assets/img/covers/busca-binaria.svg
   card: /assets/img/covers/busca-binaria.svg

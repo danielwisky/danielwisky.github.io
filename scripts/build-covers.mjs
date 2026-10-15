@@ -66,6 +66,7 @@ const TAG_ICONS = {
   "impressao-3d": "cubes",
   arquitetura: "cubes",
   terminal: "laptop",
+  "banco-de-dados": "database",
 };
 
 const slugify = (value) =>
@@ -133,6 +134,7 @@ const TAG_HUES = {
   "impressao-3d": 190,
   arquitetura: 80,
   terminal: 305,
+  "banco-de-dados": 222,
 };
 
 // O gradiente sempre gira o matiz para trás (-12°, -20°) enquanto escurece.
