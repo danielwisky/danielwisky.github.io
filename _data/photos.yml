@@ -365,6 +365,11 @@
   card: /assets/img/photos/cards/structured-concurrency-java.webp
   thumb: /assets/img/photos/thumbs/structured-concurrency-java.webp
   og: /assets/img/photos/og/structured-concurrency-java.jpg
+"timeouts-e-propagacao-de-deadline":
+  cover: /assets/img/photos/timeouts-e-propagacao-de-deadline.webp
+  card: /assets/img/photos/cards/timeouts-e-propagacao-de-deadline.webp
+  thumb: /assets/img/photos/thumbs/timeouts-e-propagacao-de-deadline.webp
+  og: /assets/img/photos/og/timeouts-e-propagacao-de-deadline.jpg
 "versionamento-de-api-sem-quebrar-clientes":
   cover: /assets/img/photos/versionamento-de-api-sem-quebrar-clientes.webp
   card: /assets/img/photos/cards/versionamento-de-api-sem-quebrar-clientes.webp
