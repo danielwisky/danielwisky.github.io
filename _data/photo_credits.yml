@@ -345,3 +345,13 @@
   author_url: "https://www.pexels.com/@allaontheloose/"
   source: "Pexels"
   source_url: "https://www.pexels.com/photo/close-up-photo-of-analog-clocks-5563414/"
+"health-checks-liveness-readiness-startup":
+  author: "https://kaboompics.com/"
+  author_url: "https://www.pexels.com/@karola-g/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/medical-stethoscope-with-red-paper-heart-on-white-surface-4386467/"
+"graceful-shutdown":
+  author: "Tara Winstead"
+  author_url: "https://www.pexels.com/@tara-winstead/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/turned-off-light-switch-on-wall-7111170/"
