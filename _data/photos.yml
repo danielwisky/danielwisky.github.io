@@ -185,6 +185,16 @@
   card: /assets/img/photos/cards/gcode-a-linguagem-por-tras-da-impressao-3d.webp
   thumb: /assets/img/photos/thumbs/gcode-a-linguagem-por-tras-da-impressao-3d.webp
   og: /assets/img/photos/og/gcode-a-linguagem-por-tras-da-impressao-3d.jpg
+"graceful-shutdown":
+  cover: /assets/img/photos/graceful-shutdown.webp
+  card: /assets/img/photos/cards/graceful-shutdown.webp
+  thumb: /assets/img/photos/thumbs/graceful-shutdown.webp
+  og: /assets/img/photos/og/graceful-shutdown.jpg
+"health-checks-liveness-readiness-startup":
+  cover: /assets/img/photos/health-checks-liveness-readiness-startup.webp
+  card: /assets/img/photos/cards/health-checks-liveness-readiness-startup.webp
+  thumb: /assets/img/photos/thumbs/health-checks-liveness-readiness-startup.webp
+  og: /assets/img/photos/og/health-checks-liveness-readiness-startup.jpg
 "html5-web-storage":
   cover: /assets/img/photos/html5-web-storage.webp
   card: /assets/img/photos/cards/html5-web-storage.webp
