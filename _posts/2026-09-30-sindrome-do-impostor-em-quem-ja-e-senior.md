@@ -29,15 +29,15 @@ Alguns sintomas comuns em quem carrega essa sensação, mesmo depois de anos de 
 - Evitar pedir revisão de código ou opinião de arquitetura por medo de a resposta expor uma lacuna.
 - Sentir desconforto ao ser chamado de "referência" ou "especialista" em algo, mesmo quando isso é objetivamente verdade pelo histórico de entregas.
 
-Nenhum desses comportamentos é irracional isoladamente. O problema é o acúmulo: eles reforçam um ciclo onde a pessoa trabalha mais, arrisca menos, e ainda assim não sente que a insegurança diminui, porque a régua de comparação sobe junto com o cargo.
+Nenhum desses comportamentos é irracional isoladamente. O problema é o acúmulo: eles reforçam um ciclo em que a pessoa trabalha mais, arrisca menos, e ainda assim não sente que a insegurança diminui, porque a régua de comparação sobe junto com o cargo.
 
 ## O que ajuda, na prática
 
 Não existe atalho que faça a sensação desaparecer de vez, mas algumas mudanças de hábito reduzem o peso dela no dia a dia:
 
-1. **Separar competência de onisciência.** Ninguém sênior sabe tudo. O que diferencia é saber onde procurar, quem perguntar e como validar uma hipótese rápido. Medir-se pela primeira métrica é uma régua errada desde o início.
+1. **Separar competência de onisciência.** Ninguém sênior sabe tudo. O que diferencia é saber onde procurar, quem perguntar e como validar uma hipótese rápido. Medir-se por saber tudo é um critério errado desde o início.
 2. **Falar sobre isso em voz alta.** Boa parte do peso vem da suposição silenciosa de que só você sente isso. Uma conversa franca com outro sênior costuma revelar que a mesma insegurança está do outro lado da mesa.
 3. **Guardar evidência concreta do próprio trabalho.** A memória tende a reter o erro recente e esquecer a entrega sólida de seis meses atrás. Ter um registro real (decisões técnicas que deram certo, problemas resolvidos, mentorias que ajudaram alguém) serve de contrapeso quando a autoavaliação distorce.
 4. **Tratar pedir ajuda como parte do trabalho, não como exceção.** Pedir uma segunda opinião não é admitir fraqueza, é reduzir risco, exatamente como se espera de qualquer decisão técnica madura.
 
-A síndrome do impostor em quem já é sênior não é sinal de que a pessoa está no lugar errado. Na maioria das vezes é sinal de que ela está calibrando a própria régua pela expectativa alheia, em vez de pelo histórico real do próprio trabalho. Reconhecer isso não resolve o sentimento da noite pra o dia, mas tira dele o poder de decidir o que a pessoa aceita ou recusa fazer.
+A síndrome do impostor em quem já é sênior não é sinal de que a pessoa está no lugar errado. Na maioria das vezes é sinal de que ela está calibrando a própria régua pela expectativa alheia, em vez de pelo histórico real do próprio trabalho. Reconhecer isso não resolve o sentimento da noite pro dia, mas tira dele o poder de decidir o que a pessoa aceita ou recusa fazer.

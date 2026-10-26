@@ -5,7 +5,7 @@ subtitle: "Nem todo sistema precisa, mas quando precisa, a diferença é enorme"
 tags: [Arquitetura, Programação]
 ---
 
-A maioria dos sistemas nasce com um único modelo cuidando de tudo: a mesma entidade que recebe uma escrita é a que aparece numa consulta, o mesmo repositório atende os dois lados, e por muito tempo isso funciona bem. O problema aparece quando as necessidades de leitura e escrita começam a divergir de verdade: a escrita precisa de validações rígidas e consistência forte, enquanto a leitura precisa de consultas rápidas, agregadas de várias fontes, otimizadas para telas específicas. Forçar as duas coisas a viverem no mesmo modelo é o que o CQRS propõe resolver.
+A maioria dos sistemas nasce com um único modelo cuidando de tudo: a mesma entidade que recebe uma escrita é a que aparece numa consulta, o mesmo repositório atende os dois lados, e por muito tempo isso funciona bem. O problema aparece quando as necessidades de leitura e escrita começam a divergir de verdade: a escrita precisa de validações rígidas e consistência forte, enquanto a leitura precisa de consultas rápidas, agregadas de várias fontes, otimizadas para telas específicas. Forçar as duas coisas a viverem no mesmo modelo é o problema que o CQRS propõe resolver.
 
 ## A ideia central
 
@@ -71,6 +71,6 @@ Essa separação traz uma consequência que precisa ser explícita para quem usa
 
 ## O preço que o padrão cobra
 
-CQRS não é grátis, e a lista de custos é concreta: dois modelos para manter em vez de um, uma camada de sincronização entre escrita e leitura (seja ela um evento, uma trigger de banco ou um job), e lógica adicional para lidar com a janela de consistência eventual quando os bancos são separados. Um CRUD simples de cadastro, sem divergência real entre o que a escrita precisa e o que a leitura precisa, só ganha complexidade acidental com CQRS, sem ganhar nada em troca.
+CQRS não é grátis, e a lista de custos é concreta: dois modelos para manter em vez de um, uma camada de sincronização entre escrita e leitura (seja ela um evento, uma trigger de banco ou um job), e lógica adicional para lidar com a janela de consistência eventual quando os bancos são separados. Um CRUD simples de cadastro, sem divergência real entre o que a escrita precisa e o que a leitura precisa, só ganha complexidade acidental com CQRS, sem nada em troca.
 
-A régua prática para decidir é observar onde a dor já apareceu. Se o modelo de escrita está inchado de métodos de consulta que não têm nada a ver com as regras de negócio que ele deveria proteger, ou se a performance de leitura está sendo sacrificada para manter a estrutura rígida que a escrita exige, esses são sinais concretos de que separar os dois lados resolve um problema real, não hipotético. Fora desses sinais, um único modelo bem modelado ainda é a opção mais simples e mais fácil de manter.
+Na prática, o melhor critério para decidir é observar onde a dor já apareceu. Se o modelo de escrita está inchado de métodos de consulta que não têm nada a ver com as regras de negócio que ele deveria proteger, ou se a performance de leitura está sendo sacrificada para manter a estrutura rígida que a escrita exige, esses são sinais concretos de que separar os dois lados resolve um problema real, não hipotético. Fora desses sinais, um único modelo bem desenhado ainda é a opção mais simples e mais fácil de manter.

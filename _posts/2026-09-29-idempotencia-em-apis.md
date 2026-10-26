@@ -9,7 +9,7 @@ Todo sistema distribuído eventualmente perde uma resposta. O cliente manda uma 
 
 ## O que idempotência significa, formalmente
 
-Uma operação é idempotente quando executá-la uma vez ou várias vezes, com os mesmos dados de entrada, produz o mesmo resultado no sistema. Isso não quer dizer que a resposta HTTP é sempre igual, quer dizer que o efeito colateral no servidor acontece só uma vez.
+Uma operação é idempotente quando executá-la uma vez ou várias vezes, com os mesmos dados de entrada, produz o mesmo resultado no sistema. Isso não quer dizer que a resposta HTTP seja sempre igual, quer dizer que o efeito colateral no servidor acontece só uma vez.
 
 O próprio HTTP já embute essa ideia nos verbos:
 
@@ -49,7 +49,7 @@ public ResponseEntity<Pagamento> criar(String idempotencyKey, PagamentoRequest r
 }
 ```
 
-O detalhe que costuma passar despercebido é o ponto 2: salvar o resultado precisa estar na mesma transação que a operação de negócio, ou o sistema fica vulnerável a uma janela de corrida. Duas requisições com a mesma chave, chegando quase ao mesmo tempo, podem passar pela checagem do passo 1 antes de qualquer uma delas ter salvo o registro, e as duas acabam processando. Resolver isso exige uma constraint de unicidade no banco sobre a chave de idempotência, fazendo a segunda escrita falhar por violação de índice único em vez de depender só da checagem lógica.
+O detalhe que costuma passar despercebido é o ponto 2: salvar o resultado precisa estar na mesma transação que a operação de negócio, ou o sistema fica vulnerável a uma janela de corrida. Duas requisições com a mesma chave, chegando quase ao mesmo tempo, podem passar pela checagem do passo 1 antes de qualquer uma delas ter salvo o registro, e as duas acabam processando. Resolver isso exige uma constraint de unicidade no banco sobre a chave de idempotência, que faz a segunda escrita falhar por violação de índice único em vez de depender só da checagem lógica.
 
 ## Onde guardar a chave e por quanto tempo
 
@@ -59,10 +59,10 @@ Vale reforçar que a chave de idempotência representa uma tentativa de operaç�
 
 ## Idempotência não é só sobre APIs HTTP
 
-O mesmo problema aparece em consumidores de fila. Kafka, SQS e RabbitMQ garantem entrega "at least once" na configuração mais comum, o que significa que a mesma mensagem pode chegar duas vezes ao consumidor, seja por reprocessamento após falha de commit do offset, seja por retry do próprio broker. Um consumidor que debita saldo, envia notificação ou insere um registro sem checar duplicidade tem exatamente o mesmo risco de um endpoint `POST` sem chave de idempotência, só que a causa muda: não é o cliente que reenvia, é a infraestrutura de mensageria.
+O mesmo problema aparece em consumidores de fila. Kafka, SQS e RabbitMQ garantem entrega "at least once" na configuração mais comum, o que significa que a mesma mensagem pode chegar duas vezes ao consumidor, seja por reprocessamento após falha de commit do offset, seja por retry do próprio broker. Um consumidor que debita saldo, envia notificação ou insere um registro sem checar duplicidade tem exatamente o mesmo risco de um endpoint `POST` sem chave de idempotência. Só muda a causa: não é o cliente que reenvia, é a infraestrutura de mensageria.
 
 A solução segue o mesmo princípio: usar um identificador da mensagem (o próprio `messageId`, ou um campo de negócio que identifique a operação de forma única) e checar antes de aplicar o efeito colateral, guardando o registro de processamento na mesma transação que grava o resultado.
 
 ## Quando vale o esforço
 
-Nem toda operação precisa desse cuidado. Um `GET` que lista pedidos não tem efeito colateral, não corre risco nenhum. A régua prática é perguntar: essa operação move dinheiro, cria um recurso que custa caro desfazer, ou dispara algo irreversível como um e-mail ou uma notificação push? Se a resposta for sim, a chave de idempotência não é um exagero de engenharia, é o mínimo pra não acordar de madrugada por causa de um cliente pago duas vezes.
+Nem toda operação precisa desse cuidado. Um `GET` que lista pedidos não tem efeito colateral, então não corre risco nenhum. Na prática, a pergunta é: essa operação move dinheiro, cria um recurso que custa caro desfazer, ou dispara algo irreversível como um e-mail ou uma notificação push? Se a resposta for sim, a chave de idempotência não é um exagero de engenharia, é o mínimo pra não acordar de madrugada por causa de um cliente pago duas vezes.

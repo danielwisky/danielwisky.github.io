@@ -9,7 +9,7 @@ O Java virou uma linguagem de ciclo curto: desde 2017 sai uma versão nova a cad
 
 ## Java 8 (2014): o divisor de águas
 
-Antes do 8, escrever Java em estilo funcional era verboso e cheio de classes anônimas. O 8 trouxe lambdas, a Stream API e os métodos default em interface, e mudou como o dia a dia de quem programa em Java se parece até agora:
+Antes do 8, escrever Java em estilo funcional era verboso e cheio de classes anônimas. O 8 trouxe lambdas, a Stream API e os métodos default em interface, e mudou a cara do dia a dia de quem programa em Java até hoje:
 
 ```java
 List<String> nomes = pessoas.stream()
@@ -45,7 +45,7 @@ Isso deixa o compilador avisar quando um `switch` sobre essas classes não cobre
 
 ## Java 21 (2023): a virada de concorrência
 
-O 21 é outro LTS grande, com duas mudanças que merecem post próprio neste blog: [Virtual Threads](/2026-09-22-virtual-threads-java/), que tornou barato criar uma thread pra cada tarefa bloqueante, e o pattern matching pra `switch`, que deixou desestruturar um record direto no `case`:
+O 21 é outro LTS grande, com duas mudanças que merecem post próprio neste blog: [Virtual Threads](/2026-09-22-virtual-threads-java/), que tornou barato criar uma thread pra cada tarefa bloqueante, e o pattern matching pra `switch`, que permite desestruturar um record direto no `case`:
 
 ```java
 static String describe(Object obj) {
@@ -60,7 +60,7 @@ static String describe(Object obj) {
 
 Também chegaram as *sequenced collections*, que finalmente deram um jeito padrão de pegar o primeiro e o último elemento de uma lista (`getFirst()`, `getLast()`) sem depender do tipo concreto da coleção.
 
-## Java 22 a 25: os passos seguintes
+## Java 22 em diante: os passos seguintes
 
 Nas versões mais recentes, o destaque é a Structured Concurrency, que eu detalhei [num post anterior](/2026-09-23-structured-concurrency-java/): já vai na sétima rodada de preview no Java 27 (JEP 533), dando um jeito de tratar um grupo de tarefas concorrentes como uma unidade só, com cancelamento e propagação de erro previsíveis. Ainda exige a flag `--enable-preview`, mas a forma da API está estável desde a quinta rodada, e o JEP 543 já propõe finalizá-la no Java 28.
 
@@ -70,4 +70,4 @@ O Java 25 também é a versão LTS mais recente, o que significa que é candidat
 
 Pra quem ainda está numa versão antiga, três perguntas ajudam a decidir o próximo passo. Precisa de suporte de longo prazo? Fica nas LTS: 17, 21 ou 25. O código já bate bastante em I/O bloqueante, tipo chamadas de rede ou banco? O salto pro 21 compensa só pelas virtual threads. O time trabalha com modelagem de domínio rica, muitos tipos de dados e validação de casos? Records e pattern matching, do 17 e do 21, tendem a simplificar bastante esse tipo de código.
 
-Migrar de versão em versão LTS costuma ser mais simples do que parece: a maior parte das mudanças são aditivas, não removem API antiga. O trabalho real costuma estar em atualizar dependências que travam numa versão específica do bytecode, não na linguagem em si.
+Migrar de uma LTS pra outra costuma ser mais simples do que parece: a maior parte das mudanças são aditivas, não removem API antiga. O trabalho real geralmente está em atualizar dependências que travam numa versão específica do bytecode, não na linguagem em si.

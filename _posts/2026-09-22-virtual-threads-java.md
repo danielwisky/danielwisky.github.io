@@ -15,7 +15,7 @@ Foi esse limite que empurrou parte do ecossistema Java para programação reativ
 
 ## O que muda na prática
 
-Uma virtual thread ainda é uma `Thread` do ponto de vista da API, mesma classe, mesmos métodos. A diferença é que ela não ocupa uma thread de sistema operacional o tempo todo. A JVM mantém um número pequeno de *carrier threads* reais e vai montando virtual threads sobre elas só enquanto existe trabalho de CPU pra fazer. Quando uma virtual thread bloqueia esperando I/O, a JVM a desmonta da carrier thread, libera essa carrier thread pra outra tarefa, e retoma a original quando a resposta chega.
+Uma virtual thread ainda é uma `Thread` do ponto de vista da API: mesma classe, mesmos métodos. A diferença é que ela não ocupa uma thread de sistema operacional o tempo todo. A JVM mantém um número pequeno de *carrier threads* reais e vai montando virtual threads sobre elas só enquanto existe trabalho de CPU pra fazer. Quando uma virtual thread bloqueia esperando I/O, a JVM a desmonta da carrier thread, que fica livre pra outra tarefa, e retoma a original quando a resposta chega.
 
 O resultado é que dá pra ter centenas de milhares de virtual threads vivas ao mesmo tempo, gastando muito menos memória que o mesmo número de threads de plataforma. E o código continua sequencial e bloqueante, do jeito que sempre se escreveu Java. Sem callback, sem operador encadeado. Bibliotecas de I/O já existentes, como JDBC ou `HttpClient`, se beneficiam automaticamente, sem precisar reescrever nada.
 

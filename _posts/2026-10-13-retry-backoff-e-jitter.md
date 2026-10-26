@@ -7,7 +7,7 @@ tags: [Arquitetura, APIs]
 
 Um banco de dados fica indisponível por cinco segundos durante um failover. Os vinte serviços que dependem dele começam a receber erro, e cada um faz o que foi programado para fazer: tentar de novo. Imediatamente. Quando o banco volta, ele não recebe a carga normal, recebe a carga normal mais todas as tentativas acumuladas nos últimos segundos, todas chegando no mesmo instante. O banco, que acabou de se recuperar, cai de novo. E o ciclo se repete até alguém desligar alguma coisa na mão.
 
-Retry é uma das ferramentas mais úteis para lidar com falhas passageiras, e também uma das mais fáceis de usar errado. A diferença entre as duas coisas está quase toda em três perguntas: o que retentar, quanto esperar entre as tentativas, e quando parar.
+Retry é uma das ferramentas mais úteis para lidar com falhas passageiras, e também uma das mais fáceis de usar errado. A diferença entre usar bem e usar mal está quase toda em três perguntas: o que retentar, quanto esperar entre as tentativas, e quando parar.
 
 ## Nem todo erro merece um retry
 
@@ -62,7 +62,7 @@ A regra prática é concentrar o retry numa camada só, geralmente a mais próxi
 
 ## Retry e circuit breaker trabalham juntos
 
-Retry é a ferramenta certa para falhas curtas e esporádicas. Para falhas prolongadas, ele só prolonga o sofrimento: cada requisição gasta todas as suas tentativas e esperas antes de falhar, segurando threads e conexões nesse meio tempo. É por isso que retry quase sempre aparece acompanhado de um circuit breaker por fora, que percebe quando a dependência está caída de verdade e corta as chamadas antes mesmo do primeiro retry começar.
+Retry é a ferramenta certa para falhas curtas e esporádicas. Para falhas prolongadas, ele só prolonga o sofrimento: cada requisição gasta todas as suas tentativas e esperas antes de falhar, segurando threads e conexões nesse meio tempo. É por isso que retry quase sempre aparece acompanhado de um [circuit breaker](/2026-10-09-circuit-breaker/), que percebe quando a dependência está caída de verdade e passa a recusar as chamadas na hora. Com o retry configurado para não retentar essa recusa, as tentativas param assim que o circuito abre.
 
 Também vale lembrar que o tempo total gasto com retries precisa caber no timeout de quem chamou. Quatro tentativas, somando o timeout de cada uma às esperas do backoff, podem facilmente passar de alguns segundos, e se o cliente do seu serviço desiste depois de dois, todo esse esforço é trabalho jogado fora que ainda por cima consumiu recursos dos dois lados.
 

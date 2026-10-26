@@ -43,9 +43,9 @@ public boolean isEnabled(String flag, Usuario usuario) {
 }
 ```
 
-Começar em 1% dos usuários, observar métricas de erro e latência por algumas horas, subir para 10%, depois 50%, depois 100%, dá ao time uma janela pra perceber um problema com um raio de impacto pequeno, em vez de descobrir o mesmo problema afetando toda a base de usuários de uma vez. Se alguma métrica piorar no meio do caminho, o rollout volta para 0% num ajuste de configuração, sem precisar de um novo deploy nem de um revert do código.
+Começar em 1% dos usuários, observar métricas de erro e latência por algumas horas, subir para 10%, depois 50%, depois 100%: esse caminho dá ao time uma janela pra perceber um problema com um raio de impacto pequeno, em vez de descobrir o mesmo problema afetando toda a base de usuários de uma vez. Se alguma métrica piorar no meio do caminho, o rollout volta para 0% num ajuste de configuração, sem precisar de um novo deploy nem de um revert do código.
 
-## O custo que ninguém fala
+## O custo de que ninguém fala
 
 Feature flags não são de graça. Cada flag ativa é um branch a mais no código, e dois branches ativos ao mesmo tempo significam dois caminhos de código para testar, revisar e entender. Um serviço com dezenas de flags acumuladas ao longo do tempo, muitas delas já decididas e nunca removidas, vira um emaranhado de condicionais que ninguém tem certeza se ainda importam. A disciplina que evita isso é simples de enunciar e difícil de manter: toda release flag nasce com um plano de remoção, e revisar flags antigas deveria fazer parte da rotina do time, não ficar pra trás como débito técnico permanente.
 
@@ -53,4 +53,4 @@ Vale notar também o lugar onde a decisão é avaliada. Fazer essa checagem espa
 
 ## Quando vale introduzir
 
-Para um time pequeno fazendo poucos deploys por semana, feature flags podem ser um exagero de engenharia. Elas começam a valer a pena quando o deploy é frequente, quando mudanças arriscadas precisam de um plano de reversão mais rápido que um novo deploy, ou quando faz sentido testar uma funcionalidade com uma fração dos usuários antes de um lançamento completo. A pergunta prática é se o time já sentiu a dor de um deploy grande demais pra reverter com segurança. Se já sentiu, feature flags são uma das formas mais diretas de nunca mais passar por isso.
+Para um time pequeno fazendo poucos deploys por semana, feature flags podem ser um exagero de engenharia. Elas começam a valer a pena quando o deploy é frequente, quando mudanças arriscadas precisam de um plano de reversão mais rápido que um novo deploy, ou quando faz sentido testar uma funcionalidade com uma fração dos usuários antes de um lançamento completo. A pergunta prática é se o time já sentiu a dor de um deploy grande demais pra reverter com segurança. Se já sentiu, feature flags são uma das formas mais diretas de evitar que isso se repita.
