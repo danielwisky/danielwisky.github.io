@@ -53,7 +53,7 @@ Supplier<Pagamento> decorado = CircuitBreaker
     .decorateSupplier(breaker, () -> pagamentoClient.processar(request));
 ```
 
-Com o circuito aberto, chamadas falham rápido, o que dá tempo para a dependência se recuperar sem o peso adicional de um volume de tentativas que ela não tem capacidade de atender. Um detalhe que merece atenção é a ordem ao combinar com retry: o circuit breaker precisa envolver o retry, nunca o contrário, porque um retry por dentro do circuit breaker multiplica tentativas justamente sobre a dependência que já está sofrendo, em vez de aliviar a carga sobre ela. Um fallback, como um valor em cache ou uma resposta degradada, também costuma ser mais útil do que simplesmente devolver erro, desde que exista uma alternativa de verdade para a operação.
+Com o circuito aberto, chamadas falham rápido, o que dá tempo para a dependência se recuperar sem o peso adicional de um volume de tentativas que ela não tem capacidade de atender. Um detalhe que merece atenção é a combinação com retry: o mais comum é deixar o retry por fora, com cada tentativa passando pelo circuit breaker, e configurá-lo para não retentar quando o circuito recusa a chamada. Assim, as tentativas param assim que o circuito abre, em vez de continuar insistindo sobre a dependência que já está sofrendo. Um fallback, como um valor em cache ou uma resposta degradada, também costuma ser mais útil do que simplesmente devolver erro, desde que exista uma alternativa de verdade para a operação.
 
 ## Como as três técnicas se complementam
 

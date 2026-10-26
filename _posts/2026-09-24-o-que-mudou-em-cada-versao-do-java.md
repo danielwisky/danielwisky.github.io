@@ -60,7 +60,7 @@ static String describe(Object obj) {
 
 Também chegaram as *sequenced collections*, que finalmente deram um jeito padrão de pegar o primeiro e o último elemento de uma lista (`getFirst()`, `getLast()`) sem depender do tipo concreto da coleção.
 
-## Java 22 a 25: os passos seguintes
+## Java 22 em diante: os passos seguintes
 
 Nas versões mais recentes, o destaque é a Structured Concurrency, que eu detalhei [num post anterior](/2026-09-23-structured-concurrency-java/): já vai na sétima rodada de preview no Java 27 (JEP 533), dando um jeito de tratar um grupo de tarefas concorrentes como uma unidade só, com cancelamento e propagação de erro previsíveis. Ainda exige a flag `--enable-preview`, mas a forma da API está estável desde a quinta rodada, e o JEP 543 já propõe finalizá-la no Java 28.
 

@@ -43,7 +43,7 @@ Supplier<Pagamento> decorado = CircuitBreaker
     .decorateSupplier(breaker, () -> pagamentoClient.processar(request));
 ```
 
-Nessa configuração, o circuito abre quando 50% das últimas 20 chamadas falharem, espera 30 segundos antes de testar de novo, e nesse teste permite até 5 chamadas para decidir se fecha ou reabre. Esses números são o ajuste fino do padrão, e errar neles tem efeitos bem diferentes: uma janela pequena demais abre o circuito por causa de uma falha pontual e isolada; um limiar baixo demais faz o mesmo; um tempo de espera curto demais testa a dependência antes dela ter chance real de se recuperar.
+Nessa configuração, o circuito abre quando 50% das últimas 20 chamadas falharem, espera 30 segundos antes de testar de novo, e nesse teste permite até 5 chamadas para decidir se fecha ou reabre. Esses números são o ajuste fino do padrão, e errar neles tem consequências concretas: uma janela pequena demais abre o circuito por causa de uma falha pontual e isolada; um limiar baixo demais faz o mesmo; um tempo de espera curto demais testa a dependência antes dela ter chance real de se recuperar.
 
 ## O que fazer quando o circuito está aberto
 
@@ -62,23 +62,30 @@ Pagamento resultado = Try.ofSupplier(comFallback)
 
 Um valor em cache, uma resposta degradada, ou até uma mensagem clara de "serviço temporariamente indisponível, tente novamente em instantes" são formas de o sistema continuar útil mesmo com uma dependência fora do ar. Nem toda operação tem um fallback razoável, mas quando existe, vale muito mais do que simplesmente propagar o erro.
 
-## A ordem importa: circuit breaker por fora, retry por dentro
+## A ordem importa: retry por fora, circuit breaker por dentro
 
-Um erro comum ao combinar circuit breaker com retry é inverter a ordem das camadas. Se o retry envolve o circuit breaker, cada tentativa de retry conta como uma nova chamada para a métrica de falha, e o comportamento fica previsível. Mas se o circuit breaker envolve o retry, uma única chamada de negócio pode gerar três ou quatro tentativas reais contra uma dependência que já está com taxa de falha alta, exatamente a carga adicional que o circuit breaker deveria evitar.
+Ao combinar circuit breaker com retry, a ordem das camadas muda o que o circuit breaker enxerga. Se ele fica por fora, envolvendo o retry, só vê o resultado final de cada chamada de negócio: três tentativas que falharam contam como uma falha só. Enquanto o circuito está fechado, cada chamada pode gerar três ou quatro tentativas reais contra uma dependência que já está com taxa de falha alta, e o circuito demora mais para abrir justamente quando essa carga extra mais atrapalha.
+
+Com o retry por fora, cada tentativa passa pelo circuit breaker e entra na métrica de falha, então o circuito percebe o problema mais cedo. Essa é também a ordem padrão que o Resilience4j aplica quando os dois são usados com anotações no Spring Boot.
 
 ```java
-Supplier<Pagamento> comRetry = Retry.decorateSupplier(
-    retry,
+RetryConfig retryConfig = RetryConfig.custom()
+    .maxAttempts(3)
+    .ignoreExceptions(CallNotPermittedException.class)
+    .build();
+
+Supplier<Pagamento> comBreaker = CircuitBreaker.decorateSupplier(
+    breaker,
     () -> pagamentoClient.processar(request)
 );
 
-Supplier<Pagamento> protegido = CircuitBreaker.decorateSupplier(
-    breaker,
-    comRetry
+Supplier<Pagamento> protegido = Retry.decorateSupplier(
+    Retry.of("pagamentos", retryConfig),
+    comBreaker
 );
 ```
 
-Aqui o circuit breaker fica por fora, decidindo se vale a pena tentar a chamada (incluindo seus retries) antes de sequer começar. Com o circuito aberto, nenhum retry chega a acontecer, porque a chamada inteira falha na primeira verificação.
+O detalhe que faz essa composição funcionar é o `ignoreExceptions`. Com o circuito aberto, a chamada falha na hora com `CallNotPermittedException`, sem chegar na dependência. Tentar de novo nesse caso só gastaria tempo de backoff sem nenhuma chance de sucesso, então o retry desiste assim que o circuit breaker recusa a chamada.
 
 ## Circuit breaker não é rate limiting nem bulkhead
 
@@ -88,4 +95,4 @@ Os três costumam aparecer juntos num serviço maduro, cada um resolvendo uma fa
 
 ## Quando vale a pena
 
-Colocar um circuit breaker em toda chamada a qualquer dependência é exagero: para operações internas, rápidas e confiáveis, o overhead de monitorar estado some no ruído. O padrão compensa justamente nas chamadas que cruzam a fronteira do seu processo para um sistema externo (outro serviço, uma API de terceiro, um gateway de pagamento) onde a indisponibilidade é possível e previsível o bastante para merecer uma estratégia explícita. Se o seu sistema já sofreu uma indisponibilidade porque uma dependência externa ficou lenta ou caiu, e o sintoma se espalhou para serviços que não tinham nada a ver com o problema original, essa é a dependência que deveria estar atrás de um circuit breaker.
+Colocar um circuit breaker em toda chamada a qualquer dependência é exagero: para operações internas, rápidas e confiáveis, ele só acrescenta configuração e estado para acompanhar, sem proteger contra uma falha que realisticamente vá acontecer. O padrão compensa justamente nas chamadas que cruzam a fronteira do seu processo para um sistema externo (outro serviço, uma API de terceiro, um gateway de pagamento) onde a indisponibilidade é possível e previsível o bastante para merecer uma estratégia explícita. Se o seu sistema já sofreu uma indisponibilidade porque uma dependência externa ficou lenta ou caiu, e o sintoma se espalhou para serviços que não tinham nada a ver com o problema original, essa é a dependência que deveria estar atrás de um circuit breaker.

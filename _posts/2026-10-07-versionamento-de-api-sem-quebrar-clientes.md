@@ -7,19 +7,19 @@ tags: [APIs, Arquitetura]
 
 Toda API que vive o suficiente precisa mudar. Um campo novo, uma regra de negócio diferente, um tipo de dado que precisa trocar. O problema nunca é a mudança em si, é que alguém, em algum lugar, já construiu um cliente que depende exatamente do comportamento atual, e nem sempre esse alguém está disponível pra avisar quando algo quebra. Versionamento de API existe pra resolver esse conflito: como o serviço evolui sem forçar todo consumidor a mudar no mesmo instante.
 
-## O que é uma mudança quebradora e o que não é
+## O que é uma mudança incompatível e o que não é
 
 Antes de escolher uma estratégia de versionamento, vale separar os dois tipos de mudança, porque só um deles exige uma versão nova.
 
 Mudanças aditivas não quebram nada: adicionar um campo novo na resposta, aceitar um parâmetro opcional a mais na requisição, criar um endpoint novo. Um cliente bem escrito ignora campos que não conhece e continua funcionando sem perceber a diferença.
 
-Mudanças quebradoras são as que exigem atenção: remover um campo, renomear um campo, mudar o tipo de um valor, tornar obrigatório um parâmetro opcional, mudar o código de status de uma resposta, ou alterar o significado de um campo que já existia. Qualquer uma dessas muda o contrato que o cliente assumiu como verdade, e é exatamente aqui que entra a decisão de versionar.
+Mudanças incompatíveis são as que exigem atenção: remover um campo, renomear um campo, mudar o tipo de um valor, tornar obrigatório um parâmetro opcional, mudar o código de status de uma resposta, ou alterar o significado de um campo que já existia. Qualquer uma dessas muda o contrato que o cliente assumiu como verdade, e é exatamente aqui que entra a decisão de versionar.
 
 ```java
 // aditivo: cliente antigo ignora o campo novo, nada quebra
 public record Pedido(String id, BigDecimal total, String moeda) {}
 
-// quebrador: cliente antigo esperava "total" como String
+// incompatível: cliente antigo esperava "total" como String
 public record Pedido(String id, BigDecimal total) {}
 ```
 

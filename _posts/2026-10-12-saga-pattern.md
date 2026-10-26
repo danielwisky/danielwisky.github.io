@@ -64,7 +64,7 @@ O fluxo inteiro fica visível num único lugar, o que facilita entender o que ac
 
 ## Compensação não é rollback
 
-A diferença mais importante entre uma transação local e uma saga é que compensar uma ação já concluída nem sempre é possível de forma perfeita. Estornar um pagamento é uma compensação direta, mas liberar um produto reservado para outro cliente comprar enquanto isso pode gerar uma segunda falha, dessa vez na compensação. Agendar um envio e depois cancelar pode significar que a transportadora já retirou o pacote fisicamente, e "desfazer" isso é uma operação logística, não uma linha de código.
+A diferença mais importante entre uma transação local e uma saga é que compensar uma ação já concluída nem sempre é possível de forma perfeita. Estornar um pagamento é uma compensação direta, mas até uma compensação simples, como liberar um produto reservado, é uma chamada a outro serviço que também pode falhar, e aí surge uma segunda falha, dessa vez na compensação. Agendar um envio e depois cancelar pode significar que a transportadora já retirou o pacote fisicamente, e "desfazer" isso é uma operação logística, não uma linha de código.
 
 Por isso, toda ação de uma saga que tem efeito observável fora do seu próprio banco (enviar um e-mail de confirmação, debitar um saldo visível ao cliente, disparar uma notificação push) precisa ter sua compensação pensada com o mesmo cuidado que a ação original. Às vezes a compensação simplesmente não anula o efeito, só minimiza o dano: um e-mail de confirmação que já foi enviado não pode ser "desenviado", mas pode ser seguido de um e-mail de cancelamento explicando o que houve.
 
