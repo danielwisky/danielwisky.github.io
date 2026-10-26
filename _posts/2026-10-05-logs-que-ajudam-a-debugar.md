@@ -28,19 +28,19 @@ log.info("pedido.processado",
     kv("duracaoMs", duracao.toMillis()));
 ```
 
-A diferença não é só de conteúdo, é de formato. O segundo exemplo produz campos que uma ferramenta de busca consegue filtrar e agregar (todos os pedidos acima de determinado valor, a duração média de processamento por hora), enquanto o primeiro produz só texto livre que só serve pra ler um por um.
+A diferença não é só de conteúdo, é de formato. O segundo exemplo produz campos que uma ferramenta de busca consegue filtrar e agregar (todos os pedidos acima de determinado valor, a duração média de processamento por hora), enquanto o primeiro produz apenas texto livre, que só serve pra ler linha por linha.
 
 ## Log estruturado não é luxo, é o mínimo pra buscar depois
 
-Escrever `log.info("Pedido " + id + " processado em " + duracao + "ms")` parece equivalente ao exemplo estruturado, mas não é. Esse log vira uma string única no agregador, e encontrar "todos os pedidos que levaram mais de 2 segundos" exige uma regex frágil em cima de texto, quando podia ser um filtro direto no campo `duracaoMs`. Ferramentas como Logback com encoder JSON, ou bibliotecas como structlog em Python, resolvem isso sem custo extra de performance relevante: cada campo vira uma chave pesquisável, e o texto livre vira só a mensagem, não o dado.
+Escrever `log.info("Pedido " + id + " processado em " + duracao + "ms")` parece equivalente ao exemplo estruturado, mas não é. Esse log vira uma string única no agregador, e encontrar "todos os pedidos que levaram mais de 2 segundos" exige uma regex frágil em cima de texto, quando podia ser um filtro direto no campo `duracaoMs`. Ferramentas como Logback com encoder JSON, ou bibliotecas como structlog em Python, resolvem isso sem custo relevante de performance: cada campo vira uma chave pesquisável, e o texto livre vira só a mensagem, não o dado.
 
 O ganho fica mais claro quando o volume de logs cresce. Com cem requisições por dia, dá pra abrir o arquivo e ler na mão. Com cem mil, só sobrevive quem consegue filtrar por campo.
 
 ## Correlação: seguir uma requisição por vários serviços
 
-Numa arquitetura com mais de um serviço, o pedido de um cliente passa pelo gateway, pelo serviço de pedidos, pelo serviço de pagamento e pelo serviço de notificação. Quando algo falha no meio do caminho, a pergunta não é "o que esse serviço logou", é "o que aconteceu com essa requisição específica, do início ao fim, em todos os serviços que ela tocou". Sem um identificador comum passando por essa cadeia, essa pergunta fica impossível de responder: cada serviço loga sua própria visão isolada, sem ligação entre elas.
+Numa arquitetura com mais de um serviço, o pedido de um cliente passa pelo gateway, pelo serviço de pedidos, pelo serviço de pagamento e pelo serviço de notificação. Quando algo falha no meio do caminho, a pergunta deixa de ser "o que esse serviço logou" e passa a ser "o que aconteceu com essa requisição específica, do início ao fim, em todos os serviços que ela tocou". Sem um identificador comum passando por essa cadeia, não há como responder: cada serviço loga sua própria visão isolada, sem ligação entre elas.
 
-A solução é gerar um `traceId` (ou reaproveitar um correlation ID que já venha do cliente) no primeiro ponto de entrada e propagá-lo em todo header de chamada subsequente, incluindo o header em toda mensagem publicada numa fila:
+A solução é gerar um `traceId` (ou reaproveitar um correlation ID que já venha do cliente) no primeiro ponto de entrada e propagá-lo no header de toda chamada seguinte, inclusive nas mensagens publicadas numa fila:
 
 ```http
 X-Trace-Id: 9f1c2e3a-7b4d-4a8e-9c1f-5d6e7a8b9c0d
@@ -50,7 +50,7 @@ Esse valor precisa entrar em todo log emitido durante o processamento daquela re
 
 ## Tracing distribuído: quando logs não bastam
 
-Correlação por ID resolve "o que aconteceu", mas não resolve bem "onde o tempo foi gasto". Se uma requisição levou 800ms, quanto desse tempo foi gasto em cada serviço, em cada chamada de banco, em cada chamada HTTP pra um serviço externo? Logs isolados conseguem responder isso só com muito trabalho manual de juntar timestamps.
+Correlação por ID resolve "o que aconteceu", mas não resolve bem "onde o tempo foi gasto". Se uma requisição levou 800ms, quanto desse tempo foi gasto em cada serviço, em cada chamada de banco, em cada chamada HTTP pra um serviço externo? Logs isolados só conseguem responder isso com muito trabalho manual de juntar timestamps.
 
 É pra esse problema que existe tracing distribuído, com ferramentas como OpenTelemetry virando o padrão de facto do mercado. A ideia central é a mesma da correlação por log, mas estruturada: cada operação vira um "span" com início, fim e um `spanId` próprio, e spans se aninham dentro de um `traceId` comum, formando uma árvore que mostra exatamente onde cada milissegundo foi gasto.
 
@@ -63,7 +63,7 @@ try (Scope scope = span.makeCurrent()) {
 }
 ```
 
-Visualizado numa ferramenta como Jaeger ou Grafana Tempo, isso vira um gráfico de cascata: dá pra ver de olho que 600 dos 800ms totais foram gastos numa chamada a um serviço externo de pagamento, e não no seu próprio código. Essa visibilidade é o que separa "o sistema está lento" de "esse endpoint específico, dessa dependência específica, é o gargalo".
+Visualizado numa ferramenta como Jaeger ou Grafana Tempo, isso vira um gráfico de cascata: dá pra ver de cara que 600 dos 800ms totais foram gastos numa chamada a um serviço externo de pagamento, e não no seu próprio código. Essa visibilidade é o que separa "o sistema está lento" de "esse endpoint específico, dessa dependência específica, é o gargalo".
 
 ## Métricas: o que acontece em agregado, não caso a caso
 

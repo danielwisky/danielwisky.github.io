@@ -9,7 +9,7 @@ Quem programa e nunca chegou perto de uma impressora 3D costuma pensar que o pro
 
 ## O que é G-code, na prática
 
-G-code é um formato de texto plano onde cada linha é um comando. A letra inicial indica o tipo de comando (G para movimento e preparação, M para funções da máquina), seguida de parâmetros. Um trecho típico de início de impressão parece com isto:
+G-code é um formato de texto plano onde cada linha é um comando. A letra inicial indica o tipo de comando (G para movimento e preparação, M para funções da máquina), seguida de parâmetros. Um trecho típico de início de impressão fica mais ou menos assim:
 
 ```gcode
 G28           ; home em todos os eixos
@@ -30,7 +30,7 @@ Ninguém escreve G-code à mão pra imprimir uma peça inteira (embora seja perf
 2. Passar esse modelo por um *slicer*, como Cura, PrusaSlicer ou OrcaSlicer.
 3. O slicer fatia o modelo 3D em centenas ou milhares de camadas horizontais e gera o G-code que descreve o caminho do bico em cada uma delas.
 
-Esse fatiamento é o núcleo do problema computacional: pra cada camada, o slicer precisa calcular o contorno externo, o preenchimento interno (com uma densidade configurável, tipo 20%), possíveis suportes pra partes que ficariam flutuando no ar, e a ordem de impressão que minimiza deslocamentos desnecessários do bico. É um problema de geometria computacional com bastante espaço pra otimização, e é por isso que projetos como o OrcaSlicer, com seu algoritmos próprios de suporte em árvore e calibração automática, geram economia real de tempo e material em relação a um fatiamento ingênuo.
+Esse fatiamento é o núcleo do problema computacional: pra cada camada, o slicer precisa calcular o contorno externo, o preenchimento interno (com uma densidade configurável, tipo 20%), possíveis suportes pra partes que ficariam flutuando no ar, e a ordem de impressão que minimiza deslocamentos desnecessários do bico. É um problema de geometria computacional com bastante espaço pra otimização, e é por isso que projetos como o OrcaSlicer, com seus algoritmos próprios de suporte em árvore e calibração automática, geram economia real de tempo e material em relação a um fatiamento ingênuo.
 
 ## Escrevendo um parser simples de G-code
 
@@ -54,7 +54,7 @@ Comando parseLinha(String linha) {
 }
 ```
 
-Com esse parser, dá pra somar todo valor de `E` (extrusão) do arquivo e estimar o filamento total, ou acumular a distância percorrida em X e Y ponderada pelo `F` (velocidade) de cada linha pra estimar o tempo de impressão, que é basicamente o que os slicers fazem, só que de um jeito bem mais sofisticado, considerando aceleração e desaceleração dos motores.
+Com esse parser, dá pra somar todo valor de `E` (extrusão) do arquivo e estimar o filamento total, ou acumular a distância percorrida em X e Y ponderada pelo `F` (velocidade) de cada linha pra estimar o tempo de impressão. É basicamente o que os slicers fazem, só que de um jeito bem mais sofisticado, considerando aceleração e desaceleração dos motores.
 
 ## Onde a engenharia de software entra de verdade
 

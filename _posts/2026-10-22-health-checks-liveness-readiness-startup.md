@@ -65,7 +65,7 @@ management.endpoint.health.group.liveness.include=livenessState
 management.endpoint.health.group.readiness.include=readinessState,redis
 ```
 
-Aqui a liveness olha apenas o estado interno da aplicação, e a readiness inclui uma dependência que, sem ela, este pod realmente não consegue fazer nada útil. A aplicação também pode mudar o próprio estado de readiness em tempo de execução, publicando um `AvailabilityChangeEvent` com `ReadinessState.REFUSING_TRAFFIC`, o que é útil para tirar o pod do balanceamento durante uma tarefa pesada.
+Aqui a liveness olha apenas o estado interno da aplicação, e a readiness inclui uma dependência sem a qual este pod realmente não consegue fazer nada útil. A aplicação também pode mudar o próprio estado de readiness em tempo de execução, publicando um `AvailabilityChangeEvent` com `ReadinessState.REFUSING_TRAFFIC`, o que é útil para tirar o pod do balanceamento durante uma tarefa pesada.
 
 ## Os detalhes que derrubam
 

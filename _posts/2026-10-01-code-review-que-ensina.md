@@ -5,13 +5,13 @@ subtitle: "A diferença entre revisar código e formar o time que escreve esse c
 tags: [Carreira, Programação]
 ---
 
-Tem um jeito de fazer code review que resolve o problema imediato e não deixa nada pra trás: aponta a linha errada, sugere a correção, aprova depois do ajuste. Funciona, o código sobe melhor do que entrou. Mas existe outro jeito de revisar que, além de melhorar aquele pull request específico, deixa quem escreveu o código um pouco mais capaz de não cometer o mesmo erro no próximo. A diferença entre os dois não está na quantidade de comentários, está na intenção por trás deles.
+Tem um jeito de fazer code review que resolve o problema imediato e não deixa nada além disso: aponta a linha errada, sugere a correção, aprova depois do ajuste. Funciona, o código sobe melhor do que entrou. Mas existe outro jeito de revisar que, além de melhorar aquele pull request específico, deixa quem escreveu o código um pouco mais capaz de não cometer o mesmo erro no próximo. A diferença entre os dois não está na quantidade de comentários, está na intenção por trás deles.
 
 ## O review que só aponta defeito
 
 É fácil reconhecer esse padrão porque ele é o caminho de menor esforço. O revisor olha o diff, identifica o que está errado e escreve a correção direto: "troca esse `for` por um `stream`", "esse método devia ser `private`", "falta tratar o caso de lista vazia aqui". Cada comentário resolve um problema pontual, mas nenhum deles explica por que aquilo importa. Quem recebeu a revisão aplica a mudança, dá um "ok, obrigado" e segue pro próximo PR sem necessariamente entender o raciocínio por trás da sugestão.
 
-O risco desse padrão não é a qualidade do código aprovado, que normalmente é boa. O risco é que ele não escala. Se o mesmo tipo de problema aparece de novo três PRs depois, alguma coisa não foi transferida na primeira correção, só foi resolvida.
+O risco desse padrão não é a qualidade do código aprovado, que normalmente é boa. O risco é que ele não escala. Se o mesmo tipo de problema aparece de novo três PRs depois, é sinal de que a primeira correção resolveu o problema sem transferir o entendimento.
 
 ## O que muda quando o comentário explica o porquê
 
@@ -46,7 +46,7 @@ Review que só aparece pra marcar erro ensina uma lição indesejada: que o sil�
 
 ## Calibrar o tamanho do comentário pelo tamanho do problema
 
-Explicar o porquê de tudo tem um custo, e exagerar nisso tem o efeito oposto do pretendido: o autor para de ler os comentários com atenção porque virou volume demais pra processar num PR só. A régua prática é escalar o esforço do comentário pela importância do problema:
+Explicar o porquê de tudo tem um custo, e exagerar nisso tem o efeito oposto do pretendido: o autor para de ler os comentários com atenção porque virou volume demais pra processar num PR só. Na prática, vale dosar o esforço do comentário pela importância do problema:
 
 1. **Estilo e preferência pessoal** (ordem de imports, nome de variável trivial): comentário curto, ou nem comentar, deixando pra um linter resolver automaticamente.
 2. **Problema de manutenção** (duplicação, método grande demais, acoplamento desnecessário): comentário com o porquê, mas direto, sem virar ensaio.
@@ -54,4 +54,4 @@ Explicar o porquê de tudo tem um custo, e exagerar nisso tem o efeito oposto do
 
 ## O ganho que não aparece no PR aprovado
 
-Um code review que ensina custa mais tempo do revisor na hora, e isso é real: escrever o porquê leva mais tempo do que escrever a correção pronta. O retorno desse investimento não aparece no PR que está sendo revisado agora, aparece nos PRs futuros que chegam com menos desses problemas porque quem escreveu já internalizou a lição. Times que tratam review como ferramenta de formação, não só de controle de qualidade, tendem a gastar menos tempo total em revisão ao longo do tempo, porque o nível médio do código que entra pra revisar sobe. É um investimento que só compensa pra quem está pensando no time em semanas e meses, não só no PR de hoje.
+Um code review que ensina custa mais esforço do revisor na hora, e isso é real: escrever o porquê leva mais tempo do que escrever a correção pronta. O retorno desse investimento não aparece no PR que está sendo revisado agora, aparece nos PRs futuros que chegam com menos desses problemas porque quem escreveu já internalizou a lição. Times que tratam review como ferramenta de formação, não só de controle de qualidade, tendem a gastar menos tempo total em revisão no longo prazo, porque o nível médio do código que entra pra revisão sobe. É um investimento que só compensa pra quem está pensando no time em semanas e meses, não só no PR de hoje.

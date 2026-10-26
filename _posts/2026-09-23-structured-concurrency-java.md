@@ -21,7 +21,7 @@ Usuario usuario = usuarioFuture.get();
 List<Pedido> pedidos = pedidosFuture.get();
 ```
 
-Esse código tem falhas sutis. Se `buscarPedidos` lançar uma exceção, `usuarioFuture.get()` já pode ter retornado com sucesso, e o programa segue com um resultado parcial, ou só trata o erro tarde demais, depois de já ter gasto trabalho com a outra tarefa. Se quem chamou o método for cancelado, por timeout por exemplo, nada avisa `buscarUsuario` e `buscarPedidos` pra pararem. Elas continuam rodando, órfãs, consumindo recursos de graça.
+Esse código tem falhas sutis. Se `buscarPedidos` lançar uma exceção, `usuarioFuture.get()` já pode ter retornado com sucesso, e o programa segue com um resultado parcial, ou só trata o erro tarde demais, depois de já ter gasto trabalho com a outra tarefa. Se quem chamou o método for cancelado, por timeout por exemplo, nada avisa `buscarUsuario` e `buscarPedidos` pra pararem. Elas continuam rodando, órfãs, consumindo recursos à toa.
 
 Esse padrão tem nome: concorrência não estruturada. O ciclo de vida das tarefas filhas não está amarrado ao ciclo de vida da tarefa que as criou.
 
@@ -41,7 +41,7 @@ try (var scope = StructuredTaskScope.open(Joiner.<Usuario, List<Pedido>>awaitAll
 }
 ```
 
-Ao sair do bloco `try`, o escopo garante três coisas. Nenhuma das duas tarefas continua rodando em segundo plano, ambas já terminaram de um jeito ou de outro. Se `buscarPedidos` falhar, a exceção se propaga pra fora do `scope.join()`, e o `Joiner` usado decide o que fazer com a tarefa irmã que ainda estava em andamento. E a árvore de chamadas aparece na stack trace como uma hierarquia real, não como duas tarefas soltas que só coincidem por estarem no mesmo método.
+Ao sair do bloco `try`, o escopo garante três coisas. Nenhuma das duas tarefas continua rodando em segundo plano: ambas já terminaram de um jeito ou de outro. Se `buscarPedidos` falhar, a exceção se propaga pra fora do `scope.join()`, e o `Joiner` usado decide o que fazer com a tarefa irmã que ainda estava em andamento. E a árvore de chamadas aparece na stack trace como uma hierarquia real, não como duas tarefas soltas que só coincidem por estarem no mesmo método.
 
 ## Primeiro que responder, ganha
 
@@ -60,9 +60,9 @@ Assim que uma das duas retorna com sucesso, a outra é cancelada na hora, sem pr
 
 ## Por que isso importa junto com Virtual Threads
 
-Virtual threads tornaram barato disparar uma tarefa concorrente pra cada sub-chamada de I/O. Sem structured concurrency, isso tende a produzir código cheio de tarefas soltas, cada uma com seu próprio tratamento de erro e cancelamento. É exatamente o tipo de bug que só aparece em produção, sob carga, difícil de reproduzir num ambiente controlado. A structured concurrency dá a essas tarefas baratas uma estrutura de ciclo de vida clara, do mesmo jeito que `try-with-resources` já faz com conexões e arquivos.
+Virtual threads tornaram barato disparar uma tarefa concorrente pra cada sub-chamada de I/O. Sem structured concurrency, isso tende a produzir código cheio de tarefas soltas, cada uma com seu próprio tratamento de erro e cancelamento. É desse tipo de código que saem os bugs que só aparecem em produção, sob carga, e são difíceis de reproduzir num ambiente controlado. A structured concurrency dá a essas tarefas baratas uma estrutura de ciclo de vida clara, do mesmo jeito que `try-with-resources` já faz com conexões e arquivos.
 
-A API já está bem perto do fim dessa jornada: a forma dela se mantém estável desde a quinta rodada, e o JEP 543 propõe finalizá-la sem mais mudanças no Java 28.
+A API já está bem perto de sair do preview: a forma dela se mantém estável desde a quinta rodada, e o JEP 543 propõe finalizá-la sem mais mudanças no Java 28.
 
 ## Conclusão
 

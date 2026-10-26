@@ -7,7 +7,7 @@ tags: [Arquitetura, APIs]
 
 Um banco de dados fica indisponível por cinco segundos durante um failover. Os vinte serviços que dependem dele começam a receber erro, e cada um faz o que foi programado para fazer: tentar de novo. Imediatamente. Quando o banco volta, ele não recebe a carga normal, recebe a carga normal mais todas as tentativas acumuladas nos últimos segundos, todas chegando no mesmo instante. O banco, que acabou de se recuperar, cai de novo. E o ciclo se repete até alguém desligar alguma coisa na mão.
 
-Retry é uma das ferramentas mais úteis para lidar com falhas passageiras, e também uma das mais fáceis de usar errado. A diferença entre as duas coisas está quase toda em três perguntas: o que retentar, quanto esperar entre as tentativas, e quando parar.
+Retry é uma das ferramentas mais úteis para lidar com falhas passageiras, e também uma das mais fáceis de usar errado. A diferença entre usar bem e usar mal está quase toda em três perguntas: o que retentar, quanto esperar entre as tentativas, e quando parar.
 
 ## Nem todo erro merece um retry
 

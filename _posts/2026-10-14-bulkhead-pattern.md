@@ -91,4 +91,4 @@ Na hora de combinar, o bulkhead costuma ficar na camada mais interna, logo em vo
 
 ## Quando vale a pena
 
-Nem todo serviço precisa de bulkhead em todas as chamadas. O padrão compensa quando um mesmo serviço depende de várias dependências externas com níveis de criticidade diferentes, principalmente quando alguma delas é secundária e pode ser sacrificada sem prejudicar o fluxo principal. Se você já viu uma funcionalidade que ninguém considerava importante derrubar o sistema inteiro só por ficar lenta, essa é a dependência que deveria estar no seu próprio compartimento.
+Nem todo serviço precisa de bulkhead em todas as chamadas. O padrão compensa quando um mesmo serviço tem várias dependências externas com níveis de criticidade diferentes, principalmente quando alguma delas é secundária e pode ser sacrificada sem prejudicar o fluxo principal. Se você já viu uma funcionalidade que ninguém considerava importante derrubar o sistema inteiro só por ficar lenta, essa é a dependência que deveria estar no seu próprio compartimento.

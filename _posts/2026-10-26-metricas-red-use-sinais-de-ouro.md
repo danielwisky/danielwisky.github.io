@@ -9,7 +9,7 @@ Abrir um dashboard com quarenta gráficos durante um incidente e não saber para
 
 ## O problema do dashboard que mostra tudo
 
-Métrica sem pergunta associada é só um número que sobe e desce. Uso de heap, número de threads, contagem de conexões abertas, quantidade de GCs por minuto: tudo isso pode ser importante, mas nenhuma dessas linhas responde diretamente a pergunta que interessa quando alguém reclama que "o sistema está lento". O usuário não sente heap, sente latência e erro.
+Métrica sem pergunta associada é só um número que sobe e desce. Uso de heap, número de threads, contagem de conexões abertas, quantidade de GCs por minuto: tudo isso pode ser importante, mas nenhuma dessas linhas responde diretamente à pergunta que interessa quando alguém reclama que "o sistema está lento". O usuário não sente heap, sente latência e erro.
 
 Os três métodos a seguir têm em comum a ideia de começar pela pergunta e só depois escolher a métrica. A diferença entre eles está no ponto de vista: um olha para o serviço, outro para os recursos, e o terceiro tenta juntar os dois.
 
@@ -63,10 +63,10 @@ Um detalhe que o livro destaca e que vale repetir: a latência de requisições 
 
 Vale um parêntese sobre duração, porque é onde mais se erra. A média de latência quase nunca é a métrica certa. Se 98 requisições levam 50 ms e duas levam 5 segundos, a média fica em torno de 150 ms, um número que não descreve a experiência de ninguém. O p99 mostra que existe gente esperando segundos.
 
-Outro cuidado: percentis calculados em cada instância não podem ser somados ou tirada a média entre instâncias. Para ter um p99 correto do serviço inteiro, o caminho é exportar histogramas e calcular o percentil na ferramenta de consulta, como o `histogram_quantile` do Prometheus. No Micrometer isso é o `publishPercentileHistogram()`, em vez de `publishPercentiles`.
+Outro cuidado: não dá para somar nem tirar a média de percentis calculados em cada instância. Para ter um p99 correto do serviço inteiro, o caminho é exportar histogramas e calcular o percentil na ferramenta de consulta, como o `histogram_quantile` do Prometheus. No Micrometer isso é o `publishPercentileHistogram()`, em vez de `publishPercentiles`.
 
 ## Qual usar
 
 Na prática, não é uma escolha exclusiva. Uma divisão que funciona bem é usar RED (ou os sinais de ouro) para o dashboard principal de cada serviço e para os alertas, porque são as métricas que refletem o impacto no usuário. Já o USE fica para os recursos internos, consultado quando é preciso investigar a causa.
 
-Alerta em CPU alta, por exemplo, costuma acordar gente à toa: CPU a 90% com latência normal não é problema. Alerta em erro e latência fora do esperado é sobre algo que alguém está sentindo. Começar por poucas métricas, cada uma respondendo a uma pergunta clara, rende muito mais do que um painel completo que ninguém sabe ler às três da manhã.
+Alerta em CPU alta, por exemplo, costuma acordar gente à toa: CPU a 90% com latência normal não é problema. Alerta em erro e latência fora do esperado aponta para algo que alguém está sentindo. Começar por poucas métricas, cada uma respondendo a uma pergunta clara, rende muito mais do que um painel completo que ninguém sabe ler às três da manhã.

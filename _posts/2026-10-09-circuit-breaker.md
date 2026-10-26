@@ -43,11 +43,11 @@ Supplier<Pagamento> decorado = CircuitBreaker
     .decorateSupplier(breaker, () -> pagamentoClient.processar(request));
 ```
 
-Nessa configuração, o circuito abre quando 50% das últimas 20 chamadas falharem, espera 30 segundos antes de testar de novo, e nesse teste permite até 5 chamadas para decidir se fecha ou reabre. Esses três números são o ajuste fino do padrão, e errar neles tem efeitos bem diferentes: uma janela pequena demais abre o circuito por causa de uma falha pontual e isolada; um limiar baixo demais faz o mesmo; um tempo de espera curto demais testa a dependência antes dela ter chance real de se recuperar.
+Nessa configuração, o circuito abre quando 50% das últimas 20 chamadas falharem, espera 30 segundos antes de testar de novo, e nesse teste permite até 5 chamadas para decidir se fecha ou reabre. Esses números são o ajuste fino do padrão, e errar neles tem efeitos bem diferentes: uma janela pequena demais abre o circuito por causa de uma falha pontual e isolada; um limiar baixo demais faz o mesmo; um tempo de espera curto demais testa a dependência antes dela ter chance real de se recuperar.
 
 ## O que fazer quando o circuito está aberto
 
-Devolver erro direto para quem chamou já é uma melhoria enorme sobre deixar a thread presa num timeout, mas na maioria dos casos existe uma alternativa melhor: um fallback.
+Devolver erro direto para quem chamou já é muito melhor do que deixar a thread presa num timeout, mas na maioria dos casos existe uma alternativa melhor: um fallback.
 
 ```java
 Supplier<Pagamento> comFallback = CircuitBreaker.decorateSupplier(

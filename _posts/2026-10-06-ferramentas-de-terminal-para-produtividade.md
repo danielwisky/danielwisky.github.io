@@ -39,11 +39,11 @@ sudo apt install fd-find
 winget install sharkdp.fd
 ```
 
-Ignora `.git` e respeita `.gitignore` por padrão, o que já evita metade das dores de cabeça de um `find` mal configurado rodando dentro de `node_modules`.
+O `fd` ignora `.git` e respeita `.gitignore` por padrão, o que já evita metade das dores de cabeça de um `find` mal configurado rodando dentro de `node_modules`.
 
 ## Busca de conteúdo
 
-`grep` continua funcionando, mas `ripgrep` (o binário se chama `rg`) é mais rápido em repositórios grandes e também ignora `.gitignore` por padrão:
+`grep` continua funcionando, mas `ripgrep` (o binário se chama `rg`) é mais rápido em repositórios grandes e também respeita o `.gitignore` por padrão:
 
 ```bash
 rg "TODO|FIXME" --type java
@@ -62,7 +62,7 @@ O ganho de velocidade importa menos no dia a dia do que o padrão sensato: busca
 
 ## Git sem decorar flags
 
-`git log` e `git diff` cru são legíveis, mas exigem acostumar o olho. `lazygit` dá uma interface de terminal pra operações comuns (stage, commit, rebase interativo, stash, resolução de conflito) sem sair do terminal nem abrir uma GUI separada:
+`git log` e `git diff` crus são legíveis, mas exigem acostumar o olho. `lazygit` dá uma interface de terminal pra operações comuns (stage, commit, rebase interativo, stash, resolução de conflito) sem sair do terminal nem abrir uma GUI separada:
 
 ```bash
 lazygit
@@ -123,4 +123,4 @@ A diferença prática entre os dois: `oh-my-zsh` vale a pena pra quem já vive n
 
 ## Por que isso compensa o tempo de configurar
 
-Nenhuma dessas ferramentas é obrigatória, no sentido de que o trabalho sai do mesmo jeito sem elas. O ganho é marginal por uso e cumulativo ao longo do tempo: menos atrito pra encontrar um arquivo, menos tempo decorando uma flag de `find`, menos troca de contexto pra abrir uma GUI só pra ver um diff. A curva de instalação é baixa (a maioria está disponível via `brew`, `apt` ou `cargo`), e como são apenas substitutos de comandos que já fazem parte do hábito, não exigem aprender um fluxo de trabalho novo, só uma saída melhor pro mesmo comando de sempre.
+Nenhuma dessas ferramentas é obrigatória, no sentido de que o trabalho sai do mesmo jeito sem elas. O ganho é marginal por uso e cumulativo ao longo do tempo: menos atrito pra encontrar um arquivo, menos tempo decorando uma flag de `find`, menos troca de contexto pra abrir uma GUI só pra ver um diff. O custo de instalação é baixo (a maioria está disponível via `brew`, `apt` ou `cargo`), e como são apenas substitutos de comandos que já fazem parte do hábito, não exigem aprender um fluxo de trabalho novo: é o mesmo comando de sempre, com uma saída melhor.
