@@ -15,11 +15,14 @@ Esse blog é onde registro o que vou aprendendo pelo caminho. Às vezes o post n
 {% assign tag_entries = tag_data | split: "|" | sort | reverse %}
 {% assign top_tags = tag_entries | slice: 0, 4 %}
 
-<div class="tag-cloud">
-  {%- for entry in top_tags %}
-  {%- assign tag_name = entry | split: ":" | last %}
-  <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag_name | slugify }}">{{ tag_name }}</a>
-  {%- endfor %}
+<div class="tag-cloud tag-cloud--compact">
+  <div class="tag-cloud__chips">
+    {%- for entry in top_tags %}
+    {%- assign tag_name = entry | split: ":" | last %}
+    {%- assign tag_count = entry | split: ":" | first | minus: 1000 %}
+    <a class="tag-chip tag-chip--main" href="{{ '/tags/' | relative_url }}#{{ tag_name | slugify }}">{{ tag_name }}<span class="tag-cloud__count">{{ tag_count }}</span></a>
+    {%- endfor %}
+  </div>
 </div>
 
 Clique numa tag pra ver os posts sobre o assunto. Se algum te interessa, ou você só quer trocar uma ideia sobre software, [bora conversar]({{ '/contato/' | relative_url }}).

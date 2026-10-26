@@ -271,3 +271,20 @@
     font-size: 14px;
   }
 }
+
+// Nuvem embutida em página com .prose (/sobre)
+.tag-cloud--compact {
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+// .prose a pinta o link de accent e troca o hover por um sublinhado de 1px
+.prose .tag-chip {
+  color: var(--heading);
+  background-image: none;
+
+  &:hover {
+    color: var(--on-accent);
+    background: var(--gradient);
+  }
+}
