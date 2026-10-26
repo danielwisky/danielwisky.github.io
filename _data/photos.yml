@@ -205,6 +205,11 @@
   card: /assets/img/photos/cards/idempotencia-em-apis.webp
   thumb: /assets/img/photos/thumbs/idempotencia-em-apis.webp
   og: /assets/img/photos/og/idempotencia-em-apis.jpg
+"inbox-pattern":
+  cover: /assets/img/photos/inbox-pattern.webp
+  card: /assets/img/photos/cards/inbox-pattern.webp
+  thumb: /assets/img/photos/thumbs/inbox-pattern.webp
+  og: /assets/img/photos/og/inbox-pattern.jpg
 "introducao-ao-apache-kafka":
   cover: /assets/img/photos/introducao-ao-apache-kafka.webp
   card: /assets/img/photos/cards/introducao-ao-apache-kafka.webp
@@ -260,6 +265,11 @@
   card: /assets/img/photos/cards/logs-que-ajudam-a-debugar.webp
   thumb: /assets/img/photos/thumbs/logs-que-ajudam-a-debugar.webp
   og: /assets/img/photos/og/logs-que-ajudam-a-debugar.jpg
+"metricas-red-use-sinais-de-ouro":
+  cover: /assets/img/photos/metricas-red-use-sinais-de-ouro.webp
+  card: /assets/img/photos/cards/metricas-red-use-sinais-de-ouro.webp
+  thumb: /assets/img/photos/thumbs/metricas-red-use-sinais-de-ouro.webp
+  og: /assets/img/photos/og/metricas-red-use-sinais-de-ouro.jpg
 "minhas-imagens-preferidas-docker":
   cover: /assets/img/photos/minhas-imagens-preferidas-docker.webp
   card: /assets/img/photos/cards/minhas-imagens-preferidas-docker.webp
