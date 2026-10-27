@@ -2,7 +2,7 @@
 // /tags page: filter + cloud + grouped listing
 //
 
-// The reset doesn't handle [hidden], and here it lands on elements with display: flex.
+// The reset doesn't enforce [hidden], and display: flex on these elements would override it.
 .tag-filter[hidden],
 .tag-filter__clear[hidden],
 .tag-selected[hidden],
@@ -168,8 +168,8 @@
   font-size: 20px;
   border-bottom: 1px solid var(--border);
 
-  // Coloring via a real gradient (Font Awesome text) doesn't work on SVG, since
-  // background-clip: text only clips text glyphs, not icon paths.
+  // A gradient via background-clip: text doesn't work here: it only clips text
+  // glyphs, not the SVG paths of the sprite icons.
   .icon {
     font-size: 14px;
     color: var(--accent);

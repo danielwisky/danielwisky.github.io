@@ -39,7 +39,7 @@
     const control = field.querySelector(".field__control");
     if (!control) return;
 
-    // Only validates on blur/input after the field has been marked invalid, so
+    // Validates on blur; on input, only once the field is already invalid, so
     // we don't flag an error while the person is still typing.
     control.addEventListener("blur", () => validate(field));
     control.addEventListener("input", () => {
