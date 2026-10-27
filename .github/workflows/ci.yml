@@ -1,15 +1,18 @@
-# Checagem em pull request.
+# Pull request check.
 #
-# O deploy roda só o Jekyll, e os artefatos gerados (os .min.js, as capas das
-# tags, os arquivos em _data/) são commitados. Sem esta checagem, editar
-# assets/js/main.js e esquecer de rodar `npm run build:js` publica o .min.js
-# antigo, em silêncio. O `git diff --exit-code` abaixo é o detector: se o build
-# mudar algum arquivo versionado, é porque o commit está fora de sincronia.
+# The deploy runs only Jekyll, and the generated artifacts (the .min.js files,
+# the tag covers, the files in _data/) are committed. Without this check,
+# editing assets/js/main.js and forgetting to run `npm run build:js` silently
+# publishes the old .min.js. The `git diff --exit-code` below is the detector:
+# if the build changes any versioned file, the commit is out of sync.
 #
-# Ficam de fora do check, de propósito:
-#   build:videos  baixa thumbnails do YouTube, dependeria da rede e seria instável
-#   build:photos  depende de _photos/, que não é versionada; num runner limpo
-#                 ele não gera nada (o script trata a pasta ausente)
+# Left out of the check on purpose:
+#   build:videos  downloads YouTube thumbnails; it would depend on the network
+#                 and be flaky
+#   build:photos  depends on _photos/, which isn't versioned; on a clean runner
+#                 it generates nothing (the script handles the missing folder)
+#   build:icons   downloads the icons from jsDelivr; same network issue as
+#                 build:videos
 name: CI
 
 on:
@@ -29,23 +32,24 @@ jobs:
 
       - run: npm ci
 
-      - name: Regenerar os artefatos determinísticos
+      - name: Regenerate deterministic artifacts
         run: |
           npm run build:js
           npm run build:covers
 
-      - name: Descartar os artefatos que não são reproduzíveis entre sistemas
+      - name: Discard artifacts that aren't reproducible across systems
         run: |
-          # As capas .jpg das tags são rasterizadas do SVG pelo sharp, e o
-          # resultado depende das fontes do sistema: macOS e Linux produzem
-          # bytes diferentes para a mesma entrada. Os .svg, que são geração
-          # pura de string, continuam no check. Os ícones de app, idem.
+          # The tag cover .jpg files are rasterized from SVG by sharp, and the
+          # result depends on the system fonts: macOS and Linux produce
+          # different bytes for the same input. The app icons are rasterized the
+          # same way and are discarded too. The .svg files, which are pure string
+          # generation, stay in the check.
           git checkout -- assets/img/covers/og assets/img/app
 
-      - name: Conferir se os artefatos commitados estão em dia
+      - name: Check that committed artifacts are up to date
         run: |
           if ! git diff --exit-code; then
-            echo "::error::Artefatos fora de sincronia. Rode 'npm run build' e commite o resultado."
+            echo "::error::Artifacts out of sync. Run 'npm run build' and commit the result."
             exit 1
           fi
 
@@ -54,15 +58,15 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Build do Jekyll
+      - name: Build Jekyll site
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      # Só links internos: os externos oscilam (timeout, bloqueio de robô) e
-      # deixariam o PR vermelho por algo fora do repositório. Eles são
-      # checados uma vez por mês pelo links.yml.
-      - name: Conferir links internos
+      # Internal links only: external ones are flaky (timeouts, bot blocking)
+      # and would turn the PR red over something outside the repository. They
+      # are checked once a month by links.yml.
+      - name: Check internal links
         uses: lycheeverse/lychee-action@v2
         with:
           args: --offline --root-dir ${{ github.workspace }}/_site --no-progress _site

@@ -1,6 +1,6 @@
 {%- comment -%}
-O lunr e o índice de busca não vêm mais aqui: o assets/js/search.js carrega os
-dois sob demanda, na primeira vez que o overlay de busca é aberto.
+lunr and the search index no longer load here: assets/js/search.js loads both
+on demand, the first time the search overlay is opened.
 {%- endcomment -%}
 <script defer src="{{ '/assets/js/main.min.js' | relative_url }}?v={{ '/assets/js/main.min.js' | asset_hash }}"></script>
 <script defer src="{{ '/assets/js/search.min.js' | relative_url }}?v={{ '/assets/js/search.min.js' | asset_hash }}"></script>

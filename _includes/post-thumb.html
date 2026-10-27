@@ -1,8 +1,8 @@
 {%- comment -%}
-Capa em miniatura (variant=thumb) com selo de play se o post for vídeo.
-Uso: post, class, width, height. Passe href para virar um link próprio
-(decorativo, ao lado de outro link com o título — ver sidebar.html); sem
-href, vira um span, pensado para ficar dentro de um <a> maior (post-nav.html,
+Thumbnail cover (variant=thumb) with a play badge if the post is a video.
+Usage: post, class, width, height. Pass href to make it its own link
+(decorative, next to another link with the title — see sidebar.html); without
+href, it becomes a span, meant to sit inside a larger <a> (post-nav.html,
 related-posts.html).
 {%- endcomment -%}
 {%- capture is_video %}{% include is-video.html post=include.post %}{% endcapture -%}

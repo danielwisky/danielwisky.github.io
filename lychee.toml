@@ -1,17 +1,17 @@
-# Configuração do lychee, usada pelo ci.yml (links internos) e pelo links.yml
-# (links externos, mensal).
+# lychee configuration, used by ci.yml (internal links) and links.yml
+# (external links, monthly).
 
 max_concurrency = 16
 timeout = 20
 max_retries = 2
 
-# 403 e 429 são, quase sempre, o site bloqueando robô ou limitando taxa, não
-# link quebrado.
+# 403 and 429 almost always mean the site is blocking bots or rate limiting,
+# not a broken link.
 accept = ["200..=299", "403", "429"]
 
 exclude = [
-  # endpoint de POST do formulário de contato: GET responde 405
+  # contact form POST endpoint: GET returns 405
   "^https://formspree\\.io/",
-  # o Pexels responde 404 para robô em páginas de autor que existem
+  # Pexels returns 404 to bots on author pages that do exist
   "^https://www\\.pexels\\.com/@",
 ]

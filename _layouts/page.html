@@ -11,9 +11,9 @@ layout: default
   </header>
 
   {%- comment -%}
-  `plain: true` no front matter desliga o wrapper .prose, para páginas que são
-  UI (listagem de tags, 404) e não texto corrido — senão os estilos de link do
-  corpo do post sobrescrevem os chips e cards.
+  `plain: true` in the front matter turns off the .prose wrapper, for pages that
+  are UI (tag listing, 404) rather than running text — otherwise the post body
+  link styles override the chips and cards.
   {%- endcomment -%}
   <div class="{% if page.plain %}page__body{% else %}prose{% endif %}">
     {{ content }}

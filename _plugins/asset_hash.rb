@@ -1,11 +1,11 @@
-# Cache-busting por conteúdo: gera um hash curto do arquivo (em vez de
-# site.time, que muda a cada build mesmo sem o asset ter mudado, invalidando
-# o cache do navegador à toa a cada deploy).
+# Content-based cache-busting: generates a short hash of the file (instead of
+# site.time, which changes on every build even if the asset hasn't, needlessly
+# invalidating the browser cache on every deploy).
 #
-# Os dois filtros são chamados uma vez por página, mas o conteúdo em disco não
-# muda durante um build, então o resultado é memoizado. Sem isso o sass_hash
-# relia as ~20 partials de _sass a cada página: mais de mil leituras de arquivo
-# num build de 53 páginas.
+# Both filters are called once per page, but the content on disk doesn't
+# change during a build, so the result is memoized. Without this, sass_hash
+# re-read the ~20 _sass partials on every page: over a thousand file reads
+# in a 53-page build.
 require "digest"
 
 module Jekyll
@@ -26,9 +26,9 @@ module Jekyll
       end
     end
 
-    # O style.css é compilado a partir de dezenas de partials em _sass/, então
-    # hashear só o .scss de entrada não detecta mudança nenhuma. Aqui o digest
-    # cobre a entrada mais todas as partials.
+    # style.css is compiled from ~20 partials in _sass/, so hashing
+    # only the entry .scss detects no changes at all. Here the digest
+    # covers the entry plus all the partials.
     def sass_hash(entry)
       AssetHashFilter.cache["sass:#{entry}"] ||= begin
         entry_path = File.join(Dir.pwd, entry.to_s.sub(%r{\A/}, ""))

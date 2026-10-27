@@ -1,6 +1,7 @@
 {%- comment -%}
-relative_url em vez de absolute_url: o scroll infinito faz fetch desse href, e
-uma URL absoluta com host diferente do atual vira requisição cross-origin.
+relative_url instead of absolute_url: infinite scroll fetches this href, and an
+absolute URL with a host different from the current one becomes a cross-origin
+request.
 {%- endcomment -%}
 {% if paginator.next_page %}
 <div class="pagination">
