@@ -1,5 +1,5 @@
 //
-// Card de post no feed
+// Post card in the feed
 //
 
 .article-feed {
@@ -42,10 +42,10 @@
   }
 }
 
-// Selo de play nas capas de post que são videoaula.
+// Play badge on covers of posts that are video lessons.
 //
-// Fica no canto, e não no centro: o centro da capa já é ocupado pelo ícone da
-// tag, e os dois sobrepostos viravam um borrão.
+// It sits in the corner, not the center: the center of the cover is already taken
+// by the tag icon, and the two overlapping turned into a blur.
 .video-icon {
   position: absolute;
   top: 12px;
@@ -64,7 +64,7 @@
   backdrop-filter: blur(3px);
   transition: transform var(--transition);
 
-  // compensa o vazio à esquerda do triângulo do ícone
+  // compensates for the empty space left of the icon's triangle
   i {
     margin-left: 2px;
   }
@@ -75,7 +75,7 @@
   transform: scale(1.12);
 }
 
-// versões menores, na sidebar e na navegação entre posts
+// smaller versions, in the sidebar and in the post navigation
 .mini-post__image .video-icon,
 .post-nav__image .video-icon,
 .search-results__thumb .video-icon {

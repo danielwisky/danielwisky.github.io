@@ -1,5 +1,5 @@
 //
-// Formulários (substitui .form-floating do Bootstrap)
+// Forms (replaces Bootstrap's .form-floating)
 //
 
 .field {
@@ -64,7 +64,7 @@ textarea.field__control {
   color: var(--text-alt);
 }
 
-// Separador "ou" entre o formulário e o contato alternativo.
+// "or" separator between the form and the alternative contact.
 .contact-divider {
   display: flex;
   align-items: center;
@@ -84,13 +84,13 @@ textarea.field__control {
   }
 }
 
-// O botão fica com a mesma largura do form acima, em vez do inline-flex padrão.
+// The button takes the same width as the form above, instead of the default inline-flex.
 .contact-alt {
   display: flex;
   width: 100%;
 }
 
-// Retorno do envio do formulário de contato, preenchido por contact.js.
+// Contact form submission feedback, filled in by contact.js.
 .form-status {
   display: none;
   padding: var(--space-4) var(--space-5);

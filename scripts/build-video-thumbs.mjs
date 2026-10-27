@@ -1,21 +1,21 @@
-// Baixa a thumbnail do YouTube dos posts que são videoaula.
+// Downloads the YouTube thumbnail for posts that are video lessons.
 //
-// Um frame do próprio vídeo diz mais que uma foto de banco de imagens, e é a
-// imagem que a pessoa já vai reconhecer do YouTube.
+// A frame from the video itself says more than a stock photo, and it is the
+// image people will already recognize from YouTube.
 //
-// A thumbnail entra em `_photos/<slug>.jpg`, ou seja, no mesmo lugar onde
-// entrariam as fotos escolhidas à mão: daí em diante quem cuida dela é o
-// scripts/build-photos.mjs, com as mesmas quatro variantes. Não há caminho
-// especial no site para post de vídeo.
+// The thumbnail goes to `_photos/<slug>.jpg`, i.e. the same place hand-picked
+// photos would go: from then on it is handled by scripts/build-photos.mjs,
+// with the same four variants. There is no special path on the site for
+// video posts.
 //
-// Também escreve _data/videos.yml (slug -> id e URL), que o layout do post usa
-// para linkar a capa direto para o vídeo.
+// It also writes _data/videos.yml (slug -> id and URL), which the post layout
+// uses to link the cover straight to the video.
 //
-// Como `_photos/` não é versionada, rodar este script num clone novo devolve
-// as thumbnails sem depender de nada guardado no repositório.
+// Since `_photos/` is not versioned, running this script on a fresh clone
+// brings the thumbnails back without relying on anything stored in the repo.
 //
-//   npm run build:videos            baixa o que falta
-//   npm run build:videos -- --force rebaixa tudo
+//   npm run build:videos            downloads what is missing
+//   npm run build:videos -- --force re-downloads everything
 
 import { readdir, readFile, writeFile, mkdir, access } from "node:fs/promises";
 import path from "node:path";
@@ -24,7 +24,7 @@ const POSTS_DIR = "_posts";
 const OUT_DIR = "_photos";
 const FORCE = process.argv.includes("--force");
 
-// Em ordem de preferência: nem todo vídeo tem maxres, e sd é melhor que hq.
+// In order of preference: not every video has maxres, and sd beats hq.
 const QUALITIES = ["maxresdefault", "sddefault", "hqdefault"];
 
 const exists = async (p) => {
@@ -56,8 +56,8 @@ for (const file of (await readdir(POSTS_DIR)).filter((f) => f.endsWith(".md")).s
   let saved = false;
   for (const quality of QUALITIES) {
     const res = await fetch(`https://img.youtube.com/vi/${id}/${quality}.jpg`);
-    // O YouTube devolve 200 com um placeholder cinza de 120x90 quando a
-    // qualidade pedida não existe; o tamanho denuncia.
+    // YouTube returns 200 with a 120x90 gray placeholder when the requested
+    // quality does not exist; the size gives it away.
     if (!res.ok) continue;
     const buf = Buffer.from(await res.arrayBuffer());
     if (buf.length < 10_000) continue;
@@ -68,7 +68,7 @@ for (const file of (await readdir(POSTS_DIR)).filter((f) => f.endsWith(".md")).s
     break;
   }
 
-  if (!saved) console.warn(`aviso: nenhuma thumbnail utilizável para ${slug} (${id})`);
+  if (!saved) console.warn(`warning: no usable thumbnail for ${slug} (${id})`);
 }
 
 await mkdir("_data", { recursive: true });
@@ -86,4 +86,4 @@ await writeFile(
     "\n"
 );
 
-console.log(`${videos.length} vídeo(s) em _data/videos.yml`);
+console.log(`${videos.length} video(s) in _data/videos.yml`);

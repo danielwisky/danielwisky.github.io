@@ -1,27 +1,27 @@
-// Otimiza as fotos de capa dos posts.
+// Optimizes the posts' cover photos.
 //
-// Fluxo: largue o original em `_photos/<slug-do-post>.jpg` (ou .png/.webp) e
-// rode `npm run build:photos`. O slug é o nome do arquivo do post sem a data,
-// então `_posts/2023-01-16-clean-code-funcoes.md` recebe
-// `_photos/clean-code-funcoes.jpg`. É esse nome que amarra a foto ao post: o
-// mapa em _data/photos.yml é indexado por ele, e _includes/post-cover.html o
-// consulta antes de cair na capa gerada a partir da tag.
+// Flow: drop the original in `_photos/<post-slug>.jpg` (or .png/.webp) and
+// run `npm run build:photos`. The slug is the post filename without the date,
+// so `_posts/2023-01-16-clean-code-funcoes.md` gets
+// `_photos/clean-code-funcoes.jpg`. That name is what ties the photo to the
+// post: the map in _data/photos.yml is keyed by it, and
+// _includes/post-cover.html checks it before falling back to the tag cover.
 //
-// O script é INCREMENTAL: só processa fontes cuja saída ainda não existe (ou
-// está mais velha que o original). Na prática, ao publicar um post novo só a
-// foto dele é processada; as antigas nem são tocadas.
+// The script is INCREMENTAL: it only processes sources whose output does not
+// exist yet (or is older than the original). In practice, publishing a new
+// post processes only its photo; the old ones are not even touched.
 //
-// Isso importa porque `_photos/` não é versionada — os originais são pesados e
-// recuperáveis. Num clone novo a pasta nem existe, e o script precisa ser
-// inofensivo nesse caso.
+// This matters because `_photos/` is not versioned — the originals are heavy
+// and recoverable. On a fresh clone the folder does not even exist, and the
+// script must be harmless in that case.
 //
-//   npm run build:photos             processa o que falta
-//   npm run build:photos -- --force  reprocessa tudo (ao mudar as dimensões)
-//   npm run build:photos -- --prune  remove saídas sem original correspondente
-//                                    (só com o conjunto completo em mãos)
+//   npm run build:photos             processes what is missing
+//   npm run build:photos -- --force  reprocesses everything (when sizes change)
+//   npm run build:photos -- --prune  removes outputs with no matching original
+//                                    (only with the full set at hand)
 //
-// `_photos/` começa com underscore: o Jekyll não publica a pasta, só as
-// versões otimizadas em assets/ vão para o site.
+// `_photos/` starts with an underscore: Jekyll does not publish the folder,
+// only the optimized versions in assets/ go to the site.
 
 import { readdir, readFile, writeFile, mkdir, rm, access, stat } from "node:fs/promises";
 import path from "node:path";
@@ -30,22 +30,22 @@ import sharp from "sharp";
 const SRC_DIR = "_photos";
 const OUT_DIR = "assets/img/photos";
 
-// Nome reservado: `_photos/avatar.*` não é capa de post, é a foto do hero.
-// Sai quadrada em 2x (o hero exibe 132px) e vai para um mapa próprio.
+// Reserved name: `_photos/avatar.*` is not a post cover, it is the hero photo.
+// It comes out square at 2x (the hero shows 132px) and goes to its own map.
 const AVATAR = "avatar";
 const AVATAR_OUT = "assets/img/avatar.webp";
 const AVATAR_SIZE = 264;
 
-// Cada variante existe porque algum lugar do site a exibe num tamanho
-// diferente. Servir 1200px para um card de 370px era o que mais pesava, daí a
-// variante `card`, que o srcset entrega no lugar da `cover`.
+// Each variant exists because some place on the site shows it at a different
+// size. Serving 1200px to a 370px card was the heaviest cost, hence the
+// `card` variant, which srcset serves instead of `cover`.
 //
-//   cover  3:2, 712px na página do post — a proporção casa com o slot, senão
-//          o recorte inteligente é calculado para um enquadramento que o CSS
-//          depois corta, e metade dos bytes é decodificada e jogada fora
-//   card   4:3, 370px no feed (560 cobre telas 1.5x; retina cai na cover)
-//   thumb   72px na sidebar e na busca
-//   og     1200x630, tamanho que as redes sociais esperam
+//   cover  3:2, 712px on the post page — the ratio matches the slot, otherwise
+//          the smart crop is computed for a framing that CSS later crops,
+//          and half the bytes are decoded and thrown away
+//   card   4:3, 370px in the feed (560 covers 1.5x screens; retina uses cover)
+//   thumb   72px in the sidebar and search
+//   og     1200x630, the size social networks expect
 const VARIANTS = [
   { name: "cover", dir: "", width: 1200, height: 800, ext: "webp", q: 74 },
   { name: "card", dir: "cards", width: 560, height: 420, ext: "webp", q: 74 },
@@ -55,8 +55,8 @@ const VARIANTS = [
 
 const SOURCE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".tif", ".tiff"]);
 
-// Slugs cuja fonte é thumbnail do YouTube, de _data/videos.yml. Só eles
-// recebem letterbox; foto comum é sempre recortada.
+// Slugs whose source is a YouTube thumbnail, from _data/videos.yml. Only they
+// get letterboxed; regular photos are always cropped.
 const VIDEO_SLUGS = new Set();
 
 const FORCE = process.argv.includes("--force");
@@ -78,7 +78,7 @@ if (await exists("_data/videos.yml")) {
   for (const [, slug] of yml.matchAll(/^"([^"]+)":/gm)) VIDEO_SLUGS.add(slug);
 }
 
-// path.join usa "\\" no Windows; URL precisa de "/".
+// path.join uses "\\" on Windows; URLs need "/".
 const urlFor = (slug, v) => `/${outputFor(slug, v).split(path.sep).join("/")}`;
 
 const sources = (await exists(SRC_DIR))
@@ -89,8 +89,8 @@ for (const variant of VARIANTS) {
   await mkdir(path.join(OUT_DIR, variant.dir), { recursive: true });
 }
 
-// Uma fonte precisa de trabalho se falta alguma variante ou se o original foi
-// modificado depois da última geração.
+// A source needs work if any variant is missing or if the original was
+// modified after the last build.
 async function needsWork(slug, input) {
   if (FORCE) return true;
 
@@ -103,8 +103,8 @@ async function needsWork(slug, input) {
   return false;
 }
 
-// O nome do arquivo é o único vínculo entre foto e post: um typo geraria
-// quatro arquivos órfãos em silêncio.
+// The filename is the only link between photo and post: a typo would
+// silently produce four orphan files.
 const postSlugs = new Set(
   (await exists("_posts") ? await readdir("_posts") : [])
     .filter((f) => f.endsWith(".md"))
@@ -114,7 +114,7 @@ const postSlugs = new Set(
 for (const file of sources) {
   const slug = path.basename(file, path.extname(file));
   if (slug !== AVATAR && postSlugs.size && !postSlugs.has(slug)) {
-    console.warn(`aviso: ${SRC_DIR}/${file} não corresponde a nenhum post em _posts/`);
+    console.warn(`warning: ${SRC_DIR}/${file} does not match any post in _posts/`);
   }
 }
 
@@ -131,9 +131,9 @@ for (const file of sources) {
       (await stat(AVATAR_OUT)).mtimeMs < (await stat(input)).mtimeMs;
 
     if (FORCE || stale) {
-      // A fonte já vem recortada em quadrado; aqui é só redimensionar.
+      // The source is already cropped square; here it is just resized.
       await sharp(input).resize(AVATAR_SIZE, AVATAR_SIZE, { fit: "cover" }).webp({ quality: 86 }).toFile(AVATAR_OUT);
-      console.log("avatar otimizado");
+      console.log("avatar optimized");
       processed += 1;
     } else {
       skipped += 1;
@@ -147,13 +147,13 @@ for (const file of sources) {
   }
 
   /*
-   * Thumbnail de YouTube não pode ser recortada: é 16:9 e tem o título na
-   * borda, que o corte 4:3 decepa. Nesses casos o quadro inteiro entra
-   * reduzido, sobre uma cópia ampliada e desfocada de si mesmo.
+   * A YouTube thumbnail cannot be cropped: it is 16:9 and has the title on
+   * the edge, which the 4:3 crop chops off. In those cases the whole frame
+   * goes in scaled down, over an enlarged, blurred copy of itself.
    *
-   * A decisão é por slug, e não por diferença de proporção: um limiar
-   * genérico pegava também a variante og das fotos comuns (3:2 numa caixa
-   * 1200x630), mudando imagens que estavam boas com o recorte inteligente.
+   * The decision is by slug, not by aspect-ratio difference: a generic
+   * threshold also caught the og variant of regular photos (3:2 in a
+   * 1200x630 box), changing images that looked fine with the smart crop.
    */
   const letterbox = VIDEO_SLUGS.has(slug);
 
@@ -166,10 +166,10 @@ for (const file of sources) {
         sharp(input).resize(variant.width, variant.height, { fit: "cover" }).blur(18).modulate({ brightness: 0.72 })
       ).toBuffer();
 
-      // 100% da caixa: sem borda lateral, já que o encaixe por largura (a
-      // caixa é 4:3 e o vídeo é 16:9) faz o quadro tocar as bordas esquerda e
-      // direita sozinho. A folga vertical que resta é a mínima possível sem
-      // recortar o quadro.
+      // 100% of the box: no side border, since fitting by width (the box is
+      // 4:3 and the video is 16:9) makes the frame touch the left and right
+      // edges on its own. The vertical slack left is the minimum possible
+      // without cropping the frame.
       const inset = 1;
       const foreground = await sharp(input)
         .resize(Math.round(variant.width * inset), Math.round(variant.height * inset), { fit: "inside" })
@@ -181,20 +181,20 @@ for (const file of sources) {
       continue;
     }
 
-    // `position: attention` recorta em volta da região de maior contraste, o
-    // que costuma preservar o assunto da foto melhor que um corte central.
+    // `position: attention` crops around the highest-contrast region, which
+    // tends to preserve the photo's subject better than a center crop.
     await encode(
       sharp(input).resize(variant.width, variant.height, { fit: "cover", position: sharp.strategy.attention })
     ).toFile(outputFor(slug, variant));
   }
 
-  console.log(`otimizada ${slug}`);
+  console.log(`optimized ${slug}`);
   processed += 1;
 }
 
 if (PRUNE && !sources.length) {
-  // Sem nenhuma fonte, "tudo" é órfão: podar aqui apagaria o site inteiro.
-  console.error(`--prune ignorado: ${SRC_DIR}/ está vazia. Baixe os originais antes de podar.`);
+  // With no sources, "everything" is orphaned: pruning here would wipe the whole site.
+  console.error(`--prune ignored: ${SRC_DIR}/ is empty. Download the originals before pruning.`);
 } else if (PRUNE) {
   const expected = new Set();
   for (const file of sources) {
@@ -209,17 +209,17 @@ if (PRUNE && !sources.length) {
       const full = path.join(dir, f);
       if ((await stat(full)).isFile() && !expected.has(full)) {
         await rm(full);
-        console.log(`podada ${full}`);
+        console.log(`pruned ${full}`);
       }
     }
   }
 }
 
 /*
- * O mapa é derivado do que está publicado em assets/, e não das fontes que por
- * acaso existem nesta máquina. Sem isso, rodar o script logo após clonar o
- * repositório (com `_photos/` vazia) esvaziaria o mapa e derrubaria as fotos
- * de todos os posts.
+ * The map is derived from what is published in assets/, not from the sources
+ * that happen to exist on this machine. Otherwise, running the script right
+ * after cloning the repository (with an empty `_photos/`) would empty the map
+ * and drop the photos of every post.
  */
 const base = VARIANTS[0];
 const candidates = (await readdir(path.join(OUT_DIR, base.dir)))
@@ -227,13 +227,13 @@ const candidates = (await readdir(path.join(OUT_DIR, base.dir)))
   .map((f) => path.basename(f, `.${base.ext}`))
   .sort();
 
-// Só entra no mapa quem tem TODAS as variantes em disco: anunciar um caminho
-// que não existe vira 404 no site.
+// Only slugs with ALL variants on disk go into the map: advertising a path
+// that does not exist becomes a 404 on the site.
 const published = [];
 for (const slug of candidates) {
   const all = await Promise.all(VARIANTS.map((v) => exists(outputFor(slug, v))));
   if (all.every(Boolean)) published.push(slug);
-  else console.warn(`ignorada no mapa: ${slug} não tem todas as variantes`);
+  else console.warn(`skipped in map: ${slug} does not have all variants`);
 }
 
 await mkdir("_data", { recursive: true });
@@ -258,5 +258,5 @@ await writeFile(
 );
 
 console.log(
-  `${processed} processada(s), ${skipped} já em dia; ${published.length} publicada(s) em ${OUT_DIR}`
+  `${processed} processed, ${skipped} up to date; ${published.length} published in ${OUT_DIR}`
 );

@@ -1,8 +1,8 @@
 //
-// Página /tags: filtro + nuvem + listagem agrupada
+// /tags page: filter + cloud + grouped listing
 //
 
-// O reset não zera [hidden], e aqui ele cai em elementos com display: flex.
+// The reset doesn't enforce [hidden], and display: flex on these elements would override it.
 .tag-filter[hidden],
 .tag-filter__clear[hidden],
 .tag-selected[hidden],
@@ -168,8 +168,8 @@
   font-size: 20px;
   border-bottom: 1px solid var(--border);
 
-  // A cor via gradiente real (texto Font Awesome) não funciona em SVG, já
-  // que background-clip: text só recorta glifos de texto, não paths de ícone.
+  // A gradient via background-clip: text doesn't work here: it only clips text
+  // glyphs, not the SVG paths of the sprite icons.
   .icon {
     font-size: 14px;
     color: var(--accent);
@@ -272,13 +272,13 @@
   }
 }
 
-// Nuvem embutida em página com .prose (/sobre)
+// Cloud embedded in a page with .prose (/sobre)
 .tag-cloud--compact {
   padding: var(--space-4);
   margin-bottom: var(--space-5);
 }
 
-// .prose a pinta o link de accent e troca o hover por um sublinhado de 1px
+// .prose a paints the link with accent and swaps the hover for a 1px underline
 .prose .tag-chip {
   color: var(--heading);
   background-image: none;

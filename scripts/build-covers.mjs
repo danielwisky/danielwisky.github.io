@@ -1,12 +1,12 @@
-// Gera as capas SVG dos posts.
+// Generates the posts' SVG covers.
 //
-// Os posts não têm arte própria, então cada capa é derivada da PRIMEIRA tag do
-// post: um ícone (TAG_ICONS) e o nome da tag, centralizados sobre um gradiente
-// cujo matiz é fixo por tag (TAG_HUES), com um grid discreto ao fundo.
+// Posts have no artwork of their own, so each cover is derived from the post's
+// FIRST tag: an icon (TAG_ICONS) and the tag name, centered over a gradient
+// whose hue is fixed per tag (TAG_HUES), with a subtle grid in the background.
 //
-// A saída é commitada, no mesmo espírito do build-js.mjs — o workflow do
-// GitHub Pages roda só o Jekyll. Rode `npm run build:covers` ao adicionar uma
-// tag nova (e, de preferência, dê a ela um matiz e um ícone nas tabelas abaixo).
+// The output is committed, in the same spirit as build-js.mjs — the GitHub
+// Pages workflow only runs Jekyll. Run `npm run build:covers` when adding a
+// new tag (and, ideally, give it a hue and an icon in the tables below).
 
 import { readdir, readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
@@ -19,13 +19,13 @@ const OUT_DIR = "assets/img/covers";
 const WIDTH = 1200;
 const HEIGHT = 900;
 
-// og:image precisa ser bitmap (redes sociais ignoram SVG) e 1200x630 é a
-// proporção que Facebook, LinkedIn, WhatsApp e X recortam sem cortar nada.
+// og:image must be a bitmap (social networks ignore SVG) and 1200x630 is the
+// ratio Facebook, LinkedIn, WhatsApp and X display without cropping anything.
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 
-// Ícone de cada tag. A chave é o slug da tag; o valor é uma chave de ICONS.
-// Tag sem entrada aqui cai no ícone genérico `code`.
+// Icon for each tag. The key is the tag slug; the value is a key of ICONS.
+// Tags with no entry here fall back to the generic `code` icon.
 const TAG_ICONS = {
   java: "java",
   solid: "cubes",
@@ -77,7 +77,7 @@ const slugify = (value) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-// FNV-1a: hash estável e curto, sem dependências.
+// FNV-1a: short, stable hash, no dependencies.
 const hash = (value) => {
   let h = 0x811c9dc5;
   for (let i = 0; i < value.length; i += 1) {
@@ -90,10 +90,10 @@ const hash = (value) => {
 const escapeXml = (value) =>
   value.replace(/[<>&'"]/g, (c) => `&${{ "<": "lt", ">": "gt", "&": "amp", "'": "apos", '"': "quot" }[c]};`);
 
-// Matiz de cada tag, em graus. Vem da cor da marca onde existe uma (Java
-// laranja, Docker azul, Redis vermelho...) e é escolhido à mão nas demais,
-// para nenhum par de tags cair em tons parecidos. O hash só entra como
-// fallback para tags novas, que ainda não passaram por aqui.
+// Hue for each tag, in degrees. It comes from the brand color where there is
+// one (Java orange, Docker blue, Redis red...) and is hand-picked for the rest,
+// so no two tags land on similar shades. The hash is only a fallback for new
+// tags that have not been added here yet.
 const TAG_HUES = {
   java: 28,
   solid: 218,
@@ -137,19 +137,19 @@ const TAG_HUES = {
   "banco-de-dados": 222,
 };
 
-// O gradiente sempre gira o matiz para trás (-12°, -20°) enquanto escurece.
-// A direção importa: avançando, matizes quentes passam pelo amarelo e, no
-// escuro, viram oliva/marrom. Recuando, laranja vira vermelho e amarelo vira
-// âmbar — que continuam vivos. Saturação e luminosidade fixas mantêm a
-// família coesa mesmo com matizes bem distantes entre si.
+// The gradient always rotates the hue backwards (-12°, -20°) as it darkens.
+// The direction matters: going forward, warm hues pass through yellow and, in
+// the dark, turn olive/brown. Going back, orange turns red and yellow turns
+// amber — which stay vivid. Fixed saturation and lightness keep the family
+// cohesive even with hues far apart from each other.
 const wrapHue = (h) => (h + 360) % 360;
 
 function palette(seed, slug) {
   const base = TAG_HUES[slug] ?? hash(seed) % 360;
 
-  // Amarelo e dourado (38°–78°) não sobrevivem a lightness baixa: viram oliva.
-  // Nessa faixa o gradiente escurece menos e satura mais, e o resultado lê
-  // como ouro/bronze em vez de verde-musgo.
+  // Yellow and gold (38°–78°) do not survive low lightness: they turn olive.
+  // In that range the gradient darkens less and saturates more, and the result
+  // reads as gold/bronze instead of moss green.
   const gold = base >= 38 && base <= 78;
 
   return {
@@ -159,8 +159,8 @@ function palette(seed, slug) {
   };
 }
 
-// Quebra o rótulo em no máximo duas linhas, para tags longas como
-// "Desafio de Programação" não vazarem da capa.
+// Wraps the label into at most two lines, so long tags like
+// "Desafio de Programação" do not overflow the cover.
 function wrap(label, maxChars = 16) {
   const words = label.split(/\s+/);
   const lines = [];
@@ -178,13 +178,13 @@ function wrap(label, maxChars = 16) {
   if (current) lines.push(current);
 
   if (lines.length > 2) {
-    console.warn(`aviso: "${label}" não cabe em 2 linhas e será truncado na capa`);
+    console.warn(`warning: "${label}" does not fit in 2 lines and will be truncated on the cover`);
   }
 
   return lines.slice(0, 2);
 }
 
-// Centraliza o path do ícone num quadrado de `size` px, no ponto (cx, cy).
+// Centers the icon path in a `size` px square, at point (cx, cy).
 function iconMarkup(iconKey, cx, cy, size) {
   const icon = ICONS[iconKey] || ICONS.code;
   const scale = size / Math.max(icon.w, icon.h);
@@ -203,12 +203,12 @@ function coverSvg(label, iconKey, slug, width = WIDTH, height = HEIGHT) {
   const fontSize = lines.some((l) => l.length > 12) ? 64 : 78;
 
   /*
-   * Centraliza o conjunto ícone + texto como um bloco só, em vez de centralizar
-   * cada parte isoladamente (o que deixava o ícone alto demais).
+   * Centers the icon + text group as a single block, instead of centering
+   * each part on its own (which left the icon too high).
    *
-   * Sem layout de texto no SVG, a altura das linhas é estimada: a altura de
-   * caixa alta do Roboto Mono é ~0,72em, e o miolo visual de uma linha ocupa
-   * ~1,15em.
+   * With no text layout in SVG, line heights are estimated: Roboto Mono's
+   * cap height is ~0.72em, and the visual body of a line takes up
+   * ~1.15em.
    */
   const ICON_SIZE = 170;
   const GAP = 44;
@@ -256,10 +256,10 @@ function coverSvg(label, iconKey, slug, width = WIDTH, height = HEIGHT) {
 `;
 }
 
-// Miniatura: mesmo gradiente, só o ícone, sem texto.
+// Thumbnail: same gradient, icon only, no text.
 //
-// Reaproveitar a capa grande em 72px não funciona — o nome da tag fica
-// ilegível e o conjunto vira um borrão. Aqui o ícone ocupa metade do quadro.
+// Reusing the large cover at 72px does not work — the tag name becomes
+// illegible and it all turns into a blur. Here the icon fills half the frame.
 function thumbSvg(label, iconKey, slug) {
   const { start, end, deep } = palette(label, slug);
   const w = 400;
@@ -296,8 +296,8 @@ function avatarSvg(initials) {
 `;
 }
 
-// Extrai a primeira tag do front matter, tolerando as duas formas do YAML
-// (`tags: [A, B]` e lista com hífen).
+// Extracts the first tag from the front matter, accepting both YAML forms
+// (`tags: [A, B]` and a hyphen list).
 function firstTag(source) {
   const frontMatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!frontMatter) return null;
@@ -322,15 +322,15 @@ for (const file of files) {
   if (tag) tags.set(slugify(tag), tag);
 }
 
-// Regera o diretório do zero para que tags removidas não deixem capas órfãs.
+// Rebuilds the directory from scratch so removed tags leave no orphan covers.
 await rm(OUT_DIR, { recursive: true, force: true });
 await mkdir(OUT_DIR, { recursive: true });
 
 await mkdir(path.join(OUT_DIR, "thumbs"), { recursive: true });
 await mkdir(path.join(OUT_DIR, "og"), { recursive: true });
 
-// JPEG e não PNG: o gradiente vira 25 KB em vez de 162 KB, e a diferença é
-// invisível num card de rede social.
+// JPEG rather than PNG: the gradient becomes 25 KB instead of 162 KB, and the
+// difference is invisible on a social media card.
 const writeOg = async (label, iconKey, slug) => {
   const svg = coverSvg(label, iconKey, slug, OG_WIDTH, OG_HEIGHT);
   await sharp(Buffer.from(svg))
@@ -350,8 +350,8 @@ await writeFile(path.join(OUT_DIR, "thumbs", "default.svg"), thumbSvg("Blog", "c
 await writeOg("Blog", "code", "default");
 await writeFile("assets/img/avatar.svg", avatarSvg("DW"));
 
-// Ícones de tela inicial (iOS e manifest.webmanifest). Fora de OUT_DIR, que é
-// apagado a cada build. PNG porque nem o iOS nem o Android aceitam SVG aqui.
+// Home screen icons (iOS and manifest.webmanifest). Outside OUT_DIR, which is
+// wiped on every build. PNG because neither iOS nor Android accept SVG here.
 const APP_DIR = "assets/img/app";
 await mkdir(APP_DIR, { recursive: true });
 const APP_ICONS = { "apple-touch-icon.png": 180, "icon-192.png": 192, "icon-512.png": 512 };
@@ -362,15 +362,15 @@ for (const [name, size] of Object.entries(APP_ICONS)) {
     .toFile(path.join(APP_DIR, name));
 }
 
-// Mapa tag -> capa, consumido pelo Liquid em _includes/post-cover.html.
-// Um arquivo de dados evita depender de o `slugify` do Jekyll (que preserva
-// acentos) coincidir com o slug ASCII usado no nome do arquivo.
+// Tag -> cover map, consumed by Liquid in _includes/post-cover.html.
+// A data file avoids relying on Jekyll's `slugify` (which keeps accents)
+// matching the ASCII slug used in the filename.
 const yaml = [
   "# Gerado por scripts/build-covers.mjs — não editar à mão.",
   ...[...tags.entries()]
-    // Comparação simples e não localeCompare: a ordem precisa ser a mesma
-    // em qualquer máquina, senão o arquivo gerado difere entre o seu
-    // ambiente e o do CI.
+    // Plain comparison rather than localeCompare: the order must be the same
+    // on every machine, otherwise the generated file differs between your
+    // environment and CI's.
     .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
     .flatMap(([slug, label]) => [
       `${JSON.stringify(label)}:`,

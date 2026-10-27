@@ -1,10 +1,10 @@
 (() => {
 
   /*
-   * Tema claro / escuro
+   * Light / dark theme
    *
-   * A aplicação inicial do tema acontece no <head> (script inline), para não
-   * piscar branco. Aqui fica só a alternância.
+   * The initial theme is applied in the <head> (inline script), to avoid a
+   * white flash. Only the toggle lives here.
    */
   const themeToggle = document.getElementById("theme-toggle");
 
@@ -21,21 +21,21 @@
       try {
         localStorage.setItem("theme", dark ? "light" : "dark");
       } catch (e) {
-        /* modo privativo: segue sem persistir */
+        /* private mode: carry on without persisting */
       }
 
-      // O Disqus só resolve o esquema de cor quando o embed carrega, e o
-      // reset() dele não recalcula. O _includes/comments.html expõe uma função
-      // que recria o embed inteiro, que é o que de fato troca a cor.
+      // Disqus only resolves the color scheme when the embed loads, and its
+      // reset() doesn't recompute it. _includes/comments.html exposes a function
+      // that recreates the whole embed, which is what actually changes the color.
       //
-      // Só recarrega se já estiver montado: o embed agora é preguiçoso, e
-      // trocar o tema no topo do post não deve puxá-lo antes da hora.
+      // Only reloads if it's already mounted: the embed is now lazy, and
+      // switching the theme at the top of the post shouldn't pull it in early.
       if (window.DISQUS) window.loadDisqus?.();
     });
   }
 
   /*
-   * Menu mobile
+   * Mobile menu
    */
   const navToggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("site-nav");
@@ -59,19 +59,19 @@
       backToTop.classList.toggle("is-active", window.scrollY >= 500);
     };
 
-    // Também na carga: o navegador restaura a posição de scroll ao recarregar,
-    // e links com #âncora já abrem a página no meio.
+    // Also on load: the browser restores the scroll position on reload,
+    // and links with an #anchor open the page midway.
     syncBackToTop();
     window.addEventListener("scroll", syncBackToTop, { passive: true });
   }
 
   /*
-   * "Carregar mais"
+   * "Load more"
    *
-   * Substitui o scroll infinito, que empurrava o rodapé e o fim da sidebar
-   * para sempre longe do leitor. O link de paginação do Jekyll continua no
-   * HTML e funciona sem JS; aqui ele só é interceptado para trazer a próxima
-   * página sem recarregar.
+   * Replaces infinite scroll, which kept pushing the footer and the end of the
+   * sidebar forever out of the reader's reach. Jekyll's pagination link stays
+   * in the HTML and works without JS; here it is only intercepted to fetch the
+   * next page without reloading.
    */
   const articleFeed = document.querySelector(".article-feed");
   const pagination = document.querySelector(".pagination");
@@ -118,10 +118,10 @@
 
           if (nextUrl) {
             nextLink.style.display = "";
-            // Leva o foco para o primeiro post novo, para quem navega por
-            // teclado não voltar ao topo da lista. Tem de ser o link do título:
-            // o da capa é aria-hidden e tabindex="-1", invisível para leitores
-            // de tela.
+            // Moves focus to the first new post, so keyboard users don't
+            // jump back to the top of the list. It has to be the title link:
+            // the cover one is aria-hidden and tabindex="-1", invisible to screen
+            // readers.
             if (newPosts.length) {
               newPosts[0].querySelector(".article__title a")?.focus({ preventScroll: true });
             }

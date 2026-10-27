@@ -1,11 +1,11 @@
 //
-// Grid flex de 12 colunas
+// 12-column flex grid
 //
-// .col-N     -> largura a partir de desktop grande
-// .col-d-N   -> a partir de 1024px para baixo (desktop pequeno / tablet paisagem)
-// .col-t-N   -> a partir de 768px para baixo (tablet / mobile)
+// .col-N     -> width from large desktop up
+// .col-d-N   -> from 1024px down (small desktop / landscape tablet)
+// .col-t-N   -> from 768px down (tablet / mobile)
 //
-// Substitui o grid do Bootstrap; o gutter é controlado por --gutter na .row.
+// Replaces the Bootstrap grid; the gutter is controlled by --gutter on .row.
 //
 
 .row {
@@ -27,8 +27,8 @@
 @mixin cols($suffix: "") {
   @for $i from 1 through 12 {
     .col#{$suffix}-#{$i} {
-      // calc do CSS em vez de divisão do Sass: evita o aviso de depreciação
-      // do operador `/` no Dart Sass sem precisar de `@use "sass:math"`.
+      // CSS calc instead of Sass division: avoids the deprecation warning
+      // for the `/` operator in Dart Sass without needing `@use "sass:math"`.
       width: calc(#{$i} / 12 * 100%);
     }
   }

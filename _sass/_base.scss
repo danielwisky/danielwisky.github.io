@@ -1,5 +1,5 @@
 //
-// Base: tipografia, links e containers
+// Base: typography, links and containers
 //
 
 body {
@@ -65,7 +65,7 @@ small {
   font-size: 14px;
 }
 
-// texto acessível apenas para leitores de tela
+// text accessible only to screen readers
 .sr-only,
 .screen-reader-text {
   position: absolute !important;
@@ -115,7 +115,7 @@ small {
   }
 }
 
-// título de seção com a linha degradê
+// section title with the gradient line
 .section {
   margin-bottom: var(--space-8);
 }
@@ -141,7 +141,7 @@ small {
   opacity: 0.4;
 }
 
-// Link de pular navegação: fora da tela até receber foco.
+// Skip-navigation link: off screen until it receives focus.
 .skip-link {
   position: absolute;
   top: var(--space-3);
@@ -161,8 +161,8 @@ small {
   }
 }
 
-// Ícones do sprite em assets/img/icons.svg. Dimensionam com a fonte e herdam
-// a cor, do mesmo jeito que os glifos do Font Awesome faziam.
+// Icons from the sprite in assets/img/icons.svg. They scale with the font and
+// inherit the color, just like the Font Awesome glyphs used to.
 .icon {
   width: 1em;
   height: 1em;

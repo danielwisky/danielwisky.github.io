@@ -1,6 +1,6 @@
-// Fontes hospedadas localmente (Poppins e Roboto Mono, subset latin) para
-// evitar a requisição bloqueante e cross-origin a fonts.googleapis.com no
-// caminho crítico do primeiro paint.
+// Self-hosted fonts (Poppins and Roboto Mono, latin subset) to avoid the
+// render-blocking, cross-origin request to fonts.googleapis.com on the
+// critical path of the first paint.
 
 @font-face {
   font-family: "Poppins";

@@ -1,5 +1,5 @@
 //
-// Overlay de busca
+// Search overlay
 //
 
 .search {
@@ -44,7 +44,7 @@
   border-radius: var(--radius-sm);
   transition: border-color var(--transition), box-shadow var(--transition);
 
-  // O input zera o outline; sem isto o foco ficaria invisível ao voltar por Tab.
+  // The input resets the outline; without this focus would be invisible when tabbing back.
   &:focus-within {
     border-bottom-color: var(--accent);
     box-shadow: 0 3px 0 -1px var(--selection);
@@ -144,9 +144,9 @@
 
 .search-results__link {
   display: flex;
-  // flex-start é necessário: com o `stretch` padrão a miniatura cresce até a
-  // altura da linha e o aspect-ratio dela é ignorado, deixando a imagem
-  // esticada quando o resultado tem duas ou três linhas de trecho.
+  // flex-start is required: with the default `stretch` the thumbnail grows to the
+  // row height and its aspect-ratio is ignored, leaving the image
+  // stretched when the result has two or three lines of excerpt.
   align-items: flex-start;
   gap: var(--space-3);
   padding: var(--space-3);
@@ -172,7 +172,7 @@
 }
 
 .search-results__title {
-  // são <span> no markup (ficam dentro do <a>), então precisam virar bloco
+  // they are <span> in the markup (they sit inside the <a>), so they must become block
   display: block;
   margin-bottom: 2px;
   font-size: 15px;

@@ -1,20 +1,20 @@
 //
 // Design tokens
 //
-// Tudo que muda entre tema claro e escuro vive aqui como custom property, para
-// que a troca de tema seja apenas a mudança do atributo data-theme no <html>.
+// Everything that changes between light and dark theme lives here as a custom
+// property, so switching themes is just changing the data-theme attribute on <html>.
 //
 
 :root {
-  // paleta base
+  // base palette
   --accent-start: #00b8a9;
   --accent-end: #2b59ff;
   --gradient: linear-gradient(90deg, var(--accent-start) 0%, var(--accent-end) 100%);
   --gradient-hover: linear-gradient(180deg, var(--accent-start) 0%, var(--accent-end) 160%);
 
-  // Texto branco sobre o teal vivo dá 2,49:1 e reprova o AA. Superfícies com
-  // texto por cima usam esta variante escurecida (4,86:1); o teal original
-  // segue nos elementos decorativos, onde não há texto.
+  // White text on the bright teal gives 2.49:1 and fails AA. Surfaces with
+  // text on top use this darkened variant (4.86:1); the original teal
+  // stays on decorative elements, where there is no text.
   --gradient-strong: linear-gradient(90deg, #00806f 0%, var(--accent-end) 100%);
 
   --accent: #1170c4;
@@ -37,7 +37,7 @@
   --shadow-md: 0 8px 24px -12px rgba(15, 23, 41, 0.25);
   --shadow-lg: 0 20px 40px -20px rgba(15, 23, 41, 0.45);
 
-  // sintaxe (Rouge) — tema claro
+  // syntax (Rouge) — light theme
   --code-bg: #f6f8fb;
   --code-bar: #eef1f6;
   --code-text: #1f2937;
@@ -49,7 +49,7 @@
   --code-fn: #6d28d9;
   --code-punct: #4b5563;
 
-  // escala
+  // scale
   --radius-sm: 6px;
   --radius: 12px;
   --radius-lg: 16px;
@@ -77,8 +77,8 @@
 :root[data-theme="dark"] {
   --accent-start: #14d8c4;
   --accent-end: #5b7cff;
-  // No tema escuro o texto sobre o acento é escuro (--on-accent), então o
-  // gradiente vivo já passa: 10,46:1 e 5,18:1.
+  // In the dark theme the text on the accent is dark (--on-accent), so the
+  // bright gradient already passes: 10.46:1 and 5.18:1.
   --gradient-strong: var(--gradient);
   --accent: #5b7cff;
 
@@ -99,7 +99,7 @@
   --shadow-md: 0 8px 24px -12px rgba(0, 0, 0, 0.7);
   --shadow-lg: 0 20px 40px -20px rgba(0, 0, 0, 0.9);
 
-  // sintaxe (Rouge) — tema escuro
+  // syntax (Rouge) — dark theme
   --code-bg: #0a0f1c;
   --code-bar: #131b2c;
   --code-text: #ccd3e0;
