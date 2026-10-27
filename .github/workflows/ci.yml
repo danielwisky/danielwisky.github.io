@@ -39,8 +39,8 @@ jobs:
           # As capas .jpg das tags são rasterizadas do SVG pelo sharp, e o
           # resultado depende das fontes do sistema: macOS e Linux produzem
           # bytes diferentes para a mesma entrada. Os .svg, que são geração
-          # pura de string, continuam no check.
-          git checkout -- assets/img/covers/og
+          # pura de string, continuam no check. Os ícones de app, idem.
+          git checkout -- assets/img/covers/og assets/img/app
 
       - name: Conferir se os artefatos commitados estão em dia
         run: |
@@ -58,3 +58,12 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+
+      # Só links internos: os externos oscilam (timeout, bloqueio de robô) e
+      # deixariam o PR vermelho por algo fora do repositório. Eles são
+      # checados toda semana pelo links.yml.
+      - name: Conferir links internos
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --root-dir ${{ github.workspace }}/_site --no-progress _site
+          fail: true

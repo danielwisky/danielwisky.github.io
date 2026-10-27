@@ -1,0 +1,67 @@
+# Checagem semanal dos links externos.
+#
+# Fica fora do CI de pull request porque link externo quebra por motivos que
+# não têm a ver com o PR. Em vez de falhar, abre (ou comenta em) uma única issue
+# com a label links-quebrados, para não acumular uma issue por semana.
+name: Links externos
+
+on:
+  schedule:
+    - cron: "0 11 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build do Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Conferir links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --root-dir ${{ github.workspace }}/_site --no-progress _site
+          fail: false
+
+      # Comentário e não edição do corpo: editar não notifica ninguém, e um link
+      # que quebrasse com a issue já aberta passaria despercebido.
+      - name: Atualizar a issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXIT_CODE: ${{ steps.lychee.outputs.exit_code }}
+        run: |
+          existing=$(gh issue list --label links-quebrados --state open --json number -q '.[0].number')
+          case "$EXIT_CODE" in
+            0)
+              if [ -n "$existing" ]; then
+                gh issue close "$existing" --comment "Todos os links externos voltaram a responder."
+              fi
+              ;;
+            2)
+              if [ -n "$existing" ]; then
+                gh issue comment "$existing" --body-file lychee/out.md
+              else
+                gh label create links-quebrados --color d73a4a --force
+                gh issue create --title "Links externos quebrados" --label links-quebrados --body-file lychee/out.md
+              fi
+              ;;
+            *)
+              # 1 e 3 são erro de execução ou de config do lychee, não link quebrado
+              echo "::error::lychee saiu com código $EXIT_CODE"
+              exit 1
+              ;;
+          esac

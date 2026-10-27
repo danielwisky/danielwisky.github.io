@@ -40,6 +40,32 @@
   JPEG, porque redes sociais ignoram SVG em og:image.
   {%- endcomment -%}
   {% seo %}
+  {%- if page.layout == 'post' %}
+  {%- for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag | escape }}" />
+  {%- endfor %}
+  {%- comment -%}
+  O {% seo %} só emite BlogPosting. A trilha Início › tag › post é o que o
+  Google mostra no lugar da URL crua no resultado de busca.
+  {%- endcomment -%}
+  {%- assign crumb_tag = page.tags | first %}
+  {%- capture crumb_tag_url %}{{ '/tags/' | absolute_url }}#{{ crumb_tag | slugify }}{% endcapture %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Início", "item": {{ '/' | absolute_url | jsonify }} },
+      {%- if crumb_tag %}
+      { "@type": "ListItem", "position": 2, "name": {{ crumb_tag | jsonify }}, "item": {{ crumb_tag_url | jsonify }} },
+      { "@type": "ListItem", "position": 3, "name": {{ page.title | strip_html | jsonify }}, "item": {{ page.url | absolute_url | jsonify }} }
+      {%- else %}
+      { "@type": "ListItem", "position": 2, "name": {{ page.title | strip_html | jsonify }}, "item": {{ page.url | absolute_url | jsonify }} }
+      {%- endif %}
+    ]
+  }
+  </script>
+  {%- endif %}
   {%- comment -%}
   Sem isto nenhuma página anuncia o RSS, e leitores e agregadores não o
   descobrem: o feed só existia como link de texto no rodapé.
@@ -49,4 +75,6 @@
   {% include google_analytics.html %}
 
   <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/img/favicon.ico' | relative_url }}?v={{ '/assets/img/favicon.ico' | asset_hash }}" />
+  <link rel="apple-touch-icon" href="{{ '/assets/img/app/apple-touch-icon.png' | relative_url }}" />
+  <link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}" />
 </head>

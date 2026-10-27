@@ -5,6 +5,8 @@ _site
 .idea
 node_modules
 .claude/skills
+# scripts descartáveis de verificação local (screenshots, checagens pontuais)
+*.tmp.*
 
 # general
 .DS_Store
