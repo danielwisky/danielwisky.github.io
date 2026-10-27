@@ -74,7 +74,7 @@ scripts/     geração de assets
 
 O CI de pull request falha se algum link interno estiver quebrado. Os
 externos são checados toda segunda pelo `.github/workflows/links.yml`, que
-abre uma issue com a label `links-quebrados` (ou comenta na que já estiver
+abre uma issue com a label `broken-links` (ou comenta na que já estiver
 aberta) e a fecha quando todos voltarem a responder. Exclusões ficam em
 `lychee.toml`. Pra rodar local: `lychee --root-dir "$PWD/_site" _site`.
 
