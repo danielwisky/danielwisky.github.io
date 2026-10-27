@@ -1,0 +1,94 @@
+// Revision notice for posts updated after publication (last_modified_at +
+// revision_note in the front matter, see _layouts/post.html).
+
+.post__updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+}
+
+.revision-note {
+  position: relative;
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  margin: 0 0 var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt-2);
+  overflow: hidden;
+
+  // Gradient stripe on the left, same accent used by the headings.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--gradient);
+  }
+}
+
+.revision-note__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--on-accent);
+  font-size: 16px;
+}
+
+.revision-note__body {
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-alt);
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: var(--space-2);
+  }
+}
+
+.revision-note__title {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+// Highlighter-style underline: a translucent band behind the bottom half of
+// the text, wrapping cleanly when the date breaks across lines.
+.revision-note__date {
+  padding: 0 2px;
+  background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-start) 40%, transparent),
+      color-mix(in srgb, var(--accent-end) 40%, transparent)
+    )
+    no-repeat 0 90% / 100% 0.45em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.revision-note__text {
+  margin-top: var(--space-1);
+}
+
+@media (max-width: 575px) {
+  .revision-note {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .revision-note__icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
