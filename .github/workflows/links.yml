@@ -1,9 +1,9 @@
-# Checagem semanal dos links externos.
+# Weekly check of external links.
 #
-# Fica fora do CI de pull request porque link externo quebra por motivos que
-# não têm a ver com o PR. Em vez de falhar, abre (ou comenta em) uma única issue
-# com a label links-quebrados, para não acumular uma issue por semana.
-name: Links externos
+# Kept out of the pull request CI because external links break for reasons
+# unrelated to the PR. Instead of failing, it opens (or comments on) a single
+# issue labeled broken-links, so issues don't pile up week after week.
+name: External links
 
 on:
   schedule:
@@ -25,43 +25,43 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Build do Jekyll
+      - name: Build Jekyll site
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      - name: Conferir links
+      - name: Check links
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
           args: --root-dir ${{ github.workspace }}/_site --no-progress _site
           fail: false
 
-      # Comentário e não edição do corpo: editar não notifica ninguém, e um link
-      # que quebrasse com a issue já aberta passaria despercebido.
-      - name: Atualizar a issue
+      # Comment instead of editing the body: edits don't notify anyone, so a link
+      # breaking while the issue is already open would go unnoticed.
+      - name: Update issue
         env:
           GH_TOKEN: ${{ github.token }}
           EXIT_CODE: ${{ steps.lychee.outputs.exit_code }}
         run: |
-          existing=$(gh issue list --label links-quebrados --state open --json number -q '.[0].number')
+          existing=$(gh issue list --label broken-links --state open --json number -q '.[0].number')
           case "$EXIT_CODE" in
             0)
               if [ -n "$existing" ]; then
-                gh issue close "$existing" --comment "Todos os links externos voltaram a responder."
+                gh issue close "$existing" --comment "All external links are responding again."
               fi
               ;;
             2)
               if [ -n "$existing" ]; then
                 gh issue comment "$existing" --body-file lychee/out.md
               else
-                gh label create links-quebrados --color d73a4a --force
-                gh issue create --title "Links externos quebrados" --label links-quebrados --body-file lychee/out.md
+                gh label create broken-links --color d73a4a --force
+                gh issue create --title "Broken external links" --label broken-links --body-file lychee/out.md
               fi
               ;;
             *)
-              # 1 e 3 são erro de execução ou de config do lychee, não link quebrado
-              echo "::error::lychee saiu com código $EXIT_CODE"
+              # 1 and 3 are lychee runtime or config errors, not broken links
+              echo "::error::lychee exited with code $EXIT_CODE"
               exit 1
               ;;
           esac
