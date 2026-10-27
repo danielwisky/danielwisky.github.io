@@ -1,7 +1,7 @@
 # Checagem semanal dos links externos.
 #
 # Fica fora do CI de pull request porque link externo quebra por motivos que
-# não têm a ver com o PR. Em vez de falhar, abre (ou atualiza) uma única issue
+# não têm a ver com o PR. Em vez de falhar, abre (ou comenta em) uma única issue
 # com a label links-quebrados, para não acumular uma issue por semana.
 name: Links externos
 
@@ -37,15 +37,31 @@ jobs:
           args: --root-dir ${{ github.workspace }}/_site --no-progress _site
           fail: false
 
-      - name: Abrir ou atualizar a issue
-        if: steps.lychee.outputs.exit_code != 0
+      # Comentário e não edição do corpo: editar não notifica ninguém, e um link
+      # que quebrasse com a issue já aberta passaria despercebido.
+      - name: Atualizar a issue
         env:
           GH_TOKEN: ${{ github.token }}
+          EXIT_CODE: ${{ steps.lychee.outputs.exit_code }}
         run: |
-          gh label create links-quebrados --color d73a4a --force
           existing=$(gh issue list --label links-quebrados --state open --json number -q '.[0].number')
-          if [ -n "$existing" ]; then
-            gh issue edit "$existing" --body-file lychee/out.md
-          else
-            gh issue create --title "Links externos quebrados" --label links-quebrados --body-file lychee/out.md
-          fi
+          case "$EXIT_CODE" in
+            0)
+              if [ -n "$existing" ]; then
+                gh issue close "$existing" --comment "Todos os links externos voltaram a responder."
+              fi
+              ;;
+            2)
+              if [ -n "$existing" ]; then
+                gh issue comment "$existing" --body-file lychee/out.md
+              else
+                gh label create links-quebrados --color d73a4a --force
+                gh issue create --title "Links externos quebrados" --label links-quebrados --body-file lychee/out.md
+              fi
+              ;;
+            *)
+              # 1 e 3 são erro de execução ou de config do lychee, não link quebrado
+              echo "::error::lychee saiu com código $EXIT_CODE"
+              exit 1
+              ;;
+          esac

@@ -110,7 +110,7 @@ exclude:
   - package-lock.json
   - scripts
   - lychee.toml
-  - "*.tmp.mjs"
+  - "*.tmp.*"
   # os fontes do JS: só as versões .min.js são carregadas pelo site
   - assets/js/main.js
   - assets/js/search.js
