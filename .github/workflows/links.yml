@@ -1,0 +1,51 @@
+# Checagem semanal dos links externos.
+#
+# Fica fora do CI de pull request porque link externo quebra por motivos que
+# não têm a ver com o PR. Em vez de falhar, abre (ou atualiza) uma única issue
+# com a label links-quebrados, para não acumular uma issue por semana.
+name: Links externos
+
+on:
+  schedule:
+    - cron: "0 11 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build do Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Conferir links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --root-dir ${{ github.workspace }}/_site --no-progress _site
+          fail: false
+
+      - name: Abrir ou atualizar a issue
+        if: steps.lychee.outputs.exit_code != 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create links-quebrados --color d73a4a --force
+          existing=$(gh issue list --label links-quebrados --state open --json number -q '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file lychee/out.md
+          else
+            gh issue create --title "Links externos quebrados" --label links-quebrados --body-file lychee/out.md
+          fi

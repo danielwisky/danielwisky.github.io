@@ -20,7 +20,7 @@ Crie `_posts/AAAA-MM-DD-slug.md`:
 ---
 layout: post
 title: "Título do post"
-subtitle: "Uma linha de resumo"
+subtitle: "Uma linha de resumo"   # vira a meta description, se não houver description
 tags: [Java, SOLID]
 ---
 ```
@@ -39,7 +39,7 @@ Artefatos gerados são commitados, o deploy roda só o Jekyll. Rode
 | Script | O que faz |
 |---|---|
 | `build:js` | Minifica `assets/js/*.js` |
-| `build:covers` | Gera capas das tags e `_data/covers.yml` |
+| `build:covers` | Gera capas das tags, `_data/covers.yml` e os ícones de app em `assets/img/app/` |
 | `build:videos` | Baixa thumbnail do YouTube dos posts com vídeo |
 | `build:photos` | Otimiza fotos novas de `_photos/` e `_data/photos.yml` |
 
@@ -66,9 +66,16 @@ _posts/      conteúdo
 _photos/     fotos de capa, originais (não versionados)
 _sass/       tokens, base, grid, components/, sections/
 _includes/   header, hero, card de post, sidebar, busca, rodapé
-_plugins/    cache-busting e page.image para o SEO
+_plugins/    cache-busting, page.image e description para o SEO
 scripts/     geração de assets
 ```
+
+## Links
+
+O CI de pull request falha se algum link interno estiver quebrado. Os
+externos são checados toda segunda pelo `.github/workflows/links.yml`, que
+abre ou atualiza uma issue com a label `links-quebrados`. Exclusões ficam em
+`lychee.toml`. Pra rodar local: `lychee --root-dir "$PWD/_site" _site`.
 
 ## Formulário de contato
 

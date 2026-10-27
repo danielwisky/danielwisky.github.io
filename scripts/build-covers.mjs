@@ -350,6 +350,18 @@ await writeFile(path.join(OUT_DIR, "thumbs", "default.svg"), thumbSvg("Blog", "c
 await writeOg("Blog", "code", "default");
 await writeFile("assets/img/avatar.svg", avatarSvg("DW"));
 
+// Ícones de tela inicial (iOS e manifest.webmanifest). Fora de OUT_DIR, que é
+// apagado a cada build. PNG porque nem o iOS nem o Android aceitam SVG aqui.
+const APP_DIR = "assets/img/app";
+await mkdir(APP_DIR, { recursive: true });
+const APP_ICONS = { "apple-touch-icon.png": 180, "icon-192.png": 192, "icon-512.png": 512 };
+for (const [name, size] of Object.entries(APP_ICONS)) {
+  await sharp(Buffer.from(avatarSvg("DW")), { density: (72 * size) / 400 })
+    .resize(size, size)
+    .png({ compressionLevel: 9 })
+    .toFile(path.join(APP_DIR, name));
+}
+
 // Mapa tag -> capa, consumido pelo Liquid em _includes/post-cover.html.
 // Um arquivo de dados evita depender de o `slugify` do Jekyll (que preserva
 // acentos) coincidir com o slug ASCII usado no nome do arquivo.
@@ -373,4 +385,4 @@ const yaml = [
 await mkdir("_data", { recursive: true });
 await writeFile("_data/covers.yml", yaml);
 
-console.log(`built ${tags.size + 1} covers in ${OUT_DIR}, _data/covers.yml and assets/img/avatar.svg`);
+console.log(`built ${tags.size + 1} covers in ${OUT_DIR}, _data/covers.yml, assets/img/avatar.svg and ${APP_DIR}`);

@@ -19,7 +19,7 @@ O Redis é uma aplicação single-threaded e isso significa que enquanto uma ope
 
 Sim, é isso mesmo que você leu! Todos os dados armazenados no Redis estão organizados numa estrutura de chave valor.
 
-<img class="img-responsive center-block" src="https://cdn-images-1.medium.com/max/800/0*BtQKeVoZdwPTtdIF.jpg" />
+![Meme de um gato triste com a legenda "Você me decepcionou, cara"](/assets/img/posts/redis-meme-gato-decepcionado.jpg)
 
 Não, pera. Permita-me explicar melhor: Embora todos os dados estejam distribuídos no formato chave/valor, o valor pode ser qualquer coisa que você imaginar… desde uma String simples até conjuntos extremamente complexos. Confie em mim… você vai se surpreender com essa característica.
 
@@ -31,7 +31,7 @@ Bem, isso acho que você já notou. Diferente de bancos com Oracle, Sql Server e
 
 Você deve estar pensando: "Ah, se ele é um banco NoSql já estou em casa… deve ser igual ao MongoDB".
 
-<img class="img-responsive center-block" src="https://cdn-images-1.medium.com/max/800/1*KSqpqaqxkZImuW3CiHyACQ.jpeg" />
+![Meme do Quico, do Chaves, com a legenda "Vai com calma, fera, você tá muito ousado!"](/assets/img/posts/redis-meme-chaves-calma.jpg)
 
 Isso, calma! O Redis, como já disse, é baseado em "chave-valor", diferente do MongoDB que é baseado em documentos. Isso já traz uma diferença de paradigma absurda. Embora ambos sejam bancos NoSql, eles possuem utilidades diferentes, cada um com seus pontos fortes e fracos.
 
