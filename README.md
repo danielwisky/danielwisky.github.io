@@ -31,6 +31,19 @@ real, coloque o original em `_photos/<slug>.jpg` e rode `npm run build:photos`
 iframe do YouTube no corpo e rode `npm run build:videos`: ele acha o embed,
 baixa a thumbnail e a capa vira link com botão de play.
 
+## Revisando um post
+
+Ao atualizar um post antigo, adicione ao front matter:
+
+```yaml
+last_modified_at: 2026-10-27
+revision_note: "O que mudou, em uma ou duas frases (aceita **markdown**)."
+```
+
+O `last_modified_at` mostra "Atualizado em" no cabeçalho e vira o
+`dateModified` do SEO e o `lastmod` do sitemap. Com `revision_note`, o post
+ganha também uma caixa de revisão antes do texto.
+
 ## Scripts
 
 Artefatos gerados são commitados, o deploy roda só o Jekyll. Rode

@@ -1,23 +1,15 @@
 ---
 layout: post
 title: "Aplicativos para acessibilidade"
-subtitle: "10 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência."
+subtitle: "8 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência."
 tags: [Coletânea, Aplicativos para acessibilidade]
+last_modified_at: 2026-10-27
+revision_note: >-
+  Este post é de 2017 e alguns aplicativos da lista original saíram das lojas.
+  Removi o **WhatsCine** e o **guiaderodas**, que não estão mais disponíveis,
+  tirei os links de Android que deixaram de existir e atualizei o endereço do
+  Enable Viacam.
 ---
-
-## WhatsCine
-
-O **WhatsCine** torna o cinema acessível porque permite que as pessoas cegas escutem a audiodescrição do filme sem interferir com o áudio de outros espectadores. Permite aos surdos ver legendas e linguagem gestual através de óculos especiais, ou em seu smartphone. Graças a esta possibilidade, é incentivada a inclusão, o lazer compartilhado e o acesso para todos para a igualdade de cultura. O aplicativo também permite a transmissão de publicidade interativa pela sala, facilitando a promoção de futuros filmes e ofertas especiais relacionadas à sala e/ou seus patrocinadores. Agora também para televisão ou elementos audiovisuais na internet.
-
-<a href="https://play.google.com/store/apps/details?id=com.whatscine.softlab&hl=pt_BR" target="_blank">WhatsCine Android</a>,
-<a href="https://itunes.apple.com/br/app/whatscine/id627440551?mt=8" target="_blank">WhatsCine iOS</a>
-
-## guiaderodas
-
-O **guiaderodas** é um guia colaborativo destinado a avaliação e consulta de lugares acessíveis para pessoas com dificuldade de locomoção. Através de uma avaliação de no máximo 30 segundos e com uma abordagem jovem e otimista, o guiaderodas tem como objetivo promover a importância do tema e estimular todas as pessoas, com dificuldade de locomoção ou não, a avaliar a acessibilidade de diversos estabelecimentos. Entendemos que uma ideia quando é boa, é boa para todos.
-
-<a href="https://play.google.com/store/apps/details?id=com.parallel30.guiaderodas" target="_blank">guiaderodas Android</a>,
-<a href="https://itunes.apple.com/br/app/guiaderodas/id1070335503?mt=8" target="_blank">guiaderodas iOS</a>
 
 ## Spread The Sign
 
@@ -44,7 +36,6 @@ O Aplicativo **Hand Talk** é um tradutor de bolso que é usado como um recurso 
 
 Você não precisa mais estar no ponto para saber que horas seu ônibus vai passar. Com o CittaMobi Acessibilidade é fácil se programar, seja para ir para o trabalho, para casa ou para a balada, saiba em tempo real a que horas seu ônibus vai chegar. Com o CittaMobi Acessibilidade você pode consultar a Previsão de Chegada de seu ônibus em TEMPO REAL. Com apenas um toque visualize em quanto tempo seu ônibus estará no seu ponto de preferência. Não é estimativa, é previsão baseado na localização atual do ônibus.
 
-<a href="https://play.google.com/store/apps/details?id=com.cittabus.acessibilidade&hl=pt" target="_blank">CittaMobi Acessibilidade Android</a>,
 <a href="https://itunes.apple.com/br/app/acessibilidade-cittamobi/id867764517?mt=8" target="_blank">CittaMobi Acessibilidade iOS</a>
 
 ## Wheelmap
@@ -64,13 +55,12 @@ O **Wheelmap** é um mapa online, em todo o mundo, para encontrar e marcar lugar
 
 Enable Viacam é um programa para PC e um aplicativo para dispositivos móveis para o controle do cursor no mouse através dos movimentos da cabeça. Depois de instalado será preciso calibrar a sensibilidade do reconhecimento facial. Através do programa o usuário poderá controlar completamente o cursor do mouse, habilitar o teclado virtual padrão do sistema, posicionar a barra de rolagem da tela, abrir e fechar programas. A sensibilidade dos movimentos pode ser ajustada conforme a necessidade e redefinida sempre que for necessário.
 
-<a href="https://viacam.org/" target="_blank">Enable Viacam site</a>
+<a href="https://eviacam.crea-si.com/" target="_blank">Enable Viacam site</a>
 
 ## LetMeTalk
 
 Um aplicativo grátis de Comunicação Alternativa e Aumentativa (CAA), que apoia a comunicação em todas as áreas da vida e assim fornece uma voz a quem usá-lo. LetMeTalk permite alinhar imagens de forma que o seu conjunto consista em frases com significado. A base de dados do LetMeTalk contém mais de 9000 imagens fáceis de compreender. Adicionalmente, é possível incluir outras imagens a partir do dispositivo, ou tirar fotografias com a máquina fotográfica incorporada do tablet.
 
-<a href="https://play.google.com/store/apps/details?id=de.appnotize.letmetalk&hl=pt_BR" target="_blank">LetMeTalk Android</a>,
 <a href="https://itunes.apple.com/br/app/letmetalk-aplica%C3%A7%C3%A3o-gr%C3%A1tis-caa/id919990138?mt=8" target="_blank">LetMeTalk iOS</a>
 
 Fonte:
