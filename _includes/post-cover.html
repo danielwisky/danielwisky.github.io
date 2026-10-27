@@ -4,11 +4,15 @@ Resolve a URL da capa de um post.
 Uso: inclua com post=post (ou post=page, na página do post).
 
 Variantes:
-  cover (padrão) 4:3, usada nos cards do feed e no topo do post
-  card           560px, para o card do feed (via srcset)
+  cover (padrão) topo do post, e o card em telas retina; foto sai 1200x800
+                 (3:2), capa de tag é SVG 4:3
+  card           560x420, para o card do feed (via srcset); nas capas de tag
+                 é o mesmo SVG da cover
   thumb          menor, para os 72px da sidebar e da busca
   og             1200x630 bitmap para og:image, já que redes sociais não
                  aceitam SVG
+
+Se a variante pedida não existir no mapa, cai na cover.
 
 Precedência:
   1. cover-img no front matter, para apontar uma imagem específica ou externa

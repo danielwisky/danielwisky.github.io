@@ -43,10 +43,21 @@ Artefatos gerados são commitados, o deploy roda só o Jekyll. Rode
 | `build:videos` | Baixa thumbnail do YouTube dos posts com vídeo |
 | `build:photos` | Otimiza fotos novas de `_photos/` e `_data/photos.yml` |
 
-Cada imagem gera 4 variantes: `cover` (topo do post), `card` (feed, via
-`srcset`), `thumb` (sidebar/busca/navegação) e `og` (redes sociais, que não
-aceitam SVG). Cor e ícone de cada tag ficam em `TAG_HUES`/`TAG_ICONS`, em
-`scripts/build-covers.mjs`.
+Cada imagem gera 4 variantes, porque cada lugar do site a exibe num tamanho
+diferente:
+
+| Variante | Foto (`build:photos`) | Onde aparece |
+|---|---|---|
+| `cover` | 1200x800 WebP | Topo do post e card em telas retina |
+| `card` | 560x420 WebP | Card do feed, via `srcset` |
+| `thumb` | 180x135 WebP | Sidebar, busca e navegação |
+| `og` | 1200x630 JPG | `og:image` (redes sociais não aceitam SVG nem sempre aceitam WebP) |
+
+As capas de tag (`build:covers`) são SVG 4:3, com `card` igual à `cover`, e
+só o `og` vira bitmap. Se uma variante faltar, `_includes/post-cover.html`
+cai na `cover`, então o site não quebra, mas o feed e a sidebar passam a
+baixar a imagem grande. Cor e ícone de cada tag ficam em
+`TAG_HUES`/`TAG_ICONS`, em `scripts/build-covers.mjs`.
 
 ## Estrutura
 

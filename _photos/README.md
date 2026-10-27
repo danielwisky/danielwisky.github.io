@@ -7,7 +7,8 @@ em `_posts/` sem a data):
 
 Depois rode `npm run build:photos`. O script gera as versões otimizadas em
 `assets/img/photos/` e o mapa em `_data/photos.yml`; nenhum front matter
-precisa mudar.
+precisa mudar. São 4 variantes por foto (`cover`, `card`, `thumb` e `og`),
+descritas no [README da raiz](../README.md#scripts).
 
 `avatar` é um nome reservado: `_photos/avatar.jpg` vira a foto do hero, e deve
 ser gravada já recortada em quadrado.
