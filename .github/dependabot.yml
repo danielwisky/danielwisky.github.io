@@ -1,7 +1,7 @@
-# Sem este arquivo o Dependabot só abre security updates, sem agendamento nem
-# agrupamento. As dependências de npm aqui são ferramentas de build que rodam
-# só localmente e no CI, então o risco de segurança delas é baixo: o interesse
-# é manter tudo atualizado sem receber um PR por pacote.
+# Without this file Dependabot only opens security updates, with no schedule
+# or grouping. The npm dependencies here are build tools that only run locally
+# and in CI, so their security risk is low: the goal is to keep everything up
+# to date without getting one PR per package.
 version: 2
 updates:
   - package-ecosystem: npm

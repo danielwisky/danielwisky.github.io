@@ -1,8 +1,8 @@
-# Usa o subtitle como description dos posts que não definem uma.
+# Uses the subtitle as the description for posts that don't define one.
 #
-# Sem isso o jekyll-seo-tag cai no excerpt, que é o primeiro parágrafo inteiro
-# (500+ caracteres em vários posts), e o buscador corta em ~155. O subtitle já
-# é um resumo curto escrito à mão.
+# Without this, jekyll-seo-tag falls back to the excerpt, the entire first paragraph
+# (500+ characters in several posts), and search engines cut it at ~155. The subtitle
+# is already a short handwritten summary.
 module Jekyll
   class PostDescription < Generator
     safe true

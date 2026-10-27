@@ -10,7 +10,7 @@ wisky_3dprint_url: "https://wisky3dprint.com.br"
 
 sass:
   style: compressed
-  # o .map de 53 KB ia para produção e nunca era requisitado
+  # the 53 KB .map went to production and was never requested
   sourcemap: never
 
 # output options (more information on Jekyll's site)
@@ -34,28 +34,28 @@ google_analytics: "G-R9ZHFE3RQ5"
 # to use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
 disqus: "danielwisky"
 
-# ID do formulário do Formspree, de formspree.io -> seu form -> "Integration".
-# O endpoint /f/ espera este ID, não um e-mail: o painel chega a exibir a URL
-# com o e-mail, mas ela responde FORM_NOT_FOUND. O ID é o mesmo que aparece
-# como `formId` nos exemplos de JS e React da própria documentação.
+# Formspree form ID, from formspree.io -> your form -> "Integration".
+# The /f/ endpoint expects this ID, not an email: the dashboard even shows the URL
+# with the email, but it responds FORM_NOT_FOUND. The ID is the same one that shows
+# up as `formId` in the JS and React examples of the docs themselves.
 formspree_id: "mzbovjdk"
 
-# Site key pública do reCAPTCHA v3, de google.com/recaptcha/admin. Não é
-# segredo — a chave que protege de fato é a secret key, configurada no
-# painel do Formspree.
+# Public reCAPTCHA v3 site key, from google.com/recaptcha/admin. Not a
+# secret — the key that actually protects is the secret key, set in the
+# Formspree dashboard.
 recaptcha_site_key: "6Le88tUtAAAAAD79aS6UJYPGfXnlWw-RxC8ufBQF"
 
-# O jekyll-seo-tag emite twitter:card; sem isto ele usaria "summary", com
-# miniatura pequena. O username é necessário porque o plugin emite twitter:site
-# de qualquer jeito, e sem ele a tag sai como "@" vazio.
+# jekyll-seo-tag emits twitter:card; without this it would use "summary", with
+# a small thumbnail. The username is needed because the plugin emits twitter:site
+# regardless, and without it the tag comes out as an empty "@".
 twitter:
   username: danielwisky
   card: summary_large_image
 
 # --- footer social media links --- #
-# `icon` é o id no sprite de assets/img/icons.svg.
-# `brand` casa com o modificador .social-icon--<brand> do _sass/components/_social-share.scss,
-# que define a cor da marca no hover.
+# `icon` is the id in the assets/img/icons.svg sprite.
+# `brand` matches the .social-icon--<brand> modifier in _sass/components/_social-share.scss,
+# which sets the brand color on hover.
 social-network-links:
   - name: "GitHub"
     url: "https://github.com/danielwisky"
@@ -83,10 +83,10 @@ social-network-links:
     brand: "print3d"
     display: ["footer"]
 
-# Imagem de fallback nas redes sociais para as páginas que não são post. O
-# jekyll-seo-tag só olha page.image, então precisa vir por defaults e não por
-# uma chave solta no topo. Nos posts, _plugins/post_cover_image.rb sobrescreve
-# com a capa da tag.
+# Fallback social image for pages that aren't posts. jekyll-seo-tag
+# only looks at page.image, so it has to come via defaults and not via
+# a loose top-level key. On posts, _plugins/post_cover_image.rb overrides it
+# with the tag cover.
 defaults:
   - scope:
       path: ""
@@ -105,13 +105,13 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  # ferramentas de build: geram assets, mas não fazem parte do site publicado
+  # build tools: they generate assets, but aren't part of the published site
   - package.json
   - package-lock.json
   - scripts
   - lychee.toml
   - "*.tmp.*"
-  # os fontes do JS: só as versões .min.js são carregadas pelo site
+  # JS sources: only the .min.js versions are loaded by the site
   - assets/js/main.js
   - assets/js/search.js
   - assets/js/code-blocks.js
