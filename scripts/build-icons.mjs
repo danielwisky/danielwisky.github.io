@@ -1,15 +1,15 @@
-// Monta o sprite SVG com os ícones que o site realmente usa.
+// Builds the SVG sprite with the icons the site actually uses.
 //
-// Antes eram três CSS do cdnjs bloqueando a renderização mais dois webfonts,
-// tudo para exibir 24 ícones. O sprite é um único arquivo local, cacheado
-// entre páginas, e nada disso bloqueia a pintura.
+// It used to be three render-blocking cdnjs stylesheets plus two webfonts,
+// all to show 24 icons. The sprite is a single local file, cached across
+// pages, and none of it blocks painting.
 //
-// A saída é commitada; rode só ao adicionar ou remover um ícone.
+// The output is committed; run it only when adding or removing an icon.
 //
 //   npm run build:icons
 //
-// Os nomes abaixo são os do Font Awesome Free (CC BY 4.0), e viram os ids do
-// sprite. Para usar no markup: {% include icon.html name="github" %}
+// The names below are Font Awesome Free (CC BY 4.0) names, and become the
+// sprite ids. To use in markup: {% include icon.html name="github" %}
 
 import { writeFile, mkdir } from "node:fs/promises";
 
@@ -38,9 +38,9 @@ for (const [style, names] of Object.entries(ICONS)) {
     const svg = await res.text();
     const viewBox = svg.match(/viewBox="([^"]+)"/)?.[1];
     const path = svg.match(/ d="([^"]+)"/)?.[1];
-    if (!viewBox || !path) throw new Error(`${style}/${name}: não consegui extrair o path`);
+    if (!viewBox || !path) throw new Error(`${style}/${name}: could not extract the path`);
 
-    // fill="currentColor" para o ícone herdar a cor do texto, como a fonte fazia.
+    // fill="currentColor" so the icon inherits the text color, as the font did.
     symbols.push(
       `  <symbol id="${name}" viewBox="${viewBox}"><path fill="currentColor" d="${path}"/></symbol>`
     );
@@ -57,4 +57,4 @@ ${symbols.join("\n")}
 `
 );
 
-console.log(`${symbols.length} ícones em ${OUT}`);
+console.log(`${symbols.length} icons in ${OUT}`);

@@ -1,5 +1,5 @@
 //
-// Página do post: cabeçalho, corpo (prose) e navegação
+// Post page: header, body (prose) and navigation
 //
 
 .post__header {
@@ -62,10 +62,10 @@
 
 .post__cover {
   position: relative;
-  // 3:2 casa com a variante `cover` gerada em scripts/build-photos.mjs. Com o
-  // 21:9 anterior o CSS recortava 43% da imagem que o navegador já tinha
-  // baixado e decodificado, e o recorte inteligente do sharp era calculado
-  // para um enquadramento que nunca aparecia inteiro.
+  // 3:2 matches the `cover` variant generated in scripts/build-photos.mjs. With the
+  // previous 21:9 the CSS cropped 43% of the image the browser had already
+  // downloaded and decoded, and sharp's smart crop was computed
+  // for a framing that was never shown in full.
   aspect-ratio: 3 / 2;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -81,7 +81,7 @@
 }
 
 //
-// Corpo do post
+// Post body
 //
 .prose {
   font-size: 17px;
@@ -163,7 +163,7 @@
     border: 1px solid var(--border);
   }
 
-  // tabelas com scroll em telas pequenas
+  // scrollable tables on small screens
   table {
     display: block;
     width: 100%;
@@ -204,7 +204,7 @@
     background: var(--bg-alt-2);
   }
 
-  // vídeos do YouTube embutidos
+  // embedded YouTube videos
   iframe {
     display: block;
     width: 100%;
@@ -217,7 +217,7 @@
 }
 
 //
-// Navegação anterior / próximo
+// Previous / next navigation
 //
 .post-nav {
   display: flex;
@@ -282,9 +282,9 @@
 
 .disqus-comments {
   margin-top: var(--space-7);
-  // Reserva espaço antes do embed carregar (via IntersectionObserver em
-  // comments.html) para evitar que o iframe, ao ser injetado, empurre o
-  // post-nav e o footer para baixo.
+  // Reserves space before the embed loads (via IntersectionObserver in
+  // comments.html) so the iframe, when injected, doesn't push the
+  // post-nav and the footer down.
   min-height: 400px;
 }
 

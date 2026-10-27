@@ -1,13 +1,13 @@
 //
-// Blocos de código (Rouge) — visual de janela de terminal
+// Code blocks (Rouge) — terminal window look
 //
-// A estrutura que o Rouge gera é:
+// The structure Rouge generates is:
 //   div.language-java.highlighter-rouge > div.highlight > pre.highlight > code
-// O assets/js/code-blocks.js injeta `div.code-bar` como primeiro filho do
-// wrapper, com os semáforos, o badge da linguagem e o botão de copiar.
+// assets/js/code-blocks.js injects `div.code-bar` as the first child of the
+// wrapper, with the traffic lights, the language badge and the copy button.
 //
-// As cores vêm todas de custom properties definidas em _tokens.scss, então o
-// tema escuro é trocado junto com o resto do site — sem !important.
+// All colors come from custom properties defined in _tokens.scss, so the
+// dark theme switches along with the rest of the site — no !important.
 //
 
 code,
@@ -17,7 +17,7 @@ samp {
   font-family: var(--font-mono);
 }
 
-// código inline
+// inline code
 :not(pre) > code {
   padding: 2px 6px;
   font-size: 0.875em;
@@ -29,9 +29,9 @@ samp {
   word-break: break-word;
 }
 
-// `div.` é obrigatório: o kramdown usa a mesma classe no código INLINE
-// (`<code class="language-plaintext highlighter-rouge">`), que é estilizado
-// como chip logo acima.
+// `div.` is required: kramdown uses the same class on INLINE code
+// (`<code class="language-plaintext highlighter-rouge">`), which is styled
+// as a chip just above.
 div.highlighter-rouge {
   position: relative;
   margin-bottom: var(--space-6);
@@ -41,7 +41,7 @@ div.highlighter-rouge {
   background: var(--code-bg);
 }
 
-// barra superior injetada pelo JS
+// top bar injected by the JS
 .code-bar {
   display: flex;
   align-items: center;
@@ -108,7 +108,7 @@ div.highlighter-rouge:hover .code-bar__copy,
   opacity: 1;
 }
 
-// em telas de toque não há hover: o botão fica sempre visível
+// touch screens have no hover: the button is always visible
 @media (hover: none) {
   .code-bar__copy {
     opacity: 1;
@@ -139,7 +139,7 @@ pre.highlight,
     font-size: inherit;
   }
 
-  // scrollbar discreta
+  // subtle scrollbar
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -158,7 +158,7 @@ pre.highlight,
 }
 
 //
-// Mapeamento dos tokens do Rouge
+// Rouge token mapping
 //
 .highlight {
   .c, .cd, .cm, .c1, .cs { color: var(--code-comment); font-style: italic; }

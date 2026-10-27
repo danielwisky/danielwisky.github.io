@@ -1,13 +1,13 @@
 /*
- * Enriquece os blocos de código do Rouge com uma barra no topo (semáforos,
- * nome da linguagem e botão de copiar).
+ * Enhances Rouge code blocks with a top bar (traffic lights, language name
+ * and copy button).
  *
- * O Rouge já faz o realce de sintaxe no build, então não há realce em runtime
- * aqui — só a moldura. O markup dos posts não precisa mudar: a linguagem sai
- * da classe `language-*` que o kramdown coloca no wrapper.
+ * Rouge already does syntax highlighting at build time, so there is no runtime
+ * highlighting here — just the frame. Post markup doesn't need to change: the
+ * language comes from the `language-*` class kramdown puts on the wrapper.
  */
 (() => {
-  // Mesmo sprite do resto do site (assets/img/icons.svg), via <use>.
+  // Same sprite as the rest of the site (assets/img/icons.svg), via <use>.
   const icon = (name) =>
     `<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/img/icons.svg#${name}"></use></svg>`;
 
@@ -21,8 +21,8 @@
     const match = [...block.classList].find((c) => c.startsWith("language-"));
     const language = match ? match.replace("language-", "") : "";
 
-    // Blocos sem linguagem viram `language-plaintext`; mostrar esse rótulo só
-    // polui a barra.
+    // Blocks without a language become `language-plaintext`; showing that label
+    // just clutters the bar.
     const label = language && language !== "plaintext" ? language : "";
 
     const bar = document.createElement("div");

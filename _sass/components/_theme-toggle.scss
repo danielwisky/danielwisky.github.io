@@ -1,8 +1,8 @@
 //
-// Toggle de tema (sol / lua)
+// Theme toggle (sun / moon)
 //
-// Os dois ícones ficam no mesmo botão; o CSS decide qual aparece a partir do
-// data-theme aplicado no <html> pelo script anti-FOUC no <head>.
+// Both icons live in the same button; the CSS decides which one shows based on the
+// data-theme set on <html> by the anti-FOUC script in the <head>.
 //
 
 .theme-toggle {

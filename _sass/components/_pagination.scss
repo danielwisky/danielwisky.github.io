@@ -1,5 +1,5 @@
 //
-// Paginação e estados do infinite scroll
+// Pagination and infinite scroll states
 //
 
 .pagination {
@@ -14,8 +14,8 @@
   font-size: 14px;
   color: var(--text-alt);
 
-  // flex em coluna em vez de text-align: o Font Awesome fixa a largura do
-  // ícone, então um `display: block` nele não o centraliza.
+  // column flex instead of text-align: Font Awesome fixes the icon's
+  // width, so a `display: block` on it doesn't center it.
   p {
     display: flex;
     flex-direction: column;

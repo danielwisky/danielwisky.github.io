@@ -1,11 +1,11 @@
 (() => {
 
   /*
-   * Página /tags
+   * /tags page
    *
-   * Sem este script a página é a listagem completa com âncoras. Com ele, o
-   * campo de busca filtra tags e seções, e clicar numa tag mostra só a seção
-   * dela, mantendo o #slug na URL (os links da sidebar caem já filtrados).
+   * Without this script the page is the full listing with anchors. With it, the
+   * search field filters tags and sections, and clicking a tag shows only its
+   * section, keeping the #slug in the URL (sidebar links land already filtered).
    */
   const filter = document.querySelector("[data-tag-filter]");
   if (!filter) return;
@@ -58,8 +58,8 @@
       if (active) chip.setAttribute("aria-current", "true");
     });
 
-    // A barra fica logo acima da seção: ao rolar até ela, a tag ativa e o
-    // "Ver todas" continuam à vista, mesmo com a nuvem fora da tela.
+    // The bar sits right above the section: when scrolling to it, the active tag
+    // and "Ver todas" stay in view, even with the cloud off screen.
     const count = target.querySelectorAll(".tag-entry").length;
     selectedText.textContent = `${count} ${count === 1 ? "post" : "posts"} em #${target.dataset.tagName}`;
     selected.hidden = false;
@@ -95,7 +95,7 @@
       : "Nenhum assunto encontrado";
   };
 
-  // A URL sem hash volta a ser a listagem completa.
+  // A URL without a hash goes back to the full listing.
   const clearHash = () => {
     if (location.hash) history.pushState(null, "", location.pathname + location.search);
   };
@@ -105,14 +105,14 @@
     try {
       slug = decodeURIComponent(location.hash.slice(1));
     } catch (e) {
-      /* hash mal codificado (ex.: #100%): trata como sem tag */
+      /* malformed hash (e.g. #100%): treat as no tag */
     }
     if (!slug || !select(slug)) showAll();
   };
 
   chips.forEach((chip) => {
     chip.addEventListener("click", (event) => {
-      // Cmd/Ctrl/Shift/botão do meio seguem abrindo o link em outra aba.
+      // Cmd/Ctrl/Shift/middle click still open the link in another tab.
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return;
       event.preventDefault();
       if (chip.classList.contains("is-active")) {
@@ -151,8 +151,8 @@
     active?.focus();
   });
 
-  // Voltar/avançar entre hashes dispara popstate e hashchange; ouvir os dois
-  // rodaria o select() duas vezes (e repetiria o aviso do aria-live).
+  // Back/forward between hashes fires both popstate and hashchange; listening to
+  // both would run select() twice (and repeat the aria-live announcement).
   window.addEventListener("popstate", fromHash);
 
   filter.hidden = false;

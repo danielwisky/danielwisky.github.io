@@ -3,18 +3,19 @@
   <div id="disqus_thread"></div>
   <script>
     /*
-     * O Disqus resolve o esquema de cor uma vez só, quando o embed carrega, e
-     * DISQUS.reset() não o recalcula: voltando de escuro para claro o iframe
-     * ficava com fundo claro e texto claro, ilegível.
+     * Disqus resolves the color scheme only once, when the embed loads, and
+     * DISQUS.reset() doesn't recompute it: going from dark back to light left
+     * the iframe with a light background and light text, unreadable.
      *
-     * Por isso o embed é recriado do zero a cada troca de tema. É mais bruto
-     * que reset(), mas é o único caminho que faz o Disqus reavaliar a cor.
+     * So the embed is recreated from scratch on every theme change. It's
+     * cruder than reset(), but it's the only way to make Disqus re-evaluate
+     * the color.
      */
     var disqus_shortname = '{{ site.disqus }}';
 
     function disqus_config() {
-      // Sem page.identifier de propósito: as threads existentes estão indexadas
-      // pela URL completa, e fixar um identifier novo as deixaria órfãs.
+      // No page.identifier on purpose: existing threads are indexed by the full
+      // URL, and setting a new identifier would orphan them.
       this.page.url = window.location.href.split('?')[0];
       this.page.colorScheme =
         document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
@@ -25,8 +26,8 @@
       var thread = d.getElementById('disqus_thread');
       if (!thread) return;
 
-      // Sem limpar o estado anterior o embed.js volta cedo, achando que já
-      // está montado, e nada é recarregado.
+      // Without clearing the previous state embed.js returns early, thinking it's
+      // already mounted, and nothing gets reloaded.
       thread.innerHTML = '';
       d.querySelectorAll('script[data-disqus]').forEach(function (el) { el.remove(); });
       try { delete window.DISQUS; } catch (e) { window.DISQUS = undefined; }
@@ -40,9 +41,9 @@
     };
 
     /*
-     * Carrega só quando a área de comentários se aproxima da viewport. O embed
-     * do Disqus puxa centenas de KB de terceiros, e a maioria das visitas a um
-     * post nunca chega até aqui.
+     * Loads only when the comments area gets close to the viewport. The Disqus
+     * embed pulls in hundreds of KB of third-party code, and most visits to a
+     * post never get this far.
      */
     (function () {
       var thread = document.getElementById('disqus_thread');

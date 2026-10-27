@@ -1,5 +1,5 @@
 //
-// Botão "voltar ao topo"
+// "Back to top" button
 //
 
 .back-to-top {
@@ -28,8 +28,8 @@
     transform: none;
   }
 
-  // depois de .is-active: mesma especificidade, então a ordem decide — e o
-  // botão só existe visualmente no estado .is-active.
+  // after .is-active: same specificity, so order decides — and the
+  // button only exists visually in the .is-active state.
   &.is-active:hover {
     color: var(--on-accent);
     transform: translateY(-2px);

@@ -1,12 +1,12 @@
 /*
- * Formulário de contato: validação e envio por AJAX.
+ * Contact form: validation and AJAX submission.
  *
- * O envio vai por fetch em vez de deixar o navegador postar o form porque o
- * Formspree, no plano gratuito, sempre despeja a pessoa na página de obrigado
- * do domínio dele. Com AJAX conseguimos levar para a nossa /thanks/.
+ * Submission goes through fetch instead of letting the browser post the form
+ * because Formspree, on the free plan, always dumps the visitor on the thank-you
+ * page on its own domain. With AJAX we can send them to our /thanks/.
  *
- * Sem JS o form ainda funciona: o `action` continua no HTML e o Formspree
- * cuida do resto.
+ * Without JS the form still works: the `action` stays in the HTML and Formspree
+ * handles the rest.
  */
 (() => {
   const form = document.getElementById("contactForm");
@@ -22,8 +22,8 @@
 
     const valid = control.checkValidity();
     field.classList.toggle("is-invalid", !valid);
-    // Sem aria-invalid a mensagem de erro é só visual: quem usa leitor de tela
-    // era jogado para o campo sem saber o motivo.
+    // Without aria-invalid the error message is visual only: screen reader users
+    // were thrown into the field without knowing why.
     control.setAttribute("aria-invalid", String(!valid));
     return valid;
   };
@@ -39,8 +39,8 @@
     const control = field.querySelector(".field__control");
     if (!control) return;
 
-    // Só valida no blur/input depois que o campo já foi marcado como inválido,
-    // para não acusar erro enquanto a pessoa ainda está digitando.
+    // Only validates on blur/input after the field has been marked invalid, so
+    // we don't flag an error while the person is still typing.
     control.addEventListener("blur", () => validate(field));
     control.addEventListener("input", () => {
       if (field.classList.contains("is-invalid")) validate(field);
@@ -63,7 +63,7 @@
     say("Enviando...");
 
     try {
-      // v3 não tem checkbox: gera um token de score em background a cada envio.
+      // v3 has no checkbox: it generates a score token in the background on each submit.
       const formData = new FormData(form);
       if (recaptchaSiteKey && typeof grecaptcha !== "undefined") {
         const token = await new Promise((resolve) => {

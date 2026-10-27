@@ -1,5 +1,5 @@
 //
-// Sidebar e seus widgets
+// Sidebar and its widgets
 //
 
 .sidebar {
@@ -32,7 +32,7 @@
   gap: var(--space-2);
 }
 
-// lista de posts em miniatura (destaques / recentes)
+// thumbnail post list (featured / recent)
 .mini-post {
   display: flex;
   align-items: flex-start;

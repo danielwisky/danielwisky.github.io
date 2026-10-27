@@ -1,14 +1,14 @@
 /*
- * Busca do blog.
+ * Blog search.
  *
- * Nada aqui é baixado até o leitor abrir o overlay pela primeira vez: o lunr,
- * o stemmer de português e o índice (~190 KB) só entram na rede nesse momento.
- * Antes eles vinham em toda visita, mesmo sem ninguém pesquisar.
+ * Nothing here is downloaded until the reader opens the overlay for the first
+ * time: lunr, the Portuguese stemmer and the index (~190 KB) only hit the
+ * network then. They used to load on every visit, even with no one searching.
  */
 (() => {
-  /* Cada script de terceiro vem com integrity: eles são injetados em runtime,
-     mas isso não é motivo para abrir mão da verificação que uma tag <script>
-     estática teria. */
+  /* Every third-party script comes with integrity: they are injected at runtime,
+     but that's no reason to give up the check a static <script> tag would
+     have. */
   const SCRIPTS = [
     {
       src: "https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js",
@@ -39,7 +39,7 @@
   let selected = -1;
   let debounceTimer;
 
-  /* Remove acentos: "programacao" precisa achar "programação". */
+  /* Strips accents: "programacao" must match "programação". */
   const fold = (value) => value.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 
   const loadScript = ({ src, integrity }) =>
@@ -50,7 +50,7 @@
       script.crossOrigin = "anonymous";
       script.referrerPolicy = "no-referrer";
       script.onload = resolve;
-      script.onerror = () => reject(new Error(`falha ao carregar ${src}`));
+      script.onerror = () => reject(new Error(`failed to load ${src}`));
       document.head.appendChild(script);
     });
 
@@ -59,11 +59,11 @@
 
     setStatus("Carregando índice...");
 
-    // Em série: lunr.stemmer.support e lunr.pt dependem do lunr já carregado.
+    // In series: lunr.stemmer.support and lunr.pt depend on lunr being loaded.
     loading = SCRIPTS.reduce((chain, entry) => chain.then(() => loadScript(entry)), Promise.resolve())
       .then(() => fetch(indexUrl))
       .then((response) => {
-        if (!response.ok) throw new Error("não foi possível baixar o índice");
+        if (!response.ok) throw new Error("could not download the index");
         return response.json();
       })
       .then((data) => {
@@ -106,7 +106,7 @@
   const escapeHtml = (value) =>
     value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  /* Realça os termos da busca comparando as versões sem acento das strings. */
+  /* Highlights the search terms by comparing the accent-free versions of the strings. */
   function mark(text, terms) {
     const folded = fold(text).toLowerCase();
     const ranges = [];
@@ -138,7 +138,7 @@
     return out;
   }
 
-  /* Trecho do conteúdo em volta da primeira ocorrência de algum termo. */
+  /* Content excerpt around the first occurrence of any term. */
   function snippet(content, terms) {
     const folded = fold(content).toLowerCase();
     let at = -1;
@@ -154,8 +154,8 @@
     return (start > 0 ? "…" : "") + text + (start + 190 < content.length ? "…" : "");
   }
 
-  /* Esvaziar a lista sem zerar `selected` deixava o Enter tentar abrir um
-     resultado que não existe mais. */
+  /* Emptying the list without resetting `selected` made Enter try to open a
+     result that no longer exists. */
   function clearResults() {
     resultsEl.innerHTML = "";
     selected = -1;
@@ -206,12 +206,12 @@
         .filter(Boolean);
 
       /*
-       * Cada termo entra duas vezes: solto e com curinga.
+       * Each term goes in twice: bare and with a wildcard.
        *
-       * O lunr não passa termos com `*` pelo pipeline, então o curinga sozinho
-       * não casa com o índice — que está stemizado ("programacao" virou
-       * "program"). O termo solto cobre a palavra inteira e o curinga cobre a
-       * palavra ainda sendo digitada.
+       * lunr doesn't run terms with `*` through the pipeline, so the wildcard
+       * alone doesn't match the index — which is stemmed ("programacao" became
+       * "program"). The bare term covers the whole word and the wildcard covers
+       * the word still being typed.
        */
       const query = terms.map((term) => `${term} ${term}*`).join(" ");
 
@@ -243,7 +243,7 @@
     items[selected].scrollIntoView({ block: "nearest" });
   }
 
-  /* Guardado para devolver o foco a quem abriu, em vez de largar no <body>. */
+  /* Saved to return focus to whatever opened it, instead of dropping it on <body>. */
   let lastFocused = null;
 
   function open() {
@@ -261,9 +261,10 @@
   }
 
   /*
-   * Prende o Tab no overlay. Os resultados são navegados por seta, então os
-   * únicos focáveis são o campo e o botão de fechar: sem isto, tabular levava
-   * para o header e o conteúdo atrás, que está visualmente coberto.
+   * Traps Tab inside the overlay. Results are navigated with the arrow keys, so
+   * the only focusable elements are the input and the close button: without
+   * this, tabbing went to the header and the content behind, which is visually
+   * covered.
    */
   function trapTab(event) {
     const closeButton = document.getElementById("search-close");
