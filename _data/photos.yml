@@ -40,6 +40,11 @@
   card: /assets/img/photos/cards/bulkhead-pattern.webp
   thumb: /assets/img/photos/thumbs/bulkhead-pattern.webp
   og: /assets/img/photos/og/bulkhead-pattern.jpg
+"cache-stampede":
+  cover: /assets/img/photos/cache-stampede.webp
+  card: /assets/img/photos/cards/cache-stampede.webp
+  thumb: /assets/img/photos/thumbs/cache-stampede.webp
+  og: /assets/img/photos/og/cache-stampede.jpg
 "circuit-breaker":
   cover: /assets/img/photos/circuit-breaker.webp
   card: /assets/img/photos/cards/circuit-breaker.webp
