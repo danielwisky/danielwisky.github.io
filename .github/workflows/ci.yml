@@ -61,7 +61,7 @@ jobs:
 
       # Só links internos: os externos oscilam (timeout, bloqueio de robô) e
       # deixariam o PR vermelho por algo fora do repositório. Eles são
-      # checados toda semana pelo links.yml.
+      # checados uma vez por mês pelo links.yml.
       - name: Conferir links internos
         uses: lycheeverse/lychee-action@v2
         with:

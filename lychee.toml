@@ -1,5 +1,5 @@
 # Configuração do lychee, usada pelo ci.yml (links internos) e pelo links.yml
-# (links externos, semanal).
+# (links externos, mensal).
 
 max_concurrency = 16
 timeout = 20

@@ -1,13 +1,13 @@
-# Weekly check of external links.
+# Monthly check of external links.
 #
 # Kept out of the pull request CI because external links break for reasons
 # unrelated to the PR. Instead of failing, it opens (or comments on) a single
-# issue labeled broken-links, so issues don't pile up week after week.
+# issue labeled broken-links, so issues don't pile up month after month.
 name: External links
 
 on:
   schedule:
-    - cron: "0 11 * * 1"
+    - cron: "0 11 1 * *"
   workflow_dispatch:
 
 permissions:
