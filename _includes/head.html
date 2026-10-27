@@ -19,7 +19,7 @@
 
   {%- comment -%}
   Self-hosted fonts (assets/fonts/), no longer fonts.googleapis.com: one
-  less cross-origin request on the critical path before the first paint.
+  fewer cross-origin connection on the critical path before the first paint.
   Preloads only the weights visible right at page load (title and
   meta/tags) — the other weights arrive via @font-face as usual, without
   competing with the cover image for network priority.

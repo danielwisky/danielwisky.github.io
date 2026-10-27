@@ -15,9 +15,9 @@ plain: true
 <p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
 
 {%- comment -%}
-The action stays in the HTML so the form works without JS (then the
-recipient is Formspree's own thank-you page, which the free plan doesn't let
-you change). With JS, assets/js/contact.js submits via AJAX and redirects to
+The action stays in the HTML so the form works without JS (then the user
+lands on Formspree's own thank-you page, which the free plan doesn't let you
+change). With JS, assets/js/contact.js submits via AJAX and redirects to
 /thanks/, which is our own page.
 {%- endcomment -%}
 <form id="contactForm" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST"

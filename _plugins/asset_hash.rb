@@ -26,7 +26,7 @@ module Jekyll
       end
     end
 
-    # style.css is compiled from dozens of partials in _sass/, so hashing
+    # style.css is compiled from ~20 partials in _sass/, so hashing
     # only the entry .scss detects no changes at all. Here the digest
     # covers the entry plus all the partials.
     def sass_hash(entry)

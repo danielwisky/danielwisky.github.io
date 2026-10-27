@@ -5,7 +5,7 @@ Usage: {% include icon.html name="github" %}
        {% include icon.html name="play" class="video-icon__glyph" %}
 
 Replaces Font Awesome, which pulled three render-blocking CSS files and two
-webfonts from cdnjs to display 24 icons. The `fill` is currentColor, so the color
-still comes from the CSS as it did with the font.
+webfonts from cdnjs to display the 24 icons it had back then. The `fill` is
+currentColor, so the color still comes from the CSS as it did with the font.
 {%- endcomment -%}
 <svg class="icon{% if include.class %} {{ include.class }}{% endif %}" aria-hidden="true" focusable="false"><use href="{{ '/assets/img/icons.svg' | relative_url }}#{{ include.name }}"></use></svg>

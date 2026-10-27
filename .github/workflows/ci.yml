@@ -11,6 +11,8 @@
 #                 and be flaky
 #   build:photos  depends on _photos/, which isn't versioned; on a clean runner
 #                 it generates nothing (the script handles the missing folder)
+#   build:icons   downloads the icons from jsDelivr; same network issue as
+#                 build:videos
 name: CI
 
 on:
@@ -39,8 +41,9 @@ jobs:
         run: |
           # The tag cover .jpg files are rasterized from SVG by sharp, and the
           # result depends on the system fonts: macOS and Linux produce
-          # different bytes for the same input. The .svg files, which are pure
-          # string generation, stay in the check. Same goes for the app icons.
+          # different bytes for the same input. The app icons are rasterized the
+          # same way and are discarded too. The .svg files, which are pure string
+          # generation, stay in the check.
           git checkout -- assets/img/covers/og assets/img/app
 
       - name: Check that committed artifacts are up to date
