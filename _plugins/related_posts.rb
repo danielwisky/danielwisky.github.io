@@ -1,5 +1,5 @@
-# Posts relacionados por tag em comum, ordenados por quantas tags
-# compartilham e, em empate, pelos mais recentes primeiro.
+# Related posts by shared tag, ordered by how many tags they share
+# and, on ties, by most recent first.
 module Jekyll
   module RelatedPostsFilter
     def related_posts(post, all_posts, limit = 3, exclude = [])
@@ -10,8 +10,8 @@ module Jekyll
       excluded_urls = Array(exclude).filter_map { |item| item["url"] if item }
 
       scored = all_posts.filter_map do |candidate|
-        # `.url`, não `["id"]`: candidatos de site.posts são Document puros, e
-        # candidate["id"] sempre volta nil neles.
+        # `.url`, not `["id"]`: candidates from site.posts are plain Documents, and
+        # candidate["id"] always returns nil on them.
         next if candidate.url == current_url
         next if excluded_urls.include?(candidate.url)
 

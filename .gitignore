@@ -5,7 +5,7 @@ _site
 .idea
 node_modules
 .claude/skills
-# scripts descartáveis de verificação local (screenshots, checagens pontuais)
+# throwaway local check scripts (screenshots, one-off checks)
 *.tmp.*
 
 # general
@@ -15,7 +15,7 @@ ehthumbs.db
 
 beautiful-jekyll-theme-*.gem
 
-# fotos originais: pesadas e recuperáveis; só as versões otimizadas
-# em assets/img/photos são versionadas
+# original photos: heavy and recoverable; only the optimized versions
+# in assets/img/photos are versioned
 _photos/*
 !_photos/README.md

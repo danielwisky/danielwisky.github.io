@@ -3,9 +3,9 @@
     <h2 class="widget__title">Tópicos</h2>
     <div class="widget__tags">
       {%- comment -%}
-      O for do Liquid ignora filtros aplicados na própria expressão da
-      coleção (`for x in y | filtro`) — silenciosamente, sem erro. Por isso o
-      assign antes.
+      Liquid's for ignores filters applied in the collection expression
+      itself (`for x in y | filter`) — silently, with no error. Hence the
+      assign beforehand.
       {%- endcomment -%}
       {%- assign top_tags = site.tags | tags_by_count -%}
       {%- for tag in top_tags limit: 14 %}

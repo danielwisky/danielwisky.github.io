@@ -8,9 +8,9 @@ plain: true
 ---
 
 {%- comment -%}
-Abaixo de main_min posts a tag vai para "Outros assuntos". O filtro e o clique
-que isola uma tag vêm do assets/js/tags.js; sem JS a página continua sendo a
-listagem completa com âncoras.
+Below main_min posts the tag goes to "Outros assuntos". The filter and the
+click that isolates a tag come from assets/js/tags.js; without JS the page is
+still the full listing with anchors.
 {%- endcomment -%}
 {%- assign main_min = 3 -%}
 {%- assign tags_sorted = site.tags | tags_by_count -%}

@@ -3,8 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {%- comment -%}
-  Aplica o tema antes da primeira pintura. Precisa ser síncrono e vir antes do
-  CSS, senão a página pisca branca ao recarregar no modo escuro.
+  Applies the theme before the first paint. It must be synchronous and come
+  before the CSS, otherwise the page flashes white on reload in dark mode.
   {%- endcomment -%}
   <script>
     (function () {
@@ -18,11 +18,11 @@
   </script>
 
   {%- comment -%}
-  Fontes self-hosted (assets/fonts/), não mais fonts.googleapis.com: uma
-  origem cross-origin a menos no caminho crítico antes do primeiro paint.
-  Precarrega só os pesos visíveis logo na entrada da página (título e
-  meta/tags) — os demais pesos chegam via @font-face normalmente, sem
-  competir com a imagem de capa pela prioridade de rede.
+  Self-hosted fonts (assets/fonts/), no longer fonts.googleapis.com: one
+  fewer cross-origin connection on the critical path before the first paint.
+  Preloads only the weights visible right at page load (title and
+  meta/tags) — the other weights arrive via @font-face as usual, without
+  competing with the cover image for network priority.
   {%- endcomment -%}
   <link rel="preload" as="font" type="font/woff2" crossorigin
         href="{{ '/assets/fonts/poppins-v24-latin-700.woff2' | relative_url }}">
@@ -35,9 +35,9 @@
   <meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
 
   {%- comment -%}
-  As tags sociais (og:image, twitter:card, twitter:image) saem do {% seo %}:
-  _plugins/post_cover_image.rb preenche page.image de cada post com a capa em
-  JPEG, porque redes sociais ignoram SVG em og:image.
+  The social tags (og:image, twitter:card, twitter:image) come from {% seo %}:
+  _plugins/post_cover_image.rb fills each post's page.image with the JPEG
+  cover, because social networks ignore SVG in og:image.
   {%- endcomment -%}
   {% seo %}
   {%- if page.layout == 'post' %}
@@ -45,8 +45,8 @@
   <meta property="article:tag" content="{{ tag | escape }}" />
   {%- endfor %}
   {%- comment -%}
-  O {% seo %} só emite BlogPosting. A trilha Início › tag › post é o que o
-  Google mostra no lugar da URL crua no resultado de busca.
+  {% seo %} only emits BlogPosting. The Início › tag › post breadcrumb is what
+  Google shows instead of the raw URL in search results.
   {%- endcomment -%}
   {%- assign crumb_tag = page.tags | first %}
   {%- capture crumb_tag_url %}{{ '/tags/' | absolute_url }}#{{ crumb_tag | slugify }}{% endcapture %}
@@ -67,8 +67,8 @@
   </script>
   {%- endif %}
   {%- comment -%}
-  Sem isto nenhuma página anuncia o RSS, e leitores e agregadores não o
-  descobrem: o feed só existia como link de texto no rodapé.
+  Without this no page advertises the RSS feed, and readers and aggregators
+  can't discover it: the feed only existed as a text link in the footer.
   {%- endcomment -%}
   {% feed_meta %}
 

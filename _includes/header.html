@@ -6,8 +6,8 @@
       <nav class="header__nav" id="site-nav" aria-label="Navegação principal">
         <ul class="nav__list">
           {%- comment -%}
-          page.url da home vem como "/index.html" e das páginas paginadas como
-          "/page/2/", por isso a normalização antes de comparar.
+          page.url is "/index.html" on the home page and "/page/2/" on the
+          paginated pages, hence the normalization before comparing.
           {%- endcomment -%}
           {%- assign current = page.url | replace: 'index.html', '' -%}
           {%- if page.layout == 'home' %}{% assign current = '/' %}{% endif -%}
