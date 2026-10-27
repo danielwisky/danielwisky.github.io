@@ -22,6 +22,13 @@ layout: default
     <div class="post__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{% include date-pt-br.html date = page.date %}</time>
       <span class="post__sep">·</span>
+      {%- if page.last_modified_at %}
+      <span class="post__updated">
+        {% include icon.html name="clock-rotate-left" %}
+        Atualizado em <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include date-pt-br.html date = page.last_modified_at %}</time>
+      </span>
+      <span class="post__sep">·</span>
+      {%- endif %}
       {% include reading-time.html content=page.content %}
     </div>
   </header>
@@ -56,6 +63,23 @@ layout: default
     {%- endif %}
   </figure>
   {%- endunless %}
+
+  {%- comment -%}
+  `last_modified_at` é o nome que o jekyll-seo-tag e o jekyll-sitemap já leem
+  para dateModified e lastmod; `revision_note` diz ao leitor o que mudou.
+  {%- endcomment -%}
+  {%- if page.revision_note and page.last_modified_at %}
+  <aside class="revision-note" aria-label="Nota de revisão">
+    <span class="revision-note__icon">{% include icon.html name="clock-rotate-left" %}</span>
+    <div class="revision-note__body">
+      <p class="revision-note__title">
+        Post revisado em
+        <time class="revision-note__date" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include date-pt-br.html date = page.last_modified_at %}</time>
+      </p>
+      <div class="revision-note__text">{{ page.revision_note | markdownify }}</div>
+    </div>
+  </aside>
+  {%- endif %}
 
   <div class="prose">
     {{ content }}

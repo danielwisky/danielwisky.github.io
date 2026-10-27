@@ -18,9 +18,9 @@ const BASE = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/s
 
 const ICONS = {
   solid: [
-    "arrow-left", "arrow-right", "arrow-up", "check", "copy", "cube",
-    "flag-checkered", "heart-crack", "magnifying-glass", "moon", "paper-plane",
-    "play", "sun", "tag", "xmark",
+    "arrow-left", "arrow-right", "arrow-up", "check", "clock-rotate-left",
+    "copy", "cube", "flag-checkered", "heart-crack", "magnifying-glass", "moon",
+    "paper-plane", "play", "sun", "tag", "xmark",
   ],
   brands: [
     "facebook-f", "github", "instagram", "linkedin", "linkedin-in",
