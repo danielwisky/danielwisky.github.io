@@ -19,7 +19,7 @@ A versão que interessa aqui é simples e cabe em cinco passos:
 4. **Experimentar** para ver se a previsão se confirma.
 5. **Concluir**: a hipótese sobrevive ou é descartada, e o ciclo recomeça.
 
-Parece óbvio escrito assim. A diferença está na disciplina de seguir os passos de verdade, principalmente o terceiro, que é o que quase todo mundo pula. Para não ficar no abstrato, vou contar um bug que segue o post inteiro.
+Parece óbvio escrito assim. A diferença está na disciplina de seguir os passos de verdade, principalmente o terceiro, que é o que quase todo mundo pula. Para não ficar no abstrato, o post inteiro acompanha um caso fictício, mas bem típico.
 
 ## O bug do relatório
 
@@ -125,6 +125,6 @@ Toda vez que você se pegar dizendo uma dessas, transforme em hipótese e teste.
 
 Nada disso significa abrir um diário para cada `NullPointerException`. Se o stack trace aponta a linha e a causa é óbvia, corrija e siga em frente. O método vale a partir do momento em que o primeiro ou o segundo chute não resolveu, ou quando o bug tem alguma dessas características: intermitente, só em produção, envolve concorrência, tempo ou fuso, ou ninguém consegue reproduzir.
 
-Uma regra prática que uso: se em meia hora eu ainda estou mudando coisas para ver se resolve, paro, abro o arquivo de texto e escrevo o que eu sei e o que eu acho. Quase sempre, só o ato de escrever já mostra que eu estava testando a mesma ideia de três jeitos diferentes, ou que tinha uma observação óbvia que eu ainda não tinha feito.
+Uma regra prática que ajuda: se depois de meia hora você ainda está mudando coisas para ver se resolve, pare, abra o arquivo de texto e escreva o que você sabe e o que você acha. Muitas vezes, só o ato de escrever já mostra que você estava testando a mesma ideia de três jeitos diferentes, ou que faltava uma observação óbvia.
 
 Debugar bem não depende de intuição genial. É mais parecido com trabalho de laboratório: observar com cuidado, apostar numa explicação que pode dar errado e deixar o experimento decidir. Com [bons logs](/2026-10-05-logs-que-ajudam-a-debugar/) e um [trace](/2026-10-28-tracing-distribuido/) na mão, a fase de observação fica muito mais rápida, mas são o raciocínio e a disciplina que fazem o bug aparecer.
