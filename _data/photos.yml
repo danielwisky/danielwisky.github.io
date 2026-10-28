@@ -395,6 +395,11 @@
   card: /assets/img/photos/cards/timeouts-e-propagacao-de-deadline.webp
   thumb: /assets/img/photos/thumbs/timeouts-e-propagacao-de-deadline.webp
   og: /assets/img/photos/og/timeouts-e-propagacao-de-deadline.jpg
+"tracing-distribuido":
+  cover: /assets/img/photos/tracing-distribuido.webp
+  card: /assets/img/photos/cards/tracing-distribuido.webp
+  thumb: /assets/img/photos/thumbs/tracing-distribuido.webp
+  og: /assets/img/photos/og/tracing-distribuido.jpg
 "versionamento-de-api-sem-quebrar-clientes":
   cover: /assets/img/photos/versionamento-de-api-sem-quebrar-clientes.webp
   card: /assets/img/photos/cards/versionamento-de-api-sem-quebrar-clientes.webp
