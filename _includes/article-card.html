@@ -11,7 +11,7 @@
     {%- endcomment -%}
     <img src="{% include post-cover.html post=p variant='card' %}"
          srcset="{% include post-cover.html post=p variant='card' %} 560w,
-                 {% include post-cover.html post=p variant='cover' %} 1000w"
+                 {% include post-cover.html post=p variant='cover' %} 1200w"
          sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 46vw, 370px"
          loading="lazy" decoding="async" width="1200" height="900" alt="">
     {%- if is_video != '' %}
