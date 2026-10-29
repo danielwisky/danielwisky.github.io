@@ -125,6 +125,11 @@
   card: /assets/img/photos/cards/cursor-claude-code-ia-no-desenvolvimento.webp
   thumb: /assets/img/photos/thumbs/cursor-claude-code-ia-no-desenvolvimento.webp
   og: /assets/img/photos/og/cursor-claude-code-ia-no-desenvolvimento.jpg
+"debugando-com-o-metodo-cientifico":
+  cover: /assets/img/photos/debugando-com-o-metodo-cientifico.webp
+  card: /assets/img/photos/cards/debugando-com-o-metodo-cientifico.webp
+  thumb: /assets/img/photos/thumbs/debugando-com-o-metodo-cientifico.webp
+  og: /assets/img/photos/og/debugando-com-o-metodo-cientifico.jpg
 "decorator-pattern":
   cover: /assets/img/photos/decorator-pattern.webp
   card: /assets/img/photos/cards/decorator-pattern.webp
@@ -305,6 +310,11 @@
   card: /assets/img/photos/cards/paginacao-por-cursor-vs-offset.webp
   thumb: /assets/img/photos/thumbs/paginacao-por-cursor-vs-offset.webp
   og: /assets/img/photos/og/paginacao-por-cursor-vs-offset.jpg
+"por-que-0-1-mais-0-2-nao-e-0-3":
+  cover: /assets/img/photos/por-que-0-1-mais-0-2-nao-e-0-3.webp
+  card: /assets/img/photos/cards/por-que-0-1-mais-0-2-nao-e-0-3.webp
+  thumb: /assets/img/photos/thumbs/por-que-0-1-mais-0-2-nao-e-0-3.webp
+  og: /assets/img/photos/og/por-que-0-1-mais-0-2-nao-e-0-3.jpg
 "principio-aberto-fechado":
   cover: /assets/img/photos/principio-aberto-fechado.webp
   card: /assets/img/photos/cards/principio-aberto-fechado.webp
