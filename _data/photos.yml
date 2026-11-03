@@ -200,6 +200,11 @@
   card: /assets/img/photos/cards/graceful-shutdown.webp
   thumb: /assets/img/photos/thumbs/graceful-shutdown.webp
   og: /assets/img/photos/og/graceful-shutdown.jpg
+"grandes-bugs-da-historia":
+  cover: /assets/img/photos/grandes-bugs-da-historia.webp
+  card: /assets/img/photos/cards/grandes-bugs-da-historia.webp
+  thumb: /assets/img/photos/thumbs/grandes-bugs-da-historia.webp
+  og: /assets/img/photos/og/grandes-bugs-da-historia.jpg
 "health-checks-liveness-readiness-startup":
   cover: /assets/img/photos/health-checks-liveness-readiness-startup.webp
   card: /assets/img/photos/cards/health-checks-liveness-readiness-startup.webp
