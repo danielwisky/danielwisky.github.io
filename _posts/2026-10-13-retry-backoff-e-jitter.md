@@ -2,7 +2,7 @@
 layout: post
 title: "Retry, backoff e jitter: tentando de novo sem piorar a situação"
 subtitle: "Por que um retry ingênuo pode transformar uma falha passageira num incidente de verdade"
-tags: [Arquitetura, APIs]
+tags: [APIs, Arquitetura]
 ---
 
 Um banco de dados fica indisponível por cinco segundos durante um failover. Os vinte serviços que dependem dele começam a receber erro, e cada um faz o que foi programado para fazer: tentar de novo. Imediatamente. Quando o banco volta, ele não recebe a carga normal, recebe a carga normal mais todas as tentativas acumuladas nos últimos segundos, todas chegando no mesmo instante. O banco, que acabou de se recuperar, cai de novo. E o ciclo se repete até alguém desligar alguma coisa na mão.

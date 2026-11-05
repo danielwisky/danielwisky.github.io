@@ -2,7 +2,7 @@
 layout: post
 title: "Grandes bugs da história e o que eles ainda ensinam"
 subtitle: "Ariane 5, Therac-25 e Knight Capital: três desastres que não foram causados só por uma linha de código"
-tags: [Programação, Arquitetura]
+tags: [Arquitetura, Programação]
 ---
 
 Todo dev tem uma história de bug em produção. Um deploy na sexta, um `null` que ninguém esperava, um job que rodou duas vezes. A maioria termina com um rollback, um postmortem e uma piada no canal do time. Alguns poucos bugs, porém, terminaram com um foguete explodindo, pacientes mortos ou uma empresa quebrada em menos de uma hora.

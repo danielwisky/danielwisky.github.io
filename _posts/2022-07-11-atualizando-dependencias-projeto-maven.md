@@ -2,7 +2,7 @@
 layout: post
 title: "Atualizando as dependências do seu projeto maven"
 subtitle: "Atualizando as dependências do seu projeto maven como um verdadeiro bibliotecário"
-tags: [Maven, Gerenciamento de Dependências]
+tags: [Gerenciamento de Dependências, Maven]
 ---
 
 O plugin [Versions Maven Plugin](https://www.mojohaus.org/versions-maven-plugin/index.html) é usado quando desejamos gerenciar as versões de artefatos no POM de um projeto.

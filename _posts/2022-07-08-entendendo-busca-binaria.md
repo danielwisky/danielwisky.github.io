@@ -2,7 +2,7 @@
 layout: post
 title: "Entendendo busca binária"
 subtitle: "Introdução ao conceito de busca sequencial e binária"
-tags: [Busca Binária, Algoritmos de Busca]
+tags: [Algoritmos de Busca, Busca Binária]
 ---
 
 # Busca sequencial

@@ -2,7 +2,7 @@
 layout: post
 title: "Outbox Pattern: consistência entre banco de dados e mensageria"
 subtitle: "Como evitar que um evento se perca justamente no momento em que mais importa"
-tags: [Arquitetura, Apache Kafka]
+tags: [Apache Kafka, Arquitetura]
 ---
 
 Um cenário comum em sistemas que combinam banco de dados relacional com mensageria: um serviço grava um pedido no banco e, logo em seguida, publica um evento `PedidoCriado` no Kafka para que outros serviços reajam a essa mudança. Parece simples, mas entre essas duas operações existe uma janela perigosa. Se o banco confirma a escrita e o processo cai antes de publicar o evento, o pedido existe, mas ninguém mais no sistema fica sabendo. Se a ordem for invertida, publicando o evento antes do commit, o problema é o oposto: um consumidor pode reagir a um pedido que, por causa de um rollback, nunca chegou a existir de verdade.

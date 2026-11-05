@@ -2,7 +2,7 @@
 layout: post
 title: "Introdução ao DynamoDB"
 subtitle: "Implementando um exemplo simples de aplicação com DynamoDB, Spring Boot e Java"
-tags: [DynamoDB, noSQL, Spring Boot, Java]
+tags: [DynamoDB, Java, noSQL, Spring Boot]
 ---
 
 Amazon DynamoDB é um banco de dados NoSQL gerenciado e escalável fornecido pela Amazon Web Services (AWS). Ele oferece um armazenamento de chave-valor flexível e confiável com escalabilidade automática e alta disponibilidade. O DynamoDB é usado em muitas aplicações que exigem um armazenamento de dados flexível e escalável, como jogos, mídia, comércio eletrônico, publicidade e muito mais.

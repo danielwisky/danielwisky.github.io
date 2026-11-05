@@ -2,7 +2,7 @@
 layout: post
 title: "Apache Kafka no Spring Boot"
 subtitle: "Videoaula sobre Apache Kafka no Spring Boot"
-tags: [Apache Kafka, Sistemas de mensageria, Spring Boot, Java, Videoaula]
+tags: [Apache Kafka, Java, Sistemas de mensageria, Spring Boot, Videoaula]
 ---
 
 <div class="video-container">

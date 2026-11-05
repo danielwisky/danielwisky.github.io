@@ -2,7 +2,7 @@
 layout: post
 title: "Circuit Breaker: parando de bater numa dependência que já caiu"
 subtitle: "Por que falhar rápido é melhor do que insistir num serviço fora do ar"
-tags: [Arquitetura, APIs]
+tags: [APIs, Arquitetura]
 ---
 
 Um serviço de pagamentos fica fora do ar por dois minutos. Nesse intervalo, o serviço de pedidos continua tentando chamá-lo, requisição atrás de requisição, cada uma esperando o timeout de 30 segundos antes de desistir. As threads que atendem essas chamadas ficam presas esperando uma resposta que não vai vir, o pool de conexões esgota, e em pouco tempo o serviço de pedidos também para de responder, mesmo não tendo nenhum problema próprio. A causa raiz foi uma dependência externa, mas quem cai é todo mundo que depende dela, numa cadeia que se espalha mais rápido do que qualquer pessoa consegue reagir.

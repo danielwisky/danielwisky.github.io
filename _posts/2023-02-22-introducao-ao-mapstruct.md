@@ -2,7 +2,7 @@
 layout: post
 title: "Introdução ao MapStruct"
 subtitle: "Aprenda como usar o MapStruct para criar mapeamentos de objetos eficientes e de alta qualidade em seus projetos Java"
-tags: [Java, MapStruct, Mapeamento de Objetos]
+tags: [Java, Mapeamento de Objetos, MapStruct]
 ---
 
 MapStruct é uma biblioteca de mapeamento de objetos Java para Java, que gera automaticamente código de mapeamento para converter objetos de um tipo em outro. Com o MapStruct, você não precisa escrever o código de mapeamento manualmente. Em vez disso, o MapStruct o gera automaticamente a partir das anotações definidas nas classes.

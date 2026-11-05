@@ -2,7 +2,7 @@
 layout: post
 title: "Cursor, Claude Code e a virada da IA no dia a dia do desenvolvedor"
 subtitle: "De autocomplete a agente autônomo: como essas ferramentas mudaram a forma de programar e como escolher entre elas"
-tags: [Inteligência Artificial, Cursor, Claude Code, Produtividade]
+tags: [Claude Code, Cursor, Inteligência Artificial, Produtividade]
 ---
 
 Até pouco tempo atrás, "IA para programar" significava basicamente autocomplete mais esperto: sugestões de linha, às vezes um bloco inteiro, sempre revisadas linha por linha antes de aceitar. Isso mudou. Hoje as ferramentas mais usadas vão além de completar código: executam tarefas inteiras. Leem o repositório, editam vários arquivos, rodam testes e corrigem o que quebrou, tudo com supervisão bem mais leve do que se costumava dar. Cursor e Claude Code são os dois nomes que mais aparecem nessa conversa, e vale entender o que cada um resolve.

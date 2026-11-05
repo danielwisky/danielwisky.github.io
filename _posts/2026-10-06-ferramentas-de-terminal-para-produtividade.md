@@ -2,7 +2,7 @@
 layout: post
 title: "Ferramentas de terminal que valem mais que meia dúzia de plugins de IDE"
 subtitle: "CLIs modernas para navegar, buscar, usar git e monitorar sem abrir uma IDE pesada"
-tags: [Terminal, Produtividade]
+tags: [Produtividade, Terminal]
 ---
 
 Tem uma categoria de ferramenta que some um pouco da conversa quando o assunto é produtividade de dev: as CLIs modernas que substituem comandos Unix antigos por versões mais rápidas, mais legíveis e com configuração sensata por padrão. Nenhuma delas é revolucionária isoladamente, mas juntas mudam o ritmo do trabalho no terminal, que acaba sendo onde boa parte do dia realmente acontece, independente de qual IDE está aberta ao lado.

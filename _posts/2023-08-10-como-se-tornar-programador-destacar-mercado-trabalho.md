@@ -2,7 +2,7 @@
 layout: post
 title: "Como se Tornar um Programador Excepcional e se Destacar no Mercado de Trabalho"
 subtitle: "Estratégias e Dicas para Impulsionar sua Carreira como Programador e Alcançar Destaque Profissionalmente"
-tags: [Programação, Aprendizado Contínuo]
+tags: [Aprendizado Contínuo, Programação]
 ---
 
 O mercado para programadores está cada vez mais concorrido, e o que separa quem se destaca do resto raramente é só o conhecimento técnico. Ao longo da minha carreira reparei que algumas atitudes fazem mais diferença do que dominar mais uma linguagem ou framework. Separei aqui as que considero mais importantes.

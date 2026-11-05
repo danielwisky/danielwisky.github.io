@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Inteligência Artificial">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Claude Code">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="hsl(258, 76%, 52%)"/>
-      <stop offset="55%" stop-color="hsl(246, 72%, 36%)"/>
-      <stop offset="100%" stop-color="hsl(238, 66%, 24%)"/>
+      <stop offset="0%" stop-color="hsl(24, 76%, 52%)"/>
+      <stop offset="55%" stop-color="hsl(12, 72%, 36%)"/>
+      <stop offset="100%" stop-color="hsl(4, 66%, 24%)"/>
     </linearGradient>
   </defs>
   <rect width="400" height="300" fill="url(#g)"/>

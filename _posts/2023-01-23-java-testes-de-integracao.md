@@ -2,7 +2,7 @@
 layout: post
 title: "Java: Testes de Integração"
 subtitle: "Garantindo a confiabilidade do seu sistema com testes de integração em Java"
-tags: [Java, Testes de Integração, Testes Automatizados]
+tags: [Java, Testes Automatizados, Testes de Integração]
 ---
 
 ## Testes de Integração: garantindo a confiabilidade do seu sistema
