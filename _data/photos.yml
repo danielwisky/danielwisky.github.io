@@ -25,6 +25,11 @@
   card: /assets/img/photos/cards/atualizando-dependencias-projeto-maven.webp
   thumb: /assets/img/photos/thumbs/atualizando-dependencias-projeto-maven.webp
   og: /assets/img/photos/og/atualizando-dependencias-projeto-maven.jpg
+"bug-do-ano-2038":
+  cover: /assets/img/photos/bug-do-ano-2038.webp
+  card: /assets/img/photos/cards/bug-do-ano-2038.webp
+  thumb: /assets/img/photos/thumbs/bug-do-ano-2038.webp
+  og: /assets/img/photos/og/bug-do-ano-2038.jpg
 "builder-pattern":
   cover: /assets/img/photos/builder-pattern.webp
   card: /assets/img/photos/cards/builder-pattern.webp
