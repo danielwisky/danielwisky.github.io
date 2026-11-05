@@ -2,7 +2,7 @@
 layout: post
 title: "Aplicativos para acessibilidade"
 subtitle: "8 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência."
-tags: [Coletânea, Aplicativos para acessibilidade]
+tags: [Aplicativos para acessibilidade, Coletânea]
 last_modified_at: 2026-10-27
 revision_note: >-
   Este post é de 2017 e alguns aplicativos da lista original saíram das lojas.

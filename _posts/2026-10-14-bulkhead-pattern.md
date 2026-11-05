@@ -2,7 +2,7 @@
 layout: post
 title: "Bulkhead: isolando falhas para não afundar o navio inteiro"
 subtitle: "Como separar recursos entre dependências para que uma delas, lenta, não derrube o serviço todo"
-tags: [Arquitetura, APIs]
+tags: [APIs, Arquitetura]
 ---
 
 Um serviço de checkout chama três dependências: estoque, frete e um serviço de recomendações que sugere produtos na tela de confirmação. Numa sexta à noite, o serviço de recomendações começa a responder em oito segundos em vez de oitenta milissegundos. Ele não está fora do ar, não devolve erro, só está lento. O [circuit breaker](/2026-10-09-circuit-breaker/) não abre, porque as chamadas acabam dando certo. Mas cada uma delas segura uma thread do checkout por oito segundos, e em poucos minutos todas as threads do servidor estão paradas esperando recomendações. O checkout para de responder, inclusive para quem só queria calcular o frete. Uma funcionalidade secundária derrubou a principal.

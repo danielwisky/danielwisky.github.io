@@ -2,7 +2,7 @@
 layout: post
 title: "Inbox Pattern: consumidores idempotentes de verdade"
 subtitle: "O outro lado do Outbox, para quando a mesma mensagem chega duas vezes"
-tags: [Arquitetura, Apache Kafka]
+tags: [Apache Kafka, Arquitetura]
 ---
 
 No post sobre o [Outbox Pattern](/2026-10-08-outbox-pattern/) ficou uma ponta solta: o outbox garante que o evento será publicado pelo menos uma vez, não exatamente uma vez. E isso não é exclusividade dele. A configuração mais comum de produtor, broker e consumidor entrega mensagens com semântica de "pelo menos uma vez". O Kafka até oferece transações com exactly-once, mas essa garantia vale para fluxos que leem e escrevem no próprio Kafka; quando o efeito do consumidor é gravar num banco de dados, ela não chega lá. Um rebalance no Kafka, um timeout no commit do offset ou um deploy no meio do processamento e pronto: a mesma mensagem chega de novo. O Inbox Pattern é a forma mais direta de lidar com isso do lado de quem consome.

@@ -2,7 +2,7 @@
 layout: post
 title: "Feature flags: como liberar código sem liberar funcionalidade"
 subtitle: "Separar o deploy do release é o que torna possível entregar com calma"
-tags: [Programação, Arquitetura]
+tags: [Arquitetura, Programação]
 ---
 
 Fazer deploy e lançar uma funcionalidade costumavam ser a mesma coisa. O código subia pra produção e, no mesmo instante, todo usuário passava a ver a mudança. Esse acoplamento é a origem de boa parte do medo que times sentem antes de um deploy: se algo der errado, a única saída é reverter o deploy inteiro, mesmo que o problema esteja numa funcionalidade pequena no meio de um conjunto grande de mudanças. Feature flags resolvem isso separando as duas decisões: quando o código vai pra produção é uma coisa, quando ele fica visível pro usuário é outra, completamente independente.

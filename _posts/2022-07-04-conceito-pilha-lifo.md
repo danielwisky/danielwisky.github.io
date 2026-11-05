@@ -2,7 +2,7 @@
 layout: post
 title: "Conceito de Pilhas (LIFO)"
 subtitle: "Introdução ao conceito de pilhas (LIFO – last in, first out)"
-tags: [Estruturas de Dados, Pilhas, LIFO]
+tags: [Estruturas de Dados, LIFO, Pilhas]
 ---
 
 Uma das estruturas de dados mais simples é a pilha. Possivelmente por essa razão, é a estrutura de dados mais utilizada em programação.

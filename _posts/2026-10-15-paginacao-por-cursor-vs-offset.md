@@ -2,7 +2,7 @@
 layout: post
 title: "Paginação por cursor vs. offset: por que o OFFSET 100000 derruba o banco"
 subtitle: "A paginação que funciona bem na página 1 e vira um problema na página 5.000"
-tags: [Banco de Dados, APIs]
+tags: [APIs, Banco de Dados]
 ---
 
 Toda API que lista alguma coisa começa com uma paginação parecida com esta: o cliente manda `?page=3&size=20`, o backend converte isso em `LIMIT 20 OFFSET 40` e devolve os registros. Funciona, é fácil de entender e todo framework já entrega pronto. O problema aparece meses depois, quando a tabela tem milhões de linhas e alguém (um usuário curioso, um job de exportação, um crawler) começa a pedir a página 5.000. A consulta que levava poucos milissegundos passa a levar segundos, o banco começa a suar e ninguém mudou uma linha de código.

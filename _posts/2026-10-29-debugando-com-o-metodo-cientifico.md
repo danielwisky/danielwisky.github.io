@@ -2,7 +2,7 @@
 layout: post
 title: "Debugando com o método científico"
 subtitle: "Hipótese, experimento e descarte: um jeito de parar de chutar quando o bug é teimoso"
-tags: [Programação, Carreira]
+tags: [Carreira, Programação]
 ---
 
 Todo mundo já passou por isso. O bug aparece, você olha o código, tem um palpite, muda uma linha, roda de novo. Não resolveu. Muda outra coisa. Também não. Duas horas depois você tem cinco alterações espalhadas pelo código, não lembra mais qual delas fez o comportamento mudar e, pior, não sabe se o bug sumiu ou só ficou mais raro.

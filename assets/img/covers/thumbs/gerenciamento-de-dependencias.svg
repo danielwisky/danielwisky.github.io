@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Maven">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Gerenciamento de Dependências">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="hsl(348, 76%, 52%)"/>
-      <stop offset="55%" stop-color="hsl(336, 72%, 36%)"/>
-      <stop offset="100%" stop-color="hsl(328, 66%, 24%)"/>
+      <stop offset="0%" stop-color="hsl(340, 76%, 52%)"/>
+      <stop offset="55%" stop-color="hsl(328, 72%, 36%)"/>
+      <stop offset="100%" stop-color="hsl(320, 66%, 24%)"/>
     </linearGradient>
   </defs>
   <rect width="400" height="300" fill="url(#g)"/>

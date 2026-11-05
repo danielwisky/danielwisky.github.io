@@ -2,7 +2,7 @@
 layout: post
 title: "Timeouts e propagação de deadline: o padrão que todo mundo esquece"
 subtitle: "Retry e circuit breaker não servem de nada se a chamada pode esperar para sempre"
-tags: [Arquitetura, APIs]
+tags: [APIs, Arquitetura]
 ---
 
 Um serviço de pagamentos começa a responder devagar. Não cai, não devolve erro, só demora. Uma chamada que levava 80ms passa a levar 40 segundos. O serviço de pedidos, que chama o de pagamentos, não tem timeout configurado, então cada requisição fica parada esperando. Em poucos minutos todas as threads do pool estão presas nessas chamadas, o serviço de pedidos para de atender qualquer coisa, inclusive o que não tem nada a ver com pagamento, e o problema sobe a cadeia até o usuário ver uma tela girando.
