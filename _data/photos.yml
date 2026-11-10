@@ -430,6 +430,11 @@
   card: /assets/img/photos/cards/tracing-distribuido.webp
   thumb: /assets/img/photos/thumbs/tracing-distribuido.webp
   og: /assets/img/photos/og/tracing-distribuido.jpg
+"unicode-e-strings":
+  cover: /assets/img/photos/unicode-e-strings.webp
+  card: /assets/img/photos/cards/unicode-e-strings.webp
+  thumb: /assets/img/photos/thumbs/unicode-e-strings.webp
+  og: /assets/img/photos/og/unicode-e-strings.jpg
 "versionamento-de-api-sem-quebrar-clientes":
   cover: /assets/img/photos/versionamento-de-api-sem-quebrar-clientes.webp
   card: /assets/img/photos/cards/versionamento-de-api-sem-quebrar-clientes.webp
