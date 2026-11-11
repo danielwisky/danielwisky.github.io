@@ -355,6 +355,11 @@
   card: /assets/img/photos/cards/principio-substituicao-liskov.webp
   thumb: /assets/img/photos/thumbs/principio-substituicao-liskov.webp
   og: /assets/img/photos/og/principio-substituicao-liskov.jpg
+"race-conditions":
+  cover: /assets/img/photos/race-conditions.webp
+  card: /assets/img/photos/cards/race-conditions.webp
+  thumb: /assets/img/photos/thumbs/race-conditions.webp
+  og: /assets/img/photos/og/race-conditions.jpg
 "rate-limiting-e-backpressure-em-apis":
   cover: /assets/img/photos/rate-limiting-e-backpressure-em-apis.webp
   card: /assets/img/photos/cards/rate-limiting-e-backpressure-em-apis.webp
