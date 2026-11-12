@@ -300,6 +300,11 @@
   card: /assets/img/photos/cards/minhas-imagens-preferidas-docker.webp
   thumb: /assets/img/photos/thumbs/minhas-imagens-preferidas-docker.webp
   og: /assets/img/photos/og/minhas-imagens-preferidas-docker.jpg
+"niveis-de-isolamento-de-transacao":
+  cover: /assets/img/photos/niveis-de-isolamento-de-transacao.webp
+  card: /assets/img/photos/cards/niveis-de-isolamento-de-transacao.webp
+  thumb: /assets/img/photos/thumbs/niveis-de-isolamento-de-transacao.webp
+  og: /assets/img/photos/og/niveis-de-isolamento-de-transacao.jpg
 "o-que-exatamente-e-um-doutorado":
   cover: /assets/img/photos/o-que-exatamente-e-um-doutorado.webp
   card: /assets/img/photos/cards/o-que-exatamente-e-um-doutorado.webp
