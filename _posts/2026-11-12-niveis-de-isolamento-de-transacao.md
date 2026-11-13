@@ -117,7 +117,7 @@ O padrão é `READ COMMITTED`. Cada **comando** enxerga um retrato dos dados con
 
 `READ UNCOMMITTED` existe na sintaxe, mas se comporta como `READ COMMITTED`. Não há dirty read no PostgreSQL.
 
-`REPEATABLE READ` é implementado como snapshot isolation: a transação inteira enxerga um retrato tirado no primeiro comando. Isso evita inclusive fantasmas, indo além do que o padrão exige. E se duas transações tentarem atualizar a mesma linha, a segunda é abortada com `could not serialize access due to concurrent update`. Ou seja, lost update vira erro. Write skew, por outro lado, passa.
+`REPEATABLE READ` é implementado como snapshot isolation: a transação inteira enxerga um retrato tirado no primeiro comando. Isso evita inclusive fantasmas, indo além do que o padrão exige. E se outra transação alterar e confirmar uma linha que a sua também tenta atualizar, a sua espera e depois é abortada com `could not serialize access due to concurrent update` (se a outra fizer rollback, a sua segue normalmente). Ou seja, lost update vira erro. Write skew, por outro lado, passa.
 
 `SERIALIZABLE` usa uma técnica chamada *Serializable Snapshot Isolation*, que monitora as dependências de leitura e escrita entre transações e aborta uma delas quando detecta um padrão que poderia gerar um resultado impossível em execução serial. Aqui o write skew do plantão é pego.
 
@@ -125,7 +125,7 @@ O padrão é `READ COMMITTED`. Cada **comando** enxerga um retrato dos dados con
 
 O padrão é `REPEATABLE READ`, um nível acima do PostgreSQL, mas com uma pegadinha. Leituras comuns (`SELECT` simples) usam um snapshot tirado na primeira leitura. Leituras com lock (`SELECT ... FOR UPDATE`) e comandos de escrita, porém, enxergam a versão mais recente confirmada, não o snapshot. A mesma transação pode ver dados diferentes dependendo de como lê.
 
-E ao contrário do PostgreSQL, o InnoDB nesse nível não aborta a segunda transação no cenário de lost update: ela espera a primeira terminar e depois grava por cima o valor que calculou com base na leitura antiga. Para leituras com lock, ele usa *gap locks* e *next-key locks*, que travam intervalos de índice e impedem inserções no meio, o que evita fantasmas nesse caso mas pode surpreender com esperas e deadlocks em consultas que parecem não ter relação.
+E ao contrário do PostgreSQL, o InnoDB nesse nível não aborta a segunda transação no cenário de lost update: ela espera a primeira terminar e depois grava por cima o valor que calculou com base na leitura antiga. Para leituras com lock, ele usa *gap locks* e *next-key locks*, que travam intervalos de índice e impedem inserções no meio, o que evita fantasmas nesse caso mas pode surpreender com esperas e deadlocks em consultas que parecem não ter relação. E, diferente do PostgreSQL, o `READ UNCOMMITTED` do InnoDB permite dirty read de verdade.
 
 ### Oracle
 
@@ -133,7 +133,7 @@ O padrão é `READ COMMITTED`, e o que ele chama de `SERIALIZABLE` é, na práti
 
 ### SQL Server
 
-O padrão é `READ COMMITTED` baseado em locks, que pode ser trocado para uma versão baseada em snapshot com a opção `READ_COMMITTED_SNAPSHOT`. No Azure SQL Database, essa opção já vem ligada. Também existe um nível `SNAPSHOT` separado, que precisa ser habilitado no banco com `ALLOW_SNAPSHOT_ISOLATION`. Aqui, assim como no MySQL, `READ UNCOMMITTED` realmente permite dirty read, e a dica `WITH (NOLOCK)`, que tem o mesmo efeito, costuma aparecer como "otimização" em consultas de relatório. Ler dado que pode sofrer rollback é um preço alto pela velocidade.
+O padrão é `READ COMMITTED` baseado em locks, que pode ser trocado para uma versão baseada em snapshot com a opção `READ_COMMITTED_SNAPSHOT`. No Azure SQL Database, essa opção já vem ligada. Também existe um nível `SNAPSHOT` separado, que no SQL Server precisa ser habilitado no banco com `ALLOW_SNAPSHOT_ISOLATION` (no Azure SQL Database ele também já vem ligado). Aqui, assim como no MySQL, `READ UNCOMMITTED` realmente permite dirty read, e a dica `WITH (NOLOCK)`, que tem o mesmo efeito, costuma aparecer como "otimização" em consultas de relatório. Ler dado que pode sofrer rollback é um preço alto pela velocidade.
 
 A conclusão desta seção é desconfortável: se você troca de banco, ou se o seu time escreveu o código pensando num banco e roda em outro, o mesmo `@Transactional(isolation = Isolation.REPEATABLE_READ)` pode ter garantias diferentes.
 
@@ -158,7 +158,7 @@ O que não é seguro é ler numa instrução e escrever em outra com base no que
 
 Se você decidir usar `SERIALIZABLE` (ou `REPEATABLE READ` no PostgreSQL), aceite uma regra: **transações vão falhar, e o seu código precisa tentar de novo**.
 
-O erro vem com o SQLSTATE `40001` (falha de serialização). No Spring, ele chega como uma exceção da família `ConcurrencyFailureException`. E o retry precisa repetir a **transação inteira**, desde a primeira leitura, porque a decisão que você tomou foi baseada em dados que não valem mais.
+No PostgreSQL, o erro vem com o SQLSTATE `40001` (falha de serialização). Em outros bancos o código muda: no Oracle é o ORA-08177, e no MySQL o conflito costuma aparecer como deadlock. No Spring, ele normalmente chega como uma exceção da família `ConcurrencyFailureException`. Atenção: a falha pode acontecer no próprio `COMMIT`, e com o `DataSourceTransactionManager` ela vira `TransactionSystemException`, que fica fora dessa família. Use o `JdbcTransactionManager`, que traduz também os erros de commit, ou trate os dois casos no retry. E o retry precisa repetir a **transação inteira**, desde a primeira leitura, porque a decisão que você tomou foi baseada em dados que não valem mais.
 
 ```java
 public void sairDoPlantao(String medico) {
@@ -191,7 +191,7 @@ E não é de graça. O banco precisa monitorar mais coisas e vai abortar transa�
 
 Nem sempre vale subir o isolamento do sistema por causa de uma regra. Para o caso do plantão, existem saídas mais localizadas:
 
-- **Travar explicitamente o que foi lido.** `SELECT ... FROM plantao WHERE ativo FOR UPDATE` trava as linhas lidas, e a segunda transação espera a primeira. Funciona quando o conjunto lido já existe. Não funciona para fantasmas, porque não dá para travar uma linha que ainda não existe.
+- **Travar explicitamente o que foi lido.** `SELECT medico FROM plantao WHERE ativo FOR UPDATE` trava as linhas lidas, e a segunda transação espera a primeira. No PostgreSQL, `FOR UPDATE` não pode ser usado junto com `count(*)`, então conte as linhas na aplicação ou numa subconsulta. Funciona quando o conjunto lido já existe. No PostgreSQL isso não protege contra fantasmas, porque não dá para travar uma linha que ainda não existe. No InnoDB em `REPEATABLE READ`, os next-key locks bloqueiam inserções no intervalo lido.
 - **Materializar o conflito.** Criar uma linha que represente a coisa disputada (por exemplo, um registro por turno) e travar essa linha. Transforma o write skew num conflito na mesma linha, que os mecanismos normais já tratam.
 - **Constraint no banco.** Quando a regra pode ser expressa como `UNIQUE`, `CHECK` ou uma *exclusion constraint* (no PostgreSQL), o banco garante a regra independente do nível de isolamento. Para "não pode haver duas reservas sobrepostas na mesma sala", por exemplo, uma exclusion constraint resolve de forma elegante.
 
@@ -203,7 +203,7 @@ O resumo para a próxima vez que você escrever `@Transactional`:
 - `READ COMMITTED` é suficiente para a maioria dos casos **se** as regras de negócio estiverem em `UPDATE` com condição no `WHERE`, em constraints ou em locks explícitos.
 - Ler numa instrução e escrever em outra com base no que leu é o padrão que causa lost update e write skew. Procure por ele no code review.
 - Write skew passa em snapshot isolation, inclusive no `SERIALIZABLE` do Oracle e no `REPEATABLE READ` do PostgreSQL.
-- Se usar `SERIALIZABLE`, trate o SQLSTATE `40001` com retry da transação inteira, com o retry fora do método transacional.
+- Se usar `SERIALIZABLE`, trate a falha de serialização (SQLSTATE `40001` no PostgreSQL) com retry da transação inteira, com o retry fora do método transacional.
 - Nada de chamadas externas dentro de transações que podem ser repetidas.
 - Teste com concorrência real, várias threads saindo juntas, contra o mesmo banco que roda em produção. Um banco em memória nos testes pode ter um modelo de isolamento completamente diferente.
 

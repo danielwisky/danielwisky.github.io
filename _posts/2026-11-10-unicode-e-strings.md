@@ -43,7 +43,7 @@ System.out.println(decomposto.length());         // 2
 System.out.println(composto.equals(decomposto)); // false
 ```
 
-Na maior parte do tempo o texto chega na forma composta, porque é o que os teclados costumam produzir. Mas a forma decomposta é mais comum do que se imagina: em nomes de arquivo criados no macOS, em texto copiado de PDFs, em dados importados de sistemas antigos. E aí o "José" que veio de uma planilha importada e o "José" digitado no formulário não batem no `equals`, nem no índice único do banco, nem no `HashMap`.
+Na maior parte do tempo o texto chega na forma composta, porque é o que os teclados costumam produzir. Mas a forma decomposta é mais comum do que se imagina: em nomes de arquivo vindos do macOS (o antigo HFS+ gravava tudo em NFD, e alguns programas ainda produzem essa forma), em texto copiado de PDFs, em dados importados de sistemas antigos. E aí o "José" que veio de uma planilha importada e o "José" digitado no formulário não batem no `equals`, nem no índice único do banco, nem no `HashMap`.
 
 ### Normalização
 
@@ -177,7 +177,7 @@ System.out.println(errado); // Ã©
 
 Se você já viu "SÃ£o Paulo" numa tela, foi exatamente isso: UTF-8 lido como Latin-1.
 
-Por muito tempo, o charset padrão do Java dependia do sistema operacional, então o mesmo código funcionava no Linux e embaralhava acentos no Windows. Desde o JDK 18, o charset padrão das APIs passou a ser UTF-8 em todas as plataformas, o que eliminou boa parte dessa classe de bug. Mesmo assim, vale ser explícito sempre que converter, principalmente nas APIs que historicamente usavam o padrão do sistema: `getBytes()` e `new String(bytes)` sem argumento, `new InputStreamReader(in)`, `new FileReader(file)`, `new Scanner(in)`. Todas têm uma versão que recebe o charset, e código que não depende do padrão não quebra quando alguém roda com uma JVM antiga ou com `-Dfile.encoding` diferente.
+Por muito tempo, o charset padrão do Java dependia do sistema operacional, então o mesmo código funcionava no Linux e embaralhava acentos no Windows. Desde o JDK 18, o charset padrão das APIs passou a ser UTF-8 em todas as plataformas, o que eliminou boa parte dessa classe de bug. A exceção é a saída de console: `System.out` e `System.err` continuam usando o encoding do terminal. Mesmo assim, vale ser explícito sempre que converter, principalmente nas APIs que historicamente usavam o padrão do sistema: `getBytes()` e `new String(bytes)` sem argumento, `new InputStreamReader(in)`, `new FileReader(file)`, `new Scanner(in)`. Todas têm uma versão que recebe o charset, e código que não depende do padrão não quebra quando alguém roda com uma JVM antiga ou com `-Dfile.encoding` diferente.
 
 ## Maiúsculas e minúsculas também têm pegadinha
 

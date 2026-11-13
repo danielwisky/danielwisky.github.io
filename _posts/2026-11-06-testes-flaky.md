@@ -30,7 +30,7 @@ void pedidoCriadoHojeNaoEstaAtrasado() {
 }
 ```
 
-Parece inofensivo. Mas se `estaAtrasado()` usa `LocalDate.now()` internamente, e o teste roda às 23:59:59.999, a criação do pedido acontece num dia e a verificação no outro. Raro? Sim. Mas o CI roda esse teste milhares de vezes por mês, e eventos raros acontecem com frequência quando você multiplica por milhares. Variações dessa: testes que só falham no fim do mês, no dia 29 de fevereiro, quando o CI roda em UTC e o notebook em `America/Sao_Paulo`, ou no dia da mudança de horário de verão (assunto do [post sobre fusos horários](/2026-11-05-fusos-horarios-sao-uma-armadilha/)).
+Parece inofensivo. Mas se `estaAtrasado()` usa `LocalDate.now()` internamente, e o teste roda às 23:59:59.999, a criação do pedido acontece num dia e a verificação no outro. Raro? Muito, porque a janela entre as duas chamadas dura microssegundos. A variação que realmente aparece é outra: o teste monta a data no fuso de São Paulo e o código usa o fuso padrão da JVM, que no CI é UTC. Aí o teste falha todo dia entre 21h e meia-noite no horário de Brasília, justamente quando ninguém está olhando. Outras variações: testes que só falham no fim do mês, no dia 29 de fevereiro, ou no dia da mudança de horário de verão (assunto do [post sobre fusos horários](/2026-11-05-fusos-horarios-sao-uma-armadilha/)).
 
 A correção é tirar o relógio do código e injetar um `Clock`:
 
@@ -120,16 +120,18 @@ void contadorNaoPerdeIncrementos() throws Exception {
 }
 ```
 
-Se o `incrementar` não for thread-safe, 500 repetições aumentam muito a chance de a falha aparecer enquanto você está olhando, e não só no CI.
+Com um `v++` sem sincronização, a falha aparece quase sempre, mesmo sem repetir. O `@RepeatedTest` faz diferença nas corridas mais sutis, que só aparecem uma vez a cada centenas de execuções: repetir aumenta muito a chance de a falha aparecer enquanto você está olhando, e não só no CI.
 
 ### Ambiente e dependências externas
 
 Por fim, tudo que está fora do processo: uma API de terceiros chamada de verdade no teste, uma porta fixa que outro job já está usando, um banco compartilhado entre pipelines, a ordem dos arquivos devolvida pelo sistema operacional, a ordem de iteração de um `HashMap` ou `HashSet` que alguém assumiu como fixa, um número aleatório sem semente.
 
 ```java
-var tags = new HashSet<>(List.of("java", "testes", "ci"));
-assertEquals("java,testes,ci", String.join(",", tags)); // ordem não é garantida
+var tags = Set.of("java", "testes", "ci");
+assertEquals("java,testes,ci", String.join(",", tags)); // a ordem muda a cada execução da JVM
 ```
+
+Com `HashSet` a ordem até costuma se repetir na mesma versão do JDK, o que é pior: o teste passa por anos e quebra no dia em que alguém atualiza o Java. Já `Set.of` e `Map.of` embaralham a ordem a cada execução da JVM, de propósito.
 
 As correções são variações do mesmo tema: isolar. Testcontainers para subir um banco descartável por execução, porta zero para o sistema escolher uma livre, mocks ou servidores fake (como WireMock) para APIs externas, coleções ordenadas quando a ordem importa, `Random` com semente fixa.
 
@@ -151,7 +153,7 @@ E guarde o histórico. Se o seu CI registra os resultados de cada teste ao longo
 
 O Maven Surefire tem `rerunFailingTestsCount`, o Gradle tem o plugin `test-retry`. Configurar o build para repetir testes que falham e só considerar falha se falhar todas as vezes é tentador, e tem seu lugar.
 
-O problema é quando o retry vira a solução. Ele esconde o sintoma sem tratar a causa, e os testes flaky continuam se acumulando silenciosamente, até que o pipeline fica lento porque metade da suíte roda duas vezes. Pior: se a intermitência for uma condição de corrida real no código, o retry está escondendo um bug de produção.
+O problema é quando o retry vira a solução. Ele esconde o sintoma sem tratar a causa, e os testes flaky continuam se acumulando silenciosamente, até que o pipeline fica lento porque dezenas de testes rodam duas ou três vezes em todo build. Pior: se a intermitência for uma condição de corrida real no código, o retry está escondendo um bug de produção.
 
 Um jeito mais saudável de usar retry é como ferramenta de detecção: um teste que só passou na segunda tentativa não quebra o build, mas é marcado como flaky e vira uma tarefa para alguém investigar. O pipeline continua confiável e a dívida fica visível.
 

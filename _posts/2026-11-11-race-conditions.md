@@ -66,7 +66,7 @@ if (!Files.exists(caminho)) {
 }
 ```
 
-Todos parecem corretos, e todos permitem que duas threads passem pelo `if` antes de qualquer uma delas agir. No caso do arquivo, o problema tem até nome próprio na área de segurança: TOCTOU, *time of check to time of use*.
+Todos parecem corretos, e todos permitem que duas threads passem pelo `if` antes de qualquer uma delas agir. No caso do arquivo, o problema tem até nome próprio na área de segurança: TOCTOU, *time of check to time of use*. Ali a correção é simples, porque o próprio `Files.createFile` já é atômico e lança `FileAlreadyExistsException` se o arquivo existir: basta tirar o `if` e tratar a exceção.
 
 ### Read-modify-write (lost update)
 
@@ -124,6 +124,8 @@ void naoPermiteSacarMaisQueOSaldo() throws Exception {
     assertEquals(1, sucessos.get());
 }
 ```
+
+O `try` com o executor depende do Java 19 ou superior, em que o `ExecutorService` passou a ser `AutoCloseable` e o `close()` espera todas as tarefas terminarem. Em versões anteriores, chame `shutdown()` e `awaitTermination()`.
 
 O `CountDownLatch` é o truque principal: todas as threads ficam paradas esperando a largada e saem juntas, em vez de começarem espalhadas conforme o executor as cria. Isso concentra as operações exatamente na janela perigosa.
 
@@ -192,7 +194,7 @@ Quando a lógica é complexa demais para caber num `UPDATE`, dá para travar a l
 SELECT * FROM conta WHERE id = :id FOR UPDATE
 ```
 
-Com JPA, `@Lock(LockModeType.PESSIMISTIC_WRITE)` no método do repositório gera algo equivalente. A segunda transação que tentar ler a mesma conta fica esperando a primeira terminar. É seguro e fácil de entender, mas segura conexões enquanto espera e pode gerar deadlock se duas transações travarem linhas em ordens diferentes. Mantenha a transação curta e trave sempre na mesma ordem.
+Com JPA, `@Lock(LockModeType.PESSIMISTIC_WRITE)` no método do repositório gera algo equivalente. A segunda transação que tentar travar a mesma linha (com outro `FOR UPDATE`, ou com um `UPDATE`) fica esperando a primeira terminar. Um `SELECT` comum não espera: ele lê o último valor commitado, então todo caminho que lê para depois escrever precisa usar o lock. É seguro e fácil de entender, mas segura conexões enquanto espera e pode gerar deadlock se duas transações travarem linhas em ordens diferentes. Mantenha a transação curta e trave sempre na mesma ordem.
 
 ### Lock otimista
 
@@ -223,7 +225,7 @@ Você pode até manter o `existePorEmail` para devolver uma mensagem bonita no c
 
 ### E o nível de isolamento?
 
-Uma pergunta frequente é se aumentar o nível de isolamento da transação resolve. Às vezes resolve, mas depende do banco e do nível. No PostgreSQL, por exemplo, o padrão é `READ COMMITTED`, que não impede o lost update no padrão ler-calcular-escrever da aplicação. Lá, `REPEATABLE READ` e `SERIALIZABLE` detectam quando duas transações atualizam a mesma linha e abortam uma delas, o que significa que você também precisa tratar erro e fazer retry. Já no MySQL com InnoDB, o padrão é `REPEATABLE READ` e ele não aborta nesse caso: o lost update continua acontecendo. O mesmo nome de nível pode ter comportamentos diferentes em cada banco. Antes de mudar o isolamento do sistema inteiro, quase sempre é melhor resolver o ponto específico com uma das técnicas acima.
+Uma pergunta frequente é se aumentar o nível de isolamento da transação resolve. Às vezes resolve, mas depende do banco e do nível. No PostgreSQL, por exemplo, o padrão é `READ COMMITTED`, que não impede o lost update no padrão ler-calcular-escrever da aplicação. Lá, `REPEATABLE READ` e `SERIALIZABLE` detectam quando duas transações atualizam a mesma linha e abortam uma delas, o que significa que você também precisa tratar erro e fazer retry. Já no MySQL com InnoDB, o padrão é `REPEATABLE READ` e ele não aborta nesse caso: o lost update continua acontecendo. O mesmo nome de nível pode ter comportamentos diferentes em cada banco. Antes de mudar o isolamento do sistema inteiro, quase sempre é melhor resolver o ponto específico com uma das técnicas acima. Os detalhes de cada nível estão no [post sobre níveis de isolamento de transação](/2026-11-12-niveis-de-isolamento-de-transacao/).
 
 ## Na prática
 

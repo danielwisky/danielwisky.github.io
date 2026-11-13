@@ -20,7 +20,7 @@ Até aqui parece um bug de iniciante. Os detalhes é que tornam o caso interessa
 - **O código veio do Ariane 4**, onde voou por anos sem problema. Na trajetória do Ariane 4, aquele valor nunca chegava perto do limite. O Ariane 5 seguia uma trajetória diferente, com velocidade horizontal bem maior, muito além do que o código antigo tinha visto.
 - **Alguns valores eram protegidos contra overflow e outros não.** A equipe original tinha analisado quais variáveis podiam estourar e deixou algumas sem proteção para economizar processamento, com base em premissas sobre a física do Ariane 4. Ninguém revisitou essas premissas para o foguete novo.
 - **Aquele cálculo nem precisava estar rodando.** A função servia para o alinhamento antes do lançamento e, por um motivo operacional do Ariane 4, seguia rodando por cerca de 40 segundos depois da decolagem. No Ariane 5 ela não tinha utilidade nenhuma depois que o foguete saía do chão, e o foguete se perdeu justamente dentro dessa janela.
-- **A redundância não ajudou.** Havia dois sistemas inerciais, um de reserva. Os dois rodavam o mesmo software, com os mesmos dados, e falharam da mesma forma com uma fração de segundo de diferença.
+- **A redundância não ajudou.** Havia dois sistemas inerciais, um de reserva. Os dois rodavam o mesmo software, com os mesmos dados, e falharam da mesma forma. O de reserva, inclusive, caiu 72 milissegundos antes do principal, então quando o sistema tentou trocar não havia para onde ir.
 - **O desligamento foi a reação "segura" projetada.** A filosofia era que uma exceção indicava falha de hardware, e nesse caso desligar e passar para o backup fazia sentido. Para um erro de software, que acontece igual nas duas cópias, essa decisão derrubou tudo.
 
 E o último golpe: quando o sistema inercial caiu, ele enviou dados de diagnóstico pelo barramento. O computador de bordo interpretou esses dados como se fossem informações de voo e comandou os bocais dos motores para uma deflexão extrema.
@@ -37,7 +37,7 @@ O Therac-25 era uma máquina de radioterapia fabricada pela AECL, uma estatal ca
 
 A máquina tinha dois modos principais. No modo de elétrons, aplicava um feixe de baixa intensidade diretamente no paciente. No modo de raio X, gerava um feixe de altíssima intensidade que passava por um alvo metálico antes de chegar ao corpo, e era esse alvo que convertia e atenuava a radiação. Se o feixe de alta intensidade saísse sem o alvo na frente, o paciente recebia uma dose brutal.
 
-Os modelos anteriores, Therac-6 e Therac-20, tinham travas de hardware que impediam fisicamente essa combinação. No Therac-25, a AECL removeu essas travas e passou a confiar no software para garantir a segurança.
+Os modelos anteriores, Therac-6 e Therac-20, tinham travas de hardware independentes do software. No Therac-20, que também tinha os dois modos, elas impediam fisicamente essa combinação. No Therac-25, a AECL removeu essas travas e passou a confiar no software para garantir a segurança.
 
 O bug mais conhecido era uma condição de corrida. O operador digitava os parâmetros do tratamento num terminal. Se ele errasse o modo, digitando "x" no lugar de "e", e corrigisse rapidamente, em poucos segundos, a interface mostrava o valor correto, mas parte do sistema já tinha configurado o hardware com a informação antiga. Operadores experientes, justamente por digitarem rápido, eram os que conseguiam disparar a falha. Nos testes, ela nunca tinha aparecido.
 
@@ -59,7 +59,7 @@ Também vale olhar para as mensagens de erro e para os alertas do seu sistema co
 
 ## Knight Capital: 45 minutos
 
-A Knight Capital era uma das maiores empresas de negociação de ações dos Estados Unidos. Na manhã de 1º de agosto de 2012, ela perdeu cerca de 460 milhões de dólares em aproximadamente 45 minutos. A empresa precisou de um resgate às pressas e acabou sendo adquirida meses depois.
+A Knight Capital era uma das maiores empresas de negociação de ações dos Estados Unidos. Na manhã de 1º de agosto de 2012, ela perdeu cerca de 460 milhões de dólares em aproximadamente 45 minutos. A empresa precisou de um resgate às pressas e acabou sendo comprada pela Getco, num acordo anunciado em dezembro de 2012.
 
 O relatório da SEC, a CVM americana, conta a história com detalhes. A Knight ia participar de um novo programa da Bolsa de Nova York e precisava atualizar o sistema de roteamento de ordens. O deploy foi feito manualmente em oito servidores, alguns dias antes. Um técnico não copiou o código novo para um deles. Ninguém revisou, e não havia nenhum processo automático para verificar se os oito estavam iguais.
 
@@ -87,7 +87,7 @@ São várias, e todas muito atuais:
 
 Com os três casos lado a lado, fica claro que em nenhum deles o bug sozinho explica o desastre.
 
-No Ariane, o overflow só importou porque o código foi reutilizado sem revisar premissas, porque rodava uma função inútil e porque a redundância era idêntica. No Therac-25, a condição de corrida só matou porque a trava física foi removida, porque os erros eram ignorados por hábito e porque a empresa não escutou os relatos. Na Knight, a flag só causou o prejuízo porque havia código morto, deploy manual, alertas ignorados e nenhum jeito de parar o sistema.
+No Ariane, o overflow só importou porque o código foi reutilizado sem revisar premissas, porque rodava uma função inútil e porque a redundância era idêntica. No Therac-25, os bugs só mataram porque a trava física foi removida, porque os erros eram ignorados por hábito e porque a empresa não escutou os relatos. Na Knight, a flag só causou o prejuízo porque havia código morto, deploy manual, alertas ignorados e nenhum jeito de parar o sistema.
 
 O psicólogo James Reason deu um nome para isso: o modelo do queijo suíço. Cada camada de proteção tem furos, e o acidente acontece quando os furos de várias camadas se alinham. A consequência prática é libertadora e incômoda ao mesmo tempo. Libertadora porque você não precisa escrever código perfeito; ninguém escreve. Incômoda porque cada camada que você remove, cada alerta que você ignora e cada premissa que você não revisita aumenta a chance de os furos se alinharem.
 
