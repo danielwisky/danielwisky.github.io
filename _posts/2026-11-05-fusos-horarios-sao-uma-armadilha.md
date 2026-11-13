@@ -11,7 +11,7 @@ A raiz quase sempre é a mesma: tratar "um momento no tempo" e "o que o relógio
 
 ## Dois conceitos que parecem um só
 
-Quando alguém diz "a reunião é às 10h do dia 5 de novembro", essa frase não identifica um momento único. 10h em São Paulo e 10h em Lisboa são momentos diferentes, separados por três horas. A frase só vira um momento de verdade quando você junta o horário de relógio com um lugar.
+Quando alguém diz "a reunião é às 10h do dia 5 de novembro", essa frase não identifica um momento único. 10h em São Paulo e 10h em Lisboa são momentos diferentes, separados por três horas em novembro (quatro durante o verão europeu). A frase só vira um momento de verdade quando você junta o horário de relógio com um lugar.
 
 Por outro lado, "o pagamento foi confirmado em 2026-11-05T13:00:00Z" é um momento absoluto. Ele aconteceu uma vez só, no mundo inteiro ao mesmo tempo. Em São Paulo o relógio mostrava 10h, em Lisboa mostrava 13h, mas o evento é o mesmo.
 
@@ -47,7 +47,7 @@ ZonedDateTime.of(LocalDateTime.of(2018, 11, 4, 0, 30), sp);
 
 Ele empurra para frente pelo tamanho do buraco. É um comportamento razoável, mas é uma decisão que o Java tomou por você, e o seu código pode não estar esperando 01:30.
 
-Esse caso pegava muita gente no Brasil por um motivo específico: como a mudança acontecia à meia-noite, o primeiro dia do horário de verão não tinha meia-noite. Código que fazia `data.atTime(0, 0)` para achar "o início do dia" gerava um horário que não existia. O jeito certo é pedir ao Java o início do dia, e deixar que ele consulte as regras do fuso:
+Esse caso pegava muita gente no Brasil por um motivo específico: como a mudança acontecia à meia-noite, o primeiro dia do horário de verão não tinha meia-noite. Código que montava a meia-noite na mão, como `data.atTime(0, 0)`, e usava esse `LocalDateTime` sem fuso como "início do dia" estava trabalhando com um horário que não existiu. No `java.time`, ao converter com `atZone`, ele é empurrado para 01:00, mas outras bibliotecas não eram tão gentis: o `toDateTimeAtMidnight` do Joda-Time, por exemplo, lançava exceção nesses dias. O jeito explícito é pedir ao Java o início do dia, e deixar que ele consulte as regras do fuso:
 
 ```java
 LocalDate.of(2018, 11, 4).atStartOfDay(sp);
@@ -98,7 +98,7 @@ Alguns padrões que eu já vi causarem problema:
 
 **Depender do fuso padrão da JVM.** `LocalDate.now()`, `LocalDateTime.now()` e `new Date().toString()` usam o fuso padrão da máquina. O mesmo código dá resultados diferentes no seu notebook, no CI e em produção. Passar o fuso explicitamente (ou melhor, um `Clock` injetado) elimina essa variável.
 
-**Guardar offset em vez de fuso para eventos futuros.** Se um usuário agenda algo para "10h de 5 de março de 2027 em São Paulo" e você salva como `2027-03-05T10:00-03:00`, você congelou o offset de hoje. Se o horário de verão voltar e março passar a ser `-02:00`, o evento dispara às 11h no relógio do usuário, uma hora atrasado. Para eventos futuros definidos por pessoas, guarde o horário local mais o `ZoneId`, e calcule o `Instant` perto da hora.
+**Guardar offset em vez de fuso para eventos futuros.** Se um usuário agenda algo para "10h de 5 de dezembro de 2027 em São Paulo" e você salva como `2027-12-05T10:00-03:00`, você congelou o offset de hoje. Se o horário de verão voltar e dezembro passar a ser `-02:00`, o evento dispara às 11h no relógio do usuário, uma hora atrasado. Para eventos futuros definidos por pessoas, guarde o horário local mais o `ZoneId`, e calcule o `Instant` perto da hora.
 
 **Agendamentos em horários de transição.** Um job agendado para 00:30 no fuso de São Paulo cai num horário que não existiu no dia da mudança, e um agendado para 23:30 cai num horário que aconteceu duas vezes. Cada agendador trata isso de um jeito (pular, rodar fora de hora, rodar duas vezes), e poucos times sabem qual é o comportamento do seu. Muita gente agenda jobs em UTC justamente para fugir disso, ou evita a faixa entre meia-noite e 1h.
 
@@ -129,7 +129,7 @@ Algumas regras que evitam a maioria das dores:
 - Use `Instant` para registrar eventos, e `TIMESTAMP WITH TIME ZONE` (ou equivalente) no banco. Nunca `LocalDateTime` para isso.
 - Nunca dependa do fuso padrão da JVM. Passe `ZoneId` explicitamente ou injete um `Clock`.
 - Use `ZoneId` de região (`America/Sao_Paulo`), não offset fixo (`-03:00`), quando o assunto é horário de pessoas.
-- Use `atStartOfDay(zone)` em vez de `atTime(0, 0)`.
+- Use `atStartOfDay(zone)` para o início do dia, em vez de montar a meia-noite com `atTime(0, 0)`.
 - Decida conscientemente entre `plusDays` e `plus(Duration)`.
 - Tenha testes com datas de transição. Com `Clock.fixed` e uma data como 4 de novembro de 2018 em São Paulo, você testa o dia sem meia-noite sem precisar esperar o governo mudar de ideia.
 
