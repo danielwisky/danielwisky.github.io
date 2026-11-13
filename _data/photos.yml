@@ -335,6 +335,11 @@
   card: /assets/img/photos/cards/por-que-0-1-mais-0-2-nao-e-0-3.webp
   thumb: /assets/img/photos/thumbs/por-que-0-1-mais-0-2-nao-e-0-3.webp
   og: /assets/img/photos/og/por-que-0-1-mais-0-2-nao-e-0-3.jpg
+"por-que-sua-query-nao-usa-o-indice":
+  cover: /assets/img/photos/por-que-sua-query-nao-usa-o-indice.webp
+  card: /assets/img/photos/cards/por-que-sua-query-nao-usa-o-indice.webp
+  thumb: /assets/img/photos/thumbs/por-que-sua-query-nao-usa-o-indice.webp
+  og: /assets/img/photos/og/por-que-sua-query-nao-usa-o-indice.jpg
 "principio-aberto-fechado":
   cover: /assets/img/photos/principio-aberto-fechado.webp
   card: /assets/img/photos/cards/principio-aberto-fechado.webp
