@@ -140,6 +140,11 @@
   card: /assets/img/photos/cards/decorator-pattern.webp
   thumb: /assets/img/photos/thumbs/decorator-pattern.webp
   og: /assets/img/photos/og/decorator-pattern.jpg
+"deep-work-para-devs":
+  cover: /assets/img/photos/deep-work-para-devs.webp
+  card: /assets/img/photos/cards/deep-work-para-devs.webp
+  thumb: /assets/img/photos/thumbs/deep-work-para-devs.webp
+  og: /assets/img/photos/og/deep-work-para-devs.jpg
 "desafio-armadilha":
   cover: /assets/img/photos/desafio-armadilha.webp
   card: /assets/img/photos/cards/desafio-armadilha.webp
