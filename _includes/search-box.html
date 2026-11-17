@@ -1,5 +1,6 @@
 <div id="search-box" class="search" role="dialog" aria-modal="true" aria-label="Pesquisar no blog"
-     data-index="{{ '/search-index.json' | relative_url }}">
+     data-index="{{ '/search-index.json' | relative_url }}"
+     data-scripts="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}?v={{ '/assets/js/vendor/lunr.min.js' | asset_hash }} {{ '/assets/js/vendor/lunr.stemmer.support.min.js' | relative_url }}?v={{ '/assets/js/vendor/lunr.stemmer.support.min.js' | asset_hash }} {{ '/assets/js/vendor/lunr.pt.min.js' | relative_url }}?v={{ '/assets/js/vendor/lunr.pt.min.js' | asset_hash }}">
   <div class="search__box">
     <div class="search__group">
       {% include icon.html name="magnifying-glass" %}

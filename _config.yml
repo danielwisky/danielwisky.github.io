@@ -116,3 +116,4 @@ exclude:
   - assets/js/search.js
   - assets/js/code-blocks.js
   - assets/js/contact.js
+  - assets/js/tags.js

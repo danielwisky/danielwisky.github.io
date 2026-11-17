@@ -21,6 +21,9 @@ module Jekyll
         if File.exist?(file_path)
           Digest::MD5.file(file_path).hexdigest[0, 8]
         else
+          # The .min.js and vendor files aren't versioned: without this the page
+          # silently links to a 404.
+          Jekyll.logger.warn "asset_hash:", "#{path} not found, run `npm run build:js`"
           "0"
         end
       end

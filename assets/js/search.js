@@ -6,13 +6,6 @@
  * network then. They used to load on every visit, even with no one searching.
  */
 (() => {
-  // Copied from node_modules by scripts/build-js.mjs.
-  const SCRIPTS = [
-    "/assets/js/vendor/lunr.min.js",
-    "/assets/js/vendor/lunr.stemmer.support.min.js",
-    "/assets/js/vendor/lunr.pt.min.js",
-  ];
-
   const searchBox = document.getElementById("search-box");
   const input = document.getElementById("searchInput");
   const resultsEl = document.getElementById("searchResults");
@@ -21,6 +14,10 @@
   if (!searchBox || !input || !resultsEl) return;
 
   const indexUrl = (searchBox.dataset.index || "/search-index.json");
+  // lunr, its stemmer support and lunr.pt, in load order. Copied from
+  // node_modules by scripts/build-js.mjs; the URLs come from Liquid so they
+  // get baseurl and cache-busting.
+  const scripts = (searchBox.dataset.scripts || "").split(" ").filter(Boolean);
 
   let posts = [];
   let index = null;
@@ -46,7 +43,7 @@
     setStatus("Carregando índice...");
 
     // In series: lunr.stemmer.support and lunr.pt depend on lunr being loaded.
-    loading = SCRIPTS.reduce((chain, entry) => chain.then(() => loadScript(entry)), Promise.resolve())
+    loading = scripts.reduce((chain, entry) => chain.then(() => loadScript(entry)), Promise.resolve())
       .then(() => fetch(indexUrl))
       .then((response) => {
         if (!response.ok) throw new Error("could not download the index");

@@ -9,8 +9,13 @@ updates:
     schedule:
       interval: monthly
     groups:
+      # lunr ships to readers and search has no test: a bump of it gets its own
+      # PR, to be checked in the browser before merging.
+      search:
+        patterns: ["lunr", "lunr-languages"]
       build-tools:
         patterns: ["*"]
+        exclude-patterns: ["lunr", "lunr-languages"]
 
   - package-ecosystem: bundler
     directory: "/"
