@@ -1,7 +1,7 @@
-# Generates the artifacts that aren't versioned (minified JS, vendored lunr,
-# tag covers, app icons, _data/covers.yml) before the Jekyll build.
+# Generates the artifacts that aren't versioned (minified JS and vendored lunr)
+# before the Jekyll build.
 name: Build assets
-description: Install npm dependencies and run build:generated
+description: Install npm dependencies and run build:js
 
 runs:
   using: composite
@@ -14,5 +14,5 @@ runs:
     - run: npm ci
       shell: bash
 
-    - run: npm run build:generated
+    - run: npm run build:js
       shell: bash

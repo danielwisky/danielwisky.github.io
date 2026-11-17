@@ -1,8 +1,8 @@
 # Pull request check: the site builds and no internal link is broken.
 #
-# The generated artifacts aren't versioned; the build-assets action produces
-# them here and in the deploy. build:videos, build:photos and build:icons stay
-# committed: they depend on the network or on _photos/, which isn't versioned.
+# The minified JS isn't versioned; the build-assets action produces it here and
+# in the deploy. build:videos, build:photos and build:icons stay committed: they
+# depend on the network or on _photos/, which isn't versioned.
 name: CI
 
 on:
