@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build:js && npm run build:icons && npm run build:covers && npm run build:videos && npm run build:photos",
+    "build:generated": "npm run build:js && npm run build:covers",
     "build:js": "node scripts/build-js.mjs",
     "build:covers": "node scripts/build-covers.mjs",
     "build:videos": "node scripts/build-video-thumbs.mjs",
@@ -10,7 +11,7 @@
     "build:icons": "node scripts/build-icons.mjs"
   },
   "devDependencies": {
-    "terser": "^5.36.0",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "terser": "^5.36.0"
   }
 }

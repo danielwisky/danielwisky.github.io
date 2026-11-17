@@ -33,6 +33,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+      - name: Build assets
+        uses: ./.github/actions/build-assets
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

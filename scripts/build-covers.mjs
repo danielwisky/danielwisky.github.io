@@ -4,9 +4,8 @@
 // FIRST tag: an icon (TAG_ICONS) and the tag name, centered over a gradient
 // whose hue is fixed per tag (TAG_HUES), with a subtle grid in the background.
 //
-// The output is committed, in the same spirit as build-js.mjs — the GitHub
-// Pages workflow only runs Jekyll. Run `npm run build:covers` when adding a
-// new tag (and, ideally, give it a hue and an icon in the tables below).
+// The output isn't committed: the deploy runs this before Jekyll. When adding
+// a new tag, ideally give it a hue and an icon in the tables below.
 
 import { readdir, readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import path from "node:path";

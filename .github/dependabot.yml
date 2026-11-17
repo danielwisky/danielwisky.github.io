@@ -20,7 +20,8 @@ updates:
       jekyll:
         patterns: ["*"]
 
+  # The composite action in .github/actions/ isn't scanned from "/" alone.
   - package-ecosystem: github-actions
-    directory: "/"
+    directories: ["/", "/.github/actions/*"]
     schedule:
       interval: monthly

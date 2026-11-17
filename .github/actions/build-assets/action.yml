@@ -1,0 +1,18 @@
+# Generates the artifacts that aren't versioned (minified JS, vendored lunr,
+# tag covers, app icons, _data/covers.yml) before the Jekyll build.
+name: Build assets
+description: Install npm dependencies and run build:generated
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v7
+      with:
+        node-version: "22"
+        cache: npm
+
+    - run: npm ci
+      shell: bash
+
+    - run: npm run build:generated
+      shell: bash

@@ -1,18 +1,8 @@
-# Pull request check.
+# Pull request check: the site builds and no internal link is broken.
 #
-# The deploy runs only Jekyll, and the generated artifacts (the .min.js files,
-# the tag covers, the files in _data/) are committed. Without this check,
-# editing assets/js/main.js and forgetting to run `npm run build:js` silently
-# publishes the old .min.js. The `git diff --exit-code` below is the detector:
-# if the build changes any versioned file, the commit is out of sync.
-#
-# Left out of the check on purpose:
-#   build:videos  downloads YouTube thumbnails; it would depend on the network
-#                 and be flaky
-#   build:photos  depends on _photos/, which isn't versioned; on a clean runner
-#                 it generates nothing (the script handles the missing folder)
-#   build:icons   downloads the icons from jsDelivr; same network issue as
-#                 build:videos
+# The generated artifacts aren't versioned; the build-assets action produces
+# them here and in the deploy. build:videos, build:photos and build:icons stay
+# committed: they depend on the network or on _photos/, which isn't versioned.
 name: CI
 
 on:
@@ -25,33 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-
-      - run: npm ci
-
-      - name: Regenerate deterministic artifacts
-        run: |
-          npm run build:js
-          npm run build:covers
-
-      - name: Discard artifacts that aren't reproducible across systems
-        run: |
-          # The tag cover .jpg files are rasterized from SVG by sharp, and the
-          # result depends on the system fonts: macOS and Linux produce
-          # different bytes for the same input. The app icons are rasterized the
-          # same way and are discarded too. The .svg files, which are pure string
-          # generation, stay in the check.
-          git checkout -- assets/img/covers/og assets/img/app
-
-      - name: Check that committed artifacts are up to date
-        run: |
-          if ! git diff --exit-code; then
-            echo "::error::Artifacts out of sync. Run 'npm run build' and commit the result."
-            exit 1
-          fi
+      - uses: ./.github/actions/build-assets
 
       - uses: ruby/setup-ruby@v1
         with:

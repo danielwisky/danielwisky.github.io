@@ -8,7 +8,7 @@ client-side e capas de post geradas por tag.
 ```bash
 bundle install
 npm install
-npm run build          # minifica JS, gera capas e fotos
+npm run build:generated   # JS minificado, capas e ícones (não versionados)
 bundle exec jekyll serve
 ```
 
@@ -46,8 +46,12 @@ ganha também uma caixa de revisão antes do texto.
 
 ## Scripts
 
-Artefatos gerados são commitados, o deploy roda só o Jekyll. Rode
-`npm run build` sempre que mexer em `assets/js/*.js`, tags ou fotos.
+`build:js` e `build:covers` não são versionados: o deploy e o CI rodam
+`npm run build:generated` antes do Jekyll (`.github/actions/build-assets`). Local,
+rode de novo depois de mexer em `assets/js/*.js` ou nas tags. Fotos, thumbnails de
+vídeo e o sprite de ícones continuam commitados, porque dependem de `_photos/` ou
+da rede: rode `npm run build:photos`, `build:videos` ou `build:icons` e commite o
+resultado.
 
 | Script | O que faz |
 |---|---|
