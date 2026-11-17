@@ -27,7 +27,10 @@ tags: [Java, SOLID]
 
 Pra capa, coloque a foto original em `_photos/<slug>.jpg` e rode
 `npm run build:photos` (detalhes em [`_photos/README.md`](_photos/README.md)).
-Sem foto, o post usa a capa padrão de `assets/img/covers/`. Pra vídeo, embuta o
+Sem foto, o post usa a capa padrão de `assets/img/covers/`. Ela, o
+`assets/img/avatar.svg` e os ícones de `assets/img/app/` são estáticos: vieram do
+`scripts/build-covers.mjs`, removido no PR #136 e ainda recuperável no histórico
+do git. Pra vídeo, embuta o
 iframe do YouTube no corpo e rode `npm run build:videos`: ele acha o embed,
 baixa a thumbnail e a capa vira link com botão de play.
 

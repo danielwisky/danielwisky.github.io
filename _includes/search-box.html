@@ -1,6 +1,16 @@
+{%- comment -%}
+In load order. Same files as the `vendor` list in scripts/build-js.mjs.
+{%- endcomment -%}
+{%- assign lunr_files = "lunr.min.js,lunr.stemmer.support.min.js,lunr.pt.min.js" | split: "," -%}
+{%- assign lunr_scripts = "" | split: "" -%}
+{%- for file in lunr_files -%}
+{%- assign src = '/assets/js/vendor/' | append: file -%}
+{%- capture url %}{{ src | relative_url }}?v={{ src | asset_hash }}{% endcapture -%}
+{%- assign lunr_scripts = lunr_scripts | push: url -%}
+{%- endfor -%}
 <div id="search-box" class="search" role="dialog" aria-modal="true" aria-label="Pesquisar no blog"
      data-index="{{ '/search-index.json' | relative_url }}"
-     data-scripts="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}?v={{ '/assets/js/vendor/lunr.min.js' | asset_hash }} {{ '/assets/js/vendor/lunr.stemmer.support.min.js' | relative_url }}?v={{ '/assets/js/vendor/lunr.stemmer.support.min.js' | asset_hash }} {{ '/assets/js/vendor/lunr.pt.min.js' | relative_url }}?v={{ '/assets/js/vendor/lunr.pt.min.js' | asset_hash }}">
+     data-scripts="{{ lunr_scripts | join: ' ' }}">
   <div class="search__box">
     <div class="search__group">
       {% include icon.html name="magnifying-glass" %}

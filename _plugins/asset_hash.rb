@@ -5,7 +5,8 @@
 # Both filters are called once per page, but the content on disk doesn't
 # change during a build, so the result is memoized. Without this, sass_hash
 # re-read the ~20 _sass partials on every page: over a thousand file reads
-# in a 53-page build.
+# in a 53-page build. The memo is cleared on every rebuild, otherwise
+# `jekyll serve` would keep the first hash until restarted.
 require "digest"
 
 module Jekyll
@@ -22,8 +23,12 @@ module Jekyll
           Digest::MD5.file(file_path).hexdigest[0, 8]
         else
           # The .min.js and vendor files aren't versioned: without this the page
-          # silently links to a 404.
-          Jekyll.logger.warn "asset_hash:", "#{path} not found, run `npm run build:js`"
+          # silently links to a 404. In production it means the deploy skipped
+          # the build-assets action, so the build fails instead.
+          message = "#{path} not found, run `npm run build:js`"
+          raise Errors::FatalException, message if Jekyll.env == "production"
+
+          Jekyll.logger.warn "asset_hash:", message
           "0"
         end
       end
@@ -49,5 +54,7 @@ module Jekyll
     end
   end
 end
+
+Jekyll::Hooks.register(:site, :after_reset) { Jekyll::AssetHashFilter.cache.clear }
 
 Liquid::Template.register_filter(Jekyll::AssetHashFilter)
