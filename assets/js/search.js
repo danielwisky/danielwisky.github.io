@@ -2,26 +2,15 @@
  * Blog search.
  *
  * Nothing here is downloaded until the reader opens the overlay for the first
- * time: lunr, the Portuguese stemmer and the index (~190 KB) only hit the
+ * time: lunr, the Portuguese stemmer and the index only hit the
  * network then. They used to load on every visit, even with no one searching.
  */
 (() => {
-  /* Every third-party script comes with integrity: they are injected at runtime,
-     but that's no reason to give up the check a static <script> tag would
-     have. */
+  // Copied from node_modules by scripts/build-js.mjs.
   const SCRIPTS = [
-    {
-      src: "https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js",
-      integrity: "sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli",
-    },
-    {
-      src: "https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/lunr.stemmer.support.js",
-      integrity: "sha384-cNMzF77Cs0v2yLtePgqS6A5MwbVWQjEOk/zv3e88sNiFe+opc629fFoPmfZ+6IEf",
-    },
-    {
-      src: "https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/lunr.pt.js",
-      integrity: "sha384-217HjdynnwJlbugAE0+W3DfqgYXLZIrh+vjqhkQC19znmkWLw3WskvLqcVqM3/Ws",
-    },
+    "/assets/js/vendor/lunr.min.js",
+    "/assets/js/vendor/lunr.stemmer.support.min.js",
+    "/assets/js/vendor/lunr.pt.min.js",
   ];
 
   const searchBox = document.getElementById("search-box");
@@ -42,13 +31,10 @@
   /* Strips accents: "programacao" must match "programação". */
   const fold = (value) => value.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 
-  const loadScript = ({ src, integrity }) =>
+  const loadScript = (src) =>
     new Promise((resolve, reject) => {
       const script = document.createElement("script");
       script.src = src;
-      script.integrity = integrity;
-      script.crossOrigin = "anonymous";
-      script.referrerPolicy = "no-referrer";
       script.onload = resolve;
       script.onerror = () => reject(new Error(`failed to load ${src}`));
       document.head.appendChild(script);

@@ -8,7 +8,7 @@ client-side e capas de post geradas por tag.
 ```bash
 bundle install
 npm install
-npm run build:generated   # JS minificado, capas e ícones (não versionados)
+npm run build:generated   # JS minificado, lunr, capas e ícones (não versionados)
 bundle exec jekyll serve
 ```
 
@@ -55,7 +55,7 @@ resultado.
 
 | Script | O que faz |
 |---|---|
-| `build:js` | Minifica `assets/js/*.js` |
+| `build:js` | Minifica `assets/js/*.js` e copia o lunr para `assets/js/vendor/` |
 | `build:covers` | Gera capas das tags, `_data/covers.yml` e os ícones de app em `assets/img/app/` |
 | `build:videos` | Baixa thumbnail do YouTube dos posts com vídeo |
 | `build:photos` | Otimiza fotos novas de `_photos/` e `_data/photos.yml` |
