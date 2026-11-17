@@ -28,8 +28,10 @@ pagination:
 kramdown:
   input: GFM
 
-# fill in your Google Analytics ID to track your website using Google Analytics
-google_analytics: "G-R9ZHFE3RQ5"
+# Cloudflare Web Analytics token, from dash.cloudflare.com -> Analytics & Logs ->
+# Web Analytics. Not a secret: it goes in the page HTML. Cookieless, so no
+# consent banner is needed (LGPD), unlike the Google Analytics it replaced.
+cloudflare_analytics_token: "c05804e46a264cfb82e00ded95b9c3d4"
 
 # to use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
 disqus: "danielwisky"
