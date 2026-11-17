@@ -445,6 +445,11 @@
   card: /assets/img/photos/cards/timeouts-e-propagacao-de-deadline.webp
   thumb: /assets/img/photos/thumbs/timeouts-e-propagacao-de-deadline.webp
   og: /assets/img/photos/og/timeouts-e-propagacao-de-deadline.jpg
+"todo-codigo-e-slop-menos-o-meu":
+  cover: /assets/img/photos/todo-codigo-e-slop-menos-o-meu.webp
+  card: /assets/img/photos/cards/todo-codigo-e-slop-menos-o-meu.webp
+  thumb: /assets/img/photos/thumbs/todo-codigo-e-slop-menos-o-meu.webp
+  og: /assets/img/photos/og/todo-codigo-e-slop-menos-o-meu.jpg
 "tracing-distribuido":
   cover: /assets/img/photos/tracing-distribuido.webp
   card: /assets/img/photos/cards/tracing-distribuido.webp
