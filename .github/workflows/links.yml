@@ -20,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: ./.github/actions/build-assets
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"

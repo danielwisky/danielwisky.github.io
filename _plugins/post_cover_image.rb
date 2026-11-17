@@ -17,31 +17,28 @@ module Jekyll
 
     def generate(site)
       photos = site.data["photos"] || {}
-      covers = site.data["covers"] || {}
 
       site.posts.docs.each do |post|
         # Respect an image set by hand in the front matter.
         next if post.data["image"]
 
-        post.data["image"] = og_for(post, photos, covers)
+        post.data["image"] = og_for(post, photos)
       end
     end
 
     private
 
-    def og_for(post, photos, covers)
+    def og_for(post, photos)
       # cover-img only works as og:image if it's a bitmap: the whole reason this
-      # plugin exists is that social networks reject SVG, and the generated
-      # covers are all SVG.
+      # plugin exists is that social networks reject SVG.
       manual = post.data["cover-img"]
       return manual if manual && !manual.to_s.end_with?(".svg")
 
       photo = photos[post.data["slug"]]
-      cover = covers[Array(post.data["tags"]).first]
 
-      # Chained `||` instead of returns: an entry that exists but lacks the
-      # "og" key would leave page.image nil, and seo-tag would omit the image.
-      (photo && photo["og"]) || (cover && cover["og"]) || DEFAULT_OG
+      # An entry that exists but lacks the "og" key would leave page.image nil,
+      # and seo-tag would omit the image.
+      (photo && photo["og"]) || DEFAULT_OG
     end
   end
 end

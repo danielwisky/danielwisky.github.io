@@ -4,10 +4,8 @@ Resolves the cover URL of a post.
 Usage: include with post=post (or post=page, on the post page).
 
 Variants:
-  cover (default) post header, and the card on retina screens; photos come
-                  out 1200x800 (3:2), tag covers are 4:3 SVG
-  card            560x420, for the feed card (via srcset); for tag covers
-                  it's the same SVG as the cover
+  cover (default) post header, and the card on retina screens, 1200x800 (3:2)
+  card            560x420, for the feed card (via srcset)
   thumb           180x135, for the small images in the sidebar, search,
                   post navigation and related posts
   og              1200x630 bitmap for og:image, since social networks don't
@@ -18,8 +16,7 @@ If the requested variant isn't in the map, falls back to the cover.
 Precedence:
   1. cover-img in the front matter, to point to a specific or external image
   2. own photo at _photos/<slug>.jpg, optimized by scripts/build-photos.mjs
-  3. cover generated from the first tag, by scripts/build-covers.mjs
-  4. default cover
+  3. default cover
 
 Prints only the URL, with no surrounding whitespace, so it can go straight into
 an attribute.
@@ -27,13 +24,10 @@ an attribute.
 {%- assign p = include.post -%}
 {%- assign variant = include.variant | default: 'cover' -%}
 {%- assign photo = site.data.photos[p.slug] -%}
-{%- assign tag_cover = site.data.covers[p.tags.first] -%}
 {%- if p['cover-img'] -%}
 {{- p['cover-img'] | relative_url -}}
 {%- elsif photo -%}
 {{- photo[variant] | default: photo.cover | relative_url -}}
-{%- elsif tag_cover -%}
-{{- tag_cover[variant] | default: tag_cover.cover | relative_url -}}
 {%- elsif variant == 'thumb' -%}
 {{- '/assets/img/covers/thumbs/default.svg' | relative_url -}}
 {%- elsif variant == 'og' -%}

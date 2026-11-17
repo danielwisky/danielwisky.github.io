@@ -1,7 +1,7 @@
 # Without this file Dependabot only opens security updates, with no schedule
-# or grouping. The npm dependencies here are build tools that only run locally
-# and in CI, so their security risk is low: the goal is to keep everything up
-# to date without getting one PR per package.
+# or grouping. The npm dependencies are build tools, plus lunr, which is
+# copied into the site: the goal is to keep everything up to date without
+# getting one PR per package.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -9,8 +9,13 @@ updates:
     schedule:
       interval: monthly
     groups:
+      # lunr ships to readers and search has no test: a bump of it gets its own
+      # PR, to be checked in the browser before merging.
+      search:
+        patterns: ["lunr", "lunr-languages"]
       build-tools:
         patterns: ["*"]
+        exclude-patterns: ["lunr", "lunr-languages"]
 
   - package-ecosystem: bundler
     directory: "/"
@@ -20,7 +25,8 @@ updates:
       jekyll:
         patterns: ["*"]
 
+  # The composite action in .github/actions/ isn't scanned from "/" alone.
   - package-ecosystem: github-actions
-    directory: "/"
+    directories: ["/", "/.github/actions/*"]
     schedule:
       interval: monthly

@@ -1,14 +1,14 @@
 # danielwisky.com.br
 
 Blog pessoal em Jekyll: CSS próprio (sem framework), tema claro/escuro, busca
-client-side e capas de post geradas por tag.
+client-side e capas de post com foto.
 
 ## Rodando
 
 ```bash
 bundle install
 npm install
-npm run build          # minifica JS, gera capas e fotos
+npm run build:js     # JS minificado e lunr (não versionados)
 bundle exec jekyll serve
 ```
 
@@ -25,9 +25,12 @@ tags: [Java, SOLID]
 ---
 ```
 
-A capa sai automática da **primeira tag** (ícone + gradiente). Pra usar foto
-real, coloque o original em `_photos/<slug>.jpg` e rode `npm run build:photos`
-(detalhes em [`_photos/README.md`](_photos/README.md)). Pra vídeo, embuta o
+Pra capa, coloque a foto original em `_photos/<slug>.jpg` e rode
+`npm run build:photos` (detalhes em [`_photos/README.md`](_photos/README.md)).
+Sem foto, o post usa a capa padrão de `assets/img/covers/`. Ela, o
+`assets/img/avatar.svg` e os ícones de `assets/img/app/` são estáticos: vieram do
+`scripts/build-covers.mjs`, removido no PR #136 e ainda recuperável no histórico
+do git. Pra vídeo, embuta o
 iframe do YouTube no corpo e rode `npm run build:videos`: ele acha o embed,
 baixa a thumbnail e a capa vira link com botão de play.
 
@@ -46,13 +49,15 @@ ganha também uma caixa de revisão antes do texto.
 
 ## Scripts
 
-Artefatos gerados são commitados, o deploy roda só o Jekyll. Rode
-`npm run build` sempre que mexer em `assets/js/*.js`, tags ou fotos.
+A saída do `build:js` não é versionada: o deploy e o CI rodam o script antes
+do Jekyll (`.github/actions/build-assets`). Local, rode de novo depois de mexer
+em `assets/js/*.js`. Fotos, thumbnails de vídeo e o sprite de ícones continuam
+commitados, porque dependem de `_photos/` ou da rede: rode `npm run build:photos`,
+`build:videos` ou `build:icons` e commite o resultado.
 
 | Script | O que faz |
 |---|---|
-| `build:js` | Minifica `assets/js/*.js` |
-| `build:covers` | Gera capas das tags, `_data/covers.yml` e os ícones de app em `assets/img/app/` |
+| `build:js` | Minifica `assets/js/*.js` e copia o lunr para `assets/js/vendor/` |
 | `build:videos` | Baixa thumbnail do YouTube dos posts com vídeo |
 | `build:photos` | Otimiza fotos novas de `_photos/` e `_data/photos.yml` |
 
@@ -66,11 +71,8 @@ diferente:
 | `thumb` | 180x135 WebP | Sidebar, busca e navegação |
 | `og` | 1200x630 JPG | `og:image` (redes sociais não aceitam SVG nem sempre aceitam WebP) |
 
-As capas de tag (`build:covers`) são SVG 4:3, com `card` igual à `cover`, e
-só o `og` vira bitmap. Se uma variante faltar, `_includes/post-cover.html`
-cai na `cover`, então o site não quebra, mas o feed e a sidebar passam a
-baixar a imagem grande. Cor e ícone de cada tag ficam em
-`TAG_HUES`/`TAG_ICONS`, em `scripts/build-covers.mjs`.
+Se uma variante faltar, `_includes/post-cover.html` cai na `cover`, então o
+site não quebra, mas o feed e a sidebar passam a baixar a imagem grande.
 
 ## Estrutura
 
