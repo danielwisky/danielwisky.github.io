@@ -400,6 +400,11 @@
   card: /assets/img/photos/cards/saga-pattern.webp
   thumb: /assets/img/photos/thumbs/saga-pattern.webp
   og: /assets/img/photos/og/saga-pattern.jpg
+"sealed-classes-e-pattern-matching-java":
+  cover: /assets/img/photos/sealed-classes-e-pattern-matching-java.webp
+  card: /assets/img/photos/cards/sealed-classes-e-pattern-matching-java.webp
+  thumb: /assets/img/photos/thumbs/sealed-classes-e-pattern-matching-java.webp
+  og: /assets/img/photos/og/sealed-classes-e-pattern-matching-java.jpg
 "sharding-no-mongodb":
   cover: /assets/img/photos/sharding-no-mongodb.webp
   card: /assets/img/photos/cards/sharding-no-mongodb.webp
