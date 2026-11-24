@@ -24,7 +24,7 @@ Esse método está buscando no banco dentro do loop, mexe nisso.
 # Ensina o porquê
 Esse método está fazendo uma query por item do loop, o que vira N+1
 queries conforme a lista crescer. Vale trazer tudo numa query só antes
-do loop e montar um mapa por id, assim o custo fica constante independente
+do loop e montar um mapa por id, assim o número de queries fica constante independente
 do tamanho da lista.
 ```
 
@@ -54,4 +54,4 @@ Explicar o porquê de tudo tem um custo, e exagerar nisso tem o efeito oposto do
 
 ## O ganho que não aparece no PR aprovado
 
-Um code review que ensina custa mais esforço do revisor na hora, e isso é real: escrever o porquê leva mais tempo do que escrever a correção pronta. O retorno desse investimento não aparece no PR que está sendo revisado agora, aparece nos PRs futuros que chegam com menos desses problemas porque quem escreveu já internalizou a lição. Times que tratam review como ferramenta de formação, não só de controle de qualidade, tendem a gastar menos tempo total em revisão no longo prazo, porque o nível médio do código que entra pra revisão sobe. É um investimento que só compensa pra quem está pensando no time em semanas e meses, não só no PR de hoje.
+Um code review que ensina custa mais esforço do revisor na hora, e isso é real: escrever o porquê leva mais tempo do que escrever a correção pronta. O retorno desse investimento não aparece no PR que está sendo revisado agora, aparece nos PRs futuros que chegam com menos desses problemas porque quem escreveu já internalizou a lição. A aposta de quem trata review como ferramenta de formação, não só de controle de qualidade, é gastar menos tempo total em revisão no longo prazo, porque o nível médio do código que entra pra revisão sobe. É um investimento que só compensa pra quem está pensando no time em semanas e meses, não só no PR de hoje.

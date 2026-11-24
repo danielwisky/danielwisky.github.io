@@ -7,7 +7,7 @@ tags: [Clean Code]
 
 ## Limites
 
-Raramente controlamos todo o software em nossos sistemas. Às vezes, compramos pacotes de terceiros ou usamos código aberto. Outras vezes, dependemos de equipes de nossa própria empresa para produzir componentes ou subsistemas para nós. De alguma forma, devemos integrar claramente esse código estrangeiro ao nosso.
+Raramente controlamos todo o software em nossos sistemas. Às vezes, compramos pacotes de terceiros ou usamos código aberto. Outras vezes, dependemos de equipes de nossa própria empresa para produzir componentes ou subsistemas para nós. De alguma forma, devemos integrar de forma limpa esse código estrangeiro ao nosso.
 
 ### Usando código de terceiros
 
@@ -45,7 +45,7 @@ O código de terceiros nos ajuda a obter mais funcionalidades em menos tempo. Po
 
 Os testes de aprendizado acabam não custando nada. Tínhamos que aprender a API de qualquer maneira, e escrever esses testes foi uma maneira fácil e isolada de obter esse conhecimento. Os testes de aprendizado eram experimentos precisos que ajudavam a aumentar nossa compreensão.
 
-Os testes de aprendizado não são apenas gratuitos, mas também têm um retorno positivo do investimento. Quando há novos lançamentos do pacote de terceiros, fazemos os testes de aprendizado para ver se há diferenças de comportamento.
+Os testes de aprendizado não são apenas gratuitos, mas também têm um retorno positivo do investimento. Quando há novos lançamentos do pacote de terceiros, executamos os testes de aprendizado para ver se há diferenças de comportamento.
 
 ### Usando código que ainda não existe
 

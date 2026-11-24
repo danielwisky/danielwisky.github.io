@@ -7,7 +7,7 @@ tags: [Java, SOLID]
 
 O Princípio da Substituição de Liskov (Liskov Substitution Principle - LSP) é um dos princípios do SOLID, um conjunto de diretrizes para o desenvolvimento de software orientado a objetos. Este princípio estabelece que uma classe derivada deve poder substituir sua classe base, mantendo a consistência do sistema. Neste artigo, exploraremos o Princípio da Substituição de Liskov e apresentaremos exemplos de implementação em Java.
 
-Segundo o Princípio da Substituição de Liskov, se uma classe A é um subtipo de uma classe B, então os objetos do tipo B podem ser substituídos pelos objetos do tipo A sem que isso afete o funcionamento correto do sistema. Isso significa que a classe derivada deve ser capaz de atender a todas as pré-condições, pós-condições e invariantes definidos pela classe base.
+Segundo o Princípio da Substituição de Liskov, se uma classe A é um subtipo de uma classe B, então os objetos do tipo B podem ser substituídos pelos objetos do tipo A sem que isso afete o funcionamento correto do sistema. Isso significa que a classe derivada não pode exigir pré-condições mais fortes, nem entregar pós-condições mais fracas, e deve preservar os invariantes definidos pela classe base.
 
 ## Exemplos:
 
@@ -32,14 +32,21 @@ Segundo o Princípio da Substituição de Liskov, se uma classe A é um subtipo 
     }
     
     class Quadrado extends Retangulo {
-        public void setLado(int lado) {
+        @Override
+        public void setLargura(int lado) {
+            this.largura = lado;
+            this.altura = lado;
+        }
+    
+        @Override
+        public void setAltura(int lado) {
             this.largura = lado;
             this.altura = lado;
         }
     }
     ```
 
-   Neste exemplo, a classe `Quadrado` viola o Princípio da Substituição de Liskov, pois impõe restrições adicionais à classe base `Retangulo`. Ao modificar apenas um lado do quadrado, o outro lado também é alterado, o que não é esperado em uma hierarquia de classes correta.<br><br>
+   Neste exemplo, a classe `Quadrado` viola o Princípio da Substituição de Liskov, pois impõe restrições adicionais à classe base `Retangulo`. Ao modificar apenas um lado do quadrado, o outro lado também é alterado, o que não é esperado em uma hierarquia de classes correta. Um código que recebe um `Retangulo`, chama `setLargura(5)` e `setAltura(4)` e espera área 20 recebe 16 quando o objeto é um `Quadrado`.<br><br>
 
 2. Exemplo de aplicação correta do Princípio de Substituição de Liskov:
 

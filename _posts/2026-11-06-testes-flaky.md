@@ -9,7 +9,7 @@ O pipeline ficou vermelho. Você abre o log, vê que falhou um teste de uma part
 
 Esse teste é flaky: ele passa ou falha sem que o código tenha mudado. E o problema dele não é só os minutos perdidos esperando o pipeline rodar de novo. O problema é o que ele ensina ao time. Depois de algumas semanas convivendo com testes assim, ninguém mais lê falha de CI com atenção. Vermelho vira "provavelmente é aquele teste de novo", e um dia é um bug de verdade que passa junto.
 
-Um teste que falha aleatoriamente é pior do que não ter teste, porque além de não proteger, ele treina as pessoas a ignorar o alarme.
+Um teste que falha aleatoriamente pode ser pior do que não ter teste, porque além de não proteger, ele treina as pessoas a ignorar o alarme.
 
 ## Flaky não existe por acaso
 
@@ -19,7 +19,7 @@ Na prática, quase todas caem em poucas categorias.
 
 ### Tempo
 
-A mais comum. O teste depende do relógio de alguma forma: a hora atual, o dia da semana, a duração de uma operação.
+Uma das mais traiçoeiras. O teste depende do relógio de alguma forma: a hora atual, o dia da semana, a duração de uma operação.
 
 ```java
 @Test
@@ -48,7 +48,7 @@ Agora o teste roda sempre no mesmo instante, e você pode inclusive escolher de 
 
 ### Esperas com sleep
 
-O outro lado do tempo é a espera. Algo acontece de forma assíncrona e o teste precisa aguardar o resultado:
+O outro lado do tempo é a espera, e esta é a causa mais comum: no estudo de Luo et al. (FSE 2014), que analisou correções de testes flaky em projetos open source, cerca de 45% dos casos eram esperas assíncronas. Algo acontece de forma assíncrona e o teste precisa aguardar o resultado:
 
 ```java
 servico.processarEmBackground(pedido);
@@ -120,7 +120,7 @@ void contadorNaoPerdeIncrementos() throws Exception {
 }
 ```
 
-Com um `v++` sem sincronização, a falha aparece quase sempre, mesmo sem repetir. O `@RepeatedTest` faz diferença nas corridas mais sutis, que só aparecem uma vez a cada centenas de execuções: repetir aumenta muito a chance de a falha aparecer enquanto você está olhando, e não só no CI.
+Com um `v++` sem sincronização, a falha aparece com frequência, às vezes até sem repetir. O `@RepeatedTest` faz diferença nas corridas mais sutis, que só aparecem uma vez a cada centenas de execuções: repetir aumenta muito a chance de a falha aparecer enquanto você está olhando, e não só no CI.
 
 ### Ambiente e dependências externas
 

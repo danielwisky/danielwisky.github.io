@@ -14,7 +14,7 @@ public class LeitorArquivoComCriptografia extends LeitorArquivo { /* ... */ }
 public class LeitorArquivoComCompressaoECriptografia extends LeitorArquivoComCompressao { /* ... */ }
 ```
 
-O problema fica óbvio na quarta classe: cada combinação nova de funcionalidades exige uma subclasse nova, e o número de combinações cresce de forma combinatória. Compressão, criptografia e cache juntos já seriam três classes a mais, e cada uma delas fixa a ordem em que as funcionalidades são aplicadas.
+O problema fica óbvio na quarta classe: cada combinação nova de funcionalidades exige uma subclasse nova, e o número de combinações cresce de forma combinatória. Compressão, criptografia e cache juntos já seriam quatro classes a mais, e cada uma delas fixa a ordem em que as funcionalidades são aplicadas.
 
 ## Envolver em vez de herdar
 
@@ -29,7 +29,11 @@ public class LeitorArquivoSimples implements LeitorArquivo {
     @Override
     public String ler(String caminho) {
         // lê o arquivo do disco
-        return Files.readString(Path.of(caminho));
+        try {
+            return Files.readString(Path.of(caminho));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
     }
 }
 ```
@@ -99,7 +103,7 @@ InputStream entrada = new BufferedInputStream(
 );
 ```
 
-`FileInputStream` lê bytes do disco, `GZIPInputStream` descomprime o que vier do stream que ele envolve, e `BufferedInputStream` adiciona um buffer por cima de qualquer `InputStream`. Nenhuma dessas classes sabe da existência das outras, elas só conhecem a interface `InputStream` comum, exatamente o mesmo princípio do exemplo do leitor de arquivos.
+`FileInputStream` lê bytes do disco, `GZIPInputStream` descomprime o que vier do stream que ele envolve, e `BufferedInputStream` adiciona um buffer por cima de qualquer `InputStream`. Nenhuma dessas classes sabe da existência das outras, elas só conhecem a classe abstrata `InputStream` comum, exatamente o mesmo princípio do exemplo do leitor de arquivos.
 
 ## Quando vale a pena
 

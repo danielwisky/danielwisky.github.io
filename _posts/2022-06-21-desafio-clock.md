@@ -5,12 +5,12 @@ subtitle: "Desafio de programação para construção de um jogo de adivinhaçã
 tags: [Desafio de Programação]
 ---
 
-Em **CLOCK**, o computador pensa numa hora entre 0:01 e 12:00 e, você terá que adivinhar a hora seguindo as pistas dadas pelas palavras códigos:
+Em **CLOCK**, o computador pensa numa hora entre 0:01 e 12:00 e você terá que adivinhar a hora seguindo as pistas dadas pelas palavras-código:
 
 | Mega  | O campo hora está correto                                                                  |
 | ----- | ------------------------------------------------------------------------------------------ |
-| Hecto | O campo hora está fora no máximo em +/- 2 horas                                            |
-| Deca  | O campo hora está fora no máximo em +/- 5 horas                                            |
+| Hecto | O campo hora está fora em no máximo +/- 2 horas                                            |
+| Deca  | O campo hora está fora em no máximo +/- 5 horas                                            |
 | Kilo  | O campo minutos está correto                                                               |
 | Deci  | O campo minutos está fora em no máximo +/- 2 minutos                                       |
 | Centi | O campo minutos está fora em no máximo +/- 5 minutos                                       |
@@ -33,7 +33,7 @@ Mega Deci Sua hora: -> 5.47
 Vc acertou em 6 tentativas
 ```
 
-**CLOCK** irá gerar dois valores aleatórios um para a hora e outro para o minuto. Atente ao detalhe que não existe 0:00, logo, se for gerado tal combinação transforme-o em 12:00. Outra coisa, não se preocupem com detalhes do tipo de 10:58 para 11:02 são 4 minutos, pois, a hora está errada e ponto final.
+**CLOCK** irá gerar dois valores aleatórios, um para a hora e outro para o minuto. Atente ao detalhe que não existe 0:00, logo, se for gerada tal combinação, transforme-a em 12:00. Outra coisa, não se preocupe com detalhes do tipo de 10:58 para 11:02 são 4 minutos, pois, a hora está errada e ponto final.
 
 Um cuidado estético extra muito importante é o de não mostrar a combinação Mega Kilo. Apenas uma mensagem de parabéns e o número de tentativas.
 

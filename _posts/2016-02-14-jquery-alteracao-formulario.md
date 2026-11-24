@@ -4,13 +4,15 @@ title: "jQuery - Verificar alteração no formulário HTML"
 tags: [JavaScript, jQuery]
 ---
 
-A função para verificar se houve alteração no formulário HTML, pode ser muito útil, como comunicar o usuário a possível perda de dados e até mesmo evitar que o formulário seja enviado, sem que ao menos, alguma informação tenha sido alterada.
+A função para verificar se houve alteração no formulário HTML pode ser muito útil, como para avisar o usuário sobre a possível perda de dados e até mesmo evitar que o formulário seja enviado, sem que ao menos, alguma informação tenha sido alterada.
 
 Utilizando a função abaixo, podemos verificar se algum campo do formulário foi alterado.
 
     $("#myform :input").change(function() {
        $("#myform").data("changed",true);
     });
+
+> **Atualização (2026):** desde o jQuery 3.3, atalhos de evento como `.change(handler)` estão marcados como deprecated. Prefira `.on("change", handler)`, que funciona da mesma forma nos exemplos deste post.
 
 Antes de enviar as informações, verificamos se o formulário foi alterado:
 

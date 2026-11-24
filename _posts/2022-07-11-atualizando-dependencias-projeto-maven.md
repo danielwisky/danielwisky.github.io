@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Atualizando as dependências do seu projeto maven"
-subtitle: "Atualizando as dependências do seu projeto maven como um verdadeiro bibliotecário"
+title: "Atualizando as dependências do seu projeto Maven"
+subtitle: "Atualizando as dependências do seu projeto Maven como um verdadeiro bibliotecário"
 tags: [Gerenciamento de Dependências, Maven]
 ---
 
-O plugin [Versions Maven Plugin](https://www.mojohaus.org/versions-maven-plugin/index.html) é usado quando desejamos gerenciar as versões de artefatos no POM de um projeto.
+O plugin [Versions Maven Plugin](https://www.mojohaus.org/versions/versions-maven-plugin/index.html) é usado quando desejamos gerenciar as versões de artefatos no POM de um projeto.
 
 ## Mãos ao teclado:
 
-Nesta mãos ao teclado, vamos atualizar todas as dependências do nosso projeto de exemplo.
+Agora, mãos ao teclado: vamos atualizar todas as dependências do nosso projeto de exemplo.
 
 Começando pelas versões que estão dentro do `<parent>`.
 
@@ -140,7 +140,7 @@ Arquivo `pom.xml` após a nossa atualização:
 </properties>
 ```
 
-Caso não estejamos utilizando as `<properties>` para controlar as versões dos plugins do nosso projeto, podemos executar o seguinte comando:
+Caso não estejamos utilizando as `<properties>` para controlar as versões das dependências do nosso projeto, podemos executar o seguinte comando:
 
 ```
 mvn versions:use-latest-releases
@@ -170,7 +170,7 @@ Arquivo `pom.xml` após a nossa atualização:
 </dependency>
 ```
 
-Podemos notar também que foi criado um arquivo chamado `pom.xml.versionsBackup`, através desse arquivo podemos reverter as atualizações com o seguinte comando:
+Podemos notar também que foi criado um arquivo chamado `pom.xml.versionsBackup`. Através desse arquivo podemos reverter as atualizações com o seguinte comando:
 
 ```
 mvn versions:revert
@@ -183,6 +183,6 @@ mvn versions:commit
 ```
 
 Fonte:
-<a href="https://www.mojohaus.org/versions-maven-plugin/index.html" target="_blank">Versions Maven Plugin</a>.
+<a href="https://www.mojohaus.org/versions/versions-maven-plugin/index.html" target="_blank">Versions Maven Plugin</a>.
 
 Um grande abraço e até o próximo post!

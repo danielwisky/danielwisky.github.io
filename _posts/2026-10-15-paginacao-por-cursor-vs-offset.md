@@ -77,7 +77,7 @@ public record Cursor(Instant criadoEm, long id) {
 
 Um detalhe que pega muita gente: o cursor precisa guardar o valor com a mesma precisão da coluna no banco. Se `criado_em` tem microssegundos e o cursor guarda só milissegundos, a comparação usa um valor truncado e pula justamente os registros daquele milissegundo que ainda não foram lidos. Também vale tratar token inválido como erro do cliente (um 400), em vez de deixar a exceção do parse virar um 500.
 
-Deixar o cursor opaco dá liberdade para mudar a implementação depois (trocar a coluna de ordenação, adicionar um campo) sem quebrar contrato com ninguém, o que conversa bem com o que escrevi sobre [versionamento de API](/2026-10-07-versionamento-de-api-sem-quebrar-clientes/). Quando `proximoCursor` vem nulo, acabou a lista. Se você usa Spring Data, as versões mais recentes já trazem suporte nativo a esse modelo com `ScrollPosition` e `Window`, o que poupa boa parte do código acima.
+Deixar o cursor opaco dá liberdade para mudar a implementação depois (trocar a coluna de ordenação, adicionar um campo) sem quebrar contrato com ninguém, o que conversa bem com o que escrevi sobre [versionamento de API](/2026-10-07-versionamento-de-api-sem-quebrar-clientes/). Quando `proximoCursor` vem nulo, acabou a lista. Se você usa Spring Data, desde o Spring Data 3.1 (Spring Boot 3.1) há suporte nativo a esse modelo com `ScrollPosition` e `Window`, o que poupa boa parte do código acima.
 
 ## O que você perde
 

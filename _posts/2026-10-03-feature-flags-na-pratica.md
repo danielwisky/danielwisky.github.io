@@ -29,7 +29,7 @@ Nem toda flag serve pro mesmo propósito, e misturar os tipos é uma fonte comum
 - **Ops flags**: dão um botão de emergência para desligar uma funcionalidade sob carga ou instabilidade, sem precisar reverter o deploy.
 - **Permission flags**: controlam acesso por plano de assinatura ou por tipo de usuário, como uma funcionalidade exclusiva de um tier pago.
 
-Uma release flag deveria ser temporária por natureza: depois que a funcionalidade está estável para todo mundo, o código do `if` e o caminho antigo deveriam ser removidos. Uma permission flag, ao contrário, é permanente, porque a distinção entre planos é parte do próprio produto.
+Uma release flag deveria ser temporária por natureza: depois que a funcionalidade está estável para todo mundo, o código do `if` e o caminho antigo deveriam ser removidos. Uma permission flag, ao contrário, pode durar anos, porque a distinção entre planos é parte do próprio produto.
 
 ## O rollout gradual
 
@@ -39,7 +39,7 @@ A vantagem mais prática de uma feature flag é poder liberar aos poucos, em vez
 public boolean isEnabled(String flag, Usuario usuario) {
     var config = flagStore.buscar(flag);
     if (!config.ativo()) return false;
-    return hash(usuario.getId()) % 100 < config.percentualRollout();
+    return Math.floorMod(hash(usuario.getId()), 100) < config.percentualRollout();
 }
 ```
 

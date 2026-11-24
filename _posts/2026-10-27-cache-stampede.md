@@ -76,7 +76,7 @@ if (Boolean.TRUE.equals(adquiriu)) {
 return aguardarCache(chave);
 ```
 
-Esse caminho funciona, mas cobra o preço de qualquer lock distribuído. O lock precisa de expiração, senão uma instância que morre no meio do cálculo trava a chave para sempre. A expiração precisa ser maior do que o tempo do cálculo, senão duas instâncias recalculam ao mesmo tempo. E quem fica esperando precisa de um limite, senão um banco lento transforma a espera em fila de threads presas. É o tipo de solução que vale a pena só quando a consulta é cara de verdade.
+Esse caminho funciona, mas cobra o preço de qualquer lock distribuído. O exemplo omite, mas o lock deve ser liberado quando o cálculo termina ou falha, para que ninguém espere a expiração à toa. E ele precisa de expiração, senão uma instância que morre no meio do cálculo trava a chave para sempre. A expiração precisa ser maior do que o tempo do cálculo, senão duas instâncias recalculam ao mesmo tempo. E quem fica esperando precisa de um limite, senão um banco lento transforma a espera em fila de threads presas. É o tipo de solução que vale a pena só quando a consulta é cara de verdade.
 
 ## Entregar o valor velho enquanto atualiza
 
@@ -91,7 +91,7 @@ LoadingCache<String, Produtos> cache = Caffeine.newBuilder()
     .build(this::carregarDoBanco);
 ```
 
-Depois de cinco minutos, o próximo acesso dispara um recarregamento assíncrono e continua recebendo o valor que já estava lá. Só depois de trinta minutos sem atualização bem-sucedida a entrada some de verdade. Para a lista de mais vendidos, ninguém vai perceber que ela ficou alguns segundos desatualizada. Para o saldo de uma conta, a conversa é outra, e é por isso que essa técnica depende de quanto o dado tolera estar velho.
+Depois de cinco minutos, o próximo acesso dispara um recarregamento assíncrono e continua recebendo o valor que já estava lá. O recarregamento só acontece quando alguém lê a chave: se ninguém acessar nesse intervalo, ou se os recarregamentos falharem, a entrada some de verdade trinta minutos depois da última escrita. Para a lista de mais vendidos, ninguém vai perceber que ela ficou alguns segundos desatualizada. Para o saldo de uma conta, a conversa é outra, e é por isso que essa técnica depende de quanto o dado tolera estar velho.
 
 ## Expiração antecipada probabilística
 

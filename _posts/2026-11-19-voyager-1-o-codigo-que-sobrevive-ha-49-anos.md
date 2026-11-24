@@ -7,7 +7,7 @@ tags: [Programação, Sistemas Embarcados]
 
 Ontem, 18 de novembro de 2026, a Voyager 1 passou a estar a um dia-luz da Terra. Isso quer dizer que um sinal de rádio, viajando na velocidade da luz, leva 24 horas para ir daqui até ela. Mais 24 para a resposta voltar. São uns 26 bilhões de quilômetros, e nenhum outro objeto feito por humanos chegou tão longe.
 
-A parte astronômica é impressionante, mas o que sempre me pegou nessa história é outra coisa: a sonda foi lançada em setembro de 1977 e continua rodando o software que foi escrito para ela naquela época, com remendos aplicados ao longo de quase cinco décadas. Existe um time na NASA que, hoje, dá manutenção em código de 1977 rodando num hardware que ninguém pode tocar. Para quem trabalha com software, é difícil pensar num sistema legado mais extremo.
+A parte astronômica é impressionante, mas o que sempre me pegou nessa história é outra coisa: a sonda foi lançada em setembro de 1977 e continua rodando o software que foi escrito para ela naquela época, com remendos e até reprogramações inteiras feitas em pleno voo ao longo de quase cinco décadas. Existe um time na NASA que, hoje, dá manutenção em código de 1977 rodando num hardware que ninguém pode tocar. Para quem trabalha com software, é difícil pensar num sistema legado mais extremo.
 
 ## O hardware: menos memória que um ícone
 
@@ -29,7 +29,7 @@ O Fortran da história era o software de solo, que rodava em mainframes Univac e
 
 O código-fonte de bordo não é público, então não dá para mostrar um trecho real. Mas dá para entender o formato: no CCS, cada instrução tem 18 bits, sendo 6 de opcode e 12 de endereço. Doze bits de endereço dão exatamente 4096 posições, que é o tamanho da memória. Não tem sobra. O design inteiro foi feito para caber na medida.
 
-Outro número que diz muito sobre as prioridades da equipe: os algoritmos de proteção contra falhas ocupam cerca de 10% da memória do CCS. Em 4096 palavras, alguém decidiu que uma em cada dez seria gasta só para a sonda saber se defender sozinha quando algo der errado. E é justamente isso que a mantém viva até hoje, porque com dois dias de ida e volta, ninguém na Terra consegue reagir a tempo de nada.
+Outro número que diz muito sobre as prioridades da equipe: segundo a NASA, os algoritmos de proteção contra falhas ocupam cerca de 10% da memória do CCS (e esse número variou ao longo da missão: um relatório de 1981 chegou a contar mais de um quarto da memória só com as rotinas de falha). Em 4096 palavras, alguém decidiu que uma em cada dez seria gasta só para a sonda saber se defender sozinha quando algo der errado. E é justamente isso que a mantém viva até hoje, porque com dois dias de ida e volta, ninguém na Terra consegue reagir a tempo de nada.
 
 ## O bug de 2023: debugar a 24 bilhões de quilômetros
 

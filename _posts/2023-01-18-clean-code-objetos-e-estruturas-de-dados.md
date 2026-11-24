@@ -11,11 +11,11 @@ tags: [Clean Code]
 
 Ocultar a implementação não é apenas uma questão de colocar uma camada de funções entre as variáveis. Ocultar a implementação é sobre abstrações! Uma classe não simplesmente envia suas variáveis por meio de getters e setters. Em vez disso, expõe interfaces abstratas que permitem que seus usuários manipulem a essência dos dados, sem precisar conhecer sua implementação.
 
-### Anti-simetria de dados/objetos
+### Antissimetria de dados/objetos
 
 Esses dois exemplos mostram a diferença entre objetos e estruturas de dados. Os objetos escondem seus dados atrás de abstrações e expõem funções que operam nesses dados. A estrutura de dados expõe seus dados e não possui funções significativas.
 
-**Forma Processual**
+**Forma Procedural**
 
 ```java
 public class Square {
@@ -86,13 +86,13 @@ public class Circle implements Shape {
 }
 ```
 
-Novamente, vemos a natureza complementar dessas duas definições; eles são opostos virtuais! Isso expõe a dicotomia fundamental entre objetos e estruturas de dados:
+Novamente, vemos a natureza complementar dessas duas definições; elas são opostos virtuais! Isso expõe a dicotomia fundamental entre objetos e estruturas de dados:
 
-> O código processual (código usando estruturas de dados) facilita a adição de novas funções sem alterar as estruturas de dados existentes. O código OO, por outro lado, facilita a adição de novas classes sem alterar as funções existentes.
+> O código procedural (código usando estruturas de dados) facilita a adição de novas funções sem alterar as estruturas de dados existentes. O código OO, por outro lado, facilita a adição de novas classes sem alterar as funções existentes.
 
 O complemento também é verdadeiro:
 
-> O código processual torna difícil adicionar novas estruturas de dados porque todas as funções devem mudar. O código OO torna difícil adicionar novas funções porque todas as classes devem mudar.
+> O código procedural torna difícil adicionar novas estruturas de dados porque todas as funções devem mudar. O código OO torna difícil adicionar novas funções porque todas as classes devem mudar.
 
 Programadores maduros sabem que a ideia de que tudo é um objeto é um mito. Às vezes, você realmente deseja estruturas de dados simples com procedimentos operando nelas.
 
