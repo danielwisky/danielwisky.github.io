@@ -19,7 +19,7 @@ Ao longo de vários protótipos, a ordem foi mudando. Não teve um dia em que al
 
 Você já deve ter ouvido que o QWERTY foi projetado para atrasar os datilógrafos. A história é boa, mas está meio torta.
 
-As máquinas de escrever daquela época tinham as hastes das letras (as *typebars*) dispostas em semicírculo, todas batendo no mesmo ponto do papel. Se você apertasse duas teclas vizinhas em sequência rápida, as hastes podiam se enroscar e travar a máquina. A explicação mais repetida é que Sholes espalhou pares de letras comuns em inglês para lados diferentes do mecanismo, reduzindo esses travamentos.
+As máquinas de escrever daquela época tinham as hastes das letras (as *typebars*) dispostas em círculo, todas batendo no mesmo ponto do papel. Se você apertasse duas teclas vizinhas em sequência rápida, as hastes podiam se enroscar e travar a máquina. A explicação mais repetida é que Sholes espalhou pares de letras comuns em inglês para lados diferentes do mecanismo, reduzindo esses travamentos.
 
 Repare que o objetivo, nessa versão, não era deixar ninguém mais lento. Era evitar que a máquina travasse, o que na prática deixava a digitação *mais rápida*, porque cada travamento custava bem mais tempo do que qualquer distância extra entre as teclas.
 
@@ -55,7 +55,7 @@ Se o QWERTY é um acidente histórico, por que não usar algo projetado de verda
 
 A tentativa mais famosa é o **Dvorak**, patenteado em 1936 por August Dvorak e William Dealey. A ideia é simples: as letras mais usadas em inglês ficam na fileira do meio, onde os dedos descansam, com todas as vogais do lado esquerdo e as consoantes mais comuns do lado direito. Assim as mãos alternam mais e os dedos andam menos.
 
-Por décadas circulou a história de que o Dvorak era muito superior e só não pegou por inércia. Ela se apoiava muito num estudo da Marinha americana dos anos 1940, que mostrava ganhos enormes. Mais tarde, outros pesquisadores apontaram que o estudo tinha problemas sérios, inclusive ligação com o próprio Dvorak, e testes posteriores encontraram ganhos bem mais modestos. A leitura mais comum hoje é algo como: o Dvorak exige menos movimento dos dedos, mas a diferença de velocidade para quem já é bom no QWERTY é pequena.
+Por décadas circulou a história de que o Dvorak era muito superior e só não pegou por inércia. Ela se apoiava muito num estudo da Marinha americana dos anos 1940, que mostrava ganhos enormes. Mais tarde, outros pesquisadores apontaram que o estudo tinha problemas sérios, inclusive indícios de que o próprio Dvorak teve influência na condução dele, e um estudo do governo americano em 1956 não encontrou vantagem que compensasse o retreinamento. A leitura mais comum hoje é algo como: o Dvorak exige menos movimento dos dedos, mas a diferença de velocidade para quem já é bom no QWERTY é pequena.
 
 O **Colemak**, criado por Shai Coleman em 2006, tenta um meio-termo. Ele mexe em bem menos teclas que o Dvorak, mantém Q, W, Z, X, C e V no lugar (ou seja, os atalhos de desfazer, recortar, copiar e colar continuam onde sua mão espera) e ainda assim coloca as letras mais comuns na fileira do meio. Existem variações dele, como o Colemak-DH, que ajusta mais algumas teclas pensando em conforto.
 

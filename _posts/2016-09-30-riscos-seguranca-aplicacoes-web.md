@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Riscos de segurança em aplicações Web"
-subtitle: "Os 10 riscos de segurança mais críticas em aplicações WEB"
+subtitle: "Os 10 riscos de segurança mais críticos em aplicações WEB"
 tags: [Segurança]
 ---
 
@@ -9,15 +9,15 @@ tags: [Segurança]
 
 A Open Web Application Security Project (OWASP) é uma entidade sem fins lucrativos e de reconhecimento internacional, que contribui para a melhoria da segurança de softwares aplicativos reunindo informações importantes que permitem avaliar riscos de segurança e combater formas de ataques através da internet.
 
-Os estudos e documentos da OWASP são disponibilizadas para toda a comunidade internacional, e adotados como referência por entidades como U.S. Defense Information Systems Agency (DISA), U.S. Federal Trade Commission, várias empresas e organizações mundiais das áreas de Tecnologia, Auditoria e Segurança, e também pelo PCI Council.
+Os estudos e documentos da OWASP são disponibilizados para toda a comunidade internacional, e adotados como referência por entidades como U.S. Defense Information Systems Agency (DISA), U.S. Federal Trade Commission, várias empresas e organizações mundiais das áreas de Tecnologia, Auditoria e Segurança, e também pelo PCI Council.
 
 O trabalho mais conhecido da OWASP é sua lista "The Top 10 Most Critical Web Application Security Risks", que reúne os riscos de ataque mais críticos exploráveis a partir de vulnerabilidades nas aplicações web.
 
-> Este post foi escrito com base na edição de 2013 do OWASP Top 10. A lista já teve edições mais recentes, em 2017 e 2021, com mudanças na categorização dos riscos — vale conferir a <a href="https://owasp.org/Top10/" target="_blank">versão mais atual</a>.
+> Este post foi escrito com base na edição de 2013 do OWASP Top 10. A lista já teve edições mais recentes, em 2017, 2021 e 2025, com mudanças na categorização dos riscos: na edição de 2025, por exemplo, Broken Access Control lidera a lista e entraram categorias como Software Supply Chain Failures. Vale conferir a <a href="https://top10.owasp.org/" target="_blank">versão mais atual</a>.
 
 ## OWASP Top 10 – 2013
 
-- **A1 – Injeção**: As falhas de Injeção, tais como injeção de SQL, de SO (Sistema Operacional) e de LDAP, ocorrem quando dados não confiavéis são enviados para um interpretador como parte de um comando ou consulta. Os dados manipulados pelo atacante podem iludir o interpretador para que este execute comandos indesejados ou permita o acesso a dados não autorizados.
+- **A1 – Injeção**: As falhas de Injeção, tais como injeção de SQL, de SO (Sistema Operacional) e de LDAP, ocorrem quando dados não confiáveis são enviados para um interpretador como parte de um comando ou consulta. Os dados manipulados pelo atacante podem iludir o interpretador para que este execute comandos indesejados ou permita o acesso a dados não autorizados.
 
 - **A2 – Quebra de Autenticação e Gerenciamento de Sessão**: As funções da aplicação relacionadas com autenticação e gerenciamento de sessão geralmente são implementadas de forma incorreta, permitindo que os atacantes comprometam senhas, chaves e tokens de sessão ou, ainda, explorem outra falha da implementação para assumir a identidade de outros usuários.
 

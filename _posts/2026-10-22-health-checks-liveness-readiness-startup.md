@@ -73,7 +73,7 @@ Mesmo com as perguntas certas, algumas configurações causam problemas:
 
 - **Timeout padrão de um segundo**: o `timeoutSeconds` padrão das probes é 1. Uma pausa longa do garbage collector pode estourar isso. Ajuste com base na latência real do endpoint.
 - **Endpoint de health caro**: se o check faz consultas pesadas e roda a cada poucos segundos em cada pod, ele vira carga relevante. O check precisa ser barato.
-- **Health check atrás de autenticação**: o kubelet chama sem credenciais, recebe 401 e conclui que o pod está morto.
+- **Health check atrás de autenticação**: o kubelet chama sem credenciais, recebe 401 e trata como falha: na liveness, reinicia o container; na readiness, tira o pod do balanceamento.
 - **Mesmo endpoint para tudo**: usar `/health` igual para liveness e readiness quase sempre significa que a liveness está checando dependências.
 
 ## Probes são parte do desenho de resiliência

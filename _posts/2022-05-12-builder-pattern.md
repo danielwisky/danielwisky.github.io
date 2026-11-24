@@ -109,7 +109,7 @@ public class Pedido {
 }
 ```
 
-A anotação gera em tempo de compilação exatamente a mesma estrutura do exemplo manual acima: uma classe `Builder` interna com um método por campo e um `build()` final. Vale usar quando o objeto é um DTO simples sem lógica de validação própria; quando existem invariantes reais a proteger (como cliente e endereço obrigatórios no exemplo), escrever o Builder à mão, com validação dentro de `build()`, continua sendo mais seguro.
+A anotação gera em tempo de compilação uma estrutura equivalente à do exemplo manual acima: uma classe interna `PedidoBuilder`, obtida por `Pedido.builder()`, com um método por campo e um `build()` final. Vale usar quando o objeto é um DTO simples sem lógica de validação própria; quando existem invariantes reais a proteger (como cliente e endereço obrigatórios no exemplo), escrever o Builder à mão, com validação dentro de `build()`, continua sendo mais seguro.
 
 ## Quando vale a pena
 

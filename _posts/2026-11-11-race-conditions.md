@@ -194,7 +194,7 @@ Quando a lógica é complexa demais para caber num `UPDATE`, dá para travar a l
 SELECT * FROM conta WHERE id = :id FOR UPDATE
 ```
 
-Com JPA, `@Lock(LockModeType.PESSIMISTIC_WRITE)` no método do repositório gera algo equivalente. A segunda transação que tentar travar a mesma linha (com outro `FOR UPDATE`, ou com um `UPDATE`) fica esperando a primeira terminar. Um `SELECT` comum não espera: ele lê o último valor commitado, então todo caminho que lê para depois escrever precisa usar o lock. É seguro e fácil de entender, mas segura conexões enquanto espera e pode gerar deadlock se duas transações travarem linhas em ordens diferentes. Mantenha a transação curta e trave sempre na mesma ordem.
+Com JPA, `@Lock(LockModeType.PESSIMISTIC_WRITE)` no método do repositório gera algo equivalente. A segunda transação que tentar travar a mesma linha (com outro `FOR UPDATE`, ou com um `UPDATE`) fica esperando a primeira terminar. Um `SELECT` comum não espera: ele lê uma versão já commitada da linha, que pode estar desatualizada, então todo caminho que lê para depois escrever precisa usar o lock. É seguro e fácil de entender, mas segura conexões enquanto espera e pode gerar deadlock se duas transações travarem linhas em ordens diferentes. Mantenha a transação curta e trave sempre na mesma ordem.
 
 ### Lock otimista
 

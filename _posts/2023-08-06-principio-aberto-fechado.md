@@ -9,7 +9,7 @@ O Princípio Aberto-Fechado (Open-Closed Principle - OCP) é um dos princípios 
 
 ## O que é o Princípio Aberto-Fechado (OCP)?
 
-O Princípio Aberto-Fechado declara que as entidades do software devem ser projetadas de maneira a permitir que novos comportamentos sejam adicionados sem a necessidade de modificar o código existente. Isso significa que, ao estender as funcionalidades do sistema, devemos ser capazes de fazer isso através de adição de novas classes ou módulos, em vez de alterar o código existente.
+O Princípio Aberto-Fechado declara que as entidades do software devem ser projetadas de maneira a permitir que novos comportamentos sejam adicionados sem a necessidade de modificar o código existente. Isso significa que, ao estender as funcionalidades do sistema, devemos ser capazes de fazer isso através da adição de novas classes ou módulos, em vez de alterar o código existente.
 
 ## Vantagens do OCP:
 

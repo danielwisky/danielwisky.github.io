@@ -11,17 +11,17 @@ Embora ainda possamos utilizar os cookies para armazenar dados no navegador, exi
 
 Desvantagens do uso de Cookies:
 
-- O limite de armazenamento de Cookies em navegadores web é limitado em 4KB.
+- Cada cookie é limitado a cerca de 4KB.
 - Os cookies são enviados com cada solicitação HTTP, atrasando assim o desempenho de aplicações web.
 
 ## HTML5 - Web Storage
 
-Os dados são armazenados em forma de chave/valor, permitindo o armazenamento de cerca de 5 MB de dados por domínio (o limite exato varia de navegador para navegador). Ao contrário de cookies, os dados armazenados não são incluídos com cada solicitação HTTP.
+Os dados são armazenados em forma de chave/valor, permitindo o armazenamento de cerca de 5 MB de dados por origem (o limite exato varia de navegador para navegador). Ao contrário de cookies, os dados armazenados não são incluídos com cada solicitação HTTP.
 
 Tipos de armazenamento:
 
 - O armazenamento local (localStorage): Armazena dados sem data de validade. Os dados estarão disponíveis mesmo quando o navegador é fechado.
-- Armazenamento de sessão (sessionStorage): Armazena dados para uma sessão. Os dados serão apagados assim que o usuário fechar o navegador.
+- Armazenamento de sessão (sessionStorage): Armazena dados para uma sessão. Os dados serão apagados assim que o usuário fechar a aba ou janela do navegador.
 
 Exemplo:
 
@@ -33,7 +33,7 @@ Exemplo:
     if (typeof(Storage) !== "undefined") {
     	 // codigo localStorage/sessionStorage
     } else {
-    	// navegador noo suporta HTML5 - Web Storage
+    	// navegador nao suporta HTML5 - Web Storage
     }
 
 Utilizamos o `setItem('key','value')` para armazenar uma informação.

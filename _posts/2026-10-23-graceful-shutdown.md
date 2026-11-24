@@ -22,7 +22,7 @@ O detalhe que pega muita gente é que os passos 1 e 3 não são sequenciais. A r
 
 ## O SIGTERM precisa chegar na JVM
 
-Antes de qualquer outra coisa, vale conferir se o sinal está chegando. Um Dockerfile com `CMD` em formato shell executa a aplicação através de `/bin/sh -c`, e o shell vira o processo principal do container. Muitos shells não repassam o SIGTERM para o processo filho, então a JVM nunca fica sabendo que deveria desligar e morre com SIGKILL depois de 30 segundos.
+Antes de qualquer outra coisa, vale conferir se o sinal está chegando. Um Dockerfile com `CMD` em formato shell executa a aplicação através de `/bin/sh -c`, e o shell vira o processo principal do container. Dependendo do shell e do comando, o shell continua como processo principal e não repassa o SIGTERM para o processo filho, então a JVM nunca fica sabendo que deveria desligar e morre com SIGKILL depois de 30 segundos. O formato exec tira essa dúvida.
 
 ```dockerfile
 # o shell recebe o SIGTERM, a JVM não
@@ -75,7 +75,7 @@ server.shutdown=graceful
 spring.lifecycle.timeout-per-shutdown-phase=20s
 ```
 
-O Spring também muda o estado de readiness para `REFUSING_TRAFFIC` assim que o shutdown começa. Só que, como o servidor HTTP para de aceitar requisições novas nesse momento, as [probes de readiness](/2026-10-22-health-checks-liveness-readiness-startup/) também deixam de ser respondidas, e a plataforma não tem como ler esse estado a tempo. Por isso o `preStop` continua necessário: é ele que cobre a janela em que o tráfego ainda está chegando. A conta de tempo precisa fechar: `preStop` de 10 segundos mais até 20 segundos de shutdown da aplicação cabe com folga num grace period de 45.
+O Spring também muda o estado de readiness para `REFUSING_TRAFFIC` assim que o shutdown começa. Só que, como o servidor HTTP para de aceitar requisições novas nesse momento, as [probes de readiness](/2026-10-22-health-checks-liveness-readiness-startup/) servidas pela porta principal também deixam de ser respondidas, e a plataforma não tem como ler esse estado a tempo. Por isso o `preStop` continua necessário: é ele que cobre a janela em que o tráfego ainda está chegando. A conta de tempo precisa fechar: `preStop` de 10 segundos mais até 20 segundos de shutdown da aplicação cabe com folga num grace period de 45.
 
 ## Consumidores de fila são o caso mais delicado
 

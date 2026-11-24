@@ -5,9 +5,9 @@ subtitle: "Introdução ao conceito de filas (FIFO – first in, first out)"
 tags: [Estruturas de Dados, FIFO, Filas]
 ---
 
-Na fila "o primeiro que entra é o primeiro que sai" (a sigla FIFO - first in, first out – é usada para descrever essa estratégia).
+Na fila "o primeiro que entra é o primeiro que sai" (a sigla FIFO – first in, first out – é usada para descrever essa estratégia).
 
-A idéia fundamental da fila é que só podemos inserir um novo elemento no final da fila, e só podemos retirar o elemento do início.
+A ideia fundamental da fila é que só podemos inserir um novo elemento no final da fila, e só podemos retirar o elemento do início.
 
 Poderíamos citar exemplos durante horas, devido às aplicações existentes no mundo real:
 
@@ -104,5 +104,7 @@ int dequeue(Fila *f) {
     }
 }
 ```
+
+> **Atualização (2026):** nesta implementação as posições liberadas pelo `dequeue` não são reaproveitadas: depois de `MAX` inserções a fila acusa "Fila Cheia!" mesmo que todos os elementos já tenham sido removidos. Para reaproveitar o espaço, a solução clássica é a fila circular, em que os índices voltam ao início do vetor (por exemplo, `fim = (fim + 1) % MAX`).
 
 Um grande abraço e até o próximo post!

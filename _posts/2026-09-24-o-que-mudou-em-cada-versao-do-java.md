@@ -5,7 +5,7 @@ subtitle: "Um resumo direto das mudanças que realmente importaram desde o Java 
 tags: [Java, Versões do Java]
 ---
 
-O Java virou uma linguagem de ciclo curto: desde 2017 sai uma versão nova a cada seis meses, e a cada dois ou três anos uma delas recebe suporte de longo prazo (LTS). Isso deixou muita gente perdida sobre o que mudou de fato entre o Java que aprenderam na faculdade e o que roda em produção hoje. Este post é um mapa rápido das mudanças que pesaram mais, versão por versão.
+O Java virou uma linguagem de ciclo curto: desde o Java 10, em 2018, sai uma versão nova a cada seis meses, e a cada dois ou três anos uma delas recebe suporte de longo prazo (LTS). Isso deixou muita gente perdida sobre o que mudou de fato entre o Java que aprenderam na faculdade e o que roda em produção hoje. Este post é um mapa rápido das mudanças que pesaram mais, versão por versão.
 
 ## Java 8 (2014): o divisor de águas
 
@@ -16,7 +16,7 @@ List<String> nomes = pessoas.stream()
     .filter(p -> p.getIdade() >= 18)
     .map(Pessoa::getNome)
     .sorted()
-    .toList();
+    .collect(Collectors.toList());
 ```
 
 Também chegaram `Optional`, o novo `java.time` (finalmente uma API de data decente) e o `CompletableFuture`. Boa parte do código Java "moderno" que se vê hoje só existe por causa dessa versão.
@@ -41,11 +41,11 @@ O 17 juntou boa parte do que vinha em preview nas versões anteriores e virou pa
 public sealed interface Forma permits Circulo, Quadrado, Triangulo {}
 ```
 
-Isso deixa o compilador avisar quando um `switch` sobre essas classes não cobre todos os casos, algo que antes só um `default` genérico resolvia, escondendo bug.
+Junto com o pattern matching pra `switch`, que só ficou estável no 21, isso deixa o compilador avisar quando um `switch` sobre essas classes não cobre todos os casos, algo que antes só um `default` genérico resolvia, escondendo bug.
 
 ## Java 21 (2023): a virada de concorrência
 
-O 21 é outro LTS grande, com duas mudanças que merecem post próprio neste blog: [Virtual Threads](/2026-09-22-virtual-threads-java/), que tornou barato criar uma thread pra cada tarefa bloqueante, e o pattern matching pra `switch`, que permite desestruturar um record direto no `case`:
+O 21 é outro LTS grande, com duas mudanças que merecem post próprio neste blog: [Virtual Threads](/2026-09-22-virtual-threads-java/), que tornou barato criar uma thread pra cada tarefa bloqueante, e o pattern matching pra `switch`, que permite testar o tipo e aplicar condições direto no `case` (e, com os record patterns do mesmo release, desestruturar um record):
 
 ```java
 static String describe(Object obj) {
@@ -62,7 +62,7 @@ Também chegaram as *sequenced collections*, que finalmente deram um jeito padr�
 
 ## Java 22 em diante: os passos seguintes
 
-Nas versões mais recentes, o destaque é a Structured Concurrency, que eu detalhei [num post anterior](/2026-09-23-structured-concurrency-java/): já vai na sétima rodada de preview no Java 27 (JEP 533), dando um jeito de tratar um grupo de tarefas concorrentes como uma unidade só, com cancelamento e propagação de erro previsíveis. Ainda exige a flag `--enable-preview`, mas a forma da API está estável desde a quinta rodada, e o JEP 543 já propõe finalizá-la no Java 28.
+Nas versões mais recentes, o destaque é a Structured Concurrency, que eu detalhei [num post anterior](/2026-09-23-structured-concurrency-java/): já vai na sétima rodada de preview no Java 27 (JEP 533), dando um jeito de tratar um grupo de tarefas concorrentes como uma unidade só, com cancelamento e propagação de erro previsíveis. Ainda exige a flag `--enable-preview`, mas a forma geral da API vem da quinta rodada, com ajustes menores no 26 e no 27, e o JEP 543 já propõe finalizá-la no Java 28.
 
 O Java 25 também é a versão LTS mais recente, o que significa que é candidata natural pra quem está decidindo pra qual versão migrar depois do 17 ou do 21.
 

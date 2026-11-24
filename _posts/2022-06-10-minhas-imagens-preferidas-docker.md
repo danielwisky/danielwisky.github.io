@@ -11,13 +11,15 @@ Algumas das minhas imagens favoritas:
 
 **RabbitMQ**
 
+> **Atualização (2026):** A série 3.x do RabbitMQ não tem mais suporte da comunidade desde setembro de 2024. Para novos ambientes, prefira a tag `rabbitmq:4-management`.
+
 ```
 docker run -d --name rabbit -e RABBITMQ_DEFAULT_USER=developer -e RABBITMQ_DEFAULT_PASS=developer -e RABBITMQ_DEFAULT_VHOST=localhost -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 ```
 
 **Kafka**
 
-> A imagem `spotify/kafka` usada aqui originalmente está abandonada desde 2015. O exemplo abaixo usa a imagem oficial do projeto Apache Kafka, que roda em modo KRaft (sem necessidade de Zookeeper).
+> **Atualização (2026):** A imagem `spotify/kafka` usada aqui originalmente está abandonada desde 2016 (repositório arquivado). O exemplo abaixo usa a imagem oficial do projeto Apache Kafka, que roda em modo KRaft (sem necessidade de Zookeeper).
 
 ```
 docker run -d --name kafka -p 9092:9092 apache/kafka:latest
@@ -43,19 +45,19 @@ docker run -d --name mongodb -p 27017:27017 mongo:7
 
 ### Comandos
 
-Remover todas as imagens do docker:
+Remover todos os containers do docker:
 
 ```
 docker rm -f $(docker ps -a -q)
 ```
 
-Iniciar todas as imagens do docker:
+Iniciar todos os containers do docker:
 
 ```
 docker start $(docker ps -a -q)
 ```
 
-Parar todas as imagens do docker:
+Parar todos os containers do docker:
 
 ```
 docker stop $(docker ps -a -q)

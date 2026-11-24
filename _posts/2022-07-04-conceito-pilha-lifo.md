@@ -5,11 +5,11 @@ subtitle: "Introdução ao conceito de pilhas (LIFO – last in, first out)"
 tags: [Estruturas de Dados, LIFO, Pilhas]
 ---
 
-Uma das estruturas de dados mais simples é a pilha. Possivelmente por essa razão, é a estrutura de dados mais utilizada em programação.
+Uma das estruturas de dados mais simples é a pilha. E, apesar da simplicidade, ela aparece por toda parte em programação, a começar pela pilha de chamadas de funções.
 
 Para entendermos o funcionamento de uma estrutura de pilha, podemos fazer uma analogia com uma pilha de pratos. Se quisermos adicionar um prato na pilha, o colocamos no topo. Para pegar um prato da pilha, retiramos o do topo. Assim, temos que retirar o prato do topo para ter acesso ao próximo prato. A estrutura de pilha funciona de maneira análoga. Cada novo elemento é inserido no topo, e só temos acesso ao elemento do topo da pilha.
 
-A idéia fundamental sobre pilha é que todo acesso a seus elementos é feito a partir do seu topo.
+A ideia fundamental sobre pilha é que todo acesso a seus elementos é feito a partir do seu topo.
 
 Isto faz com que os elementos da pilha sejam retirados na ordem inversa à ordem em que foram introduzidos: o primeiro que sai é o último que entrou (a sigla LIFO – last in, first out – é usada para descrever esta estratégia).
 
@@ -18,7 +18,7 @@ Existem duas operações básicas que devem ser implementadas numa estrutura de 
 - a operação para empilhar um novo elemento, inserindo-o no topo;
 - a operação para desempilhar um elemento, removendo-o do topo.
 
-- É comum nos referirmos a essas duas operações pelos termos em inglês push (empilhar) e pop (desempilhar).
+É comum nos referirmos a essas duas operações pelos termos em inglês push (empilhar) e pop (desempilhar).
 
 Ilustração do funcionamento conceitual de uma pilha P.
 
