@@ -350,6 +350,11 @@
   card: /assets/img/photos/cards/por-que-sua-query-nao-usa-o-indice.webp
   thumb: /assets/img/photos/thumbs/por-que-sua-query-nao-usa-o-indice.webp
   og: /assets/img/photos/og/por-que-sua-query-nao-usa-o-indice.jpg
+"por-que-um-byte-tem-8-bits":
+  cover: /assets/img/photos/por-que-um-byte-tem-8-bits.webp
+  card: /assets/img/photos/cards/por-que-um-byte-tem-8-bits.webp
+  thumb: /assets/img/photos/thumbs/por-que-um-byte-tem-8-bits.webp
+  og: /assets/img/photos/og/por-que-um-byte-tem-8-bits.jpg
 "principio-aberto-fechado":
   cover: /assets/img/photos/principio-aberto-fechado.webp
   card: /assets/img/photos/cards/principio-aberto-fechado.webp
