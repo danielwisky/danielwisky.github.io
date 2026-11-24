@@ -24,6 +24,8 @@ Para começar, precisamos configurar o ambiente de desenvolvimento com o Spring 
 5. `Artifact`: spring-boot-dynamodb-example
 6. `Dependencies`: Spring Web
 
+> **Atualização (2026):** o Spring Initializr não oferece mais a linha 2.x do Spring Boot (hoje as opções são da linha 4.x). O código deste post continua válido, mas escolha a versão atual ao criar o projeto e, para o SDK, prefira a versão mais recente da linha 2.x da AWS, de preferência via BOM (`software.amazon.awssdk:bom`).
+
 Além dessas, precisamos adicionar manualmente ao `pom.xml` o SDK v2 da AWS para o DynamoDB, já que o DynamoDB não é um banco relacional e não é acessado via Spring Data JPA:
 
 ```xml
@@ -73,7 +75,20 @@ public class User {
 
 Observe que estamos usando as anotações `@DynamoDbBean` e `@DynamoDbPartitionKey` do SDK v2 (Enhanced Client) para mapear nossa classe para uma tabela do DynamoDB. A anotação `@DynamoDbBean` marca a classe como mapeável, enquanto `@DynamoDbPartitionKey` identifica a chave primária da tabela.
 
-Agora podemos criar um repositório para realizar operações CRUD na tabela do DynamoDB. Como o DynamoDB não é suportado pelo Spring Data JPA, usamos diretamente o `DynamoDbEnhancedClient` do SDK v2 para montar a tabela mapeada:
+Agora podemos criar um repositório para realizar operações CRUD na tabela do DynamoDB. Como o DynamoDB não é suportado pelo Spring Data JPA, usamos diretamente o `DynamoDbEnhancedClient` do SDK v2 para montar a tabela mapeada. Antes, precisamos expor esse cliente como um bean do Spring (as credenciais e a região são lidas da configuração padrão da AWS):
+
+```java
+@Configuration
+public class DynamoDbConfig {
+
+  @Bean
+  public DynamoDbEnhancedClient dynamoDbEnhancedClient() {
+    return DynamoDbEnhancedClient.create();
+  }
+}
+```
+
+Com o bean disponível, o repositório fica assim:
 
 ```java
 @Repository
@@ -100,7 +115,7 @@ public class UserRepository {
 }
 ```
 
-Observe que estamos usando o tipo String para representar a chave primária da tabela do DynamoDB, que é a propriedade userId em nossa classe User.
+Observe que estamos usando o tipo String para representar a chave primária da tabela do DynamoDB, que é a propriedade userId em nossa classe User. O `enhancedClient.table(...)` não cria a tabela no DynamoDB: a tabela `users` precisa existir antes (criada pelo console, pela CLI ou com `table.createTable()`).
 
 Agora podemos criar um controlador REST para expor nossos endpoints e realizar operações CRUD na tabela. Vamos criar uma nova classe chamada UserController com os seguintes métodos:
 

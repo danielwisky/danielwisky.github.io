@@ -9,7 +9,7 @@ Um pedido de e-commerce passa por três serviços: pagamento, estoque e envio. E
 
 ## Por que não dá para usar uma transação distribuída de verdade
 
-A solução óbvia seria estender a transação do banco para cobrir os três serviços, usando um protocolo como two-phase commit. Na prática, isso exige que todos os participantes fiquem bloqueados segurando locks até que o coordenador decida se confirma ou desfaz tudo, o que em sistemas distribuídos reais significa acoplar a disponibilidade de um serviço à disponibilidade de todos os outros envolvidos na transação. Se o serviço de envio ficar lento ou indisponível, o pagamento e o estoque ficam travados esperando, mesmo que ambos já tenham terminado sua parte. A maioria dos brokers de mensageria e boa parte dos bancos modernos nem oferecem suporte real a esse protocolo, e onde oferecem, o custo de coordenação tende a ser alto demais para compensar.
+A solução óbvia seria estender a transação do banco para cobrir os três serviços, usando um protocolo como two-phase commit. Na prática, isso exige que todos os participantes fiquem bloqueados segurando locks até que o coordenador decida se confirma ou desfaz tudo, o que em sistemas distribuídos reais significa acoplar a disponibilidade de um serviço à disponibilidade de todos os outros envolvidos na transação. Se o serviço de envio ficar lento ou indisponível, o pagamento e o estoque ficam travados esperando, mesmo que ambos já tenham terminado sua parte. Brokers populares como o Kafka nem oferecem suporte real a esse protocolo, e onde há suporte, o custo de coordenação tende a ser alto demais para compensar.
 
 O Saga Pattern parte de uma premissa diferente: em vez de uma transação atômica cobrindo tudo, cada serviço executa sua própria transação local e publica um evento avisando o que aconteceu. Se algum passo falhar depois que outros já tiverem sido concluídos, a saga não desfaz o passado com um `ROLLBACK`, ela compensa, executando uma ação que reverte o efeito de negócio daquele passo já concluído.
 
@@ -60,7 +60,7 @@ public class PedidoSagaOrchestrator {
 }
 ```
 
-O fluxo inteiro fica visível num único lugar, o que facilita entender o que acontece, adicionar um passo novo ou mudar a ordem. O custo é introduzir um componente a mais no sistema, e esse orquestrador vira um ponto que concentra conhecimento (e responsabilidade) sobre o processo de negócio inteiro. Para sagas com muitos passos e muitas ramificações de compensação, essa centralização costuma valer a pena: ferramentas como Camunda ou o Temporal existem justamente para modelar esses fluxos como máquinas de estado explícitas, com persistência do progresso e retomada automática em caso de falha do próprio orquestrador.
+O fluxo inteiro fica visível num único lugar, o que facilita entender o que acontece, adicionar um passo novo ou mudar a ordem. O custo é introduzir um componente a mais no sistema, e esse orquestrador vira um ponto que concentra conhecimento (e responsabilidade) sobre o processo de negócio inteiro. Para sagas com muitos passos e muitas ramificações de compensação, essa centralização costuma valer a pena: ferramentas como o Camunda (com fluxos em BPMN) ou o Temporal (com workflows escritos em código) existem justamente para modelar esses fluxos de forma explícita, com persistência do progresso e retomada automática em caso de falha do próprio orquestrador.
 
 ## Compensação não é rollback
 

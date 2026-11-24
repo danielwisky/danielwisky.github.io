@@ -205,7 +205,7 @@ Outro caso é o `ORDER BY` numa coluna que não está no índice, obrigando o ba
 
 Depois de descobrir que índice resolve tanta coisa, a tentação é criar um para cada coluna. Não faça isso. Todo índice tem custo:
 
-- Cada `INSERT` precisa gravar uma entrada em todos os índices da tabela. No PostgreSQL, um `UPDATE` que altera qualquer coluna indexada gera entradas novas em todos os índices, não só no da coluna alterada, porque a nova versão da linha vai para outro lugar. Só escapam disso os updates HOT, que não mexem em colunas indexadas e cabem na mesma página. Uma tabela com dez índices escreve bem mais devagar do que uma com dois.
+- Cada `INSERT` precisa gravar uma entrada em todos os índices da tabela (nos índices parciais, só quando a linha atende à condição). No PostgreSQL, um `UPDATE` que altera qualquer coluna indexada gera entradas novas em todos os índices, não só no da coluna alterada, porque a nova versão da linha vai para outro lugar. Só escapam disso os updates HOT, que não mexem em colunas de índices B-tree (ou similares) e cabem na mesma página. Uma tabela com dez índices escreve bem mais devagar do que uma com dois.
 - Índices ocupam espaço em disco e, mais importante, disputam memória com os dados que você realmente consulta.
 - Índices parecidos se sobrepõem e somam custo sem benefício. Um índice em `(cliente_id)` é praticamente redundante se já existe um em `(cliente_id, criado_em)`.
 

@@ -64,7 +64,7 @@ Um valor em cache, uma resposta degradada, ou até uma mensagem clara de "servi�
 
 ## A ordem importa: retry por fora, circuit breaker por dentro
 
-Ao combinar circuit breaker com retry, a ordem das camadas muda o que o circuit breaker enxerga. Se ele fica por fora, envolvendo o retry, só vê o resultado final de cada chamada de negócio: três tentativas que falharam contam como uma falha só. Enquanto o circuito está fechado, cada chamada pode gerar três ou quatro tentativas reais contra uma dependência que já está com taxa de falha alta, e o circuito demora mais para abrir justamente quando essa carga extra mais atrapalha.
+Ao combinar circuit breaker com retry, a ordem das camadas muda o que o circuit breaker enxerga. Se ele fica por fora, envolvendo o retry, só vê o resultado final de cada chamada de negócio: três tentativas que falharam contam como uma falha só. Enquanto o circuito está fechado, cada chamada pode gerar até três tentativas reais (com o `maxAttempts(3)` do exemplo abaixo) contra uma dependência que já está com taxa de falha alta, e o circuito demora mais para abrir justamente quando essa carga extra mais atrapalha.
 
 Com o retry por fora, cada tentativa passa pelo circuit breaker e entra na métrica de falha, então o circuito percebe o problema mais cedo. Essa é também a ordem padrão que o Resilience4j aplica quando os dois são usados com anotações no Spring Boot.
 
@@ -91,7 +91,7 @@ O detalhe que faz essa composição funcionar é o `ignoreExceptions`. Com o cir
 
 É fácil confundir os três, mas cada um protege uma coisa diferente. Rate limiting controla quanto um cliente pode consumir do seu sistema, geralmente na borda. Bulkhead isola recursos entre dependências diferentes, limitando quantas chamadas simultâneas cada uma pode ter, para que uma dependência lenta não consuma todas as threads disponíveis e deixe as outras dependências sem recurso nenhum. Circuit breaker, por sua vez, não limita volume nem isola recursos: ele decide, com base no histórico recente de falhas, se vale a pena sequer tentar chamar uma dependência específica.
 
-Os três costumam aparecer juntos num serviço maduro, cada um resolvendo uma fatia do mesmo problema maior de resiliência, mas nenhum substitui os outros. Um circuit breaker perfeito não impede que uma dependência lenta (não necessariamente falhando, só lenta) esgote o bulkhead, por exemplo, porque chamadas lentas que eventualmente têm sucesso não contam como falha para o circuito.
+Os três costumam aparecer juntos num serviço maduro, cada um resolvendo uma fatia do mesmo problema maior de resiliência, mas nenhum substitui os outros. Um circuit breaker perfeito não impede que uma dependência lenta (não necessariamente falhando, só lenta) esgote o bulkhead, por exemplo, porque chamadas lentas que eventualmente têm sucesso não contam como falha para o circuito. O Resilience4j até permite abrir o circuito por taxa de chamadas lentas (`slowCallRateThreshold`), mas por padrão só considera lenta uma chamada acima de 60 segundos, e só abre quando 100% delas são lentas.
 
 ## Quando vale a pena
 

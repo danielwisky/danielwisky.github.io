@@ -32,7 +32,7 @@ A diferença não é só de conteúdo, é de formato. O segundo exemplo produz c
 
 ## Log estruturado não é luxo, é o mínimo pra buscar depois
 
-Escrever `log.info("Pedido " + id + " processado em " + duracao + "ms")` parece equivalente ao exemplo estruturado, mas não é. Esse log vira uma string única no agregador, e encontrar "todos os pedidos que levaram mais de 2 segundos" exige uma regex frágil em cima de texto, quando podia ser um filtro direto no campo `duracaoMs`. Ferramentas como Logback com encoder JSON, ou bibliotecas como structlog em Python, resolvem isso sem custo relevante de performance: cada campo vira uma chave pesquisável, e o texto livre vira só a mensagem, não o dado.
+Escrever `log.info("Pedido " + id + " processado em " + duracao + "ms")` parece equivalente ao exemplo estruturado, mas não é. Esse log vira uma string única no agregador, e encontrar "todos os pedidos que levaram mais de 2 segundos" exige uma regex frágil em cima de texto, quando podia ser um filtro direto no campo `duracaoMs`. Ferramentas como Logback com encoder JSON, ou bibliotecas como structlog em Python, resolvem isso com um custo de serialização que costuma ser pequeno perto do ganho (mas vale medir em serviços com volume alto de log): cada campo vira uma chave pesquisável, e o texto livre vira só a mensagem, não o dado.
 
 O ganho fica mais claro quando o volume de logs cresce. Com cem requisições por dia, dá pra abrir o arquivo e ler na mão. Com cem mil, só sobrevive quem consegue filtrar por campo.
 
@@ -69,7 +69,7 @@ Visualizado numa ferramenta como Jaeger ou Grafana Tempo, isso vira um gráfico 
 
 Logs e traces respondem bem perguntas sobre uma requisição específica. Pra perguntas sobre comportamento agregado (quantos erros 500 por minuto, qual o percentil 99 de latência da última hora, quantas mensagens estão acumulando numa fila), a ferramenta certa é métrica, não log. Tentar responder essas perguntas rodando agregação em cima de logs funciona em escala pequena e fica caro e lento conforme o volume cresce, porque logs não foram desenhados pra esse tipo de consulta.
 
-Prometheus, com sua API de counters, gauges e histograms, é o padrão mais comum pra isso no ecossistema Java e em boa parte do resto do mercado:
+Prometheus, com seus counters, gauges e histograms, é o padrão mais comum pra isso no ecossistema Java e em boa parte do resto do mercado. No Java, o caminho usual é instrumentar com o Micrometer (que o Spring Boot Actuator já configura) e exportar pro Prometheus:
 
 ```java
 Counter.builder("pedidos.processados")

@@ -22,7 +22,7 @@ No [post de ontem sobre race conditions](/2026-11-11-race-conditions/) eu termin
 
 O comportamento que todo mundo imagina quando pensa em transação tem nome: serializabilidade. A ideia é que, mesmo com várias transações rodando em paralelo, o resultado final seja igual ao de alguma execução em que elas rodaram uma de cada vez, em fila.
 
-Se o banco garantisse isso sempre, você nunca precisaria pensar em concorrência dentro de uma transação. O problema é o custo: garantir serializabilidade exige travar mais coisas ou abortar mais transações, e isso reduz o quanto o banco consegue fazer em paralelo. Por isso os bancos oferecem níveis mais fracos, que trocam algumas garantias por desempenho. E por isso quase nenhum banco popular usa serializável como padrão.
+Se o banco garantisse isso sempre, você nunca precisaria pensar em concorrência dentro de uma transação. O problema é o custo: garantir serializabilidade exige travar mais coisas ou abortar mais transações, e isso reduz o quanto o banco consegue fazer em paralelo. Por isso os bancos oferecem níveis mais fracos, que trocam algumas garantias por desempenho. E por isso PostgreSQL, MySQL, Oracle e SQL Server não usam serializável como padrão.
 
 Para escolher um nível com consciência, é preciso conhecer o que cada um deixa passar.
 
@@ -158,7 +158,7 @@ O que não é seguro é ler numa instrução e escrever em outra com base no que
 
 Se você decidir usar `SERIALIZABLE` (ou `REPEATABLE READ` no PostgreSQL), aceite uma regra: **transações vão falhar, e o seu código precisa tentar de novo**.
 
-No PostgreSQL, o erro vem com o SQLSTATE `40001` (falha de serialização). Em outros bancos o código muda: no Oracle é o ORA-08177, e no MySQL o conflito costuma aparecer como deadlock. No Spring, ele normalmente chega como uma exceção da família `ConcurrencyFailureException`. Atenção: a falha pode acontecer no próprio `COMMIT`, e com o `DataSourceTransactionManager` ela vira `TransactionSystemException`, que fica fora dessa família. Use o `JdbcTransactionManager`, que traduz também os erros de commit, ou trate os dois casos no retry. E o retry precisa repetir a **transação inteira**, desde a primeira leitura, porque a decisão que você tomou foi baseada em dados que não valem mais.
+No PostgreSQL, o erro vem com o SQLSTATE `40001` (falha de serialização). Em outros bancos o código muda: no Oracle é o ORA-08177, e no MySQL o conflito costuma aparecer como deadlock. No Spring, ele normalmente chega como uma exceção da família `ConcurrencyFailureException`. Atenção: a falha pode acontecer no próprio `COMMIT`, e com o `DataSourceTransactionManager` ela vira `TransactionSystemException`, que fica fora dessa família. Use o `JdbcTransactionManager`, que traduz também os erros de commit, ou trate os dois casos no retry. Com JPA (`JpaTransactionManager`), a tradução depende do dialeto configurado, então teste qual exceção chega de fato. E o retry precisa repetir a **transação inteira**, desde a primeira leitura, porque a decisão que você tomou foi baseada em dados que não valem mais.
 
 ```java
 public void sairDoPlantao(String medico) {

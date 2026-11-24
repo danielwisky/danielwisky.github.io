@@ -57,7 +57,7 @@ O USE brilha quando o RED já mostrou que algo está errado e a pergunta passa a
 
 O livro de SRE do Google propõe quatro sinais para monitorar qualquer sistema voltado ao usuário: **latência**, **tráfego**, **erros** e **saturação**. Os três primeiros são basicamente o RED com outros nomes. O quarto traz para dentro a ideia central do USE: o quão perto do limite o sistema está.
 
-Um detalhe que o livro destaca e que vale repetir: a latência de requisições com erro deve ser separada da latência das que deram certo. Um erro que falha rápido, como um 500 devolvido em 2 milissegundos, puxa a média para baixo e faz o serviço parecer mais rápido justamente quando está pior. Separar por status evita essa armadilha.
+Um detalhe que o livro destaca e que vale repetir: a latência de requisições com erro deve ser separada da latência das que deram certo. Um erro que falha rápido, como um 500 devolvido em 2 milissegundos, puxa a média para baixo e faz o serviço parecer mais rápido justamente quando está pior. Separar por status evita essa armadilha, mas sem deixar de acompanhar a latência dos erros: como o próprio livro lembra, um erro lento é ainda pior que um erro rápido.
 
 ## Média esconde, percentil revela
 

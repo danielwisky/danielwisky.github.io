@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Aplicativos para acessibilidade"
-subtitle: "8 Aplicativos Para Acessibilidade. Tecnologia à Serviço da Independência."
+subtitle: "8 Aplicativos Para Acessibilidade. Tecnologia a Serviço da Independência."
 tags: [Aplicativos para acessibilidade, Coletânea]
 last_modified_at: 2026-10-27
 revision_note: >-
@@ -13,14 +13,16 @@ revision_note: >-
 
 ## Spread The Sign
 
-O **Spread The Sign** é um o maior dicionário de Línguas Gestuais do Mundo, com mais de duzentos mil gestos! Digitando uma palavra, é possível ver a tradução em 26 idiomas de sinais. Inclui a Língua Gestual Alemã, Americana, Austríaca, Brasileira, Bielorussa, Búlgara, Checa, Chinesa, Espanhola, Estoniana, Francesa, Indiana, Inglesa, Islandesa, Italiana, Japonesa, Letã, Lituana, Polaca, Portuguesa, Romena, Russa, Sueca, Turca, Ucraniana e Gestuno (Língua de Sinais Internacional).
+O **Spread The Sign** é o maior dicionário de Línguas Gestuais do Mundo, com mais de duzentos mil gestos! Digitando uma palavra, é possível ver a tradução em 26 idiomas de sinais. Inclui a Língua Gestual Alemã, Americana, Austríaca, Brasileira, Bielorussa, Búlgara, Checa, Chinesa, Espanhola, Estoniana, Francesa, Indiana, Inglesa, Islandesa, Italiana, Japonesa, Letã, Lituana, Polaca, Portuguesa, Romena, Russa, Sueca, Turca, Ucraniana e Gestuno (Língua de Sinais Internacional).
+
+> **Atualização (2026):** esses números são de 2017. Hoje o Spread The Sign informa mais de 400 mil sinais documentados, em mais de 30 línguas de sinais.
 
 <a href="https://play.google.com/store/apps/details?id=com.spreadthesign.androidapp_paid" target="_blank">Spread The Sign Android</a>,
 <a href="https://itunes.apple.com/us/app/spread-the-sign-the-sign-language-dictionary/id438811366?mt=8" target="_blank">Spread The Sign iOS</a>
 
 ## Hand Talk
 
-O Aplicativo **Hand Talk** é um tradutor de bolso que é usado como um recurso de tradução para Libras, estreitando laços entre surdos e ouvintes. O App conta com a ajuda do Hugo, que além de traduzir conteúdos para Língua de Sinais. Hugo também está presente em uma sessão educativa chamada Hugo Ensina, com uma série de vídeos que ensinam crianças e adultos expressões e sinais em Libras. Muito mais do que um tradutor, o Hugo está aproximando pessoas através da tecnologia e da comunicação, sendo usado nos mais diversos ambientes.
+O Aplicativo **Hand Talk** é um tradutor de bolso que é usado como um recurso de tradução para Libras, estreitando laços entre surdos e ouvintes. O App conta com a ajuda do Hugo, que traduz conteúdos para Língua de Sinais. Hugo também está presente em uma seção educativa chamada Hugo Ensina, com uma série de vídeos que ensinam crianças e adultos expressões e sinais em Libras. Muito mais do que um tradutor, o Hugo está aproximando pessoas através da tecnologia e da comunicação, sendo usado nos mais diversos ambientes.
 
 <a href="https://play.google.com/store/apps/details?id=br.com.handtalk&hl=pt_BR" target="_blank">Hand Talk Android</a>,
 <a href="https://itunes.apple.com/br/app/hand-talk-tradutor-para-libras/id659816995?mt=8" target="_blank">Hand Talk iOS</a>
@@ -34,26 +36,27 @@ O Aplicativo **Hand Talk** é um tradutor de bolso que é usado como um recurso 
 
 ## CittaMobi Acessibilidade
 
-Você não precisa mais estar no ponto para saber que horas seu ônibus vai passar. Com o CittaMobi Acessibilidade é fácil se programar, seja para ir para o trabalho, para casa ou para a balada, saiba em tempo real a que horas seu ônibus vai chegar. Com o CittaMobi Acessibilidade você pode consultar a Previsão de Chegada de seu ônibus em TEMPO REAL. Com apenas um toque visualize em quanto tempo seu ônibus estará no seu ponto de preferência. Não é estimativa, é previsão baseado na localização atual do ônibus.
+Você não precisa mais estar no ponto para saber que horas seu ônibus vai passar. Com o CittaMobi Acessibilidade é fácil se programar, seja para ir para o trabalho, para casa ou para a balada, saiba em tempo real a que horas seu ônibus vai chegar. Com o CittaMobi Acessibilidade você pode consultar a Previsão de Chegada de seu ônibus em TEMPO REAL. Com apenas um toque visualize em quanto tempo seu ônibus estará no seu ponto de preferência. Não é estimativa, é previsão baseada na localização atual do ônibus.
 
 <a href="https://itunes.apple.com/br/app/acessibilidade-cittamobi/id867764517?mt=8" target="_blank">CittaMobi Acessibilidade iOS</a>
 
 ## Wheelmap
 
-O **Wheelmap** é um mapa online, em todo o mundo, para encontrar e marcar lugares acessíveis para cadeiras de rodas, desenvolvidos pela ONG alemã chamada Sozialhelden e.V. Qualquer um pode encontrar e adicionar lugares públicos ao mapa e avaliá-los de acordo com um sistema de semáforo simples. O mapa, baseado em OpenStreetMap, foi criado em 2010 por uma equipe em torno do empreendedor social Raul Krauthausen para ajudar as pessoas que usam cadeiras de rodas a planejar seus dias com mais facilidade.
+O **Wheelmap** é um mapa online, em todo o mundo, para encontrar e marcar lugares acessíveis para cadeiras de rodas, desenvolvido pela ONG alemã chamada Sozialhelden e.V. Qualquer um pode encontrar e adicionar lugares públicos ao mapa e avaliá-los de acordo com um sistema de semáforo simples. O mapa, baseado em OpenStreetMap, foi criado em 2010 por uma equipe em torno do empreendedor social Raul Krauthausen para ajudar as pessoas que usam cadeiras de rodas a planejar seus dias com mais facilidade.
 
 <a href="https://play.google.com/store/apps/details?id=org.wheelmap.android.online&hl=pt_BR" target="_blank">Wheelmap Android</a>,
 <a href="https://itunes.apple.com/br/app/wheelmap/id399239476?mt=8" target="_blank">Wheelmap iOS</a>
 
 ## Be My Eyes
 
-**Be My Eyes** é um aplicativo para uma pessoa cega que precisa de ajuda remotamente através de uma conexão de vídeo ao vivo. Os usuários cegos podem solicitar ajuda de uma pessoa com visão e os usuários com visão serão chamados por ajuda. Assim que o primeiro usuário avisado aceita a solicitação de uma conexão de áudio-video ao vivo, ele será configurado entre os dois e o usuário avisado para dizer à pessoa cega o que ele vê quando o usuário cego aponta seu telefone para algo usando a câmera frontal
+**Be My Eyes** é um aplicativo para uma pessoa cega que precisa de ajuda remotamente através de uma conexão de vídeo ao vivo. Os usuários cegos podem solicitar ajuda de uma pessoa com visão e os usuários com visão serão chamados por ajuda. Assim que o primeiro voluntário avisado aceita a solicitação, uma conexão de áudio e vídeo ao vivo é estabelecida entre os dois, e o voluntário diz à pessoa cega o que vê quando ela aponta a câmera traseira do telefone para algo.
 
+<a href="https://play.google.com/store/apps/details?id=com.bemyeyes.bemyeyes" target="_blank">Be My Eyes Android</a>,
 <a href="https://itunes.apple.com/br/app/be-my-eyes-helping-blind-see/id905177575?mt=8" target="_blank">Be My Eyes iOS</a>
 
 ## Enable Viacam
 
-Enable Viacam é um programa para PC e um aplicativo para dispositivos móveis para o controle do cursor no mouse através dos movimentos da cabeça. Depois de instalado será preciso calibrar a sensibilidade do reconhecimento facial. Através do programa o usuário poderá controlar completamente o cursor do mouse, habilitar o teclado virtual padrão do sistema, posicionar a barra de rolagem da tela, abrir e fechar programas. A sensibilidade dos movimentos pode ser ajustada conforme a necessidade e redefinida sempre que for necessário.
+Enable Viacam é um programa para PC e um aplicativo para dispositivos móveis para o controle do cursor do mouse através dos movimentos da cabeça. Depois de instalado será preciso calibrar a sensibilidade do reconhecimento facial. Através do programa o usuário poderá controlar completamente o cursor do mouse, habilitar o teclado virtual padrão do sistema, posicionar a barra de rolagem da tela, abrir e fechar programas. A sensibilidade dos movimentos pode ser ajustada conforme a necessidade e redefinida sempre que for necessário.
 
 <a href="https://eviacam.crea-si.com/" target="_blank">Enable Viacam site</a>
 

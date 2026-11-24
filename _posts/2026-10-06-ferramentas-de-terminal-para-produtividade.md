@@ -92,7 +92,7 @@ btop
 brew install btop
 # Linux
 sudo apt install btop
-# Windows (o btop original não roda nativamente; o fork btop4win cobre o mesmo caso de uso)
+# Windows (o btop original não roda nativamente; o btop4win, port do mesmo autor, cobre o mesmo caso de uso)
 winget install aristocratos.btop4win
 ```
 
@@ -119,7 +119,7 @@ curl -sS https://starship.rs/install.sh | sh
 winget install Starship.Starship
 ```
 
-A diferença prática entre os dois: `oh-my-zsh` vale a pena pra quem já vive no zsh e quer plugins (autosugestão de comando, syntax highlighting, atalhos de navegação), enquanto `starship` é a escolha mais simples quando o objetivo é só um prompt informativo e rápido, independente de qual shell ou sistema operacional está por trás.
+A diferença prática entre os dois: `oh-my-zsh` vale a pena pra quem já vive no zsh e quer plugins (autosugestão de comando, syntax highlighting, atalhos de navegação; os dois primeiros, `zsh-autosuggestions` e `zsh-syntax-highlighting`, não vêm com o oh-my-zsh e precisam ser clonados em `$ZSH_CUSTOM/plugins` antes de entrar no `plugins=(...)` do `.zshrc`), enquanto `starship` é a escolha mais simples quando o objetivo é só um prompt informativo e rápido, independente de qual shell ou sistema operacional está por trás.
 
 ## Por que isso compensa o tempo de configurar
 

@@ -75,7 +75,7 @@ Toda a conversão de unidades, formatos e nomes de campos fica concentrada numa 
 
 ## A diferença entre Adapter e Decorator
 
-É comum confundir Adapter com Decorator (tema de um post anterior aqui no blog), já que os dois envolvem um objeto dentro de outro. A diferença está no propósito: o Decorator mantém a mesma interface do objeto original e adiciona comportamento por cima; o Adapter muda a interface, traduzindo uma assinatura incompatível para outra. O Adapter normalmente aparece uma vez por integração externa, enquanto o Decorator é feito para ser empilhado em várias combinações.
+É comum confundir Adapter com Decorator (tema de um [post anterior aqui no blog](/2022-09-26-decorator-pattern/)), já que os dois envolvem um objeto dentro de outro. A diferença está no propósito: o Decorator mantém a mesma interface do objeto original e adiciona comportamento por cima; o Adapter muda a interface, traduzindo uma assinatura incompatível para outra. O Adapter normalmente aparece uma vez por integração externa, enquanto o Decorator é feito para ser empilhado em várias combinações.
 
 ## Quando vale a pena
 
