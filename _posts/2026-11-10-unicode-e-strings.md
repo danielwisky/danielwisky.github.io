@@ -43,7 +43,7 @@ System.out.println(decomposto.length());         // 2
 System.out.println(composto.equals(decomposto)); // false
 ```
 
-Na maior parte do tempo o texto chega na forma composta, porque é o que os teclados costumam produzir. Mas a forma decomposta é mais comum do que se imagina: em nomes de arquivo vindos do macOS (o antigo HFS+ gravava tudo em NFD, e alguns programas ainda produzem essa forma), em texto copiado de PDFs, em dados importados de sistemas antigos. E aí o "José" que veio de uma planilha importada e o "José" digitado no formulário não batem no `equals`, nem no índice único do banco, nem no `HashMap`.
+Na maior parte do tempo o texto chega na forma composta, porque é o que os teclados costumam produzir. Mas a forma decomposta é mais comum do que se imagina: em nomes de arquivo vindos do macOS (o antigo HFS+ gravava tudo numa variante da NFD, e alguns programas ainda produzem essa forma), em texto copiado de PDFs, em dados importados de sistemas antigos. E aí o "José" que veio de uma planilha importada e o "José" digitado no formulário não batem no `equals`, nem no índice único do banco, nem no `HashMap`.
 
 ### Normalização
 
@@ -160,7 +160,7 @@ Se `length()` conta `char` e o usuário enxerga grafemas, o banco e a rede enxer
 
 Ou seja, até o "é" composto, que tem `length()` igual a 1, ocupa 2 bytes. Isso importa quando há um limite em bytes no caminho: um header HTTP, uma coluna definida em bytes, um campo de tamanho fixo num arquivo de integração, um tamanho máximo de mensagem num broker.
 
-O banco de dados é onde isso mais aparece, e cada um tem sua interpretação. O PostgreSQL conta caracteres em `VARCHAR(n)`. No Oracle, depende de a coluna ter sido criada com semântica de `BYTE` ou `CHAR`, e o padrão é `BYTE`: um `VARCHAR2(50)` aceita 50 bytes, não 50 letras. Mesmo com `CHAR` existe um teto em bytes por coluna. E o MySQL tem uma armadilha famosa: o charset chamado `utf8` é, na verdade, um UTF-8 limitado a 3 bytes por caractere (hoje um apelido de `utf8mb3`), então nada fora da faixa de 16 bits cabe, emojis incluídos. Dependendo do modo do servidor, o insert falha com "Incorrect string value" ou o texto é gravado truncado. O UTF-8 completo lá se chama `utf8mb4`, que é o padrão desde o MySQL 8.0, mas tabelas e conexões antigas ainda carregam o `utf8` velho.
+O banco de dados é onde isso mais aparece, e cada um tem sua interpretação. O PostgreSQL conta caracteres em `VARCHAR(n)`. No Oracle, depende de a coluna ter sido criada com semântica de `BYTE` ou `CHAR`, e o padrão é `BYTE`: um `VARCHAR2(50)` aceita 50 bytes, não 50 letras. Mesmo com `CHAR` existe um teto em bytes por coluna. E o MySQL tem uma armadilha famosa: o charset chamado `utf8` é, na verdade, um UTF-8 limitado a 3 bytes por caractere (hoje um apelido de `utf8mb3`), então nada fora da faixa de 16 bits cabe, emojis incluídos. Dependendo do modo do servidor e do charset da conexão, o insert falha com "Incorrect string value", o texto é gravado truncado ou o emoji vira um `?`. O UTF-8 completo lá se chama `utf8mb4`, que é o padrão desde o MySQL 8.0, mas tabelas e conexões antigas ainda carregam o `utf8` velho.
 
 Se a validação do backend usa `length()` e o banco conta outra coisa, você vai descobrir a diferença em produção, com o primeiro usuário que colocar emoji no nome.
 
@@ -177,7 +177,7 @@ System.out.println(errado); // Ã©
 
 Se você já viu "SÃ£o Paulo" numa tela, foi exatamente isso: UTF-8 lido como Latin-1.
 
-Por muito tempo, o charset padrão do Java dependia do sistema operacional, então o mesmo código funcionava no Linux e embaralhava acentos no Windows. Desde o JDK 18, o charset padrão das APIs passou a ser UTF-8 em todas as plataformas, o que eliminou boa parte dessa classe de bug. A exceção é a saída de console: `System.out` e `System.err` continuam usando o encoding do terminal. Mesmo assim, vale ser explícito sempre que converter, principalmente nas APIs que historicamente usavam o padrão do sistema: `getBytes()` e `new String(bytes)` sem argumento, `new InputStreamReader(in)`, `new FileReader(file)`, `new Scanner(in)`. Todas têm uma versão que recebe o charset, e código que não depende do padrão não quebra quando alguém roda com uma JVM antiga ou com `-Dfile.encoding` diferente.
+Por muito tempo, o charset padrão do Java dependia do sistema operacional, então o mesmo código funcionava no Linux e embaralhava acentos no Windows. Desde o JDK 18, o charset padrão das APIs passou a ser UTF-8 em todas as plataformas, o que eliminou boa parte dessa classe de bug. As exceções são a saída de console e os nomes de arquivo: `System.out` e `System.err` continuam usando o encoding do terminal, e caminhos de arquivo continuam seguindo o encoding da plataforma (a propriedade `sun.jnu.encoding`). Mesmo assim, vale ser explícito sempre que converter, principalmente nas APIs que historicamente usavam o padrão do sistema: `getBytes()` e `new String(bytes)` sem argumento, `new InputStreamReader(in)`, `new FileReader(file)`, `new Scanner(in)`. Todas têm uma versão que recebe o charset, e código que não depende do padrão não quebra quando alguém roda com uma JVM antiga ou com `-Dfile.encoding` diferente.
 
 ## Maiúsculas e minúsculas também têm pegadinha
 

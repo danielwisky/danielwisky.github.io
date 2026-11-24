@@ -11,7 +11,7 @@ Os testes de integração são uma técnica crucial na programação orientada a
 
 Uma das principais vantagens dos testes de integração é que eles permitem detectar erros que não podem ser encontrados em testes unitários, como problemas de comunicação entre diferentes módulos ou problemas de configuração. Isso é especialmente importante em sistemas complexos ou distribuídos, onde os erros podem ser difíceis de detectar em testes unitários isolados.
 
-Para escrever testes de integração em Java, é necessário criar uma classe de teste e anotá-la com `@Test`. Em seguida, é preciso escrever um método de teste dentro dessa classe, onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar a integração entre uma classe chamada `Calculator` e uma classe chamada `Database`, pode criar uma classe de teste chamada `CalculatorDatabaseTest` e escrever um método de teste chamado `testAdd`, onde o método `add` da classe `Calculator` é chamado e o resultado é armazenado na classe `Database`.
+Para escrever testes de integração em Java, é necessário criar uma classe de teste e escrever dentro dela um método de teste anotado com `@Test` (a anotação vai no método, não na classe), onde o código a ser testado é chamado e suas saídas são comparadas com o resultado esperado. Por exemplo, se você deseja testar a integração entre uma classe chamada `Calculator` e uma classe chamada `Database`, pode criar uma classe de teste chamada `CalculatorDatabaseTest` e escrever um método de teste chamado `testAdd`, onde o método `add` da classe `Calculator` é chamado e o resultado é armazenado na classe `Database`.
 
 O exemplo abaixo é simplificado, com uma classe `Database` em memória apenas para ilustrar a integração entre os dois componentes. Em um cenário real, o teste de integração deve exercitar a dependência de verdade (um banco de dados, uma fila, uma API externa), por exemplo com o auxílio do <a href="https://testcontainers.com" target="_blank">Testcontainers</a>, que sobe essas dependências em containers Docker durante o teste.
 
@@ -31,7 +31,9 @@ public class CalculatorDatabaseTest {
 }
 ```
 
-Além do JUnit, outras bibliotecas e ferramentas populares para testes de integração em Java incluem o TestNG, o Spock e o Arquillian. Cada uma dessas ferramentas fornece recursos adicionais, como suporte para testes paralelos e testes de desempenho. Vale notar que o Arquillian, focado em testes dentro de containers Java EE, caiu bastante em desuso — hoje a combinação mais comum em projetos Spring é `@SpringBootTest` com Testcontainers.
+> **Atualização (2026):** os exemplos com JUnit deste post usam o JUnit 4 (`org.junit.Test`, `org.junit.Assert` e `@RunWith`), que hoje está em modo de manutenção. Nas gerações atuais (JUnit 5 e JUnit 6), os imports passam a ser `org.junit.jupiter.api.Test` e `static org.junit.jupiter.api.Assertions.assertEquals`, e o `@RunWith` dá lugar ao `@ExtendWith`.
+
+Além do JUnit, outras bibliotecas e ferramentas populares para testes de integração em Java incluem o TestNG, o Spock e o Arquillian. Cada uma dessas ferramentas fornece recursos adicionais, como suporte para testes paralelos e testes de desempenho. Vale notar que o Arquillian, focado em testes dentro de containers Java EE, caiu bastante em desuso: hoje a combinação mais comum em projetos Spring é `@SpringBootTest` com Testcontainers.
 
 Exemplo com TestNG:
 
@@ -46,14 +48,14 @@ public class CalculatorDatabaseTest {
     Database database = new Database();
     int result = calculator.add(1, 2);
     database.storeResult(result);
-    assertEquals(result, database.getResult());
+    assertEquals(database.getResult(), result);
   }
 }
 ```
 
 Exemplo com Spock:
 
-```java
+```groovy
 class CalculatorDatabaseSpec extends Specification {
   def "test add and store in database"() {
     setup:
@@ -75,12 +77,23 @@ Exemplo com Arquillian:
 ```java
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import javax.inject.Inject;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
 public class CalculatorDatabaseTest {
+  @Deployment
+  public static JavaArchive createDeployment() {
+    return ShrinkWrap.create(JavaArchive.class)
+        .addClasses(Calculator.class, Database.class)
+        .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+  }
+
   @Inject
   Calculator calculator;
   @Inject

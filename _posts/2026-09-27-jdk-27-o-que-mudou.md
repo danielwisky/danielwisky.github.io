@@ -9,7 +9,7 @@ O JDK 27 foi lançado oficialmente em 15 de setembro de 2026, seguindo o calend�
 
 ## Compact object headers, agora ligado por padrão
 
-O JEP 534 reduz o tamanho do cabeçalho de cada objeto na JVM de 96 para 64 bits. Isso não muda uma linha de código da aplicação, mas reduz o uso de heap em algo entre 10% e 20%, dependendo do perfil de alocação, e junto com isso vem ganho de throughput. Esse recurso, parte do Project Lilliput, já estava disponível como opção de produção desde o Java 25 (JEP 519); no 27 ele passa a vir ativado por padrão, sem flag nenhuma.
+O JEP 534 reduz o tamanho do cabeçalho de cada objeto na JVM de 96 para 64 bits. Isso não muda uma linha de código da aplicação, mas reduz o uso de heap, e o ganho depende do perfil de alocação: num dos cenários citados na JEP, o benchmark SPECjbb2015 usou 22% menos heap e 8% menos tempo de CPU. Esse recurso, parte do Project Lilliput, já estava disponível como opção de produção desde o Java 25 (JEP 519); no 27 ele passa a vir ativado por padrão, sem flag nenhuma.
 
 Pra quem administra cluster com muitos objetos pequenos, como aplicações que fazem parsing intenso ou mantêm coleções grandes em memória, esse tipo de mudança de baixo nível costuma se traduzir direto em menos pressão de garbage collector e em instâncias que precisam de menos memória.
 
@@ -25,7 +25,7 @@ O JEP 527 adiciona troca de chaves híbrida pós-quântica pro TLS 1.3, construi
 
 ## Um mês carregado pra quem usa Oracle JDK
 
-Setembro de 2026 também marca o fim do suporte Premier da Oracle pro Java 17, junto com o Java 26 saindo do suporte Premier e o Java 27 chegando. Isso empurra ainda mais empresas a revisar sua estratégia de licenciamento: boa parte dos times que ainda dependem do Oracle JDK está migrando, ou já migrou parte do parque, pra distribuições OpenJDK gratuitas como Eclipse Temurin, Amazon Corretto ou Azul Zulu. Se sua empresa ainda não tem essa conversa agendada, esse é um bom motivo pra levantar o assunto: continuar pagando suporte sem revisar se ainda faz sentido é o tipo de coisa que passa despercebida até a fatura de renovação chegar.
+Setembro de 2026 também marca o fim do suporte Premier da Oracle pro Java 17, junto com o Java 26 saindo do suporte Premier e o Java 27 chegando. Isso empurra ainda mais empresas a revisar sua estratégia de licenciamento: muitos times que ainda dependem do Oracle JDK avaliam migrar, ou já migraram parte do parque, pra distribuições OpenJDK gratuitas como Eclipse Temurin, Amazon Corretto ou Azul Zulu. Se sua empresa ainda não tem essa conversa agendada, esse é um bom motivo pra levantar o assunto: continuar pagando suporte sem revisar se ainda faz sentido é o tipo de coisa que passa despercebida até a fatura de renovação chegar.
 
 ## Vale migrar pro 27?
 

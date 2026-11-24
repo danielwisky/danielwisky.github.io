@@ -67,7 +67,7 @@ public void aoReceberPedidoCriado(PedidoCriado evento) {
 }
 ```
 
-Essa separação traz uma consequência que precisa ser explícita para quem usa o sistema: consistência eventual. Entre o momento em que o comando é processado e o momento em que a projeção de leitura é atualizada, existe uma janela, geralmente de milissegundos, em que uma consulta pode não refletir a escrita mais recente. Para a tela de "meus pedidos", isso raramente importa. Para uma tela que confirma visualmente que a própria ação do usuário teve efeito, como a confirmação de um pagamento, isso pode gerar confusão real se o usuário atualizar a página rápido demais e não ver a mudança esperada.
+Essa separação traz uma consequência que precisa ser explícita para quem usa o sistema: consistência eventual. Entre o momento em que o comando é processado e o momento em que a projeção de leitura é atualizada, existe uma janela, que pode ir de milissegundos a segundos ou mais dependendo do pipeline, em que uma consulta pode não refletir a escrita mais recente. Para a tela de "meus pedidos", isso raramente importa. Para uma tela que confirma visualmente que a própria ação do usuário teve efeito, como a confirmação de um pagamento, isso pode gerar confusão real se o usuário atualizar a página rápido demais e não ver a mudança esperada.
 
 ## O preço que o padrão cobra
 

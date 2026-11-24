@@ -9,9 +9,9 @@ Toda API que sobrevive o suficiente em produção acaba enfrentando o mesmo prob
 
 ## Rate limiting: proteção na borda
 
-Rate limiting é a técnica mais conhecida, e a mais simples de explicar: define um número máximo de requisições que um cliente pode fazer num intervalo de tempo, e rejeita o excedente antes que ele chegue perto da lógica de negócio. A resposta padrão é um `429 Too Many Requests`, normalmente acompanhado de um header `Retry-After` indicando quando o cliente pode tentar de novo.
+Rate limiting é a técnica mais conhecida, e a mais simples de explicar: define um número máximo de requisições que um cliente pode fazer num intervalo de tempo, e rejeita o excedente antes que ele chegue perto da lógica de negócio. A resposta padrão é um `429 Too Many Requests`, que pode vir acompanhado de um header `Retry-After` indicando quando o cliente pode tentar de novo.
 
-O algoritmo mais usado na prática é o token bucket. Funciona assim: cada cliente tem um balde com uma capacidade fixa de tokens, cada requisição consome um token, e o balde é reabastecido a uma taxa constante ao longo do tempo.
+Um dos algoritmos mais usados na prática é o token bucket. Funciona assim: cada cliente tem um balde com uma capacidade fixa de tokens, cada requisição consome um token, e o balde é reabastecido a uma taxa constante ao longo do tempo.
 
 ```java
 public boolean permitir(String clienteId) {
@@ -32,14 +32,15 @@ Rate limiting resolve o problema de "quem pode entrar", mas não resolve o que a
 
 ```java
 Flux.range(1, 1_000_000)
-    .onBackpressureBuffer(1000, item -> log.warn("descartado: {}", item))
+    .onBackpressureBuffer(1000, item -> log.warn("descartado: {}", item),
+        BufferOverflowStrategy.DROP_OLDEST)
     .publishOn(Schedulers.boundedElastic())
     .subscribe(item -> processar(item));
 ```
 
 Aqui o buffer tem um limite explícito de 1000 itens. Quando o consumidor não consegue acompanhar o ritmo do produtor e o buffer enche, a estratégia configurada decide o que fazer: descartar os itens mais antigos, descartar os mais novos, ou propagar um erro. A alternativa, um buffer sem limite, parece mais segura à primeira vista, mas só adia o problema: a fila cresce até a memória acabar, e o processo morre de qualquer forma, mas de um jeito mais difícil de diagnosticar.
 
-Filas de mensageria como Kafka já embutem uma forma natural de backpressure: o consumidor só avança o offset quando processa a mensagem, e se ficar mais lento que o produtor, as mensagens simplesmente se acumulam no broker em vez de na memória da aplicação. Isso desloca o problema para um lugar mais seguro de acumular trabalho, mas não o resolve sozinho, porque um consumidor cronicamente lento ainda vai gerar lag crescente que precisa de alerta e ação.
+Filas de mensageria como Kafka já embutem uma forma natural de backpressure: o consumidor puxa as mensagens do broker no próprio ritmo, e se ficar mais lento que o produtor, as mensagens simplesmente se acumulam no broker em vez de na memória da aplicação. Isso desloca o problema para um lugar mais seguro de acumular trabalho, mas não o resolve sozinho, porque um consumidor cronicamente lento ainda vai gerar lag crescente que precisa de alerta e ação.
 
 ## Circuit breaker: o terceiro elemento da equação
 

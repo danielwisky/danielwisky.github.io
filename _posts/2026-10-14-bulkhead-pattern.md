@@ -85,7 +85,7 @@ Devolver uma lista vazia mantém o checkout de pé, e o usuário provavelmente n
 
 ## Bulkhead, circuit breaker e timeout juntos
 
-Os três se complementam. O timeout limita quanto tempo uma chamada individual pode durar. O bulkhead limita quantas chamadas podem estar presas ao mesmo tempo. O circuit breaker para de tentar quando a dependência está claramente falhando. No cenário do começo do post, só o bulkhead teria salvado o checkout, porque as chamadas lentas não eram falhas aos olhos do circuit breaker.
+Os três se complementam. O timeout limita quanto tempo uma chamada individual pode durar. O bulkhead limita quantas chamadas podem estar presas ao mesmo tempo. O circuit breaker para de tentar quando a dependência está claramente falhando. No cenário do começo do post, o bulkhead é que teria salvado o checkout, porque as chamadas lentas não eram falhas aos olhos do circuit breaker. Dá para configurar alguns circuit breakers para contar chamadas lentas (no Resilience4j, via `slowCallDurationThreshold`), mas o padrão lá é de 60 segundos, então oito segundos passariam despercebidos.
 
 Na hora de combinar, o bulkhead costuma ficar na camada mais interna, logo em volta da chamada real, com o circuit breaker por fora dele. Assim, um circuito aberto rejeita a chamada antes mesmo dela ocupar uma vaga no compartimento. Se houver [retry](/2026-10-13-retry-backoff-e-jitter/) na composição, vale configurá-lo para não retentar `BulkheadFullException`: tentar de novo imediatamente só aumenta a pressão sobre um compartimento que já está cheio.
 

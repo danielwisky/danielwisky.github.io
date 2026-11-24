@@ -23,7 +23,7 @@ Parece óbvio escrito assim. A diferença está na disciplina de seguir os passo
 
 ## O bug do relatório
 
-O relatório diário de vendas era gerado de madrugada e conferido pelo financeiro contra o extrato do gateway de pagamento. Na maioria dos dias batia. Em alguns, faltava dinheiro: o relatório mostrava menos vendas do que o gateway tinha processado. Não era todo dia, não era sempre o mesmo valor, e ninguém conseguia reproduzir em ambiente de teste.
+O relatório diário de vendas era gerado de madrugada e conferido pelo financeiro contra o extrato do gateway de pagamento. Na maioria dos dias a diferença era pequena e passava. Em alguns, faltava dinheiro, em outros sobrava um pouco: o relatório não batia com o que o gateway tinha processado. Não era todo dia, não era sempre o mesmo valor, e ninguém conseguia reproduzir em ambiente de teste.
 
 A primeira reação do time foi a de sempre: "deve ser o Kafka perdendo mensagem". Era uma explicação plausível, já tinha acontecido antes, e todo mundo aceitou sem discutir. Esse é o primeiro erro clássico: tratar o primeiro palpite como conclusão.
 
@@ -38,7 +38,7 @@ Antes de qualquer hipótese, vale gastar tempo descrevendo o problema com precis
 
 Essa fase costuma resolver metade dos bugs sozinha, porque descrever bem o problema já aponta para onde olhar. Também é o momento de tentar **reproduzir**. Um bug que você consegue disparar quando quer é um bug quase resolvido; um bug que você não reproduz exige que cada experimento seja feito com dados de produção, o que é bem mais lento.
 
-No caso do relatório, a gente pegou três dias com divergência e cruzou os ids do gateway com os do relatório. Saiu uma lista com algumas dezenas de pedidos faltando.
+No caso do relatório, a gente pegou três dias com divergência e cruzou os ids do gateway com os do relatório. Saiu uma lista com algumas dezenas de pedidos faltando, e alguns que estavam no relatório sem ser daquele dia, que por enquanto ficaram de lado.
 
 ## Hipóteses que podem dar errado
 
@@ -56,7 +56,7 @@ Com as duas explicações óbvias fora da mesa, a gente voltou para a observaç�
 
 Isso gerou uma hipótese nova, bem específica: o relatório estava calculando "ontem" em UTC, e não no horário de Brasília. Como estamos três horas atrás de UTC, um pedido feito às 21h30 do dia 10 fica registrado como 00h30 do dia 11 em UTC, e cai fora do relatório do dia 10.
 
-A previsão dessa hipótese era forte e fácil de checar: nenhum pedido faltante teria sido criado antes das 21h, os pedidos das 21h às 23h59 de um dia deveriam aparecer no relatório do dia seguinte, e os dias com mais divergência seriam os de mais venda à noite. As três coisas se confirmaram. A terceira explicava até a intermitência: em dias de pouca venda noturna a diferença era pequena e passava despercebida na conferência.
+A previsão dessa hipótese era forte e fácil de checar: nenhum pedido faltante teria sido criado antes das 21h, os pedidos das 21h às 23h59 de um dia deveriam aparecer no relatório do dia seguinte (eram justamente os que sobravam), e a diferença de cada dia seria a venda noturna daquela noite menos a da noite anterior. As três coisas se confirmaram. A terceira explicava até a intermitência: quando duas noites seguidas vendiam parecido, uma compensava a outra e a diferença passava despercebida na conferência; depois de uma noite fraca vinha uma forte e faltava dinheiro, e no caminho inverso sobrava.
 
 O código culpado era desse tipo:
 

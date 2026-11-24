@@ -11,9 +11,9 @@ Neste artigo, vamos explorar como instalar e usar o MapStruct com alguns exemplo
 
 ## Instalação do MapStruct
 
-O MapStruct é facilmente instalado adicionando sua dependência ao seu arquivo `pom.xml` no Maven ou no Gradle.
+O MapStruct é facilmente instalado adicionando suas dependências ao arquivo `pom.xml` (Maven) ou `build.gradle` (Gradle). Além da biblioteca, é preciso registrar o `mapstruct-processor`, o annotation processor que gera as implementações dos mappers em tempo de compilação.
 
-No Maven, adicione a dependência do MapStruct no bloco `dependencies`:
+No Maven, adicione a dependência do MapStruct no bloco `dependencies` e o processor no `maven-compiler-plugin`:
 
 ```xml
 <dependency>
@@ -23,12 +23,30 @@ No Maven, adicione a dependência do MapStruct no bloco `dependencies`:
 </dependency>
 ```
 
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.5.3.Final</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+
 No Gradle, adicione a dependência do MapStruct na seção dependencies:
 
 ```groovy
 implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 ```
+
+> **Atualização (2026):** a versão estável mais recente do MapStruct hoje é a 1.6.3. Basta trocar `1.5.3.Final` por `1.6.3` nos exemplos acima.
 
 ## Usando MapStruct
 
@@ -54,7 +72,7 @@ Neste exemplo, estamos criando uma instância do mapper `CarMapper` e usando o m
 
 ## Mapeamento personalizado
 
-O MapStruct permite que você defina mapeamentos personalizados usando o método `@Mapping`. Isso é útil quando o nome da propriedade do objeto de origem não corresponde ao nome da propriedade do objeto de destino.
+O MapStruct permite que você defina mapeamentos personalizados usando a anotação `@Mapping`. Isso é útil quando o nome da propriedade do objeto de origem não corresponde ao nome da propriedade do objeto de destino.
 
 Aqui está um exemplo de como definir um mapeamento personalizado:
 
@@ -77,6 +95,7 @@ Aqui está um exemplo de como definir um mapeamento reverso:
 ```java
 @Mapper
 public interface CarMapper {
+    @Mapping(source = "numberOfSeats", target = "seatCount")
     CarDto carToCarDto(Car car);
 
     @InheritInverseConfiguration
@@ -84,11 +103,11 @@ public interface CarMapper {
 }
 ```
 
-Neste exemplo, estamos definindo um mapeamento reverso para converter objetos `CarDto` em objetos `Car`. Usamos a anotação `@InheritInverseConfiguration` para herdar a configuração de mapeamento da função `carToCarDto` e, em seguida, definimos o mapeamento inverso para o objeto `CarDto`.
+Neste exemplo, estamos definindo um mapeamento reverso para converter objetos `CarDto` em objetos `Car`. Usamos a anotação `@InheritInverseConfiguration` para herdar a configuração de mapeamento da função `carToCarDto` de forma invertida: o MapStruct passa a mapear `seatCount` de volta para `numberOfSeats` sem precisarmos repetir o `@Mapping`.
 
 ## Mapeamento de coleções
 
-O MapStruct também suporta mapeamento de coleções de objetos. Você pode usar as anotações `@MappingTarget` e `@IterableMapping` para definir o mapeamento de coleções.
+O MapStruct também suporta mapeamento de coleções de objetos: ao declarar um método de lista, ele reutiliza automaticamente o método que mapeia cada elemento. A anotação `@IterableMapping` permite ajustar esse mapeamento, e `@MappingTarget` serve para atualizar um objeto já existente em vez de criar um novo.
 
 Aqui está um exemplo de como definir o mapeamento de uma coleção de objetos:
 
@@ -104,7 +123,7 @@ public interface CarMapper {
 }
 ```
 
-Neste exemplo, definimos a função `carsToCarDtos` para mapear uma lista de objetos `Car` em uma lista de objetos `CarDto`. Usamos a anotação `@IterableMapping` para definir o tipo de objeto de destino como `CarDto`.
+Neste exemplo, definimos a função `carsToCarDtos` para mapear uma lista de objetos `Car` em uma lista de objetos `CarDto`. Usamos a anotação `@IterableMapping` para indicar explicitamente o tipo dos elementos de destino como `CarDto`. Aqui ela é opcional, já que o MapStruct encontraria o `carToCarDto` sozinho, mas é útil quando existe mais de um método candidato para os elementos.
 
 Também definimos a função `updateCarFromDto` para atualizar o objeto `Car` a partir de um objeto `CarDto`. Usamos a anotação `@MappingTarget` para especificar que o objeto `Car` é o objeto de destino.
 

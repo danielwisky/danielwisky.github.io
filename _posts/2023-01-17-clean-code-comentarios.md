@@ -19,7 +19,7 @@ Um código claro e expressivo com poucos comentários é muito superior a um có
 
 ```java
 // Check to see if the employee is eligible for full benefits
-if ((employee.flags & HOURLY_FLAG) && (employee.age > 65))
+if ((employee.flags & HOURLY_FLAG) != 0 && employee.age > 65)
 ```
 
 vs
@@ -84,10 +84,9 @@ public void _testWithReallyBigFile() {
 }
 ```
 
-#### TODO Comentários
+#### Comentários TODO
 
-Às vezes, é razoável deixar notas de “coisas a fazer” na forma de comentários //TODO. No
-caso seguinte, o comentário TODO explica por que a função tem uma implementação degenerada e qual deve ser o futuro dessa função.
+Às vezes, é razoável deixar notas de “coisas a fazer” na forma de comentários //TODO. No caso seguinte, o comentário TODO explica por que a função tem uma implementação degenerada e qual deve ser o futuro dessa função.
 
 ```java
 //TODO-MdM these are not needed
@@ -235,7 +234,7 @@ if (moduleDependees.contains(ourSubSystem))
 
 #### Marcadores de posição
 
-Esse tipo de comentário é barulhento
+Esse tipo de comentário é barulhento.
 
 ```java
 // Actions //////////////////////////////////
@@ -254,7 +253,7 @@ public class wc {
         int charCount = 0;
         int wordCount = 0;
         try {
-            while ((line = in .readLine()) != null) {
+            while ((line = in.readLine()) != null) {
                 lineCount++;
                 charCount += line.length();
                 String words[] = line.split("\\W");
@@ -275,7 +274,7 @@ public class wc {
 }
 ```
 
-Você pode quebrar o código em pequenas funções para usar esse tipo de comentário.
+Em vez de usar esse tipo de comentário, quebre o código em funções menores.
 
 #### Atribuições e assinaturas
 
@@ -333,9 +332,9 @@ Se você precisar escrever um comentário, certifique-se de que ele descreva o c
 
 Não coloque discussões históricas interessantes ou descrições irrelevantes de detalhes em seus comentários.
 
-#### Conexão Inóbvia
+#### Conexão não óbvia
 
-A conexão entre um comentário e o código que ele descreve deve ser óbvia. Se você está se dando ao trabalho de escrever um comentário, pelo menos gostaria que o leitor pudesse ver o comentário e o código e entender do que o comentário está falando
+A conexão entre um comentário e o código que ele descreve deve ser óbvia. Se você está se dando ao trabalho de escrever um comentário, pelo menos gostaria que o leitor pudesse ver o comentário e o código e entender do que o comentário está falando.
 
 #### Cabeçalhos de função
 

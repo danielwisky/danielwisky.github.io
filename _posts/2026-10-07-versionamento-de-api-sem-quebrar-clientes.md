@@ -80,12 +80,12 @@ A prática que funciona é sinalizar a depreciação de forma que o cliente cons
 
 ```
 HTTP/1.1 200 OK
-Deprecation: true
-Sunset: Sat, 31 Dec 2026 23:59:59 GMT
+Deprecation: @1767225600
+Sunset: Thu, 31 Dec 2026 23:59:59 GMT
 Link: <https://docs.empresa.com/migracao-v2>; rel="deprecation"
 ```
 
-O header `Sunset` tem um RFC próprio (RFC 8594), e o `Deprecation` segue uma proposta do IETF amplamente adotada mesmo sem ainda ter virado RFC formal. Juntos, permitem que o cliente detecte programaticamente que está usando algo que vai parar de funcionar numa data conhecida, em vez de descobrir isso só quando a chamada já está retornando erro.
+O header `Sunset` tem um RFC próprio (RFC 8594), e o `Deprecation` foi padronizado no RFC 9745, de março de 2025, com o valor no formato `@` seguido de um timestamp Unix indicando quando a depreciação passou a valer. Juntos, permitem que o cliente detecte programaticamente que está usando algo que vai parar de funcionar numa data conhecida, em vez de descobrir isso só quando a chamada já está retornando erro.
 
 ## A régua prática
 

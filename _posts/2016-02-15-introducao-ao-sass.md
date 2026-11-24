@@ -15,7 +15,7 @@ Algumas vantagens de utilização:
 
 ## Mãos à Obra
 
-Vamos utilizar agora uma das funções do Sass que é a possíbilidade unir seletores sem a necessidade de repetir o código, como é feito para declarar um estilo por exemplo dentro da tag <p> que está associada a uma <div> de classe .conteudo.
+Vamos utilizar agora uma das funções do Sass que é a possibilidade de unir seletores sem a necessidade de repetir o código, como é feito para declarar um estilo por exemplo dentro da tag <p> que está associada a uma <div> de classe .conteudo.
 
 Agora vamos criar o arquivo `style.scss` com o seguinte conteúdo:
 
@@ -27,7 +27,7 @@ Agora vamos criar o arquivo `style.scss` com o seguinte conteúdo:
         }
     }
 
-Após criação do arquivo, acesse o cmd (Prompt de comando), no diretório aonde o arquivo .scss foi salvo e digite `sass --watch style.scss:style.css`
+Após criação do arquivo, acesse o cmd (Prompt de comando), no diretório onde o arquivo .scss foi salvo e digite `sass --watch style.scss:style.css`
 
 Será criado um arquivo `style.css` no mesmo diretório contendo o resultado:
 
@@ -36,6 +36,8 @@ Será criado um arquivo `style.css` no mesmo diretório contendo o resultado:
       .conteudo p {
     	color: red;
     	font-size: 12px; }
+
+> **Atualização (2026):** o Ruby Sass chegou ao fim da vida em março de 2019 e o LibSass (e o `node-sass`) foi marcado como deprecated em outubro de 2020. Hoje a implementação oficial é o Dart Sass (`npm install -g sass`), e o comando `sass --watch style.scss:style.css` continua funcionando. O Dart Sass não tem o estilo de saída `nested` usado nos exemplos deste post: por padrão ele gera o estilo `expanded`, com cada seletor e declaração em sua própria linha.
 
 Vamos explorar alguns outros recursos disponíveis no Sass.
 
@@ -59,12 +61,12 @@ Vamos explorar alguns outros recursos disponíveis no Sass.
 Resultado (arquivo css):
 
     .texto {
-      font-family: Arial;
+      font-family: arial;
       font-size: 30em;
       font-weight: bold; }
 
 
-### pseudo-elementos
+### Pseudo-classes
 
     a {
         color: #ce4dd6;
@@ -82,11 +84,11 @@ Resultado (arquivo css):
     	color: #c458cb; }
 
 Mais informações sobre Sass:
-<a href="http://sass-lang.com/install" target="_blank">instalação</a>,
-<a href="http://sass-lang.com/documentation" target="_blank">documentação</a>.
+<a href="https://sass-lang.com/install" target="_blank">instalação</a>,
+<a href="https://sass-lang.com/documentation" target="_blank">documentação</a>.
 
 Pesquise também outros pré-processadores de css:  
-<a href="http://lesscss.org/" target="_blank">LESS</a>,
-<a href="https://get.foundation/" target="_blank">Foundation</a>.
+<a href="https://lesscss.org/" target="_blank">LESS</a>,
+<a href="https://stylus-lang.com/" target="_blank">Stylus</a>.
 
 Um grande abraço e até o próximo post!

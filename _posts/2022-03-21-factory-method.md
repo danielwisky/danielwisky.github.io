@@ -18,7 +18,7 @@ public Notificador criar(String tipo) {
 }
 ```
 
-Funciona, mas esse `switch` tende a se espalhar. Toda vez que alguém precisa criar um notificador, o código some com esse mesmo bloco de decisão, repetido em métodos diferentes. E quando aparece um quarto canal, cada uma dessas cópias precisa ser lembrada e atualizada junto.
+Funciona, mas esse `switch` tende a se espalhar. Toda vez que alguém precisa criar um notificador, o código ganha mais uma cópia desse mesmo bloco de decisão, repetido em métodos diferentes. E quando aparece um quarto canal, cada uma dessas cópias precisa ser lembrada e atualizada junto.
 
 ## O que o Factory Method propõe
 
@@ -58,11 +58,11 @@ public class NotificacaoSmsService extends NotificacaoService {
 }
 ```
 
-O método `notificar` nunca muda, independente de quantos canais existam. Adicionar um canal novo significa criar uma subclasse nova, sem tocar no código que já funciona, o que é exatamente o princípio aberto/fechado na prática.
+O método `notificar` nunca muda, independentemente de quantos canais existam. Adicionar um canal novo significa criar uma subclasse nova, sem tocar no código que já funciona, o que é exatamente o princípio aberto/fechado na prática.
 
 ## A versão mais comum no dia a dia: fábrica estática
 
-Em bases de código reais, o Factory Method raramente aparece com herança explícita como no exemplo acima. A variante mais comum é uma classe fábrica com um método estático que centraliza a decisão, mantendo o mesmo objetivo de esconder a escolha da classe concreta:
+Em bases de código reais, o Factory Method raramente aparece com herança explícita como no exemplo acima. A variante mais comum é uma classe fábrica com um método estático que centraliza a decisão, mantendo o mesmo objetivo de esconder a escolha da classe concreta. A rigor, isso é uma "simple factory" e não o Factory Method do GoF, que depende de herança: um método estático não pode ser sobrescrito por subclasses.
 
 ```java
 public class NotificadorFactory {
