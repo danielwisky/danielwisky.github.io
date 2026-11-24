@@ -9,7 +9,7 @@ Um cenário comum em sistemas que combinam banco de dados relacional com mensage
 
 ## O problema de duas escritas que não são atômicas
 
-O banco de dados e o broker de mensageria são dois sistemas diferentes, cada um com sua própria garantia de durabilidade, e não existe uma transação nativa que cubra os dois ao mesmo tempo. Transações distribuídas via two-phase commit existem na teoria, mas na prática quase nenhum broker moderno dá suporte real a isso, e mesmo quando dá, o custo de coordenação costuma ser alto demais para o ganho.
+O banco de dados e o broker de mensageria são dois sistemas diferentes, cada um com sua própria garantia de durabilidade, e não existe uma transação nativa que cubra os dois ao mesmo tempo. Transações distribuídas via two-phase commit existem na teoria, mas na prática brokers populares como o Kafka não dão suporte real a isso, e mesmo quando dá, o custo de coordenação costuma ser alto demais para o ganho.
 
 ```java
 @Transactional
@@ -67,7 +67,7 @@ public void publicarEventosPendentes() {
 
 Essa abordagem é simples de implementar, mas tem um custo: faz polling constante numa tabela que, na maior parte do tempo, está vazia, e isso introduz uma latência mínima entre a escrita e a publicação, do tamanho do intervalo do agendamento.
 
-A segunda forma, mais sofisticada, usa Change Data Capture para ler o write-ahead log do banco e reagir às inserções na tabela de outbox em tempo real, sem polling. O Debezium é a ferramenta mais usada para isso: ele monitora o log de replicação do Postgres ou do MySQL e publica cada linha inserida na outbox diretamente num tópico Kafka, tipicamente com latência de milissegundos e sem nenhuma consulta adicional ao banco.
+A segunda forma, mais sofisticada, usa Change Data Capture para ler o write-ahead log do banco e reagir às inserções na tabela de outbox em tempo real, sem polling. O Debezium é a ferramenta mais usada para isso: ele monitora o log de replicação do Postgres ou do MySQL e publica cada linha inserida na outbox diretamente num tópico Kafka, com baixa latência e sem nenhuma consulta adicional ao banco.
 
 ## O que essa garantia não cobre
 

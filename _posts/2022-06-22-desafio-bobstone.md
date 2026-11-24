@@ -5,7 +5,7 @@ subtitle: "Desafio de programação para construção de um jogo de adivinhaçã
 tags: [Desafio de Programação]
 ---
 
-Apesar de estranho o nome **BOBSTONE**, este é um jogo muito fácil. A idéia aqui é adivinhar a paridade, a soma e o valor de dois dados rolados pelo adversário.
+Apesar de estranho o nome **BOBSTONE**, este é um jogo muito fácil. A ideia aqui é adivinhar a paridade, a soma e o valor de dois dados rolados pelo adversário.
 
 | Adivinhando      | receberá |
 | ---------------- | -------- |
@@ -89,6 +89,6 @@ Eu 13 Voce 7
 Eu venci! Yupiiii
 ```
 
-Em **BOBSTONE** o computador deverá gerar os valores dos dados antes da jogada do humano, independente de quem é a vez de fazer a jogada. Acertar a paridade da soma, significa que a soma dos dados do computador e a soma do jogador são ímpares ou pares na mesma jogada.
+Em **BOBSTONE** o computador deverá gerar os valores dos dados antes da jogada do humano, independentemente de quem é a vez de fazer a jogada. Acertar a paridade da soma significa que a soma dos dados do computador e a soma do jogador são ímpares ou pares na mesma jogada.
 
 Um grande abraço e até o próximo post!

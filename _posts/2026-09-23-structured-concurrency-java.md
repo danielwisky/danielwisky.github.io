@@ -30,7 +30,7 @@ Esse padrão tem nome: concorrência não estruturada. O ciclo de vida das taref
 A ideia da API `StructuredTaskScope`, em preview desde o Java 21 e já na sétima rodada de preview no Java 27 (JEP 533, ainda exige a flag `--enable-preview` pra compilar e rodar), é simples de enunciar: tarefas disparadas dentro de um escopo não podem escapar dele. O escopo só termina quando todas as tarefas terminam, com sucesso, com erro ou canceladas. E um erro em qualquer uma delas pode propagar e cancelar as irmãs de forma automática.
 
 ```java
-try (var scope = StructuredTaskScope.open(Joiner.<Usuario, List<Pedido>>awaitAllSuccessfulOrThrow())) {
+try (var scope = StructuredTaskScope.open()) {
     var usuarioTask = scope.fork(() -> buscarUsuario(id));
     var pedidosTask = scope.fork(() -> buscarPedidos(id));
 
@@ -41,14 +41,14 @@ try (var scope = StructuredTaskScope.open(Joiner.<Usuario, List<Pedido>>awaitAll
 }
 ```
 
-Ao sair do bloco `try`, o escopo garante três coisas. Nenhuma das duas tarefas continua rodando em segundo plano: ambas já terminaram de um jeito ou de outro. Se `buscarPedidos` falhar, a exceção se propaga pra fora do `scope.join()`, e o `Joiner` usado decide o que fazer com a tarefa irmã que ainda estava em andamento. E a árvore de chamadas aparece na stack trace como uma hierarquia real, não como duas tarefas soltas que só coincidem por estarem no mesmo método.
+Ao sair do bloco `try`, o escopo garante três coisas. Nenhuma das duas tarefas continua rodando em segundo plano: ambas já terminaram de um jeito ou de outro. Se `buscarPedidos` falhar, a exceção se propaga pra fora do `scope.join()`, embrulhada numa `ExecutionException`, e a política padrão do `open()` cancela a tarefa irmã que ainda estava em andamento. E a árvore de tarefas aparece no thread dump como uma hierarquia real, não como duas tarefas soltas que só coincidem por estarem no mesmo método.
 
 ## Primeiro que responder, ganha
 
 Um caso de uso comum é buscar o mesmo dado em duas fontes redundantes e usar a que responder primeiro, cancelando a outra:
 
 ```java
-try (var scope = StructuredTaskScope.open(Joiner.<String>anySuccessfulResultOrThrow())) {
+try (var scope = StructuredTaskScope.open(Joiner.<String>anySuccessfulOrThrow())) {
     scope.fork(() -> buscarNoCacheRegional());
     scope.fork(() -> buscarNoCacheGlobal());
 
@@ -62,7 +62,7 @@ Assim que uma das duas retorna com sucesso, a outra é cancelada na hora, sem pr
 
 Virtual threads tornaram barato disparar uma tarefa concorrente pra cada sub-chamada de I/O. Sem structured concurrency, isso tende a produzir código cheio de tarefas soltas, cada uma com seu próprio tratamento de erro e cancelamento. É desse tipo de código que saem os bugs que só aparecem em produção, sob carga, e são difíceis de reproduzir num ambiente controlado. A structured concurrency dá a essas tarefas baratas uma estrutura de ciclo de vida clara, do mesmo jeito que `try-with-resources` já faz com conexões e arquivos.
 
-A API já está bem perto de sair do preview: a forma dela se mantém estável desde a quinta rodada, e o JEP 543 propõe finalizá-la sem mais mudanças no Java 28.
+A API já está bem perto de sair do preview: a forma geral dela vem da quinta rodada, com ajustes menores no Java 26 e no 27, e o JEP 543 propõe finalizá-la sem mais mudanças no Java 28.
 
 ## Conclusão
 

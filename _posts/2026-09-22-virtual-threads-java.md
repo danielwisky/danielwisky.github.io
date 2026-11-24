@@ -9,7 +9,7 @@ Toda aplicação Java que faz muita chamada bloqueante (banco, HTTP, fila) esbar
 
 ## Por que threads de plataforma não escalam
 
-Cada `Thread` tradicional (hoje chamada de *platform thread*) é, por baixo dos panos, uma thread do sistema operacional. Isso custa memória: alguns megabytes de stack por thread. E custa desempenho quando o número de threads simultâneas passa de alguns milhares, porque o sistema operacional gasta cada vez mais tempo só trocando contexto entre elas.
+Cada `Thread` tradicional (hoje chamada de *platform thread*) é, por baixo dos panos, uma thread do sistema operacional. Isso custa memória: por padrão, 1 ou 2 MB de stack reservados por thread, dependendo da plataforma. E custa desempenho quando o número de threads simultâneas passa de alguns milhares, porque o sistema operacional gasta cada vez mais tempo só trocando contexto entre elas.
 
 Foi esse limite que empurrou parte do ecossistema Java para programação reativa. WebFlux e RxJava evitam bloquear threads reescrevendo o fluxo como uma cadeia de callbacks. Funciona, só que o código fica bem mais difícil de ler e de depurar. Uma stack trace de código reativo raramente aponta pra onde o problema realmente está.
 
@@ -17,7 +17,7 @@ Foi esse limite que empurrou parte do ecossistema Java para programação reativ
 
 Uma virtual thread ainda é uma `Thread` do ponto de vista da API: mesma classe, mesmos métodos. A diferença é que ela não ocupa uma thread de sistema operacional o tempo todo. A JVM mantém um número pequeno de *carrier threads* reais e vai montando virtual threads sobre elas só enquanto existe trabalho de CPU pra fazer. Quando uma virtual thread bloqueia esperando I/O, a JVM a desmonta da carrier thread, que fica livre pra outra tarefa, e retoma a original quando a resposta chega.
 
-O resultado é que dá pra ter centenas de milhares de virtual threads vivas ao mesmo tempo, gastando muito menos memória que o mesmo número de threads de plataforma. E o código continua sequencial e bloqueante, do jeito que sempre se escreveu Java. Sem callback, sem operador encadeado. Bibliotecas de I/O já existentes, como JDBC ou `HttpClient`, se beneficiam automaticamente, sem precisar reescrever nada.
+O resultado é que dá pra ter centenas de milhares de virtual threads vivas ao mesmo tempo, gastando muito menos memória que o mesmo número de threads de plataforma. E o código continua sequencial e bloqueante, do jeito que sempre se escreveu Java. Sem callback, sem operador encadeado. Bibliotecas de I/O já existentes, como drivers JDBC ou o `HttpClient`, em geral se beneficiam sem precisar reescrever nada, mas isso depende da implementação: um driver que bloqueia dentro de `synchronized` ou em código nativo pode prender a carrier thread (mais sobre isso abaixo).
 
 ## Comparando os dois modelos
 
@@ -49,7 +49,7 @@ Cada tarefa ganha a própria virtual thread, criada sob demanda e descartada no 
 
 Virtual threads resolvem escala em I/O bloqueante, não paralelismo de CPU. Um laço que só faz conta pesada não fica mais rápido rodando em virtual threads, porque ali o gargalo é o número de núcleos disponíveis, e não a quantidade de threads. Pra isso, `ForkJoinPool` e streams paralelos continuam sendo a ferramenta certa.
 
-Também existia o problema do *pinning*: até o Java 23, um bloco `synchronized` prendia a virtual thread na carrier thread durante toda a execução, e um I/O lento ali dentro cancelava boa parte do ganho. Desde o Java 24 isso deixou de ser regra: a JVM passou a liberar a carrier thread mesmo dentro de um `synchronized`, desde que threads diferentes não disputem o mesmo monitor. Quem ainda roda em versão anterior ao 24 continua se beneficiando de trocar `synchronized` por `ReentrantLock` nos pontos mais quentes do código.
+Também existia o problema do *pinning*: até o Java 23, um bloco `synchronized` prendia a virtual thread na carrier thread durante toda a execução, e um I/O lento ali dentro cancelava boa parte do ganho. Desde o Java 24 isso deixou de ser regra: a JVM passou a liberar a carrier thread mesmo dentro de um `synchronized` (JEP 491), sobrando só casos raros de pinning, como chamadas a código nativo ou bloqueio durante a inicialização de uma classe. Quem ainda roda em versão anterior ao 24 continua se beneficiando de trocar `synchronized` por `ReentrantLock` nos pontos mais quentes do código.
 
 ## Vale a pena migrar
 

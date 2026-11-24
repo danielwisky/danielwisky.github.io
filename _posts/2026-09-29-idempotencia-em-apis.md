@@ -53,7 +53,7 @@ O detalhe que costuma passar despercebido é o ponto 2: salvar o resultado preci
 
 ## Onde guardar a chave e por quanto tempo
 
-Manter esse registro para sempre não escala, mas descartar cedo demais reabre a janela de duplicação em retries mais lentos. Na prática, um TTL de 24 horas costuma ser suficiente: cobre timeouts de rede, filas com reprocessamento e até um usuário que atualiza a página e reenvia o formulário sem perceber. Redis é uma escolha comum aqui, exatamente pela expiração automática nativa e pela latência baixa de leitura antes de decidir se processa ou não.
+Manter esse registro para sempre não escala, mas descartar cedo demais reabre a janela de duplicação em retries mais lentos. Na prática, um TTL de 24 horas costuma ser suficiente: cobre timeouts de rede, filas com reprocessamento e até um usuário que atualiza a página e reenvia o formulário sem perceber. Redis é uma escolha comum aqui, exatamente pela expiração automática nativa e pela latência baixa de leitura antes de decidir se processa ou não. Só que ele não participa da transação do banco relacional: se a garantia forte importa, guarde o registro no mesmo banco da operação (com a constraint de unicidade) e use o Redis no máximo como camada rápida de checagem na frente dele.
 
 Vale reforçar que a chave de idempotência representa uma tentativa de operação, não o corpo da requisição em si. Se o cliente reenviar a mesma chave com um corpo diferente, o comportamento correto é rejeitar com 422, e não silenciosamente processar o novo corpo ou devolver o resultado antigo como se nada tivesse mudado. Isso evita um bug sutil: um cliente que reaproveita uma chave por engano nunca percebe que os dados que ele queria enviar foram ignorados.
 

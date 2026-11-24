@@ -7,11 +7,11 @@ tags: [Clean Code]
 
 ## Nomes significativos
 
-Os nomes estão por toda parte no software. Arquivos, diretórios, variáveis, funções, etc. Porque fazemos muito disso. É melhor fazê-lo bem.
+Os nomes estão por toda parte no software. Arquivos, diretórios, variáveis, funções, etc. Como fazemos muito isso, é melhor fazê-lo bem.
 
 ### Use nomes reveladores de intenções
 
-É fácil dizer que nomes revelam intenções. Escolher bons nomes leva tempo, mas economiza mais do que leva. Portanto, tome cuidado com seus nomes e troque-os quando encontrar nomes melhores.
+É fácil dizer que nomes devem revelar intenções. Escolher bons nomes leva tempo, mas economiza mais do que leva. Portanto, tome cuidado com seus nomes e troque-os quando encontrar nomes melhores.
 
 O nome de uma variável, função ou classe deve responder a todas as grandes questões. Deve dizer por que existe, o que faz e como é usado. **Se um nome requer um comentário, então o nome não revela sua intenção**.
 
@@ -38,7 +38,7 @@ Este código é simples, mas gera muitas dúvidas:
 3. Por que comparamos `x[0]` vs `4`?
 4. Como eu usaria a lista retornada?
 
-As respostas a essas perguntas não estão presentes no exemplo de código, mas poderiam estar. Digamos que estamos trabalhando em um jogo de vassoura de minas. Podemos refatorar o código anterior da seguinte maneira:
+As respostas a essas perguntas não estão presentes no exemplo de código, mas poderiam estar. Digamos que estamos trabalhando em um jogo de campo minado. Podemos refatorar o código anterior da seguinte maneira:
 
 ```java
 public List <int[]> getFlaggedCells() {
@@ -53,12 +53,12 @@ public List <int[]> getFlaggedCells() {
 Agora sabemos as próximas informações:
 
 1. `theList` representa o `gameBoard`
-2. `x[0]` representa uma célula no quadro e `4` representa uma célula sinalizada
+2. `x` representa uma célula no tabuleiro, `x[0]` é o valor de status dessa célula e `4` representa uma célula sinalizada
 3. A lista retornada representa as `flaggedCells`
 
 Observe que a simplicidade do código não mudou. Ele ainda tem exatamente o mesmo número de operadores e constantes, com exatamente o mesmo número de níveis de aninhamento. Mas o código se tornou muito mais explícito.
 
-Podemos melhorar o código escrevendo uma classe simples para células em vez de usar um array de `ints`. Ele pode incluir uma **função reveladora de intenções** (chamada de `isFlagged`) para ocultar os números mágicos. Isso resulta em uma nova função da função.
+Podemos melhorar o código escrevendo uma classe simples para células em vez de usar um array de `ints`. Ele pode incluir uma **função reveladora de intenções** (chamada de `isFlagged`) para ocultar os números mágicos. Isso resulta em uma nova versão da função.
 
 ```java
 public List<Cell> getFlaggedCells() {
@@ -76,7 +76,7 @@ Os programadores devem evitar deixar pistas falsas que obscureçam o significado
 
 Não se refira a um agrupamento de contas como `accountList`, a menos que seja realmente uma `List`. A palavra `List` significa algo específico para programadores. Se o contêiner que contém as contas não for realmente uma lista, isso pode levar a conclusões falsas. Então `accountGroup` ou `bunchOfAccounts` ou simplesmente `accounts` seria melhor.
 
-Cuidado com o uso de nomes que variam em pequenas formas. Quanto tempo leva para identificar a diferença sutil entre um `XYZControllerForEfficientHandlingOfStrings` em um módulo e, em algum lugar um pouco mais distante, `XYZControllerForEfficientStorageOfStrings`? As palavras têm formas assustadoramente semelhantes
+Cuidado com o uso de nomes que variam em pequenas formas. Quanto tempo leva para identificar a diferença sutil entre um `XYZControllerForEfficientHandlingOfStrings` em um módulo e, em algum lugar um pouco mais distante, `XYZControllerForEfficientStorageOfStrings`? As palavras têm formas assustadoramente semelhantes.
 
 ### Faça distinções significativas
 
@@ -102,7 +102,7 @@ public static void copyChars(char source[], char destination[]) {
 }
 ```
 
-As palavras barulhentas são outra distinção sem sentido. Imagine que você tenha uma classe Produto. Se você tiver outro chamado `ProductInfo` ou `ProductData`, você fez os nomes diferentes sem fazê-los significar algo diferente. Informações e dados são palavras de ruído indistintas como a, an e the.
+As palavras barulhentas são outra distinção sem sentido. Imagine que você tenha uma classe `Product`. Se você tiver outra chamada `ProductInfo` ou `ProductData`, você fez os nomes diferentes sem fazê-los significar algo diferente. Informações e dados são palavras de ruído indistintas como a, an e the.
 
 Palavras de ruído são redundantes. A palavra variável nunca deve aparecer em um nome de variável. A palavra tabela nunca deve aparecer no nome de uma tabela.
 
@@ -174,7 +174,7 @@ Considere impor seu uso tornando privados os construtores correspondentes.
 
 | nome bonito       | Nome limpo    |
 | ----------------- |---------------|
-| `holyHandGranade` | `deleteItems` |
+| `holyHandGrenade` | `deleteItems` |
 | `whack`           | `kill`        |
 | `eatMyShorts`     | `abort`       |
 
@@ -188,19 +188,19 @@ Evite usar a mesma palavra para dois propósitos. Usar o mesmo termo para duas i
 
 Exemplo: em uma classe use `add` para criar um novo valor adicionando ou concatenando dois valores existentes e em outra classe use `add` para colocar um parâmetro simples em uma coleção, é uma opção melhor usar um nome como `insert` ou `append` em vez disso.
 
-### Use nomes de domínio de solução
+### Use nomes do domínio da solução
 
 Lembre-se de que as pessoas que lerão seu código serão programadores. Portanto, vá em frente e use termos de ciência da computação (CS), nomes de algoritmos, nomes de padrões, termos matemáticos e assim por diante.
 
-### Use nomes de domínio problemáticos
+### Use nomes do domínio do problema
 
 Quando não houver "programmer-eese" para o que você está fazendo, use o nome do domínio do problema. Pelo menos o programador que mantém seu código pode perguntar a um especialista de domínio o que isso significa.
 
 ### Adicionar contexto significativo
 
-Existem alguns nomes que são significativos por si mesmos - a maioria não é. Em vez disso, você precisa colocar os nomes no contexto para o seu leitor, colocando-os em classes, funções ou namespaces bem nomeados. Quando tudo mais falhar, prefixar o nome pode ser necessário como último recurso
+Existem alguns nomes que são significativos por si mesmos - a maioria não é. Em vez disso, você precisa colocar os nomes no contexto para o seu leitor, colocando-os em classes, funções ou namespaces bem nomeados. Quando tudo mais falhar, prefixar o nome pode ser necessário como último recurso.
 
-Variáveis como: `firstName`, `lastName`, `street`, `city`, `state`. Juntos, é bastante claro que eles formam um endereço, mas, e se você visse a variável state sendo usada sozinha em um método?, você poderia adicionar contexto usando prefixos como: `addrState` pelo menos os leitores entenderão que a variável faz parte de uma grande estrutura. Claro, uma solução melhor é criar uma classe chamada `Address` assim até mesmo o compilador saberá que as variáveis pertencem a um conceito maior
+Variáveis como: `firstName`, `lastName`, `street`, `city`, `state`. Juntos, é bastante claro que eles formam um endereço, mas, e se você visse a variável state sendo usada sozinha em um método?, você poderia adicionar contexto usando prefixos como: `addrState` pelo menos os leitores entenderão que a variável faz parte de uma grande estrutura. Claro, uma solução melhor é criar uma classe chamada `Address` assim até mesmo o compilador saberá que as variáveis pertencem a um conceito maior.
 
 ### Não adicione contexto gratuito
 

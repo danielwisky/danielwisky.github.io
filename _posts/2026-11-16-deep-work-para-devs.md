@@ -36,7 +36,7 @@ Algumas coisas que costumam funcionar:
 
 ## Slack não é chamada de emergência
 
-A ferramenta de chat foi feita para ser assíncrona, mas a cultura em volta dela muitas vezes trata cada mensagem como se exigisse resposta imediata. Isso transforma o dia num estado permanente de semiatenção: você está trabalhando, mas uma parte da cabeça está esperando a próxima notificação.
+A ferramenta de chat até pode ser usada de forma assíncrona, mas a cultura em volta dela muitas vezes trata cada mensagem como se exigisse resposta imediata. Isso transforma o dia num estado permanente de semiatenção: você está trabalhando, mas uma parte da cabeça está esperando a próxima notificação.
 
 Durante o bloco de foco, feche o Slack ou pause as notificações. Pode parecer arriscado no começo, mas vale fazer a pergunta honesta: quantas mensagens da última semana realmente precisavam de resposta em menos de uma hora? Se a resposta for "quase nenhuma", o risco é menor do que parece. As que precisam de verdade, como um incidente em produção, chegam por outro canal: alerta, telefone ou alguém que vem te chamar.
 

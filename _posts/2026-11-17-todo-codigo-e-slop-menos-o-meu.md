@@ -20,7 +20,7 @@ A resposta dela não é "revise mais rápido" nem "confie no agente". É investi
 A ideia central da palestra é uma pirâmide com cinco camadas, ordenadas da mais barata para a mais cara. O esforço de engenharia deve ir principalmente para o topo:
 
 1. **Código e design de API.** A melhor forma de evitar uma escolha ruim é torná-la impossível. Se a API não permite o erro, ninguém precisa lembrar de não cometê-lo.
-2. **Análise estática.** Lint, type checker, compilador e testes pegam o que o código ainda permite, mas não deveria.
+2. **Checagens determinísticas.** Lint, type checker, compilador e testes pegam o que o código ainda permite, mas não deveria.
 3. **Verificação.** Checagens em tempo de execução (e até formais) confirmam que o comportamento é o que foi pedido.
 4. **Prosa.** Regras escritas, arquivos de instrução e skills. Ficam reservadas para decisões que ainda dependem de julgamento.
 5. **Revisão humana.** A ponta da pirâmide, a camada mais cara e a que menos escala.
@@ -31,7 +31,7 @@ O que me chamou atenção foi a posição da prosa, quase no fim da fila. Muita 
 
 Um agente aprende com o repositório. Se existe um workaround esquisito em algum canto, o próximo agente pode muito bem tomá-lo como o padrão estabelecido. Ela compara esse trabalho com jardinagem: apagar código deprecado e limpar exemplos ruins muda o que o agente vai reproduzir.
 
-O exemplo que ela trouxe vem do Cursor, outro app Electron. Lá, agentes tinham importado código do processo principal dentro do renderer, e as tarefas longas resultantes faziam a interface travar. No framework que o time dela construiu para o Grok Bot, chamado Dune, a solução foi estrutural: código do renderer e código do processo principal vivem em dois diretórios de topo com nomes explícitos. O nome da pasta já dá contexto ao agente enquanto ele escreve. E, para quando ele não percebe a dica, um analisador de grafo de dependências e regras de lint bloqueiam o import cruzado.
+O exemplo que ela trouxe vem do Cursor, outro app Electron. Lá, agentes tinham importado código do processo principal dentro do renderer, e as tarefas longas resultantes deixavam a interface engasgando. No framework que o time dela construiu para o Grok Bot, chamado Dune, a solução foi estrutural: código do renderer e código do processo principal vivem em dois diretórios de topo com nomes explícitos. O nome da pasta já dá contexto ao agente enquanto ele escreve. E, para quando ele não percebe a dica, um analisador de grafo de dependências e regras de lint bloqueiam o import cruzado.
 
 Outro exemplo: o `useEffect` tem usos legítimos, mas os agentes erravam com frequência no julgamento de quando usá-lo. No Dune, ele só é permitido dentro de algumas APIs do próprio framework e é proibido no código de produto. Ninguém precisa decidir em revisão se aquele `useEffect` específico é uma exceção aceitável. A regra decide.
 
