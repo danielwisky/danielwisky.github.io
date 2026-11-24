@@ -13,7 +13,7 @@ Esses casos viraram material de estudo em cursos de engenharia, e não por serem
 
 Em 4 de junho de 1996, a Agência Espacial Europeia lançou pela primeira vez o Ariane 5, um foguete novo, maior e mais potente que o antecessor. Cerca de 40 segundos depois da decolagem, ele desviou bruscamente da trajetória, começou a se desintegrar pelas forças aerodinâmicas e foi destruído pelo sistema de autodestruição. Levava a bordo os satélites da missão Cluster.
 
-A comissão de investigação, presidida pelo matemático Jacques-Louis Lions, chegou a uma causa bem específica. O sistema de referência inercial, que informa ao computador de bordo a posição e a velocidade do foguete, tinha um trecho que convertia um valor de ponto flutuante de 64 bits, relacionado à velocidade horizontal, para um inteiro com sinal de 16 bits. O valor ficou maior do que cabia em 16 bits, a conversão gerou uma exceção, e essa exceção não estava tratada. O sistema simplesmente desligou.
+A comissão de investigação, presidida pelo matemático Jacques-Louis Lions, chegou a uma causa bem específica. O sistema de referência inercial, que informa ao computador de bordo a posição e a velocidade do foguete, tinha um trecho que convertia um valor de ponto flutuante de 64 bits, relacionado à velocidade horizontal, para um inteiro com sinal de 16 bits. O valor ficou maior do que cabia em 16 bits, a conversão gerou uma exceção (um Operand Error), e aquela conversão não estava protegida contra isso. A especificação mandava, diante de qualquer exceção, registrar a falha e desligar o processador. E o sistema desligou.
 
 Até aqui parece um bug de iniciante. Os detalhes é que tornam o caso interessante:
 
@@ -29,15 +29,15 @@ E o último golpe: quando o sistema inercial caiu, ele enviou dados de diagnóst
 
 **Reaproveitar código é reaproveitar as premissas dele.** O módulo do Ariane 4 não tinha bug no contexto para o qual foi escrito. O bug nasceu quando o contexto mudou e ninguém conferiu se as suposições implícitas ainda valiam. Isso acontece toda semana em software comum: uma biblioteca interna que assumia uma moeda, um serviço que assumia que o volume nunca passaria de mil itens, um campo que "nunca vem nulo".
 
-A outra lição é sobre redundância. Duas cópias do mesmo código protegem contra falha de hardware, não contra falha de lógica. Se as duas réplicas do seu serviço recebem a mesma mensagem envenenada, as duas vão cair. É por isso que ideias como [circuit breaker](/2026-10-09-circuit-breaker/) e isolamento de falhas importam mais do que simplesmente ter mais instâncias.
+A outra lição é sobre redundância. Duas cópias do mesmo código protegem contra falha de hardware, não contra falha de lógica. Se as duas réplicas do seu serviço recebem a mesma mensagem envenenada, as duas vão cair. Mais instâncias não resolvem isso. O que resolve é isolar a falha: tirar a mensagem envenenada do caminho, mandando para uma dead letter queue depois de algumas tentativas, e usar um [circuit breaker](/2026-10-09-circuit-breaker/) para que o problema de um componente não se propague para os outros.
 
 ## Therac-25: quando o software substituiu a trava física
 
-O Therac-25 era uma máquina de radioterapia fabricada pela AECL, uma estatal canadense, usada em hospitais dos Estados Unidos e do Canadá nos anos 1980. Entre 1985 e 1987, ela aplicou doses de radiação muito acima do prescrito em pelo menos seis pacientes. Pelo menos três morreram em decorrência das overdoses.
+O Therac-25 era uma máquina de radioterapia fabricada pela AECL, uma estatal canadense, usada em hospitais dos Estados Unidos e do Canadá nos anos 1980. Entre 1985 e 1987, ela aplicou doses de radiação muito acima do prescrito em pelo menos seis pacientes. Foram três mortes atribuídas diretamente às overdoses.
 
 A máquina tinha dois modos principais. No modo de elétrons, aplicava um feixe de baixa intensidade diretamente no paciente. No modo de raio X, gerava um feixe de altíssima intensidade que passava por um alvo metálico antes de chegar ao corpo, e era esse alvo que convertia e atenuava a radiação. Se o feixe de alta intensidade saísse sem o alvo na frente, o paciente recebia uma dose brutal.
 
-Os modelos anteriores, Therac-6 e Therac-20, tinham travas de hardware independentes do software. No Therac-20, que também tinha os dois modos, elas impediam fisicamente essa combinação. No Therac-25, a AECL removeu essas travas e passou a confiar no software para garantir a segurança.
+Os modelos anteriores, Therac-6 e Therac-20, tinham travas de hardware independentes do software. O Therac-6 só fazia raio X. O Therac-20, que tinha os dois modos como o Therac-25, contava com travas que impediam fisicamente essa combinação. No Therac-25, a AECL removeu essas travas e passou a confiar no software para garantir a segurança.
 
 O bug mais conhecido era uma condição de corrida. O operador digitava os parâmetros do tratamento num terminal. Se ele errasse o modo, digitando "x" no lugar de "e", e corrigisse rapidamente, em poucos segundos, a interface mostrava o valor correto, mas parte do sistema já tinha configurado o hardware com a informação antiga. Operadores experientes, justamente por digitarem rápido, eram os que conseguiam disparar a falha. Nos testes, ela nunca tinha aparecido.
 
@@ -91,4 +91,4 @@ No Ariane, o overflow só importou porque o código foi reutilizado sem revisar 
 
 O psicólogo James Reason deu um nome para isso: o modelo do queijo suíço. Cada camada de proteção tem furos, e o acidente acontece quando os furos de várias camadas se alinham. A consequência prática é libertadora e incômoda ao mesmo tempo. Libertadora porque você não precisa escrever código perfeito; ninguém escreve. Incômoda porque cada camada que você remove, cada alerta que você ignora e cada premissa que você não revisita aumenta a chance de os furos se alinharem.
 
-Da próxima vez que alguém disser "esse código funciona há anos, pode reaproveitar", "não precisa dessa validação, o outro serviço já faz" ou "esse alerta sempre aparece, pode ignorar", vale lembrar que frases muito parecidas aparecem nos relatórios desses três casos.
+Da próxima vez que alguém disser "esse código funciona há anos, pode reaproveitar", "não precisa dessa validação, o outro serviço já faz" ou "esse alerta sempre aparece, pode ignorar", vale lembrar que os relatórios desses três casos descrevem exatamente esse tipo de premissa e de atitude.

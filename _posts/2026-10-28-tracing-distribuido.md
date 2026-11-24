@@ -71,6 +71,8 @@ management:
       endpoint: http://otel-collector:4318/v1/traces
 ```
 
+Essa configuração é a do Spring Boot 3. No Spring Boot 4, a propriedade passou a ser `management.opentelemetry.tracing.export.otlp.endpoint`, e existe o `spring-boot-starter-opentelemetry`, que já traz as dependências necessárias.
+
 Com isso, as requisições recebidas e as chamadas feitas por `RestClient`, `WebClient` e `RestTemplate` (desde que criados a partir dos builders que o Spring injeta) já geram spans e propagam o `traceparent`. Para medir um trecho específico do próprio código, a API de Observation do Micrometer cria o span e, de quebra, o timer:
 
 ```java
@@ -97,7 +99,7 @@ O problema é que a decisão é tomada antes de saber se a requisição vai ser 
 
 ## Cuidados
 
-Atributos de span merecem a mesma disciplina das tags de métrica. Colocar o id do usuário ou a URL completa com parâmetros como atributo de baixa cardinalidade é pedir para estourar o custo da ferramenta, e dados pessoais ou tokens não deveriam aparecer em span nenhum, já que traces costumam ser acessíveis a muita gente.
+Atributos de span podem ter alta cardinalidade, e a própria convenção do OpenTelemetry prevê coisas como a URL completa. O custo aparece quando esses valores viram tags de métrica: na Observation do Micrometer, `lowCardinalityKeyValue` vai para a métrica e para o span, enquanto `highCardinalityKeyValue` fica só no span. Colocar o id do usuário ou a URL completa com parâmetros como chave de baixa cardinalidade é pedir para estourar o custo da ferramenta. E dados pessoais ou tokens não deveriam aparecer em span nenhum, já que traces costumam ser acessíveis a muita gente.
 
 Também vale lembrar que o trace mostra o que foi instrumentado. Um trecho sem span aparece como um buraco entre dois spans, e esse buraco já é uma pista: muitas vezes é ali que está um pool de conexões saturado ou um lock esperando, coisas que um bom [timeout](/2026-10-16-timeouts-e-propagacao-de-deadline/) teria cortado antes.
 

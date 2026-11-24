@@ -68,11 +68,11 @@ service.registrar(new EstoqueObserver());
 service.registrar(new AuditoriaObserver());
 ```
 
-Adicionar uma quinta ação significa criar uma classe nova e registrá-la, sem tocar em `PagamentoService`. E se um observador específico falhar com uma exceção, isso não deveria derrubar os demais nem o fluxo de pagamento em si, algo que a versão com chamadas diretas já expunha como risco desde o início (um `emailService` fora do ar derrubando a confirmação do pagamento inteiro).
+Adicionar uma quinta ação significa criar uma classe nova e registrá-la, sem tocar em `PagamentoService`. E se um observador específico falhar com uma exceção, isso não deveria derrubar os demais nem o fluxo de pagamento em si, algo que a versão com chamadas diretas já expunha como risco desde o início (um `emailService` fora do ar derrubando a confirmação do pagamento inteiro). Repare que o `forEach` do exemplo, sozinho, não garante isso: a primeira exceção interrompe o laço. Para isolar as falhas, envolva cada chamada num `try/catch` ou dispare os observadores de forma assíncrona.
 
 ## A versão que já existe no Java
 
-Antes de qualquer framework de eventos, o próprio `java.util` já tinha uma modelagem parecida com `Observable` (hoje obsoleta, mas didática), e o padrão aparece sob outros nomes em praticamente toda base de código: listeners de UI (`addActionListener`), callbacks de `CompletableFuture`, ou os `@EventListener` do Spring, que registram métodos como observadores de eventos publicados em qualquer lugar da aplicação.
+Antes de qualquer framework de eventos, o próprio `java.util` já tinha uma modelagem parecida com `Observable` (obsoleta desde o Java 9, mas didática), e o padrão aparece sob outros nomes em praticamente toda base de código: listeners de UI (`addActionListener`), callbacks de `CompletableFuture`, ou os `@EventListener` do Spring, que registram métodos como observadores de eventos publicados em qualquer lugar da aplicação.
 
 ```java
 @EventListener

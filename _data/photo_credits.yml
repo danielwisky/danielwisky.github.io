@@ -15,11 +15,21 @@
   author_url: "https://www.pexels.com/@thisisengineering/"
   source: "Pexels"
   source_url: "https://www.pexels.com/photo/graph-on-laptop-screen-3912976/"
+"o-primeiro-bug-era-mesmo-uma-mariposa":
+  author: "Egor Kamelev"
+  author_url: "https://www.pexels.com/@ekamelev/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/close-up-photo-of-moth-1126785/"
 "cursor-claude-code-ia-no-desenvolvimento":
   author: "Matheus Bertelli"
   author_url: "https://www.pexels.com/@bertellifotografia/"
   source: "Pexels"
   source_url: "https://www.pexels.com/photo/man-with-chatgpt-in-laptop-16094043/"
+"a-origem-do-ctrl-c-ctrl-v-ctrl-z":
+  author: "Miguel Á. Padriñán"
+  author_url: "https://www.pexels.com/@padrinan/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/close-up-shot-of-keyboard-buttons-2882517/"
 "o-que-mudou-em-cada-versao-do-java":
   author: "Daniil Komov"
   author_url: "https://www.pexels.com/@dkomov"
@@ -30,6 +40,11 @@
   author_url: "https://www.pexels.com/@panumas-nikhomkhai"
   source: "Pexels"
   source_url: "https://www.pexels.com/photo/data-center-server-racks-with-active-equipment-37730212/"
+"por-que-um-byte-tem-8-bits":
+  author: "Rūdolfs Klintsons"
+  author_url: "https://www.pexels.com/@rudonni/"
+  source: "Pexels"
+  source_url: "https://www.pexels.com/photo/close-up-photo-of-a-circuit-board-7174676/"
 "structured-concurrency-java":
   author: "Brett Sayles"
   author_url: "https://www.pexels.com/@brett-sayles"
@@ -451,7 +466,7 @@
   source: "Pexels"
   source_url: "https://www.pexels.com/photo/radio-telescope-against-sky-with-stars-6325001/"
 "por-que-seu-teclado-e-qwerty":
-  author: "Alexandre Boucher"
-  author_url: "https://www.pexels.com/@alexandre-boucher-106567/"
+  author: "Sathesh D"
+  author_url: "https://www.pexels.com/@sathez994/"
   source: "Pexels"
-  source_url: "https://www.pexels.com/photo/close-up-of-typewriter-keys-696080/"
+  source_url: "https://www.pexels.com/photo/closeup-photo-of-black-computer-keyboard-s-left-side-keys-698808/"

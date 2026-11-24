@@ -48,7 +48,7 @@ VALUES (:id, :tipo)
 ON CONFLICT (mensagem_id) DO NOTHING;
 ```
 
-O exemplo usa a sintaxe do PostgreSQL; no MySQL o equivalente é o `INSERT IGNORE`. O `registrarSeNovo` olha o número de linhas afetadas pelo insert e devolve `true` se a linha foi inserida e `false` se já existia. Como o registro na inbox e o crédito dos pontos estão na mesma transação, ou os dois acontecem, ou nenhum. Se o processo cair depois do commit no banco e antes do commit do offset, a mensagem volta, a inserção não acontece e o consumidor simplesmente segue em frente.
+O exemplo usa a sintaxe do PostgreSQL; no MySQL o mais próximo é o `INSERT IGNORE`, com o cuidado de que ele também transforma em aviso outros erros, como truncamento de dados. Para ignorar só a chave duplicada, dá para usar `INSERT ... ON DUPLICATE KEY UPDATE id = id`. O `registrarSeNovo` olha o número de linhas afetadas pelo insert e devolve `true` se a linha foi inserida e `false` se já existia. Como o registro na inbox e o crédito dos pontos estão na mesma transação, ou os dois acontecem, ou nenhum. Se o processo cair depois do commit no banco e antes do commit do offset, a mensagem volta, a inserção não acontece e o consumidor simplesmente segue em frente.
 
 ## De onde vem o identificador
 

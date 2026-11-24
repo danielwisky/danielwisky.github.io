@@ -7,9 +7,9 @@ tags: [Desafio de Programação]
 
 Neste jogo você acaba de receber um telefonema para desarmar uma bomba que foi colocada em um edifício com um milhão de quartos (100 quartos de largura, 100 quartos de comprimento e 100 quartos de altura).
 
-Por sorte, você conta com um detector de bombas, cujo sinal aumenta, quanto mais próximo da bomba, você estiver. Além disso, estando no mesmo ambiente, este detector de bombas é capaz de enviar um sinal eletrônico que desativa o circuito eletrônico da bomba. Em resposta ao sinal do detector, você terá 10 segundos para fazer uma nova tentativa, num total de 200 segundos ou 20 tentativas para encontrá-la.
+Por sorte, você conta com um detector de bombas, cujo sinal aumenta quanto mais próximo da bomba você estiver. Além disso, estando no mesmo ambiente, este detector de bombas é capaz de enviar um sinal eletrônico que desativa o circuito eletrônico da bomba. Em resposta ao sinal do detector, você terá 10 segundos para fazer uma nova tentativa, num total de 200 segundos ou 20 tentativas para encontrá-la.
 
-É muito fácil encontrar a bomba uma vez que você entenda como o detector funciona, mas, não vou estragar seu jogo te contando este detalhe.
+É muito fácil encontrar a bomba uma vez que você entenda como o detector funciona, mas não vou estragar seu jogo te contando este detalhe.
 
 ```
 Voce esta em um predio governamental com 1.000.000 de quartos.
@@ -78,7 +78,7 @@ A bomba estava em 84 96 80
 
 > sinal=10000-(abs(a-d)/100.0+abs(b-e)+abs(c-f)\*100);
 
-onde as variáveis **(a, b, c)** representam a largura, o comprimento e a altura do quarto onde está a bomba, **(d, e, f)** representam a largura, o comprimento e a altura do quarto onde o jogador julga que está a bomba. A função `abs()` é a função que retorna o valor em módulo. Essa função pertence a biblioteca `math.h` e sinal é uma variável do tipo **float**. Notem que há três situações possíveis de saída:
+onde as variáveis **(a, b, c)** representam a largura, o comprimento e a altura do quarto onde está a bomba, **(d, e, f)** representam a largura, o comprimento e a altura do quarto onde o jogador julga que está a bomba. A função `abs()` é a função que retorna o valor em módulo. Essa função pertence à biblioteca `stdlib.h` e sinal é uma variável do tipo **float**. Notem que há três situações possíveis de saída:
 
 - aquela que o jogador não desarma a bomba (não conseguiu em 20 tentativas);
 - aquela que o jogador desarma a bomba, mas é suspeito de ser quem colocou a bomba (acertar de primeira);

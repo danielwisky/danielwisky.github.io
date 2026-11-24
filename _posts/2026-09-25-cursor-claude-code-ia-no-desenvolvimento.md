@@ -15,15 +15,15 @@ Isso não elimina a necessidade de saber programar. Pelo contrário: revisar um 
 
 ## Cursor: IDE que virou ponto de partida da IA
 
-O Cursor nasceu como um fork do VS Code com IA embutida desde o primeiro dia: autocomplete rápido, chat lateral com contexto do projeto e, mais recentemente, um modo agente que consegue editar vários arquivos dentro da própria IDE. A vantagem prática é ficar num único lugar: editar, revisar e aceitar sugestões sem trocar de ferramenta, com a IA sempre à mão pra edições pontuais e trechos pequenos.
+O Cursor nasceu como um fork do VS Code com IA embutida desde o primeiro dia: autocomplete rápido, chat lateral com contexto do projeto e, mais recentemente, um modo agente que consegue editar vários arquivos dentro da própria IDE (e hoje também existe um Cursor CLI para o terminal). A vantagem prática é ficar num único lugar: editar, revisar e aceitar sugestões sem trocar de ferramenta, com a IA sempre à mão pra edições pontuais e trechos pequenos.
 
 ## Claude Code: agente que vive no terminal
 
-O Claude Code segue outro caminho: roda no terminal, ao lado de qualquer editor, e é pensado pra ser instruído com tarefas maiores, como refatorar um módulo inteiro, investigar um bug que atravessa vários arquivos ou escrever e rodar testes até tudo passar. Por não estar preso a uma IDE específica, ele se encaixa em fluxos de automação, scripts e CI com mais naturalidade do que uma extensão de editor.
+O Claude Code segue outro caminho: nasceu no terminal (hoje também tem extensões para VS Code e JetBrains, app desktop e versão web), ao lado de qualquer editor, e é pensado pra ser instruído com tarefas maiores, como refatorar um módulo inteiro, investigar um bug que atravessa vários arquivos ou escrever e rodar testes até tudo passar. Por não estar preso a uma IDE específica, ele se encaixa em fluxos de automação, scripts e CI com mais naturalidade do que uma extensão de editor.
 
 ## Como isso muda o fluxo de trabalho
 
-Na prática, times que usam essas ferramentas bem não escolhem uma só, combinam as duas:
+Na prática, muitos times não escolhem uma só e combinam as duas:
 
 - **Edições pequenas e interativas** (ajustar uma função, revisar um trecho, autocomplete durante a digitação): ficam melhores dentro de uma IDE como o Cursor.
 - **Tarefas grandes e bem delimitadas** (refatoração ampla, geração de testes, investigação de bug que atravessa o código): funcionam melhor delegadas a um agente de terminal como o Claude Code, que consegue rodar comandos, iterar sozinho e só voltar quando tiver algo pronto pra revisão.

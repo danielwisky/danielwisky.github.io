@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "Clean code: Funções"
-subtitle: "As funções são a primeira linha de organização em qualquer tópico."
+subtitle: "As funções são a primeira linha de organização em qualquer programa."
 tags: [Clean Code]
 ---
 
 ## Funções
 
-As funções são a primeira linha de organização em qualquer tópico.
+As funções são a primeira linha de organização em qualquer programa.
 
-### Pequena!!
+### Pequenas!!
 
 A primeira regra das funções é que elas devem ser pequenas. A segunda regra das funções é que elas devem ser menores que isso.
 
@@ -21,7 +21,7 @@ Isso também implica que as funções não devem ser grandes o suficiente para c
 
 ### Faça uma coisa
 
-**AS FUNÇÕES DEVEM FAZER UMA COISA. ELES DEVEM FAZER BEM. SÓ DEVEM FAZÊ-LO.**
+**AS FUNÇÕES DEVEM FAZER UMA COISA. ELAS DEVEM FAZER BEM. SÓ DEVEM FAZÊ-LO.**
 
 #### Seções dentro de funções
 
@@ -35,7 +35,7 @@ Para garantir que nossas funções estejam fazendo "uma coisa", precisamos garan
 
 Queremos que o código seja lido como uma narrativa de cima para baixo. Queremos que cada função seja seguida por aquelas no próximo nível de abstração para que possamos ler o programa, descendo um nível de abstração de cada vez enquanto lemos a lista de funções.
 
-Para dizer isso de forma diferente, queremos ser capazes de ler o programa como se fosse um conjunto de parágrafos para, cada um dos quais descrevendo o nível atual de abstração e referenciando os parágrafos para subsequentes no próximo nível abaixo.
+Para dizer isso de forma diferente, queremos ser capazes de ler o programa como se fosse um conjunto de parágrafos "para" (TO), cada um descrevendo o nível atual de abstração e referenciando os parágrafos "para" subsequentes no próximo nível abaixo.
 
 ```
 - Para incluir as configurações e desmontagens, incluímos as configurações, depois incluímos o conteúdo da página de teste e, em seguida, incluímos as desmontagens.
@@ -46,13 +46,13 @@ Para dizer isso de forma diferente, queremos ser capazes de ler o programa como 
 
 Acontece que é muito difícil para os programadores aprender a seguir essa regra e escrever funções que ficam em um único nível de abstração. Mas aprender esse truque também é muito importante. É a chave para manter as funções curtas e garantir que elas façam "uma coisa". Fazer o código ser lido como um conjunto de parágrafos "para fazer isso" (os chamados parágrafos TO), de cima para baixo, é uma técnica eficaz para manter o nível de abstração consistente.
 
-### Instruções de troca
+### Instruções switch
 
 É difícil fazer uma pequena declaração switch. Mesmo uma instrução switch com apenas dois casos é maior do que eu gostaria que um único bloco ou função fosse. Também é difícil fazer uma instrução switch que faça uma coisa. Por sua natureza, as instruções switch sempre fazem N coisas. Infelizmente, nem sempre podemos evitar as instruções switch, mas podemos garantir que cada instrução switch seja ocultada em uma classe de baixo nível e nunca seja repetida. Fazemos isso, é claro, com polimorfismo.
 
 ### Use nomes descritivos
 
-> Você sabe que está trabalhando em código limpo quando cada rotina acaba sendo exatamente o que você esperava
+> Você sabe que está trabalhando em código limpo quando cada rotina acaba sendo exatamente o que você esperava. (Princípio de Ward Cunningham, citado no livro)
 
 Metade da batalha para alcançar esse princípio é escolher bons nomes para pequenas funções que fazem uma coisa. Quanto menor e mais focada for uma função, mais fácil será escolher um nome descritivo.
 
@@ -62,7 +62,7 @@ A escolha de nomes descritivos esclarecerá o design do módulo em sua mente e o
 
 ### Argumentos da função
 
-O número ideal de argumentos para uma função é zero (niládico). Em seguida vem um (monádico), seguido de perto por dois (diádico). Três argumentos (triádicos) devem ser evitados sempre que possível. Mais de três (poliádico) requer justificativa muito especial – e então não deve ser usado de qualquer maneira.
+O número ideal de argumentos para uma função é zero (niládico). Em seguida vem um (monádico), seguido de perto por dois (diádico). Três argumentos (triádicos) devem ser evitados sempre que possível. Mais de três (poliádico) requer justificativa muito especial e, mesmo assim, não deveria ser usado.
 
 Os argumentos são ainda mais difíceis do ponto de vista do teste. Imagine a dificuldade de escrever todos os casos de teste para garantir que todas as várias combinações de argumentos funcionem corretamente. Se não houver argumentos, isso é trivial. Se houver um argumento, não é muito difícil. Com dois argumentos, o problema fica um pouco mais desafiador. Com mais de dois argumentos, testar cada combinação de valores apropriados pode ser assustador.
 
@@ -78,13 +78,13 @@ Argumentos sinalizadores são feios. Passar um booleano para uma função é uma
 
 #### Funções diádicas
 
-Uma função com dois argumentos é mais difícil de entender do que uma função monádica. Por exemplo, `writeField(name)` é mais fácil de entender do que `writeField(output-Stream, name)`
+Uma função com dois argumentos é mais difícil de entender do que uma função monádica. Por exemplo, `writeField(name)` é mais fácil de entender do que `writeField(outputStream, name)`.
 
 Há momentos, é claro, em que dois argumentos são apropriados. Por exemplo, `Point p = new Point(0,0);` é perfeitamente razoável. Os pontos cartesianos naturalmente levam dois argumentos.
 
 Mesmo funções diádicas óbvias como assertEquals(esperado, real) são problemáticas. Quantas vezes você colocou o real onde deveria estar o esperado? Os dois argumentos não têm ordem natural. A ordem esperada e real é uma convenção que requer prática para aprender.
 
-Díades não são más, e você certamente terá que escrevê-las. No entanto, você deve estar ciente de que eles têm um custo e devem aproveitar os mecanismos disponíveis para convertê-los em mônadas. Por exemplo, você pode tornar o método writeField um membro de outputStream para poder dizer outputStream.writeField(nome). Ou você pode tornar o outputStream uma variável de membro da classe atual para que não precise transmiti-lo. Ou você pode extrair uma nova classe como FieldWriter que usa o outputStream em seu construtor e tem um método de gravação.
+Díades não são más, e você certamente terá que escrevê-las. No entanto, você deve estar ciente de que elas têm um custo e devem aproveitar os mecanismos disponíveis para convertê-los em mônadas. Por exemplo, você pode tornar o método writeField um membro de outputStream para poder dizer outputStream.writeField(nome). Ou você pode tornar o outputStream uma variável de membro da classe atual para que não precise transmiti-lo. Ou você pode extrair uma nova classe como FieldWriter que usa o outputStream em seu construtor e tem um método de gravação.
 
 #### Tríades
 
@@ -132,7 +132,7 @@ Alguns programadores seguem as regras de programação estruturada de Edsger Dij
 
 Embora simpatizemos com os objetivos e disciplinas da programação estruturada, essas regras trazem poucos benefícios quando as funções são muito pequenas. É apenas em funções maiores que tais regras fornecem benefícios significativos.
 
-Portanto, se você mantiver suas funções pequenas, as declarações múltiplas ocasionais `return`, `break` ou `continue` não causam danos e às vezes podem até ser mais expressivas do que a regra de entrada única e saída única. Por outro lado, `goto` só faz sentido em funções grandes, por isso deve ser evitado
+Portanto, se você mantiver suas funções pequenas, as declarações múltiplas ocasionais `return`, `break` ou `continue` não causam danos e às vezes podem até ser mais expressivas do que a regra de entrada única e saída única. Por outro lado, `goto` só faz sentido em funções grandes, por isso deve ser evitado.
 
 Fonte:
 <a href="https://github.com/JuanCrg90/Clean-Code-Notes" target="_blank">Clean Code Notes</a>.

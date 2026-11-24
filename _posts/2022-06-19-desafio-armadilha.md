@@ -37,7 +37,7 @@ Digite o limite superior: -> 42
 Voce levou 7 tentativas para acertar
 ```
 
-**ARMADILHA** é um jogo simples sem efeito especial e a única instrução a salientar é que o jogo não pára se o jogador trocar o limite superior pelo inferior. O próprio programa se encarregará de arrumá-los.
+**ARMADILHA** é um jogo simples sem efeito especial e a única instrução a salientar é que o jogo não para se o jogador trocar o limite superior pelo inferior. O próprio programa se encarregará de arrumá-los.
 
 ```
 Digite o limite inferior: -> 36
