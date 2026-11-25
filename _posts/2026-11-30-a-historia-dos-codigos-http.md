@@ -13,9 +13,13 @@ Fiz um vídeo sobre esse assunto. Se preferir assistir, ele está aqui embaixo. 
 
 ## O mito da sala 404
 
-Talvez você já tenha ouvido esta: o erro 404 teria esse nome por causa de uma sala 404 no CERN, onde ficavam os primeiros servidores da web. Quando alguém pedia um arquivo que não existia, a resposta seria "sala 404: arquivo não encontrado". É uma história ótima, e é exatamente por isso que ela circula tanto.
+Talvez você já tenha ouvido esta: o erro 404 teria esse nome por causa de uma sala 404 no CERN, onde ficavam os primeiros servidores da web. Em algumas versões, era lá também o escritório de Tim Berners-Lee, que vivia não sendo encontrado. É uma história ótima, e é exatamente por isso que ela circula tanto.
 
-Só que é mito. Robert Cailliau, que criou a web junto com Tim Berners-Lee no CERN, já disse que o 404 não tem nada a ver com nenhuma sala ou lugar do CERN. A explicação de verdade é bem menos romântica, e está escrita nas próprias especificações do HTTP.
+Só que é mito. Robert Cailliau, que trabalhou com Berners-Lee na criação da web no CERN, foi taxativo quando a [Wired](https://www.wired.com/story/page-not-found-a-brief-history-of-the-404-error/) perguntou sobre o assunto em 2017:
+
+> 404 was never linked to any room or any physical place at CERN. That's a complete myth.
+
+Ou seja: o 404 nunca teve ligação com nenhuma sala ou lugar físico do CERN, e a história é um mito completo. A explicação de verdade é bem menos romântica, e está escrita nas próprias especificações do HTTP.
 
 ## O primeiro dígito diz o tipo de resposta
 
@@ -45,7 +49,7 @@ Para ver de onde vieram os números, vale voltar ao [Basic HTTP as defined in 19
 | `403` | Forbidden |
 | `404` | Not found |
 
-É isso. O 404 não carrega simbologia nenhuma: era o quinto item da lista de erros do cliente. Se a ordem tivesse sido outra, a gente estaria vendo páginas "403 Not Found" até hoje.
+É isso. O 404 não carrega simbologia nenhuma: era o quinto item da lista de erros do cliente. Se a ordem tivesse sido outra, o "Not Found" poderia muito bem ter ganhado outro número.
 
 A mesma página guarda outra curiosidade. Numa nota de 19 de setembro de 1994, ela propõe o 502 como "Service temporarily overloaded" e o 503 como "Gateway timeout", ambos marcados "TO BE DISCUSSED". Hoje esses significados mudaram: a RFC 9110 define o 502 como Bad Gateway, o 503 como Service Unavailable e o 504 como Gateway Timeout.
 
@@ -67,9 +71,9 @@ Em 1º de abril de 1998, saiu a [RFC 2324](https://www.rfc-editor.org/rfc/rfc232
 
 > Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot".
 
-Qualquer tentativa de fazer café num bule de chá deve resultar em "418 I'm a teapot". A RFC ainda brinca que o corpo da resposta pode ser *short and stout*, baixinho e gordinho, como diz a cantiga infantil inglesa sobre um bule de chá.
+Qualquer tentativa de fazer café num bule de chá deve resultar em "418 I'm a teapot". A RFC ainda brinca que o corpo da resposta pode ser *short and stout*, baixinho e gordinho, como diz a cantiga infantil americana *I'm a Little Teapot*.
 
-O problema é que a piada pegou, e o 418 acabou implementado de brincadeira em muito lugar. Pegou tanto que a RFC 9110, de junho de 2022, tem uma seção chamada **418 (Unused)**. Ela explica que o código foi usado como piada vezes demais para servir para qualquer outra coisa no futuro. Um código HTTP aposentado por excesso de humor.
+O problema é que a piada pegou, e o 418 acabou implementado de brincadeira em muito lugar. Pegou tanto que a RFC 9110, de junho de 2022, tem uma seção chamada **418 (Unused)**. Ela explica que o código foi usado como piada vezes demais para servir a outra aplicação, e por isso fica reservado. Só seria reaproveitado se um dia faltassem códigos 4xx. Um código HTTP encostado por excesso de humor.
 
 ## 451 Unavailable For Legal Reasons
 
@@ -81,11 +85,12 @@ O número não é por acaso. É uma referência a *Fahrenheit 451*, o romance de
 
 ## O que fica
 
-Os códigos HTTP parecem cheios de mistério, mas a regra é simples: o primeiro dígito diz o tipo de resposta, e os outros dois são só a posição na lista. O 404 virou o erro mais famoso da web por ser o quinto da fila, não por causa de uma sala no CERN.
+Os códigos HTTP parecem cheios de mistério, mas a regra é simples: o primeiro dígito diz o tipo de resposta, e os outros dois só identificam o código dentro da classe. O 404 tem esse número por ser o quinto da fila, não por causa de uma sala no CERN.
 
-O mais divertido é que, mesmo num padrão tão sério, sobrou espaço para um pagamento que nunca chegou, um bule de chá aposentado e uma homenagem a um livro sobre censura.
+O mais divertido é que, mesmo num padrão tão sério, sobrou espaço para um pagamento que nunca chegou, um bule de chá encostado e uma homenagem a um livro sobre censura.
 
 Fontes:
+- [Page Not Found: A Brief History of the 404 Error (Wired, 2017)](https://www.wired.com/story/page-not-found-a-brief-history-of-the-404-error/)
 - [Basic HTTP as defined in 1992 (W3C)](https://www.w3.org/Protocols/HTTP/HTTP2.html)
 - [Status codes in HTTP (W3C)](https://www.w3.org/Protocols/HTTP/HTRESP.html)
 - [RFC 1945: Hypertext Transfer Protocol, HTTP/1.0](https://www.rfc-editor.org/rfc/rfc1945)
